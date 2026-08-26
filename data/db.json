@@ -1,0 +1,5156 @@
+{
+  "users": [
+    {
+      "id": "u_student_1",
+      "email": "alex.rivera@student.skill2hire.com",
+      "phone": "+91 98765 43210",
+      "passwordHash": "demo123",
+      "role": "student",
+      "name": "Alex Rivera",
+      "avatar": "https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=150&auto=format&fit=crop&q=80",
+      "createdAt": "2026-01-10T10:00:00Z"
+    },
+    {
+      "id": "u_student_2",
+      "email": "priya.sharma@student.skill2hire.com",
+      "phone": "+91 98765 43201",
+      "passwordHash": "demo123",
+      "role": "student",
+      "name": "Priya Sharma",
+      "avatar": "https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=150&auto=format&fit=crop&q=80",
+      "createdAt": "2026-01-11T10:00:00Z"
+    },
+    {
+      "id": "u_student_3",
+      "email": "rohan.mehta@student.skill2hire.com",
+      "phone": "+91 98765 43202",
+      "passwordHash": "demo123",
+      "role": "student",
+      "name": "Rohan Mehta",
+      "avatar": "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=150&auto=format&fit=crop&q=80",
+      "createdAt": "2026-01-12T10:00:00Z"
+    },
+    {
+      "id": "u_student_4",
+      "email": "ananya.roy@student.skill2hire.com",
+      "phone": "+91 98765 43203",
+      "passwordHash": "demo123",
+      "role": "student",
+      "name": "Ananya Roy",
+      "avatar": "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=150&auto=format&fit=crop&q=80",
+      "createdAt": "2026-01-13T10:00:00Z"
+    },
+    {
+      "id": "u_student_5",
+      "email": "marcus.vance@student.skill2hire.com",
+      "phone": "+91 98765 43204",
+      "passwordHash": "demo123",
+      "role": "student",
+      "name": "Marcus Vance",
+      "avatar": "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=150&auto=format&fit=crop&q=80",
+      "createdAt": "2026-01-14T10:00:00Z"
+    },
+    {
+      "id": "u_col_1",
+      "email": "admin@apexuniversity.edu",
+      "phone": "+91 98765 43211",
+      "passwordHash": "demo123",
+      "role": "college",
+      "name": "Apex University Placement Cell",
+      "avatar": "https://images.unsplash.com/photo-1562774053-701939374585?w=150&auto=format&fit=crop&q=80",
+      "createdAt": "2025-11-01T10:00:00Z"
+    },
+    {
+      "id": "u_col_2",
+      "email": "placement@stanfordtech.edu",
+      "phone": "+91 98765 43222",
+      "passwordHash": "demo123",
+      "role": "college",
+      "name": "Stanford Tech Institute",
+      "avatar": "https://images.unsplash.com/photo-1541339907198-e08756dedf3f?w=150&auto=format&fit=crop&q=80",
+      "createdAt": "2025-11-02T10:00:00Z"
+    },
+    {
+      "id": "u_col_3",
+      "email": "careers@mitacademy.edu",
+      "phone": "+91 98765 43223",
+      "passwordHash": "demo123",
+      "role": "college",
+      "name": "MIT Tech Academy",
+      "avatar": "https://images.unsplash.com/photo-1523050854058-8df90110c9f1?w=150&auto=format&fit=crop&q=80",
+      "createdAt": "2025-11-03T10:00:00Z"
+    },
+    {
+      "id": "u_col_4",
+      "email": "placement@siliconcollege.edu",
+      "phone": "+91 98765 43224",
+      "passwordHash": "demo123",
+      "role": "college",
+      "name": "Silicon Valley College",
+      "avatar": "https://images.unsplash.com/photo-1592280771190-3e2e4d571952?w=150&auto=format&fit=crop&q=80",
+      "createdAt": "2025-11-04T10:00:00Z"
+    },
+    {
+      "id": "u_col_5",
+      "email": "admin@globaleng.edu",
+      "phone": "+91 98765 43225",
+      "passwordHash": "demo123",
+      "role": "college",
+      "name": "Global Engineering Institute",
+      "avatar": "https://images.unsplash.com/photo-1607237138185-eedd9c632b0b?w=150&auto=format&fit=crop&q=80",
+      "createdAt": "2025-11-05T10:00:00Z"
+    },
+    {
+      "id": "u_comp_1",
+      "email": "recruiter@technova.com",
+      "phone": "+91 98765 43212",
+      "passwordHash": "demo123",
+      "role": "company",
+      "name": "TechNova Recruiter Hub",
+      "avatar": "https://images.unsplash.com/photo-1572021335469-31706a17aaef?w=150&auto=format&fit=crop&q=80",
+      "createdAt": "2025-10-10T10:00:00Z"
+    },
+    {
+      "id": "u_comp_2",
+      "email": "talent@innosoft.com",
+      "phone": "+91 98765 43232",
+      "passwordHash": "demo123",
+      "role": "company",
+      "name": "InnoSoft Technologies",
+      "avatar": "https://images.unsplash.com/photo-1551836022-d5d88e9218df?w=150&auto=format&fit=crop&q=80",
+      "createdAt": "2025-10-11T10:00:00Z"
+    },
+    {
+      "id": "u_comp_3",
+      "email": "hiring@datasphere.io",
+      "phone": "+91 98765 43233",
+      "passwordHash": "demo123",
+      "role": "company",
+      "name": "DataSphere Analytics",
+      "avatar": "https://images.unsplash.com/photo-1516321318423-f06f85e504b3?w=150&auto=format&fit=crop&q=80",
+      "createdAt": "2025-10-12T10:00:00Z"
+    },
+    {
+      "id": "u_comp_4",
+      "email": "careers@cloudcore.com",
+      "phone": "+91 98765 43234",
+      "passwordHash": "demo123",
+      "role": "company",
+      "name": "CloudCore Systems",
+      "avatar": "https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=150&auto=format&fit=crop&q=80",
+      "createdAt": "2025-10-13T10:00:00Z"
+    },
+    {
+      "id": "u_comp_5",
+      "email": "jobs@finedge.com",
+      "phone": "+91 98765 43235",
+      "passwordHash": "demo123",
+      "role": "company",
+      "name": "FinEdge Capital",
+      "avatar": "https://images.unsplash.com/photo-1554224155-8d04cb21cd6c?w=150&auto=format&fit=crop&q=80",
+      "createdAt": "2025-10-14T10:00:00Z"
+    },
+    {
+      "id": "u_admin",
+      "email": "admin@skill2hire.com",
+      "phone": "+91 98765 43213",
+      "passwordHash": "admin123",
+      "role": "admin",
+      "name": "Skill2Hire SuperAdmin",
+      "avatar": "https://images.unsplash.com/photo-1535713875002-d1d0cf377fde?w=150&auto=format&fit=crop&q=80",
+      "createdAt": "2025-01-01T00:00:00Z"
+    },
+    {
+      "id": "u_std_1787675894557",
+      "email": "test.user@skill2hire.com",
+      "phone": "+91 99999 88888",
+      "passwordHash": "44c3226641f0e831c329b697ba2a49a6adcfb95e1874e879da120efbc4e255eb",
+      "role": "student",
+      "name": "Test Candidate",
+      "email_verified": true,
+      "phone_verified": true,
+      "account_status": "ACTIVE",
+      "verification_status": "VERIFIED",
+      "avatar": "https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=150&auto=format&fit=crop&q=80",
+      "createdAt": "2026-08-25T16:38:14.557Z",
+      "updatedAt": "2026-08-25T16:42:13.588Z"
+    },
+    {
+      "id": "u_std_1787678987769",
+      "email": "muskansah.com@gmail.com",
+      "phone": "9508542315",
+      "passwordHash": "5c08cdbff8183458d6d50413d80f7dfe00f9aba545d35fd9a95b22e5fa2de2c5",
+      "role": "student",
+      "name": "muskan sah",
+      "email_verified": true,
+      "phone_verified": true,
+      "account_status": "ACTIVE",
+      "verification_status": "VERIFIED",
+      "avatar": "https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=150&auto=format&fit=crop&q=80",
+      "createdAt": "2026-08-25T17:29:47.769Z",
+      "updatedAt": "2026-08-25T17:29:47.769Z"
+    }
+  ],
+  "students": [
+    {
+      "id": "std_1",
+      "userId": "u_student_1",
+      "fullName": "Alex Rivera",
+      "email": "alex.rivera@student.skill2hire.com",
+      "phone": "+1 (555) 123-4567",
+      "collegeId": "col_1",
+      "collegeName": "Apex University of Engineering",
+      "degree": "B.S.",
+      "department": "Computer Science",
+      "graduationYear": 2026,
+      "cgpa": 8.6,
+      "location": "Austin, TX",
+      "bio": "Aspiring Full Stack & Software Engineer eager to build scalable web platforms, distributed systems, and real-world tools.",
+      "placementStatus": "In Training",
+      "placementReadiness": 62
+    },
+    {
+      "id": "std_2",
+      "userId": "u_student_2",
+      "fullName": "Priya Sharma",
+      "email": "priya.sharma@student.skill2hire.com",
+      "phone": "+1 (555) 234-5679",
+      "collegeId": "col_1",
+      "collegeName": "Apex University of Engineering",
+      "degree": "B.Tech",
+      "department": "Information Technology",
+      "graduationYear": 2026,
+      "cgpa": 9.1,
+      "location": "Austin, TX",
+      "bio": "Passionate about Data Science, Machine Learning, and Big Data processing algorithms.",
+      "placementStatus": "Placement Ready",
+      "placementReadiness": 88
+    },
+    {
+      "id": "std_3",
+      "userId": "u_student_3",
+      "fullName": "Rohan Mehta",
+      "email": "rohan.mehta@student.skill2hire.com",
+      "phone": "+1 (555) 345-6780",
+      "collegeId": "col_2",
+      "collegeName": "Stanford Tech Institute",
+      "degree": "B.S.",
+      "department": "Computer Science",
+      "graduationYear": 2026,
+      "cgpa": 8.8,
+      "location": "Palo Alto, CA",
+      "bio": "Systems programmer focused on high-performance C++, operating systems, and distributed database internals.",
+      "placementStatus": "Placement Ready",
+      "placementReadiness": 92
+    },
+    {
+      "id": "std_4",
+      "userId": "u_student_4",
+      "fullName": "Ananya Roy",
+      "email": "ananya.roy@student.skill2hire.com",
+      "phone": "+1 (555) 456-7891",
+      "collegeId": "col_3",
+      "collegeName": "MIT Tech Academy",
+      "degree": "B.S.",
+      "department": "Software Engineering",
+      "graduationYear": 2026,
+      "cgpa": 8.4,
+      "location": "Cambridge, MA",
+      "bio": "Cloud architecture & DevOps enthusiast with hands-on experience in Docker, Kubernetes, and CI/CD pipelines.",
+      "placementStatus": "In Training",
+      "placementReadiness": 70
+    },
+    {
+      "id": "std_5",
+      "userId": "u_student_5",
+      "fullName": "Marcus Vance",
+      "email": "marcus.vance@student.skill2hire.com",
+      "phone": "+1 (555) 567-8902",
+      "collegeId": "col_4",
+      "collegeName": "Silicon Valley College",
+      "degree": "B.S.",
+      "department": "Computer Engineering",
+      "graduationYear": 2026,
+      "cgpa": 7.8,
+      "location": "San Jose, CA",
+      "bio": "Web and mobile application developer passionate about clean UI, React, and seamless user experiences.",
+      "placementStatus": "Needs Training",
+      "placementReadiness": 55
+    },
+    {
+      "id": "std_6",
+      "userId": "u_std_6",
+      "fullName": "David Chen",
+      "email": "david.chen@student.skill2hire.com",
+      "phone": "+1 (555) 789-1000",
+      "collegeId": "col_1",
+      "collegeName": "Apex University of Engineering",
+      "degree": "B.S.",
+      "department": "Computer Science",
+      "graduationYear": 2026,
+      "cgpa": 8.9,
+      "location": "Austin, TX",
+      "bio": "Final-year student specializing in Computer Science with a focus on industry problem solving and technical excellence.",
+      "placementStatus": "Placement Ready",
+      "placementReadiness": 85
+    },
+    {
+      "id": "std_7",
+      "userId": "u_std_7",
+      "fullName": "Sarah Jenkins",
+      "email": "sarah.jenkins@student.skill2hire.com",
+      "phone": "+1 (555) 789-1001",
+      "collegeId": "col_2",
+      "collegeName": "Stanford Tech Institute",
+      "degree": "B.S.",
+      "department": "Data Science",
+      "graduationYear": 2026,
+      "cgpa": 9.2,
+      "location": "Palo Alto, CA",
+      "bio": "Final-year student specializing in Data Science with a focus on industry problem solving and technical excellence.",
+      "placementStatus": "Placement Ready",
+      "placementReadiness": 90
+    },
+    {
+      "id": "std_8",
+      "userId": "u_std_8",
+      "fullName": "Michael Zhang",
+      "email": "michael.zhang@student.skill2hire.com",
+      "phone": "+1 (555) 789-1002",
+      "collegeId": "col_1",
+      "collegeName": "Apex University of Engineering",
+      "degree": "B.S.",
+      "department": "Computer Science",
+      "graduationYear": 2026,
+      "cgpa": 7.9,
+      "location": "Austin, TX",
+      "bio": "Final-year student specializing in Computer Science with a focus on industry problem solving and technical excellence.",
+      "placementStatus": "In Training",
+      "placementReadiness": 64
+    },
+    {
+      "id": "std_9",
+      "userId": "u_std_9",
+      "fullName": "Emily Davis",
+      "email": "emily.davis@student.skill2hire.com",
+      "phone": "+1 (555) 789-1003",
+      "collegeId": "col_3",
+      "collegeName": "MIT Tech Academy",
+      "degree": "B.S.",
+      "department": "Software Engineering",
+      "graduationYear": 2026,
+      "cgpa": 8.5,
+      "location": "Cambridge, MA",
+      "bio": "Final-year student specializing in Software Engineering with a focus on industry problem solving and technical excellence.",
+      "placementStatus": "Placement Ready",
+      "placementReadiness": 82
+    },
+    {
+      "id": "std_10",
+      "userId": "u_std_10",
+      "fullName": "Vikram Patel",
+      "email": "vikram.patel@student.skill2hire.com",
+      "phone": "+1 (555) 789-1004",
+      "collegeId": "col_1",
+      "collegeName": "Apex University of Engineering",
+      "degree": "B.S.",
+      "department": "Information Technology",
+      "graduationYear": 2026,
+      "cgpa": 7.6,
+      "location": "Austin, TX",
+      "bio": "Final-year student specializing in Information Technology with a focus on industry problem solving and technical excellence.",
+      "placementStatus": "Needs Training",
+      "placementReadiness": 52
+    },
+    {
+      "id": "std_11",
+      "userId": "u_std_11",
+      "fullName": "Jessica Martinez",
+      "email": "jessica.martinez@student.skill2hire.com",
+      "phone": "+1 (555) 789-1005",
+      "collegeId": "col_4",
+      "collegeName": "Silicon Valley College",
+      "degree": "B.S.",
+      "department": "Computer Science",
+      "graduationYear": 2026,
+      "cgpa": 8.7,
+      "location": "San Jose, CA",
+      "bio": "Final-year student specializing in Computer Science with a focus on industry problem solving and technical excellence.",
+      "placementStatus": "Placement Ready",
+      "placementReadiness": 86
+    },
+    {
+      "id": "std_12",
+      "userId": "u_std_12",
+      "fullName": "Kevin Taylor",
+      "email": "kevin.taylor@student.skill2hire.com",
+      "phone": "+1 (555) 789-1006",
+      "collegeId": "col_5",
+      "collegeName": "Global Engineering Institute",
+      "degree": "B.S.",
+      "department": "Cloud Engineering",
+      "graduationYear": 2026,
+      "cgpa": 8.1,
+      "location": "Seattle, WA",
+      "bio": "Final-year student specializing in Cloud Engineering with a focus on industry problem solving and technical excellence.",
+      "placementStatus": "In Training",
+      "placementReadiness": 68
+    },
+    {
+      "id": "std_13",
+      "userId": "u_std_13",
+      "fullName": "Rachel Kim",
+      "email": "rachel.kim@student.skill2hire.com",
+      "phone": "+1 (555) 789-1007",
+      "collegeId": "col_2",
+      "collegeName": "Stanford Tech Institute",
+      "degree": "B.S.",
+      "department": "Data Analytics",
+      "graduationYear": 2026,
+      "cgpa": 9,
+      "location": "Palo Alto, CA",
+      "bio": "Final-year student specializing in Data Analytics with a focus on industry problem solving and technical excellence.",
+      "placementStatus": "Placement Ready",
+      "placementReadiness": 89
+    },
+    {
+      "id": "std_14",
+      "userId": "u_std_14",
+      "fullName": "Brandon Scott",
+      "email": "brandon.scott@student.skill2hire.com",
+      "phone": "+1 (555) 789-1008",
+      "collegeId": "col_4",
+      "collegeName": "Silicon Valley College",
+      "degree": "B.S.",
+      "department": "Computer Science",
+      "graduationYear": 2026,
+      "cgpa": 7.4,
+      "location": "San Jose, CA",
+      "bio": "Final-year student specializing in Computer Science with a focus on industry problem solving and technical excellence.",
+      "placementStatus": "Needs Training",
+      "placementReadiness": 48
+    },
+    {
+      "id": "std_15",
+      "userId": "u_std_15",
+      "fullName": "Neha Gupta",
+      "email": "neha.gupta@student.skill2hire.com",
+      "phone": "+1 (555) 789-1009",
+      "collegeId": "col_1",
+      "collegeName": "Apex University of Engineering",
+      "degree": "B.S.",
+      "department": "Computer Science",
+      "graduationYear": 2026,
+      "cgpa": 8.8,
+      "location": "Austin, TX",
+      "bio": "Final-year student specializing in Computer Science with a focus on industry problem solving and technical excellence.",
+      "placementStatus": "Placement Ready",
+      "placementReadiness": 87
+    },
+    {
+      "id": "std_16",
+      "userId": "u_std_16",
+      "fullName": "Lucas Silva",
+      "email": "lucas.silva@student.skill2hire.com",
+      "phone": "+1 (555) 789-1010",
+      "collegeId": "col_3",
+      "collegeName": "MIT Tech Academy",
+      "degree": "B.S.",
+      "department": "Software Engineering",
+      "graduationYear": 2026,
+      "cgpa": 8.3,
+      "location": "Cambridge, MA",
+      "bio": "Final-year student specializing in Software Engineering with a focus on industry problem solving and technical excellence.",
+      "placementStatus": "In Training",
+      "placementReadiness": 72
+    },
+    {
+      "id": "std_17",
+      "userId": "u_std_17",
+      "fullName": "Hannah Wilson",
+      "email": "hannah.wilson@student.skill2hire.com",
+      "phone": "+1 (555) 789-1011",
+      "collegeId": "col_5",
+      "collegeName": "Global Engineering Institute",
+      "degree": "B.S.",
+      "department": "Information Systems",
+      "graduationYear": 2026,
+      "cgpa": 7.7,
+      "location": "Seattle, WA",
+      "bio": "Final-year student specializing in Information Systems with a focus on industry problem solving and technical excellence.",
+      "placementStatus": "Needs Training",
+      "placementReadiness": 56
+    },
+    {
+      "id": "std_18",
+      "userId": "u_std_18",
+      "fullName": "Arjun Nair",
+      "email": "arjun.nair@student.skill2hire.com",
+      "phone": "+1 (555) 789-1012",
+      "collegeId": "col_1",
+      "collegeName": "Apex University of Engineering",
+      "degree": "B.S.",
+      "department": "Computer Science",
+      "graduationYear": 2026,
+      "cgpa": 8.6,
+      "location": "Austin, TX",
+      "bio": "Final-year student specializing in Computer Science with a focus on industry problem solving and technical excellence.",
+      "placementStatus": "Placement Ready",
+      "placementReadiness": 84
+    },
+    {
+      "id": "std_19",
+      "userId": "u_std_19",
+      "fullName": "Chloe Bennett",
+      "email": "chloe.bennett@student.skill2hire.com",
+      "phone": "+1 (555) 789-1013",
+      "collegeId": "col_2",
+      "collegeName": "Stanford Tech Institute",
+      "degree": "B.S.",
+      "department": "Data Science",
+      "graduationYear": 2026,
+      "cgpa": 8.9,
+      "location": "Palo Alto, CA",
+      "bio": "Final-year student specializing in Data Science with a focus on industry problem solving and technical excellence.",
+      "placementStatus": "Placement Ready",
+      "placementReadiness": 88
+    },
+    {
+      "id": "std_20",
+      "userId": "u_std_20",
+      "fullName": "Daniel Wright",
+      "email": "daniel.wright@student.skill2hire.com",
+      "phone": "+1 (555) 789-1014",
+      "collegeId": "col_4",
+      "collegeName": "Silicon Valley College",
+      "degree": "B.S.",
+      "department": "Computer Engineering",
+      "graduationYear": 2026,
+      "cgpa": 7.5,
+      "location": "San Jose, CA",
+      "bio": "Final-year student specializing in Computer Engineering with a focus on industry problem solving and technical excellence.",
+      "placementStatus": "Needs Training",
+      "placementReadiness": 50
+    },
+    {
+      "id": "std_21",
+      "userId": "u_std_21",
+      "fullName": "Zoya Khan",
+      "email": "zoya.khan@student.skill2hire.com",
+      "phone": "+1 (555) 789-1015",
+      "collegeId": "col_3",
+      "collegeName": "MIT Tech Academy",
+      "degree": "B.S.",
+      "department": "Computer Science",
+      "graduationYear": 2026,
+      "cgpa": 9.3,
+      "location": "Cambridge, MA",
+      "bio": "Final-year student specializing in Computer Science with a focus on industry problem solving and technical excellence.",
+      "placementStatus": "Placement Ready",
+      "placementReadiness": 94
+    },
+    {
+      "id": "std_1787675894557",
+      "userId": "u_std_1787675894557",
+      "fullName": "Test Candidate",
+      "email": "test.user@skill2hire.com",
+      "phone": "+91 99999 88888",
+      "collegeId": "col_1",
+      "collegeName": "MIT",
+      "degree": "Bachelor of Science (B.S.)",
+      "department": "Data Science",
+      "graduationYear": 2027,
+      "cgpa": 8.5,
+      "location": "San Francisco, CA",
+      "placementReadiness": 65,
+      "placementStatus": "In Training"
+    },
+    {
+      "id": "std_1787678987769",
+      "userId": "u_std_1787678987769",
+      "fullName": "muskan sah",
+      "email": "muskansah.com@gmail.com",
+      "phone": "9508542315",
+      "collegeId": "col_1",
+      "collegeName": "Apex University of Engineering",
+      "degree": "Bachelor of Science (B.S.)",
+      "department": "Computer Science & Engineering",
+      "graduationYear": 2026,
+      "cgpa": 8.5,
+      "location": "San Francisco, CA",
+      "placementReadiness": 65,
+      "placementStatus": "In Training"
+    }
+  ],
+  "colleges": [
+    {
+      "id": "col_1",
+      "userId": "u_col_1",
+      "name": "Apex University of Engineering",
+      "code": "APEX-ENG",
+      "email": "admin@apexuniversity.edu",
+      "phone": "+1 (555) 234-5678",
+      "location": "Austin, TX",
+      "website": "https://apexuniversity.edu",
+      "establishedYear": 1984,
+      "totalStudents": 2500,
+      "placementRate": 84.5,
+      "bio": "Premier engineering and technology university dedicated to industry-aligned workforce preparation and hands-on skill development."
+    },
+    {
+      "id": "col_2",
+      "userId": "u_col_2",
+      "name": "Stanford Tech Institute",
+      "code": "STAN-TECH",
+      "email": "placement@stanfordtech.edu",
+      "phone": "+1 (555) 345-6789",
+      "location": "Palo Alto, CA",
+      "website": "https://stanfordtech.edu",
+      "establishedYear": 1992,
+      "totalStudents": 3200,
+      "placementRate": 91.2,
+      "bio": "Pioneering technical institute driving cutting-edge computer science and engineering placement excellence."
+    },
+    {
+      "id": "col_3",
+      "userId": "u_col_3",
+      "name": "MIT Tech Academy",
+      "code": "MIT-TECH",
+      "email": "careers@mitacademy.edu",
+      "phone": "+1 (555) 456-7890",
+      "location": "Cambridge, MA",
+      "website": "https://mitacademy.edu",
+      "establishedYear": 1978,
+      "totalStudents": 2800,
+      "placementRate": 94,
+      "bio": "World-class academic institution emphasizing algorithm rigor, AI research, and high-impact corporate partnerships."
+    },
+    {
+      "id": "col_4",
+      "userId": "u_col_4",
+      "name": "Silicon Valley College",
+      "code": "SVC-TECH",
+      "email": "placement@siliconcollege.edu",
+      "phone": "+1 (555) 567-8901",
+      "location": "San Jose, CA",
+      "website": "https://siliconcollege.edu",
+      "establishedYear": 2001,
+      "totalStudents": 1950,
+      "placementRate": 88,
+      "bio": "Located in the heart of Silicon Valley, connecting top talent with high-growth startups and tech giants."
+    },
+    {
+      "id": "col_5",
+      "userId": "u_col_5",
+      "name": "Global Engineering Institute",
+      "code": "GEI-TECH",
+      "email": "admin@globaleng.edu",
+      "phone": "+1 (555) 678-9012",
+      "location": "Seattle, WA",
+      "website": "https://globaleng.edu",
+      "establishedYear": 1995,
+      "totalStudents": 2100,
+      "placementRate": 82.3,
+      "bio": "Fostering globally competitive engineers with deep foundations in software architecture and cloud computing."
+    }
+  ],
+  "companies": [
+    {
+      "id": "comp_1",
+      "userId": "u_comp_1",
+      "name": "TechNova",
+      "industry": "Enterprise Software & Cloud",
+      "location": "San Francisco, CA",
+      "website": "https://technova-example.com",
+      "size": "500-1,000 employees",
+      "description": "TechNova is an enterprise software leader creating high-throughput distributed systems, AI tools, and scalable cloud solutions.",
+      "verified": true
+    },
+    {
+      "id": "comp_2",
+      "userId": "u_comp_2",
+      "name": "InnoSoft",
+      "industry": "AI & Data Platforms",
+      "location": "New York, NY",
+      "website": "https://innosoft-example.com",
+      "size": "200-500 employees",
+      "description": "Building intelligent workflows, predictive machine learning platforms, and enterprise data analytics software.",
+      "verified": true
+    },
+    {
+      "id": "comp_3",
+      "userId": "u_comp_3",
+      "name": "DataSphere",
+      "industry": "Big Data & Analytics",
+      "location": "Chicago, IL",
+      "website": "https://datasphere-example.com",
+      "size": "1,000+ employees",
+      "description": "Global big data intelligence provider powering analytics and real-time processing for Fortune 500 companies.",
+      "verified": true
+    },
+    {
+      "id": "comp_4",
+      "userId": "u_comp_4",
+      "name": "CloudCore",
+      "industry": "Cloud Infrastructure & DevOps",
+      "location": "Seattle, WA",
+      "website": "https://cloudcore-example.com",
+      "size": "100-250 employees",
+      "description": "Next-generation cloud optimization, Kubernetes orchestration, and serverless infrastructure tooling.",
+      "verified": true
+    },
+    {
+      "id": "comp_5",
+      "userId": "u_comp_5",
+      "name": "FinEdge",
+      "industry": "Financial Technology",
+      "location": "Boston, MA",
+      "website": "https://finedge-example.com",
+      "size": "500-1,000 employees",
+      "description": "Algorithmic trading systems, banking APIs, and high-frequency financial intelligence software.",
+      "verified": true
+    },
+    {
+      "id": "comp_6",
+      "userId": "u_comp_6",
+      "name": "NextGen AI",
+      "industry": "Generative AI & LLM Systems",
+      "location": "Palo Alto, CA",
+      "website": "https://nextgenai-example.com",
+      "size": "50-100 employees",
+      "description": "Pioneering frontier autonomous agent frameworks and developer AI productivity suites.",
+      "verified": true
+    },
+    {
+      "id": "comp_7",
+      "userId": "u_comp_7",
+      "name": "CyberShield",
+      "industry": "Cybersecurity",
+      "location": "Washington, DC",
+      "website": "https://cybershield-example.com",
+      "size": "250-500 employees",
+      "description": "Zero-trust security mesh, automated threat intelligence, and enterprise penetration testing.",
+      "verified": true
+    },
+    {
+      "id": "comp_8",
+      "userId": "u_comp_8",
+      "name": "PulseHealth",
+      "industry": "HealthTech & Digital Care",
+      "location": "San Diego, CA",
+      "website": "https://pulsehealth-example.com",
+      "size": "100-250 employees",
+      "description": "Transforming clinical workflows, telehealth intelligence, and medical device data connectivity.",
+      "verified": true
+    },
+    {
+      "id": "comp_9",
+      "userId": "u_comp_9",
+      "name": "ByteWave",
+      "industry": "Consumer Tech & Mobile",
+      "location": "Los Angeles, CA",
+      "website": "https://bytewave-example.com",
+      "size": "150-300 employees",
+      "description": "Building viral consumer applications, interactive video streaming platforms, and social graphs.",
+      "verified": true
+    },
+    {
+      "id": "comp_10",
+      "userId": "u_comp_10",
+      "name": "Apex Logistics",
+      "industry": "Supply Chain & IoT",
+      "location": "Atlanta, GA",
+      "website": "https://apexlogistics-example.com",
+      "size": "1,000+ employees",
+      "description": "Automated warehouse robotics, IoT fleet tracking, and algorithmic route optimization.",
+      "verified": true
+    }
+  ],
+  "jobs": [
+    {
+      "id": "job_1787624705478",
+      "companyId": "comp_1",
+      "companyName": "TechNova",
+      "companyLogo": "https://images.unsplash.com/photo-1572021335469-31706a17aaef?w=150&auto=format&fit=crop&q=80",
+      "title": "Software Developer",
+      "department": "Core Engineering",
+      "description": "We are looking for software developers with Python, SQL, data structures, Git and basic AWS knowledge.",
+      "responsibilities": [
+        "Design, build, and maintain efficient, reusable, and reliable code.",
+        "Implement optimized database queries, schema migrations, and indexing strategies with SQL.",
+        "Collaborate with product and DevOps teams using Git workflows and cloud deployment pipelines.",
+        "Solve complex algorithmic and data structure problems with clean code standards."
+      ],
+      "requirements": [
+        "B.S. or B.Tech in Computer Science, IT, or related technical field.",
+        "Strong fundamentals in Data Structures & Algorithms and Object-Oriented Programming.",
+        "Demonstrated proficiency in required verified technical skills.",
+        "Minimum CGPA of 7.5."
+      ],
+      "requiredSkills": [
+        {
+          "skillId": "sk_python",
+          "skillName": "Python",
+          "minLevel": "Intermediate",
+          "isRequired": true,
+          "weight": 1.5
+        },
+        {
+          "skillId": "sk_dsa",
+          "skillName": "DSA",
+          "minLevel": "Intermediate",
+          "isRequired": true,
+          "weight": 1.5
+        },
+        {
+          "skillId": "sk_sql",
+          "skillName": "SQL",
+          "minLevel": "Intermediate",
+          "isRequired": true,
+          "weight": 1.2
+        },
+        {
+          "skillId": "sk_git",
+          "skillName": "Git",
+          "minLevel": "Beginner",
+          "isRequired": true,
+          "weight": 1
+        },
+        {
+          "skillId": "sk_aws",
+          "skillName": "AWS",
+          "minLevel": "Beginner",
+          "isRequired": false,
+          "weight": 0.8
+        }
+      ],
+      "location": "San Francisco, CA (Hybrid)",
+      "workMode": "Hybrid",
+      "salary": "$95,000 - $125,000 / year",
+      "employmentType": "Full-time",
+      "minCgpa": 7.5,
+      "graduationYear": 2026,
+      "degree": "B.S. / B.Tech",
+      "branch": "Computer Science / IT",
+      "openings": 8,
+      "deadline": "2026-09-30",
+      "status": "published",
+      "createdAt": "2026-08-25T02:25:05.478Z"
+    },
+    {
+      "id": "job_1",
+      "companyId": "comp_1",
+      "companyName": "TechNova",
+      "companyLogo": "https://images.unsplash.com/photo-1572021335469-31706a17aaef?w=150&auto=format&fit=crop&q=80",
+      "title": "Software Developer",
+      "department": "Core Engineering",
+      "description": "We are seeking high-caliber entry-level Software Developers to architect distributed cloud services, high-throughput microservices, and reliable backend components.",
+      "responsibilities": [
+        "Design, build, and maintain efficient, reusable, and reliable Python and C++ code.",
+        "Implement optimized database queries, schema migrations, and indexing strategies with SQL.",
+        "Collaborate with product and DevOps teams using Git workflows and cloud deployment pipelines.",
+        "Solve complex algorithmic and data structure problems with clean code standards."
+      ],
+      "requirements": [
+        "B.S. or B.Tech in Computer Science, IT, or related technical field.",
+        "Strong fundamentals in Data Structures & Algorithms and Object-Oriented Programming.",
+        "Demonstrated proficiency in Python, C++, and SQL.",
+        "Familiarity with Git version control and basic AWS cloud concepts."
+      ],
+      "requiredSkills": [
+        {
+          "skillId": "sk_python",
+          "skillName": "Python",
+          "minLevel": "Intermediate",
+          "isRequired": true,
+          "weight": 1.5
+        },
+        {
+          "skillId": "sk_cpp",
+          "skillName": "C++",
+          "minLevel": "Intermediate",
+          "isRequired": false,
+          "weight": 1
+        },
+        {
+          "skillId": "sk_dsa",
+          "skillName": "DSA",
+          "minLevel": "Intermediate",
+          "isRequired": true,
+          "weight": 1.5
+        },
+        {
+          "skillId": "sk_sql",
+          "skillName": "SQL",
+          "minLevel": "Beginner",
+          "isRequired": true,
+          "weight": 1
+        },
+        {
+          "skillId": "sk_git",
+          "skillName": "Git",
+          "minLevel": "Beginner",
+          "isRequired": true,
+          "weight": 0.8
+        },
+        {
+          "skillId": "sk_aws",
+          "skillName": "AWS",
+          "minLevel": "Beginner",
+          "isRequired": false,
+          "weight": 0.8
+        }
+      ],
+      "location": "San Francisco, CA (Hybrid)",
+      "workMode": "Hybrid",
+      "salary": "$95,000 - $125,000 / year",
+      "employmentType": "Full-time",
+      "minCgpa": 7.5,
+      "graduationYear": 2026,
+      "degree": "B.S. / B.Tech",
+      "branch": "Computer Science / IT",
+      "openings": 8,
+      "deadline": "2026-09-30",
+      "status": "published",
+      "createdAt": "2026-02-10T08:00:00Z"
+    },
+    {
+      "id": "job_2",
+      "companyId": "comp_2",
+      "companyName": "InnoSoft",
+      "title": "Data Analyst & ML Engineer",
+      "department": "Data Platforms",
+      "description": "Join InnoSoft to build predictive data pipelines, statistical models, and automated business dashboards.",
+      "responsibilities": [
+        "Extract, transform, and analyze large-scale datasets using SQL and Python.",
+        "Build statistical models and data visualization pipelines with Pandas and PowerBI.",
+        "Collaborate with engineering teams to deploy machine learning inference microservices."
+      ],
+      "requirements": [
+        "Proficiency in Python, SQL, and data wrangling",
+        "CGPA >= 7.8",
+        "Graduation 2025/2026"
+      ],
+      "requiredSkills": [
+        {
+          "skillId": "sk_python",
+          "skillName": "Python",
+          "minLevel": "Intermediate",
+          "isRequired": true,
+          "weight": 1.5
+        },
+        {
+          "skillId": "sk_sql",
+          "skillName": "SQL",
+          "minLevel": "Intermediate",
+          "isRequired": true,
+          "weight": 1.5
+        },
+        {
+          "skillId": "sk_aiml",
+          "skillName": "AI/ML",
+          "minLevel": "Intermediate",
+          "isRequired": true,
+          "weight": 1.2
+        },
+        {
+          "skillId": "sk_pandas",
+          "skillName": "Pandas & NumPy",
+          "minLevel": "Intermediate",
+          "isRequired": true,
+          "weight": 1
+        }
+      ],
+      "location": "New York, NY",
+      "workMode": "On-site",
+      "salary": "$90,000 - $115,000 / year",
+      "employmentType": "Full-time",
+      "minCgpa": 7.8,
+      "graduationYear": 2026,
+      "degree": "B.S. / B.Tech / M.S.",
+      "branch": "Computer Science / Data Science / Math",
+      "openings": 5,
+      "deadline": "2026-10-15",
+      "status": "published",
+      "createdAt": "2026-02-12T09:30:00Z"
+    },
+    {
+      "id": "job_3",
+      "companyId": "comp_4",
+      "companyName": "CloudCore",
+      "title": "Cloud DevOps Associate",
+      "department": "Infrastructure",
+      "description": "Automate Kubernetes clusters, AWS infrastructure, and CI/CD pipelines for mission-critical services.",
+      "responsibilities": [
+        "Write infrastructure as code and deploy services across AWS regions.",
+        "Build and maintain containerized applications using Docker and Kubernetes.",
+        "Monitor platform health and automate incident response."
+      ],
+      "requirements": [
+        "AWS fundamentals, Linux CLI, Docker, Git",
+        "CGPA >= 7.0"
+      ],
+      "requiredSkills": [
+        {
+          "skillId": "sk_aws",
+          "skillName": "AWS",
+          "minLevel": "Intermediate",
+          "isRequired": true,
+          "weight": 1.5
+        },
+        {
+          "skillId": "sk_docker",
+          "skillName": "Docker",
+          "minLevel": "Intermediate",
+          "isRequired": true,
+          "weight": 1.2
+        },
+        {
+          "skillId": "sk_linux",
+          "skillName": "Linux CLI",
+          "minLevel": "Intermediate",
+          "isRequired": true,
+          "weight": 1
+        },
+        {
+          "skillId": "sk_git",
+          "skillName": "Git",
+          "minLevel": "Intermediate",
+          "isRequired": true,
+          "weight": 0.8
+        }
+      ],
+      "location": "Remote",
+      "workMode": "Remote",
+      "salary": "$92,000 - $118,000 / year",
+      "employmentType": "Full-time",
+      "minCgpa": 7,
+      "graduationYear": 2026,
+      "degree": "B.S. / B.Tech",
+      "branch": "Any",
+      "openings": 6,
+      "deadline": "2026-11-01",
+      "status": "published",
+      "createdAt": "2026-02-14T11:15:00Z"
+    },
+    {
+      "id": "job_4",
+      "companyId": "comp_5",
+      "companyName": "FinEdge",
+      "title": "Quantitative Software Engineer",
+      "department": "Trading Algorithms",
+      "description": "Develop low-latency C++ trading systems, financial modeling tools, and high-speed data pipelines.",
+      "responsibilities": [
+        "Implement ultra-fast algorithms in C++ with sub-millisecond execution constraints.",
+        "Analyze market telemetry and financial datasets.",
+        "Optimize memory layouts, cache locality, and lockless data structures."
+      ],
+      "requirements": [
+        "Deep mastery of C++, DSA, and Math",
+        "CGPA >= 8.5"
+      ],
+      "requiredSkills": [
+        {
+          "skillId": "sk_cpp",
+          "skillName": "C++",
+          "minLevel": "Advanced",
+          "isRequired": true,
+          "weight": 2
+        },
+        {
+          "skillId": "sk_dsa",
+          "skillName": "DSA",
+          "minLevel": "Advanced",
+          "isRequired": true,
+          "weight": 1.8
+        },
+        {
+          "skillId": "sk_sql",
+          "skillName": "SQL",
+          "minLevel": "Intermediate",
+          "isRequired": true,
+          "weight": 1
+        }
+      ],
+      "location": "Boston, MA",
+      "workMode": "On-site",
+      "salary": "$130,000 - $165,000 / year",
+      "employmentType": "Full-time",
+      "minCgpa": 8.5,
+      "graduationYear": 2026,
+      "degree": "B.S. / B.Tech / M.S.",
+      "branch": "Computer Science / Math / EE",
+      "openings": 4,
+      "deadline": "2026-10-30",
+      "status": "published",
+      "createdAt": "2026-02-15T14:00:00Z"
+    },
+    {
+      "id": "job_5",
+      "companyId": "comp_6",
+      "companyName": "NextGen AI",
+      "title": "Full Stack AI Engineer",
+      "department": "Product Engineering",
+      "description": "Build modern user-facing applications and autonomous agent systems using React, TypeScript, Python, and PyTorch.",
+      "responsibilities": [
+        "Develop responsive React web frontends and Next.js applications.",
+        "Integrate frontier LLMs and AI agent workflows with Python backend services.",
+        "Design elegant APIs and persistent database schemas."
+      ],
+      "requirements": [
+        "Python, React, TypeScript, REST APIs",
+        "CGPA >= 8.0"
+      ],
+      "requiredSkills": [
+        {
+          "skillId": "sk_python",
+          "skillName": "Python",
+          "minLevel": "Intermediate",
+          "isRequired": true,
+          "weight": 1.4
+        },
+        {
+          "skillId": "sk_react",
+          "skillName": "React",
+          "minLevel": "Intermediate",
+          "isRequired": true,
+          "weight": 1.4
+        },
+        {
+          "skillId": "sk_typescript",
+          "skillName": "TypeScript",
+          "minLevel": "Intermediate",
+          "isRequired": true,
+          "weight": 1.2
+        },
+        {
+          "skillId": "sk_rest_api",
+          "skillName": "REST APIs",
+          "minLevel": "Intermediate",
+          "isRequired": true,
+          "weight": 1
+        }
+      ],
+      "location": "Palo Alto, CA (Hybrid)",
+      "workMode": "Hybrid",
+      "salary": "$110,000 - $140,000 / year",
+      "employmentType": "Full-time",
+      "minCgpa": 8,
+      "graduationYear": 2026,
+      "degree": "B.S. / B.Tech",
+      "branch": "Computer Science / IT",
+      "openings": 7,
+      "deadline": "2026-11-15",
+      "status": "published",
+      "createdAt": "2026-02-16T16:00:00Z"
+    },
+    {
+      "id": "job_6",
+      "companyId": "comp_3",
+      "companyName": "DataSphere",
+      "title": "Junior Big Data Engineer",
+      "department": "Data Systems",
+      "description": "Join DataSphere to build cutting-edge systems and develop industry-leading solutions in Data Systems.",
+      "responsibilities": [
+        "Deliver high quality code and participate in sprint planning.",
+        "Collaborate with cross-functional engineers and stakeholders.",
+        "Maintain test coverage, documentation, and continuous delivery."
+      ],
+      "requirements": [
+        "Strong problem solving and core programming fundamentals",
+        "Minimum CGPA 7.5",
+        "Graduation year 2026"
+      ],
+      "requiredSkills": [
+        {
+          "skillId": "sk_python",
+          "skillName": "Python",
+          "minLevel": "Intermediate",
+          "isRequired": true,
+          "weight": 1.2
+        },
+        {
+          "skillId": "sk_sql",
+          "skillName": "SQL",
+          "minLevel": "Beginner",
+          "isRequired": true,
+          "weight": 1.2
+        },
+        {
+          "skillId": "sk_linux",
+          "skillName": "Linux CLI",
+          "minLevel": "Beginner",
+          "isRequired": true,
+          "weight": 1.2
+        },
+        {
+          "skillId": "sk_git",
+          "skillName": "Git",
+          "minLevel": "Beginner",
+          "isRequired": true,
+          "weight": 1.2
+        }
+      ],
+      "location": "Chicago, IL",
+      "workMode": "Hybrid",
+      "salary": "$88,000 - $110,000 / year",
+      "employmentType": "Full-time",
+      "minCgpa": 7.5,
+      "graduationYear": 2026,
+      "degree": "B.S. / B.Tech",
+      "branch": "Computer Science / IT / Related",
+      "openings": 3,
+      "deadline": "2026-11-30",
+      "status": "published",
+      "createdAt": "2026-02-17T10:00:00Z"
+    },
+    {
+      "id": "job_7",
+      "companyId": "comp_7",
+      "companyName": "CyberShield",
+      "title": "Associate Security Analyst",
+      "department": "Cyber Defense",
+      "description": "Join CyberShield to build cutting-edge systems and develop industry-leading solutions in Cyber Defense.",
+      "responsibilities": [
+        "Deliver high quality code and participate in sprint planning.",
+        "Collaborate with cross-functional engineers and stakeholders.",
+        "Maintain test coverage, documentation, and continuous delivery."
+      ],
+      "requirements": [
+        "Strong problem solving and core programming fundamentals",
+        "Minimum CGPA 7.6",
+        "Graduation year 2026"
+      ],
+      "requiredSkills": [
+        {
+          "skillId": "sk_python",
+          "skillName": "Python",
+          "minLevel": "Intermediate",
+          "isRequired": true,
+          "weight": 1.2
+        },
+        {
+          "skillId": "sk_linux",
+          "skillName": "Linux CLI",
+          "minLevel": "Beginner",
+          "isRequired": true,
+          "weight": 1.2
+        },
+        {
+          "skillId": "sk_sql",
+          "skillName": "SQL",
+          "minLevel": "Beginner",
+          "isRequired": true,
+          "weight": 1.2
+        },
+        {
+          "skillId": "sk_rest_api",
+          "skillName": "REST APIs",
+          "minLevel": "Beginner",
+          "isRequired": true,
+          "weight": 1.2
+        }
+      ],
+      "location": "Washington, DC",
+      "workMode": "On-site",
+      "salary": "$90,000 - $115,000 / year",
+      "employmentType": "Full-time",
+      "minCgpa": 7.6,
+      "graduationYear": 2026,
+      "degree": "B.S. / B.Tech",
+      "branch": "Computer Science / IT / Related",
+      "openings": 4,
+      "deadline": "2026-11-30",
+      "status": "published",
+      "createdAt": "2026-02-18T10:00:00Z"
+    },
+    {
+      "id": "job_8",
+      "companyId": "comp_8",
+      "companyName": "PulseHealth",
+      "title": "HealthTech Software Intern",
+      "department": "Digital Health",
+      "description": "Join PulseHealth to build cutting-edge systems and develop industry-leading solutions in Digital Health.",
+      "responsibilities": [
+        "Deliver high quality code and participate in sprint planning.",
+        "Collaborate with cross-functional engineers and stakeholders.",
+        "Maintain test coverage, documentation, and continuous delivery."
+      ],
+      "requirements": [
+        "Strong problem solving and core programming fundamentals",
+        "Minimum CGPA 7.2",
+        "Graduation year 2026"
+      ],
+      "requiredSkills": [
+        {
+          "skillId": "sk_python",
+          "skillName": "Python",
+          "minLevel": "Intermediate",
+          "isRequired": true,
+          "weight": 1.2
+        },
+        {
+          "skillId": "sk_react",
+          "skillName": "React",
+          "minLevel": "Beginner",
+          "isRequired": true,
+          "weight": 1.2
+        },
+        {
+          "skillId": "sk_sql",
+          "skillName": "SQL",
+          "minLevel": "Beginner",
+          "isRequired": true,
+          "weight": 1.2
+        },
+        {
+          "skillId": "sk_git",
+          "skillName": "Git",
+          "minLevel": "Beginner",
+          "isRequired": true,
+          "weight": 1.2
+        }
+      ],
+      "location": "San Diego, CA",
+      "workMode": "Hybrid",
+      "salary": "$45 / hour",
+      "employmentType": "Internship",
+      "minCgpa": 7.2,
+      "graduationYear": 2026,
+      "degree": "B.S. / B.Tech",
+      "branch": "Computer Science / IT / Related",
+      "openings": 5,
+      "deadline": "2026-11-30",
+      "status": "published",
+      "createdAt": "2026-02-19T10:00:00Z"
+    },
+    {
+      "id": "job_9",
+      "companyId": "comp_9",
+      "companyName": "ByteWave",
+      "title": "Frontend Engineer (React)",
+      "department": "Mobile & Web",
+      "description": "Join ByteWave to build cutting-edge systems and develop industry-leading solutions in Mobile & Web.",
+      "responsibilities": [
+        "Deliver high quality code and participate in sprint planning.",
+        "Collaborate with cross-functional engineers and stakeholders.",
+        "Maintain test coverage, documentation, and continuous delivery."
+      ],
+      "requirements": [
+        "Strong problem solving and core programming fundamentals",
+        "Minimum CGPA 7.5",
+        "Graduation year 2026"
+      ],
+      "requiredSkills": [
+        {
+          "skillId": "sk_react",
+          "skillName": "React",
+          "minLevel": "Beginner",
+          "isRequired": true,
+          "weight": 1.2
+        },
+        {
+          "skillId": "sk_typescript",
+          "skillName": "TypeScript",
+          "minLevel": "Beginner",
+          "isRequired": true,
+          "weight": 1.2
+        },
+        {
+          "skillId": "sk_javascript",
+          "skillName": "JavaScript",
+          "minLevel": "Beginner",
+          "isRequired": true,
+          "weight": 1.2
+        },
+        {
+          "skillId": "sk_html_css",
+          "skillName": "HTML/CSS",
+          "minLevel": "Beginner",
+          "isRequired": true,
+          "weight": 1.2
+        }
+      ],
+      "location": "Los Angeles, CA",
+      "workMode": "Remote",
+      "salary": "$95,000 - $120,000 / year",
+      "employmentType": "Full-time",
+      "minCgpa": 7.5,
+      "graduationYear": 2026,
+      "degree": "B.S. / B.Tech",
+      "branch": "Computer Science / IT / Related",
+      "openings": 6,
+      "deadline": "2026-11-30",
+      "status": "published",
+      "createdAt": "2026-02-20T10:00:00Z"
+    },
+    {
+      "id": "job_10",
+      "companyId": "comp_10",
+      "companyName": "Apex Logistics",
+      "title": "IoT & Backend Developer",
+      "department": "Robotics Systems",
+      "description": "Join Apex Logistics to build cutting-edge systems and develop industry-leading solutions in Robotics Systems.",
+      "responsibilities": [
+        "Deliver high quality code and participate in sprint planning.",
+        "Collaborate with cross-functional engineers and stakeholders.",
+        "Maintain test coverage, documentation, and continuous delivery."
+      ],
+      "requirements": [
+        "Strong problem solving and core programming fundamentals",
+        "Minimum CGPA 7.4",
+        "Graduation year 2026"
+      ],
+      "requiredSkills": [
+        {
+          "skillId": "sk_cpp",
+          "skillName": "C++",
+          "minLevel": "Intermediate",
+          "isRequired": true,
+          "weight": 1.2
+        },
+        {
+          "skillId": "sk_python",
+          "skillName": "Python",
+          "minLevel": "Intermediate",
+          "isRequired": true,
+          "weight": 1.2
+        },
+        {
+          "skillId": "sk_sql",
+          "skillName": "SQL",
+          "minLevel": "Beginner",
+          "isRequired": true,
+          "weight": 1.2
+        },
+        {
+          "skillId": "sk_git",
+          "skillName": "Git",
+          "minLevel": "Beginner",
+          "isRequired": true,
+          "weight": 1.2
+        }
+      ],
+      "location": "Atlanta, GA",
+      "workMode": "On-site",
+      "salary": "$92,000 - $118,000 / year",
+      "employmentType": "Full-time",
+      "minCgpa": 7.4,
+      "graduationYear": 2026,
+      "degree": "B.S. / B.Tech",
+      "branch": "Computer Science / IT / Related",
+      "openings": 7,
+      "deadline": "2026-11-30",
+      "status": "published",
+      "createdAt": "2026-02-21T10:00:00Z"
+    },
+    {
+      "id": "job_11",
+      "companyId": "comp_1",
+      "companyName": "TechNova",
+      "title": "Cloud Backend Engineer",
+      "department": "Cloud Platforms",
+      "description": "Join TechNova to build cutting-edge systems and develop industry-leading solutions in Cloud Platforms.",
+      "responsibilities": [
+        "Deliver high quality code and participate in sprint planning.",
+        "Collaborate with cross-functional engineers and stakeholders.",
+        "Maintain test coverage, documentation, and continuous delivery."
+      ],
+      "requirements": [
+        "Strong problem solving and core programming fundamentals",
+        "Minimum CGPA 7.8",
+        "Graduation year 2026"
+      ],
+      "requiredSkills": [
+        {
+          "skillId": "sk_java",
+          "skillName": "Java",
+          "minLevel": "Intermediate",
+          "isRequired": true,
+          "weight": 1.2
+        },
+        {
+          "skillId": "sk_sql",
+          "skillName": "SQL",
+          "minLevel": "Beginner",
+          "isRequired": true,
+          "weight": 1.2
+        },
+        {
+          "skillId": "sk_aws",
+          "skillName": "AWS",
+          "minLevel": "Beginner",
+          "isRequired": true,
+          "weight": 1.2
+        },
+        {
+          "skillId": "sk_docker",
+          "skillName": "Docker",
+          "minLevel": "Beginner",
+          "isRequired": true,
+          "weight": 1.2
+        }
+      ],
+      "location": "San Francisco, CA",
+      "workMode": "Remote",
+      "salary": "$100,000 - $130,000 / year",
+      "employmentType": "Full-time",
+      "minCgpa": 7.8,
+      "graduationYear": 2026,
+      "degree": "B.S. / B.Tech",
+      "branch": "Computer Science / IT / Related",
+      "openings": 3,
+      "deadline": "2026-11-30",
+      "status": "published",
+      "createdAt": "2026-02-22T10:00:00Z"
+    },
+    {
+      "id": "job_12",
+      "companyId": "comp_2",
+      "companyName": "InnoSoft",
+      "title": "Machine Learning Research Engineer",
+      "department": "Applied AI",
+      "description": "Join InnoSoft to build cutting-edge systems and develop industry-leading solutions in Applied AI.",
+      "responsibilities": [
+        "Deliver high quality code and participate in sprint planning.",
+        "Collaborate with cross-functional engineers and stakeholders.",
+        "Maintain test coverage, documentation, and continuous delivery."
+      ],
+      "requirements": [
+        "Strong problem solving and core programming fundamentals",
+        "Minimum CGPA 8.2",
+        "Graduation year 2026"
+      ],
+      "requiredSkills": [
+        {
+          "skillId": "sk_python",
+          "skillName": "Python",
+          "minLevel": "Intermediate",
+          "isRequired": true,
+          "weight": 1.2
+        },
+        {
+          "skillId": "sk_pytorch",
+          "skillName": "PyTorch",
+          "minLevel": "Beginner",
+          "isRequired": true,
+          "weight": 1.2
+        },
+        {
+          "skillId": "sk_pandas",
+          "skillName": "Pandas & NumPy",
+          "minLevel": "Beginner",
+          "isRequired": true,
+          "weight": 1.2
+        },
+        {
+          "skillId": "sk_dsa",
+          "skillName": "DSA",
+          "minLevel": "Intermediate",
+          "isRequired": true,
+          "weight": 1.2
+        }
+      ],
+      "location": "New York, NY",
+      "workMode": "Hybrid",
+      "salary": "$115,000 - $145,000 / year",
+      "employmentType": "Full-time",
+      "minCgpa": 8.2,
+      "graduationYear": 2026,
+      "degree": "B.S. / B.Tech",
+      "branch": "Computer Science / IT / Related",
+      "openings": 4,
+      "deadline": "2026-11-30",
+      "status": "published",
+      "createdAt": "2026-02-23T10:00:00Z"
+    },
+    {
+      "id": "job_13",
+      "companyId": "comp_3",
+      "companyName": "DataSphere",
+      "title": "Database Administrator Associate",
+      "department": "Infrastructure",
+      "description": "Join DataSphere to build cutting-edge systems and develop industry-leading solutions in Infrastructure.",
+      "responsibilities": [
+        "Deliver high quality code and participate in sprint planning.",
+        "Collaborate with cross-functional engineers and stakeholders.",
+        "Maintain test coverage, documentation, and continuous delivery."
+      ],
+      "requirements": [
+        "Strong problem solving and core programming fundamentals",
+        "Minimum CGPA 7.2",
+        "Graduation year 2026"
+      ],
+      "requiredSkills": [
+        {
+          "skillId": "sk_postgresql",
+          "skillName": "PostgreSQL",
+          "minLevel": "Beginner",
+          "isRequired": true,
+          "weight": 1.2
+        },
+        {
+          "skillId": "sk_sql",
+          "skillName": "SQL",
+          "minLevel": "Beginner",
+          "isRequired": true,
+          "weight": 1.2
+        },
+        {
+          "skillId": "sk_linux",
+          "skillName": "Linux CLI",
+          "minLevel": "Beginner",
+          "isRequired": true,
+          "weight": 1.2
+        },
+        {
+          "skillId": "sk_aws",
+          "skillName": "AWS",
+          "minLevel": "Beginner",
+          "isRequired": true,
+          "weight": 1.2
+        }
+      ],
+      "location": "Chicago, IL",
+      "workMode": "On-site",
+      "salary": "$85,000 - $105,000 / year",
+      "employmentType": "Full-time",
+      "minCgpa": 7.2,
+      "graduationYear": 2026,
+      "degree": "B.S. / B.Tech",
+      "branch": "Computer Science / IT / Related",
+      "openings": 5,
+      "deadline": "2026-11-30",
+      "status": "published",
+      "createdAt": "2026-02-24T10:00:00Z"
+    },
+    {
+      "id": "job_14",
+      "companyId": "comp_4",
+      "companyName": "CloudCore",
+      "title": "Site Reliability Engineer",
+      "department": "Operations",
+      "description": "Join CloudCore to build cutting-edge systems and develop industry-leading solutions in Operations.",
+      "responsibilities": [
+        "Deliver high quality code and participate in sprint planning.",
+        "Collaborate with cross-functional engineers and stakeholders.",
+        "Maintain test coverage, documentation, and continuous delivery."
+      ],
+      "requirements": [
+        "Strong problem solving and core programming fundamentals",
+        "Minimum CGPA 7.6",
+        "Graduation year 2026"
+      ],
+      "requiredSkills": [
+        {
+          "skillId": "sk_go",
+          "skillName": "Go",
+          "minLevel": "Beginner",
+          "isRequired": true,
+          "weight": 1.2
+        },
+        {
+          "skillId": "sk_linux",
+          "skillName": "Linux CLI",
+          "minLevel": "Beginner",
+          "isRequired": true,
+          "weight": 1.2
+        },
+        {
+          "skillId": "sk_kubernetes",
+          "skillName": "Kubernetes",
+          "minLevel": "Beginner",
+          "isRequired": true,
+          "weight": 1.2
+        },
+        {
+          "skillId": "sk_docker",
+          "skillName": "Docker",
+          "minLevel": "Beginner",
+          "isRequired": true,
+          "weight": 1.2
+        }
+      ],
+      "location": "Seattle, WA",
+      "workMode": "Remote",
+      "salary": "$105,000 - $135,000 / year",
+      "employmentType": "Full-time",
+      "minCgpa": 7.6,
+      "graduationYear": 2026,
+      "degree": "B.S. / B.Tech",
+      "branch": "Computer Science / IT / Related",
+      "openings": 6,
+      "deadline": "2026-11-30",
+      "status": "published",
+      "createdAt": "2026-02-25T10:00:00Z"
+    },
+    {
+      "id": "job_15",
+      "companyId": "comp_5",
+      "companyName": "FinEdge",
+      "title": "Fintech Application Developer",
+      "department": "Core Banking",
+      "description": "Join FinEdge to build cutting-edge systems and develop industry-leading solutions in Core Banking.",
+      "responsibilities": [
+        "Deliver high quality code and participate in sprint planning.",
+        "Collaborate with cross-functional engineers and stakeholders.",
+        "Maintain test coverage, documentation, and continuous delivery."
+      ],
+      "requirements": [
+        "Strong problem solving and core programming fundamentals",
+        "Minimum CGPA 8",
+        "Graduation year 2026"
+      ],
+      "requiredSkills": [
+        {
+          "skillId": "sk_java",
+          "skillName": "Java",
+          "minLevel": "Intermediate",
+          "isRequired": true,
+          "weight": 1.2
+        },
+        {
+          "skillId": "sk_sql",
+          "skillName": "SQL",
+          "minLevel": "Beginner",
+          "isRequired": true,
+          "weight": 1.2
+        },
+        {
+          "skillId": "sk_rest_api",
+          "skillName": "REST APIs",
+          "minLevel": "Beginner",
+          "isRequired": true,
+          "weight": 1.2
+        },
+        {
+          "skillId": "sk_git",
+          "skillName": "Git",
+          "minLevel": "Beginner",
+          "isRequired": true,
+          "weight": 1.2
+        }
+      ],
+      "location": "Boston, MA",
+      "workMode": "Hybrid",
+      "salary": "$98,000 - $125,000 / year",
+      "employmentType": "Full-time",
+      "minCgpa": 8,
+      "graduationYear": 2026,
+      "degree": "B.S. / B.Tech",
+      "branch": "Computer Science / IT / Related",
+      "openings": 7,
+      "deadline": "2026-11-30",
+      "status": "published",
+      "createdAt": "2026-02-26T10:00:00Z"
+    },
+    {
+      "id": "job_16",
+      "companyId": "comp_6",
+      "companyName": "NextGen AI",
+      "title": "AI Prompt & Evaluation Engineer",
+      "department": "Frontier Models",
+      "description": "Join NextGen AI to build cutting-edge systems and develop industry-leading solutions in Frontier Models.",
+      "responsibilities": [
+        "Deliver high quality code and participate in sprint planning.",
+        "Collaborate with cross-functional engineers and stakeholders.",
+        "Maintain test coverage, documentation, and continuous delivery."
+      ],
+      "requirements": [
+        "Strong problem solving and core programming fundamentals",
+        "Minimum CGPA 7",
+        "Graduation year 2026"
+      ],
+      "requiredSkills": [
+        {
+          "skillId": "sk_python",
+          "skillName": "Python",
+          "minLevel": "Intermediate",
+          "isRequired": true,
+          "weight": 1.2
+        },
+        {
+          "skillId": "sk_git",
+          "skillName": "Git",
+          "minLevel": "Beginner",
+          "isRequired": true,
+          "weight": 1.2
+        },
+        {
+          "skillId": "sk_rest_api",
+          "skillName": "REST APIs",
+          "minLevel": "Beginner",
+          "isRequired": true,
+          "weight": 1.2
+        },
+        {
+          "skillId": "sk_aptitude",
+          "skillName": "Aptitude & Problem Solving",
+          "minLevel": "Beginner",
+          "isRequired": true,
+          "weight": 1.2
+        }
+      ],
+      "location": "Palo Alto, CA",
+      "workMode": "Remote",
+      "salary": "$85,000 - $110,000 / year",
+      "employmentType": "Full-time",
+      "minCgpa": 7,
+      "graduationYear": 2026,
+      "degree": "B.S. / B.Tech",
+      "branch": "Computer Science / IT / Related",
+      "openings": 3,
+      "deadline": "2026-11-30",
+      "status": "published",
+      "createdAt": "2026-02-17T10:00:00Z"
+    },
+    {
+      "id": "job_17",
+      "companyId": "comp_7",
+      "companyName": "CyberShield",
+      "title": "Application Security Engineer",
+      "department": "AppSec",
+      "description": "Join CyberShield to build cutting-edge systems and develop industry-leading solutions in AppSec.",
+      "responsibilities": [
+        "Deliver high quality code and participate in sprint planning.",
+        "Collaborate with cross-functional engineers and stakeholders.",
+        "Maintain test coverage, documentation, and continuous delivery."
+      ],
+      "requirements": [
+        "Strong problem solving and core programming fundamentals",
+        "Minimum CGPA 7.8",
+        "Graduation year 2026"
+      ],
+      "requiredSkills": [
+        {
+          "skillId": "sk_java",
+          "skillName": "Java",
+          "minLevel": "Intermediate",
+          "isRequired": true,
+          "weight": 1.2
+        },
+        {
+          "skillId": "sk_python",
+          "skillName": "Python",
+          "minLevel": "Intermediate",
+          "isRequired": true,
+          "weight": 1.2
+        },
+        {
+          "skillId": "sk_git",
+          "skillName": "Git",
+          "minLevel": "Beginner",
+          "isRequired": true,
+          "weight": 1.2
+        },
+        {
+          "skillId": "sk_linux",
+          "skillName": "Linux CLI",
+          "minLevel": "Beginner",
+          "isRequired": true,
+          "weight": 1.2
+        }
+      ],
+      "location": "Washington, DC",
+      "workMode": "Hybrid",
+      "salary": "$96,000 - $122,000 / year",
+      "employmentType": "Full-time",
+      "minCgpa": 7.8,
+      "graduationYear": 2026,
+      "degree": "B.S. / B.Tech",
+      "branch": "Computer Science / IT / Related",
+      "openings": 4,
+      "deadline": "2026-11-30",
+      "status": "published",
+      "createdAt": "2026-02-18T10:00:00Z"
+    },
+    {
+      "id": "job_18",
+      "companyId": "comp_8",
+      "companyName": "PulseHealth",
+      "title": "Backend API Developer",
+      "department": "Core Platform",
+      "description": "Join PulseHealth to build cutting-edge systems and develop industry-leading solutions in Core Platform.",
+      "responsibilities": [
+        "Deliver high quality code and participate in sprint planning.",
+        "Collaborate with cross-functional engineers and stakeholders.",
+        "Maintain test coverage, documentation, and continuous delivery."
+      ],
+      "requirements": [
+        "Strong problem solving and core programming fundamentals",
+        "Minimum CGPA 7.4",
+        "Graduation year 2026"
+      ],
+      "requiredSkills": [
+        {
+          "skillId": "sk_nodejs",
+          "skillName": "Node.js",
+          "minLevel": "Beginner",
+          "isRequired": true,
+          "weight": 1.2
+        },
+        {
+          "skillId": "sk_postgresql",
+          "skillName": "PostgreSQL",
+          "minLevel": "Beginner",
+          "isRequired": true,
+          "weight": 1.2
+        },
+        {
+          "skillId": "sk_rest_api",
+          "skillName": "REST APIs",
+          "minLevel": "Beginner",
+          "isRequired": true,
+          "weight": 1.2
+        },
+        {
+          "skillId": "sk_git",
+          "skillName": "Git",
+          "minLevel": "Beginner",
+          "isRequired": true,
+          "weight": 1.2
+        }
+      ],
+      "location": "San Diego, CA",
+      "workMode": "Remote",
+      "salary": "$92,000 - $116,000 / year",
+      "employmentType": "Full-time",
+      "minCgpa": 7.4,
+      "graduationYear": 2026,
+      "degree": "B.S. / B.Tech",
+      "branch": "Computer Science / IT / Related",
+      "openings": 5,
+      "deadline": "2026-11-30",
+      "status": "published",
+      "createdAt": "2026-02-19T10:00:00Z"
+    },
+    {
+      "id": "job_19",
+      "companyId": "comp_9",
+      "companyName": "ByteWave",
+      "title": "Full Stack Web Developer",
+      "department": "Web Ecosystem",
+      "description": "Join ByteWave to build cutting-edge systems and develop industry-leading solutions in Web Ecosystem.",
+      "responsibilities": [
+        "Deliver high quality code and participate in sprint planning.",
+        "Collaborate with cross-functional engineers and stakeholders.",
+        "Maintain test coverage, documentation, and continuous delivery."
+      ],
+      "requirements": [
+        "Strong problem solving and core programming fundamentals",
+        "Minimum CGPA 7.5",
+        "Graduation year 2026"
+      ],
+      "requiredSkills": [
+        {
+          "skillId": "sk_react",
+          "skillName": "React",
+          "minLevel": "Beginner",
+          "isRequired": true,
+          "weight": 1.2
+        },
+        {
+          "skillId": "sk_nodejs",
+          "skillName": "Node.js",
+          "minLevel": "Beginner",
+          "isRequired": true,
+          "weight": 1.2
+        },
+        {
+          "skillId": "sk_mongodb",
+          "skillName": "MongoDB",
+          "minLevel": "Beginner",
+          "isRequired": true,
+          "weight": 1.2
+        },
+        {
+          "skillId": "sk_git",
+          "skillName": "Git",
+          "minLevel": "Beginner",
+          "isRequired": true,
+          "weight": 1.2
+        }
+      ],
+      "location": "Los Angeles, CA",
+      "workMode": "Hybrid",
+      "salary": "$94,000 - $120,000 / year",
+      "employmentType": "Full-time",
+      "minCgpa": 7.5,
+      "graduationYear": 2026,
+      "degree": "B.S. / B.Tech",
+      "branch": "Computer Science / IT / Related",
+      "openings": 6,
+      "deadline": "2026-11-30",
+      "status": "published",
+      "createdAt": "2026-02-20T10:00:00Z"
+    },
+    {
+      "id": "job_20",
+      "companyId": "comp_10",
+      "companyName": "Apex Logistics",
+      "title": "Embedded Systems Firmware Intern",
+      "department": "Robotics",
+      "description": "Join Apex Logistics to build cutting-edge systems and develop industry-leading solutions in Robotics.",
+      "responsibilities": [
+        "Deliver high quality code and participate in sprint planning.",
+        "Collaborate with cross-functional engineers and stakeholders.",
+        "Maintain test coverage, documentation, and continuous delivery."
+      ],
+      "requirements": [
+        "Strong problem solving and core programming fundamentals",
+        "Minimum CGPA 7",
+        "Graduation year 2026"
+      ],
+      "requiredSkills": [
+        {
+          "skillId": "sk_c",
+          "skillName": "C",
+          "minLevel": "Beginner",
+          "isRequired": true,
+          "weight": 1.2
+        },
+        {
+          "skillId": "sk_cpp",
+          "skillName": "C++",
+          "minLevel": "Intermediate",
+          "isRequired": true,
+          "weight": 1.2
+        },
+        {
+          "skillId": "sk_linux",
+          "skillName": "Linux CLI",
+          "minLevel": "Beginner",
+          "isRequired": true,
+          "weight": 1.2
+        },
+        {
+          "skillId": "sk_git",
+          "skillName": "Git",
+          "minLevel": "Beginner",
+          "isRequired": true,
+          "weight": 1.2
+        }
+      ],
+      "location": "Atlanta, GA",
+      "workMode": "On-site",
+      "salary": "$40 / hour",
+      "employmentType": "Internship",
+      "minCgpa": 7,
+      "graduationYear": 2026,
+      "degree": "B.S. / B.Tech",
+      "branch": "Computer Science / IT / Related",
+      "openings": 7,
+      "deadline": "2026-11-30",
+      "status": "published",
+      "createdAt": "2026-02-21T10:00:00Z"
+    },
+    {
+      "id": "job_21",
+      "companyId": "comp_1",
+      "companyName": "TechNova",
+      "title": "QA Automation & Test Engineer",
+      "department": "Quality Assurance",
+      "description": "Join TechNova to build cutting-edge systems and develop industry-leading solutions in Quality Assurance.",
+      "responsibilities": [
+        "Deliver high quality code and participate in sprint planning.",
+        "Collaborate with cross-functional engineers and stakeholders.",
+        "Maintain test coverage, documentation, and continuous delivery."
+      ],
+      "requirements": [
+        "Strong problem solving and core programming fundamentals",
+        "Minimum CGPA 7.2",
+        "Graduation year 2026"
+      ],
+      "requiredSkills": [
+        {
+          "skillId": "sk_python",
+          "skillName": "Python",
+          "minLevel": "Intermediate",
+          "isRequired": true,
+          "weight": 1.2
+        },
+        {
+          "skillId": "sk_sql",
+          "skillName": "SQL",
+          "minLevel": "Beginner",
+          "isRequired": true,
+          "weight": 1.2
+        },
+        {
+          "skillId": "sk_git",
+          "skillName": "Git",
+          "minLevel": "Beginner",
+          "isRequired": true,
+          "weight": 1.2
+        },
+        {
+          "skillId": "sk_cicd",
+          "skillName": "CI/CD Pipelines",
+          "minLevel": "Beginner",
+          "isRequired": true,
+          "weight": 1.2
+        }
+      ],
+      "location": "San Francisco, CA",
+      "workMode": "Hybrid",
+      "salary": "$86,000 - $108,000 / year",
+      "employmentType": "Full-time",
+      "minCgpa": 7.2,
+      "graduationYear": 2026,
+      "degree": "B.S. / B.Tech",
+      "branch": "Computer Science / IT / Related",
+      "openings": 3,
+      "deadline": "2026-11-30",
+      "status": "published",
+      "createdAt": "2026-02-22T10:00:00Z"
+    },
+    {
+      "id": "job_22",
+      "companyId": "comp_2",
+      "companyName": "InnoSoft",
+      "title": "NLP Solutions Engineer",
+      "department": "Language Technologies",
+      "description": "Join InnoSoft to build cutting-edge systems and develop industry-leading solutions in Language Technologies.",
+      "responsibilities": [
+        "Deliver high quality code and participate in sprint planning.",
+        "Collaborate with cross-functional engineers and stakeholders.",
+        "Maintain test coverage, documentation, and continuous delivery."
+      ],
+      "requirements": [
+        "Strong problem solving and core programming fundamentals",
+        "Minimum CGPA 8",
+        "Graduation year 2026"
+      ],
+      "requiredSkills": [
+        {
+          "skillId": "sk_python",
+          "skillName": "Python",
+          "minLevel": "Intermediate",
+          "isRequired": true,
+          "weight": 1.2
+        },
+        {
+          "skillId": "sk_aiml",
+          "skillName": "AI/ML",
+          "minLevel": "Beginner",
+          "isRequired": true,
+          "weight": 1.2
+        },
+        {
+          "skillId": "sk_rest_api",
+          "skillName": "REST APIs",
+          "minLevel": "Beginner",
+          "isRequired": true,
+          "weight": 1.2
+        },
+        {
+          "skillId": "sk_sql",
+          "skillName": "SQL",
+          "minLevel": "Beginner",
+          "isRequired": true,
+          "weight": 1.2
+        }
+      ],
+      "location": "New York, NY",
+      "workMode": "Remote",
+      "salary": "$108,000 - $138,000 / year",
+      "employmentType": "Full-time",
+      "minCgpa": 8,
+      "graduationYear": 2026,
+      "degree": "B.S. / B.Tech",
+      "branch": "Computer Science / IT / Related",
+      "openings": 4,
+      "deadline": "2026-11-30",
+      "status": "published",
+      "createdAt": "2026-02-23T10:00:00Z"
+    },
+    {
+      "id": "job_23",
+      "companyId": "comp_3",
+      "companyName": "DataSphere",
+      "title": "Business Intelligence Analyst",
+      "department": "Analytics",
+      "description": "Join DataSphere to build cutting-edge systems and develop industry-leading solutions in Analytics.",
+      "responsibilities": [
+        "Deliver high quality code and participate in sprint planning.",
+        "Collaborate with cross-functional engineers and stakeholders.",
+        "Maintain test coverage, documentation, and continuous delivery."
+      ],
+      "requirements": [
+        "Strong problem solving and core programming fundamentals",
+        "Minimum CGPA 7",
+        "Graduation year 2026"
+      ],
+      "requiredSkills": [
+        {
+          "skillId": "sk_sql",
+          "skillName": "SQL",
+          "minLevel": "Beginner",
+          "isRequired": true,
+          "weight": 1.2
+        },
+        {
+          "skillId": "sk_python",
+          "skillName": "Python",
+          "minLevel": "Intermediate",
+          "isRequired": true,
+          "weight": 1.2
+        },
+        {
+          "skillId": "sk_aptitude",
+          "skillName": "Aptitude & Problem Solving",
+          "minLevel": "Beginner",
+          "isRequired": true,
+          "weight": 1.2
+        }
+      ],
+      "location": "Chicago, IL",
+      "workMode": "Hybrid",
+      "salary": "$82,000 - $104,000 / year",
+      "employmentType": "Full-time",
+      "minCgpa": 7,
+      "graduationYear": 2026,
+      "degree": "B.S. / B.Tech",
+      "branch": "Computer Science / IT / Related",
+      "openings": 5,
+      "deadline": "2026-11-30",
+      "status": "published",
+      "createdAt": "2026-02-24T10:00:00Z"
+    },
+    {
+      "id": "job_24",
+      "companyId": "comp_4",
+      "companyName": "CloudCore",
+      "title": "DevSecOps Engineer",
+      "department": "Security Ops",
+      "description": "Join CloudCore to build cutting-edge systems and develop industry-leading solutions in Security Ops.",
+      "responsibilities": [
+        "Deliver high quality code and participate in sprint planning.",
+        "Collaborate with cross-functional engineers and stakeholders.",
+        "Maintain test coverage, documentation, and continuous delivery."
+      ],
+      "requirements": [
+        "Strong problem solving and core programming fundamentals",
+        "Minimum CGPA 7.8",
+        "Graduation year 2026"
+      ],
+      "requiredSkills": [
+        {
+          "skillId": "sk_aws",
+          "skillName": "AWS",
+          "minLevel": "Beginner",
+          "isRequired": true,
+          "weight": 1.2
+        },
+        {
+          "skillId": "sk_docker",
+          "skillName": "Docker",
+          "minLevel": "Beginner",
+          "isRequired": true,
+          "weight": 1.2
+        },
+        {
+          "skillId": "sk_linux",
+          "skillName": "Linux CLI",
+          "minLevel": "Beginner",
+          "isRequired": true,
+          "weight": 1.2
+        },
+        {
+          "skillId": "sk_python",
+          "skillName": "Python",
+          "minLevel": "Intermediate",
+          "isRequired": true,
+          "weight": 1.2
+        }
+      ],
+      "location": "Seattle, WA",
+      "workMode": "Remote",
+      "salary": "$102,000 - $128,000 / year",
+      "employmentType": "Full-time",
+      "minCgpa": 7.8,
+      "graduationYear": 2026,
+      "degree": "B.S. / B.Tech",
+      "branch": "Computer Science / IT / Related",
+      "openings": 6,
+      "deadline": "2026-11-30",
+      "status": "published",
+      "createdAt": "2026-02-25T10:00:00Z"
+    },
+    {
+      "id": "job_25",
+      "companyId": "comp_5",
+      "companyName": "FinEdge",
+      "title": "Data Pipeline Developer",
+      "department": "Market Feeds",
+      "description": "Join FinEdge to build cutting-edge systems and develop industry-leading solutions in Market Feeds.",
+      "responsibilities": [
+        "Deliver high quality code and participate in sprint planning.",
+        "Collaborate with cross-functional engineers and stakeholders.",
+        "Maintain test coverage, documentation, and continuous delivery."
+      ],
+      "requirements": [
+        "Strong problem solving and core programming fundamentals",
+        "Minimum CGPA 7.8",
+        "Graduation year 2026"
+      ],
+      "requiredSkills": [
+        {
+          "skillId": "sk_python",
+          "skillName": "Python",
+          "minLevel": "Intermediate",
+          "isRequired": true,
+          "weight": 1.2
+        },
+        {
+          "skillId": "sk_sql",
+          "skillName": "SQL",
+          "minLevel": "Beginner",
+          "isRequired": true,
+          "weight": 1.2
+        },
+        {
+          "skillId": "sk_redis",
+          "skillName": "Redis",
+          "minLevel": "Beginner",
+          "isRequired": true,
+          "weight": 1.2
+        },
+        {
+          "skillId": "sk_git",
+          "skillName": "Git",
+          "minLevel": "Beginner",
+          "isRequired": true,
+          "weight": 1.2
+        }
+      ],
+      "location": "Boston, MA",
+      "workMode": "Hybrid",
+      "salary": "$96,000 - $124,000 / year",
+      "employmentType": "Full-time",
+      "minCgpa": 7.8,
+      "graduationYear": 2026,
+      "degree": "B.S. / B.Tech",
+      "branch": "Computer Science / IT / Related",
+      "openings": 7,
+      "deadline": "2026-11-30",
+      "status": "published",
+      "createdAt": "2026-02-26T10:00:00Z"
+    }
+  ],
+  "skills": [
+    {
+      "id": "sk_python",
+      "name": "Python",
+      "category": "Programming",
+      "description": "General-purpose, interpreted, high-level programming language for scripting, backend, data science, and AI.",
+      "industryDemandPercent": 88,
+      "demandLevel": "Very High"
+    },
+    {
+      "id": "sk_cpp",
+      "name": "C++",
+      "category": "Programming",
+      "description": "High-performance compiled language used for systems programming, game development, and competitive programming.",
+      "industryDemandPercent": 65,
+      "demandLevel": "High"
+    },
+    {
+      "id": "sk_java",
+      "name": "Java",
+      "category": "Programming",
+      "description": "Enterprise-grade object-oriented language for large-scale microservices, Android, and distributed systems.",
+      "industryDemandPercent": 72,
+      "demandLevel": "High"
+    },
+    {
+      "id": "sk_javascript",
+      "name": "JavaScript",
+      "category": "Programming",
+      "description": "Core programming language of the web, powering frontend UI and Node.js backend services.",
+      "industryDemandPercent": 82,
+      "demandLevel": "Very High"
+    },
+    {
+      "id": "sk_typescript",
+      "name": "TypeScript",
+      "category": "Programming",
+      "description": "Strongly typed superset of JavaScript that enhances code quality and maintainability in large apps.",
+      "industryDemandPercent": 78,
+      "demandLevel": "Very High"
+    },
+    {
+      "id": "sk_c",
+      "name": "C",
+      "category": "Programming",
+      "description": "Foundational procedural language for hardware interfaces, OS kernels, and embedded devices.",
+      "industryDemandPercent": 42,
+      "demandLevel": "Medium"
+    },
+    {
+      "id": "sk_go",
+      "name": "Go",
+      "category": "Programming",
+      "description": "Concurrent, simple language designed by Google for cloud infrastructure and high-throughput backend services.",
+      "industryDemandPercent": 58,
+      "demandLevel": "High"
+    },
+    {
+      "id": "sk_dsa",
+      "name": "DSA",
+      "category": "Data Structures",
+      "description": "Data Structures & Algorithms: Arrays, Linked Lists, Trees, Graphs, Sorting, Dynamic Programming, and Big-O.",
+      "industryDemandPercent": 92,
+      "demandLevel": "Very High"
+    },
+    {
+      "id": "sk_sql",
+      "name": "SQL",
+      "category": "Databases",
+      "description": "Structured Query Language for relational database management, joins, aggregations, indexing, and transactions.",
+      "industryDemandPercent": 84,
+      "demandLevel": "Very High"
+    },
+    {
+      "id": "sk_mongodb",
+      "name": "MongoDB",
+      "category": "Databases",
+      "description": "Document-oriented NoSQL database for flexible schemas, high scalability, and JSON-based storage.",
+      "industryDemandPercent": 54,
+      "demandLevel": "High"
+    },
+    {
+      "id": "sk_postgresql",
+      "name": "PostgreSQL",
+      "category": "Databases",
+      "description": "Advanced open-source relational database with powerful JSON querying, indexing, and reliability.",
+      "industryDemandPercent": 68,
+      "demandLevel": "High"
+    },
+    {
+      "id": "sk_redis",
+      "name": "Redis",
+      "category": "Databases",
+      "description": "In-memory key-value data store used for low-latency caching, pub/sub, and session management.",
+      "industryDemandPercent": 48,
+      "demandLevel": "High"
+    },
+    {
+      "id": "sk_react",
+      "name": "React",
+      "category": "Web Development",
+      "description": "Declarative component-based UI library for modern web applications.",
+      "industryDemandPercent": 80,
+      "demandLevel": "Very High"
+    },
+    {
+      "id": "sk_nodejs",
+      "name": "Node.js",
+      "category": "Web Development",
+      "description": "JavaScript runtime built on Chrome V8 engine for scalable asynchronous network applications.",
+      "industryDemandPercent": 74,
+      "demandLevel": "High"
+    },
+    {
+      "id": "sk_html_css",
+      "name": "HTML/CSS",
+      "category": "Web Development",
+      "description": "Standard markup and styling foundational technologies for structuring and presenting web interfaces.",
+      "industryDemandPercent": 70,
+      "demandLevel": "High"
+    },
+    {
+      "id": "sk_rest_api",
+      "name": "REST APIs",
+      "category": "Web Development",
+      "description": "Architectural style for designing networked applications and scalable HTTP endpoints.",
+      "industryDemandPercent": 85,
+      "demandLevel": "Very High"
+    },
+    {
+      "id": "sk_aiml",
+      "name": "AI/ML",
+      "category": "AI/ML",
+      "description": "Machine Learning, Deep Learning neural networks, NLP, Computer Vision, and Predictive Modeling.",
+      "industryDemandPercent": 76,
+      "demandLevel": "Very High"
+    },
+    {
+      "id": "sk_pytorch",
+      "name": "PyTorch",
+      "category": "AI/ML",
+      "description": "Open-source deep learning framework based on Torch, widely used for computer vision and NLP research.",
+      "industryDemandPercent": 60,
+      "demandLevel": "High"
+    },
+    {
+      "id": "sk_pandas",
+      "name": "Pandas & NumPy",
+      "category": "AI/ML",
+      "description": "Python data manipulation and numerical computation libraries for analytics and feature engineering.",
+      "industryDemandPercent": 66,
+      "demandLevel": "High"
+    },
+    {
+      "id": "sk_aws",
+      "name": "AWS",
+      "category": "Cloud",
+      "description": "Amazon Web Services: EC2, S3, Lambda, RDS, IAM, and foundational cloud architecture.",
+      "industryDemandPercent": 75,
+      "demandLevel": "Very High"
+    },
+    {
+      "id": "sk_docker",
+      "name": "Docker",
+      "category": "DevOps",
+      "description": "Containerization platform to package applications and dependencies into standardized containers.",
+      "industryDemandPercent": 71,
+      "demandLevel": "High"
+    },
+    {
+      "id": "sk_kubernetes",
+      "name": "Kubernetes",
+      "category": "DevOps",
+      "description": "Production-grade container orchestration system for automating deployment, scaling, and management.",
+      "industryDemandPercent": 52,
+      "demandLevel": "High"
+    },
+    {
+      "id": "sk_cicd",
+      "name": "CI/CD Pipelines",
+      "category": "DevOps",
+      "description": "Continuous Integration and Continuous Delivery automation using GitHub Actions and Jenkins.",
+      "industryDemandPercent": 62,
+      "demandLevel": "High"
+    },
+    {
+      "id": "sk_git",
+      "name": "Git",
+      "category": "Tools",
+      "description": "Distributed version control system for tracking changes, branching, pull requests, and collaborative codebases.",
+      "industryDemandPercent": 89,
+      "demandLevel": "Very High"
+    },
+    {
+      "id": "sk_linux",
+      "name": "Linux CLI",
+      "category": "Tools",
+      "description": "Command-line interface proficiency, shell scripting, file permissions, and process management.",
+      "industryDemandPercent": 67,
+      "demandLevel": "High"
+    },
+    {
+      "id": "sk_oop",
+      "name": "OOP",
+      "category": "Programming",
+      "description": "Object-Oriented Programming principles: Encapsulation, Inheritance, Polymorphism, and Abstraction.",
+      "industryDemandPercent": 83,
+      "demandLevel": "Very High"
+    },
+    {
+      "id": "sk_system_design",
+      "name": "System Design",
+      "category": "Programming",
+      "description": "Architecture of high-scale systems, load balancing, caching, database sharding, and resilience.",
+      "industryDemandPercent": 64,
+      "demandLevel": "High"
+    },
+    {
+      "id": "sk_aptitude",
+      "name": "Aptitude & Problem Solving",
+      "category": "Soft Skills",
+      "description": "Quantitative reasoning, logical puzzles, data interpretation, and analytical thinking.",
+      "industryDemandPercent": 79,
+      "demandLevel": "Very High"
+    }
+  ],
+  "student_skills": [
+    {
+      "id": "ss_1",
+      "studentId": "std_1",
+      "skillId": "sk_python",
+      "skillName": "Python",
+      "category": "Programming",
+      "status": "Self-Declared",
+      "level": "Beginner"
+    },
+    {
+      "id": "ss_2",
+      "studentId": "std_1",
+      "skillId": "sk_sql",
+      "skillName": "SQL",
+      "category": "Databases",
+      "status": "Verified",
+      "level": "Intermediate",
+      "score": 88,
+      "verifiedAt": "2026-02-01T14:30:00Z",
+      "assessmentId": "asm_sql"
+    },
+    {
+      "id": "ss_3",
+      "studentId": "std_1",
+      "skillId": "sk_git",
+      "skillName": "Git",
+      "category": "Tools",
+      "status": "Self-Declared",
+      "level": "Beginner"
+    },
+    {
+      "id": "ss_4",
+      "studentId": "std_1",
+      "skillId": "sk_dsa",
+      "skillName": "DSA",
+      "category": "Data Structures",
+      "status": "Self-Declared",
+      "level": "Beginner"
+    },
+    {
+      "id": "ss_5",
+      "studentId": "std_1",
+      "skillId": "sk_oop",
+      "skillName": "OOP",
+      "category": "Programming",
+      "status": "Self-Declared",
+      "level": "Intermediate"
+    },
+    {
+      "id": "ss_6",
+      "studentId": "std_2",
+      "skillId": "sk_python",
+      "skillName": "Python",
+      "category": "Programming",
+      "status": "Verified",
+      "level": "Advanced",
+      "score": 94,
+      "verifiedAt": "2026-01-20T11:00:00Z",
+      "assessmentId": "asm_python"
+    },
+    {
+      "id": "ss_7",
+      "studentId": "std_2",
+      "skillId": "sk_sql",
+      "skillName": "SQL",
+      "category": "Databases",
+      "status": "Verified",
+      "level": "Advanced",
+      "score": 92,
+      "verifiedAt": "2026-01-22T15:00:00Z",
+      "assessmentId": "asm_sql"
+    },
+    {
+      "id": "ss_8",
+      "studentId": "std_2",
+      "skillId": "sk_aiml",
+      "skillName": "AI/ML",
+      "category": "AI/ML",
+      "status": "Verified",
+      "level": "Intermediate",
+      "score": 85,
+      "verifiedAt": "2026-01-25T16:00:00Z",
+      "assessmentId": "asm_aiml"
+    },
+    {
+      "id": "ss_9",
+      "studentId": "std_2",
+      "skillId": "sk_dsa",
+      "skillName": "DSA",
+      "category": "Data Structures",
+      "status": "Verified",
+      "level": "Intermediate",
+      "score": 86,
+      "verifiedAt": "2026-01-28T10:00:00Z",
+      "assessmentId": "asm_dsa"
+    },
+    {
+      "id": "ss_10",
+      "studentId": "std_3",
+      "skillId": "sk_cpp",
+      "skillName": "C++",
+      "category": "Programming",
+      "status": "Verified",
+      "level": "Advanced",
+      "score": 96,
+      "verifiedAt": "2026-01-15T09:00:00Z",
+      "assessmentId": "asm_cpp"
+    },
+    {
+      "id": "ss_11",
+      "studentId": "std_3",
+      "skillId": "sk_dsa",
+      "skillName": "DSA",
+      "category": "Data Structures",
+      "status": "Verified",
+      "level": "Advanced",
+      "score": 95,
+      "verifiedAt": "2026-01-18T14:00:00Z",
+      "assessmentId": "asm_dsa"
+    },
+    {
+      "id": "ss_12",
+      "studentId": "std_3",
+      "skillId": "sk_sql",
+      "skillName": "SQL",
+      "category": "Databases",
+      "status": "Verified",
+      "level": "Intermediate",
+      "score": 84,
+      "verifiedAt": "2026-01-21T11:00:00Z",
+      "assessmentId": "asm_sql"
+    }
+  ],
+  "verified_skills": [
+    {
+      "id": "vs_1",
+      "studentId": "std_1",
+      "skillId": "sk_sql",
+      "skillName": "SQL",
+      "level": "Intermediate",
+      "score": 88,
+      "credibilityScore": 94,
+      "verificationDate": "2026-02-01T14:30:00Z",
+      "assessmentId": "asm_sql",
+      "certificateId": "CERT-SQL-8821"
+    },
+    {
+      "id": "vs_2",
+      "studentId": "std_2",
+      "skillId": "sk_python",
+      "skillName": "Python",
+      "level": "Advanced",
+      "score": 94,
+      "credibilityScore": 96,
+      "verificationDate": "2026-01-20T11:00:00Z",
+      "assessmentId": "asm_python",
+      "certificateId": "CERT-PY-9411"
+    },
+    {
+      "id": "vs_3",
+      "studentId": "std_2",
+      "skillId": "sk_sql",
+      "skillName": "SQL",
+      "level": "Advanced",
+      "score": 92,
+      "credibilityScore": 95,
+      "verificationDate": "2026-01-22T15:00:00Z",
+      "assessmentId": "asm_sql",
+      "certificateId": "CERT-SQL-9233"
+    },
+    {
+      "id": "vs_4",
+      "studentId": "std_2",
+      "skillId": "sk_dsa",
+      "skillName": "DSA",
+      "level": "Intermediate",
+      "score": 86,
+      "credibilityScore": 92,
+      "verificationDate": "2026-01-28T10:00:00Z",
+      "assessmentId": "asm_dsa",
+      "certificateId": "CERT-DSA-8640"
+    },
+    {
+      "id": "vs_5",
+      "studentId": "std_3",
+      "skillId": "sk_cpp",
+      "skillName": "C++",
+      "level": "Advanced",
+      "score": 96,
+      "credibilityScore": 97,
+      "verificationDate": "2026-01-15T09:00:00Z",
+      "assessmentId": "asm_cpp",
+      "certificateId": "CERT-CPP-9601"
+    },
+    {
+      "id": "vs_6",
+      "studentId": "std_3",
+      "skillId": "sk_dsa",
+      "skillName": "DSA",
+      "level": "Advanced",
+      "score": 95,
+      "credibilityScore": 96,
+      "verificationDate": "2026-01-18T14:00:00Z",
+      "assessmentId": "asm_dsa",
+      "certificateId": "CERT-DSA-9502"
+    }
+  ],
+  "courses": [
+    {
+      "id": "crs_python",
+      "title": "Python Fundamentals & OOP for Placement",
+      "slug": "python-fundamentals",
+      "category": "Programming",
+      "level": "Beginner",
+      "duration": "14 Hours (7 Modules)",
+      "description": "Master practical Python from zero to object-oriented programming, data structures, file processing, and placement coding interview problems.",
+      "thumbnail": "https://images.unsplash.com/photo-1526379095098-d400fd0bf935?w=600&auto=format&fit=crop&q=80",
+      "modulesCount": 7,
+      "lessonsCount": 18,
+      "enrolledCount": 1420,
+      "rating": 4.9,
+      "targetSkills": [
+        "Python",
+        "OOP"
+      ],
+      "overview": "Comprehensive industry-aligned Python mastery designed specifically for placement assessments and tech hiring interviews."
+    },
+    {
+      "id": "crs_cpp",
+      "title": "C++ Systems & Memory Mastery",
+      "slug": "cpp-systems-mastery",
+      "category": "Programming",
+      "level": "Intermediate",
+      "duration": "16 Hours (6 Modules)",
+      "description": "Low-level memory management, pointers, references, STL containers, and modern C++ for high performance engineering.",
+      "thumbnail": "https://images.unsplash.com/photo-1515879218367-8466d910aaa4?w=600&auto=format&fit=crop&q=80",
+      "modulesCount": 6,
+      "lessonsCount": 16,
+      "enrolledCount": 980,
+      "rating": 4.8,
+      "targetSkills": [
+        "C++",
+        "OOP"
+      ],
+      "overview": "Learn C++ memory models, standard template library, smart pointers, and high-frequency algorithms."
+    },
+    {
+      "id": "crs_java",
+      "title": "Java Enterprise & Core Concepts",
+      "slug": "java-enterprise-core",
+      "category": "Programming",
+      "level": "Beginner",
+      "duration": "15 Hours (6 Modules)",
+      "description": "Java Virtual Machine internals, multithreading, collections framework, exception handling, and enterprise architecture.",
+      "thumbnail": "https://images.unsplash.com/photo-1517694712202-14dd9538aa97?w=600&auto=format&fit=crop&q=80",
+      "modulesCount": 6,
+      "lessonsCount": 15,
+      "enrolledCount": 1100,
+      "rating": 4.7,
+      "targetSkills": [
+        "Java",
+        "OOP"
+      ],
+      "overview": "End-to-end core Java for enterprise backend software development and campus placement drives."
+    },
+    {
+      "id": "crs_dsa",
+      "title": "Data Structures & Algorithms Masterclass",
+      "slug": "dsa-masterclass",
+      "category": "Data Structures",
+      "level": "Intermediate",
+      "duration": "24 Hours (8 Modules)",
+      "description": "Master binary search, linked lists, trees, graphs, dynamic programming, recursion, and time complexity analysis.",
+      "thumbnail": "https://images.unsplash.com/photo-1509228468518-180dd4864904?w=600&auto=format&fit=crop&q=80",
+      "modulesCount": 8,
+      "lessonsCount": 24,
+      "enrolledCount": 2350,
+      "rating": 4.95,
+      "targetSkills": [
+        "DSA",
+        "Aptitude & Problem Solving"
+      ],
+      "overview": "The essential algorithmic foundation required to crack top tier technical interview rounds."
+    },
+    {
+      "id": "crs_sql",
+      "title": "SQL & Relational Database Architecture",
+      "slug": "sql-database-architecture",
+      "category": "Databases",
+      "level": "Beginner",
+      "duration": "12 Hours (5 Modules)",
+      "description": "Master SQL joins, aggregations, window functions, indexing, normal forms, and ACID transaction isolation.",
+      "thumbnail": "https://images.unsplash.com/photo-1544383835-bda2bc66a55d?w=600&auto=format&fit=crop&q=80",
+      "modulesCount": 5,
+      "lessonsCount": 14,
+      "enrolledCount": 1870,
+      "rating": 4.85,
+      "targetSkills": [
+        "SQL",
+        "PostgreSQL"
+      ],
+      "overview": "Practical relational database mastery with live query execution and schema design exercises."
+    },
+    {
+      "id": "crs_git",
+      "title": "Git & GitHub Collaboration Essentials",
+      "slug": "git-github-essentials",
+      "category": "Tools",
+      "level": "Beginner",
+      "duration": "6 Hours (3 Modules)",
+      "description": "Branching strategies, rebase vs merge, resolve conflicts, pull request reviews, and automated GitHub Actions.",
+      "thumbnail": "https://images.unsplash.com/photo-1618401471353-b98aedd04e11?w=600&auto=format&fit=crop&q=80",
+      "modulesCount": 3,
+      "lessonsCount": 9,
+      "enrolledCount": 1650,
+      "rating": 4.9,
+      "targetSkills": [
+        "Git"
+      ],
+      "overview": "Learn professional source code version control and open-source collaboration."
+    },
+    {
+      "id": "crs_oop",
+      "title": "Object-Oriented Design & Clean Architecture",
+      "slug": "oop-clean-architecture",
+      "category": "Programming",
+      "level": "Intermediate",
+      "duration": "10 Hours (4 Modules)",
+      "description": "SOLID design principles, design patterns (Factory, Singleton, Observer, Strategy), and clean code refactoring.",
+      "thumbnail": "https://images.unsplash.com/photo-1555066931-4365d14bab8c?w=600&auto=format&fit=crop&q=80",
+      "modulesCount": 4,
+      "lessonsCount": 12,
+      "enrolledCount": 1230,
+      "rating": 4.8,
+      "targetSkills": [
+        "OOP"
+      ],
+      "overview": "Master software engineering design patterns and object-oriented paradigms."
+    },
+    {
+      "id": "crs_cloud",
+      "title": "Cloud Fundamentals (AWS & Cloud Architecture)",
+      "slug": "cloud-fundamentals-aws",
+      "category": "Cloud",
+      "level": "Beginner",
+      "duration": "12 Hours (5 Modules)",
+      "description": "Core cloud computing concepts: EC2, S3, IAM, VPC, serverless Lambda, RDS, and scalable cloud solutions.",
+      "thumbnail": "https://images.unsplash.com/photo-1451187580459-43490279c0fa?w=600&auto=format&fit=crop&q=80",
+      "modulesCount": 5,
+      "lessonsCount": 15,
+      "enrolledCount": 1400,
+      "rating": 4.88,
+      "targetSkills": [
+        "AWS",
+        "Cloud"
+      ],
+      "overview": "Practical cloud architecture foundations required by modern tech companies."
+    },
+    {
+      "id": "crs_aptitude",
+      "title": "Quantitative & Logical Aptitude for Placement",
+      "slug": "quantitative-logical-aptitude",
+      "category": "Soft Skills",
+      "level": "Beginner",
+      "duration": "10 Hours (4 Modules)",
+      "description": "Time & work, permutations, probability, logical deductions, data sufficiency, and coding aptitude tricks.",
+      "thumbnail": "https://images.unsplash.com/photo-1635070041078-e363dbe005cb?w=600&auto=format&fit=crop&q=80",
+      "modulesCount": 4,
+      "lessonsCount": 12,
+      "enrolledCount": 2100,
+      "rating": 4.75,
+      "targetSkills": [
+        "Aptitude & Problem Solving"
+      ],
+      "overview": "Crack initial online assessment screening rounds for top campus recruiters."
+    },
+    {
+      "id": "crs_interview",
+      "title": "Full Technical Interview & System Design Prep",
+      "slug": "technical-interview-prep",
+      "category": "Programming",
+      "level": "Intermediate",
+      "duration": "15 Hours (5 Modules)",
+      "description": "Mock behavioral questions, resume project defense, live coding walkthroughs, and entry-level system design.",
+      "thumbnail": "https://images.unsplash.com/photo-1522071820081-009f0129c71c?w=600&auto=format&fit=crop&q=80",
+      "modulesCount": 5,
+      "lessonsCount": 15,
+      "enrolledCount": 1750,
+      "rating": 4.92,
+      "targetSkills": [
+        "Python",
+        "DSA",
+        "System Design"
+      ],
+      "overview": "Complete placement season preparation covering technical rounds and HR interviews."
+    }
+  ],
+  "course_modules": [
+    {
+      "id": "mod_py_1",
+      "courseId": "crs_python",
+      "title": "Module 1: Introduction to Python & Syntax",
+      "orderIndex": 1,
+      "description": "Variables, primitive data types, memory references, dynamic typing, and arithmetic/logical operators."
+    },
+    {
+      "id": "mod_py_2",
+      "courseId": "crs_python",
+      "title": "Module 2: Control Flow & Iterations",
+      "orderIndex": 2,
+      "description": "Conditional if-elif-else statements, while loops, for-in loops, range generator, and loop controls."
+    },
+    {
+      "id": "mod_py_3",
+      "courseId": "crs_python",
+      "title": "Module 3: Functions & Built-in Collections",
+      "orderIndex": 3,
+      "description": "Functions, parameter packing (*args, **kwargs), Lists, Tuples, Dictionaries, Sets, and list comprehensions."
+    },
+    {
+      "id": "mod_py_4",
+      "courseId": "crs_python",
+      "title": "Module 4: String Manipulation & File Handling",
+      "orderIndex": 4,
+      "description": "String methods, slicing, formatted f-strings, file read/write streams, and context managers (with statement)."
+    },
+    {
+      "id": "mod_py_5",
+      "courseId": "crs_python",
+      "title": "Module 5: Object-Oriented Programming (OOP)",
+      "orderIndex": 5,
+      "description": "Classes, constructors (__init__), instance vs class attributes, encapsulation, inheritance, polymorphism, and magic methods."
+    },
+    {
+      "id": "mod_py_6",
+      "courseId": "crs_python",
+      "title": "Module 6: Placement Coding Practice",
+      "orderIndex": 6,
+      "description": "Real-world coding interview problems: palindrome checks, two-sum problem, string frequency, and matrix transformations."
+    },
+    {
+      "id": "mod_py_7",
+      "courseId": "crs_python",
+      "title": "Module 7: Final Skill Verification Assessment",
+      "orderIndex": 7,
+      "description": "Comprehensive 15-question MCQ & coding verification assessment to earn the Python Verified badge."
+    }
+  ],
+  "lessons": [
+    {
+      "id": "les_py_1_1",
+      "moduleId": "mod_py_1",
+      "courseId": "crs_python",
+      "title": "Python Variables, Data Types & Memory Model",
+      "orderIndex": 1,
+      "durationMinutes": 25,
+      "contentMarkdown": "# Python Variables & Memory Allocation\n\nIn Python, **everything is an object**. When you assign a variable `x = 10`, Python allocates an integer object in heap memory and points the reference identifier `x` to that memory address.\n\n### Key Characteristics:\n1. **Dynamic Typing**: Variable types do not need explicit type declarations.\n2. **Strong Typing**: Python prevents implicit operations between mismatched types (e.g., `'5' + 5` throws `TypeError`).\n3. **Immutable Types**: Integers, floats, strings, and tuples cannot be modified in-place.\n4. **Mutable Types**: Lists, dictionaries, and sets can be updated in-place without changing reference ID.",
+      "codeExample": "# Variable assignment & type checking\nname: str = \"Alex Rivera\"\nscore: float = 94.5\nis_verified: bool = True\n\nprint(f\"Candidate: {name}, Score: {score}, Verified: {is_verified}\")\nprint(f\"Memory address of score: {hex(id(score))}\")",
+      "practiceTask": "Declare three variables representing a job title, salary, and openings count. Print them using formatted f-strings.",
+      "checkQuestion": {
+        "question": "What is the output of `type(3.14)` in Python?",
+        "options": [
+          "<class \"double\">",
+          "<class \"float\">",
+          "<class \"decimal\">",
+          "<class \"number\">"
+        ],
+        "correctIndex": 1,
+        "explanation": "Python represents floating-point decimal numbers with the standard IEEE-754 64-bit float type, represented as `<class \"float\">`."
+      }
+    },
+    {
+      "id": "les_py_1_2",
+      "moduleId": "mod_py_1",
+      "courseId": "crs_python",
+      "title": "Operators, Expressions & Bitwise Operations",
+      "orderIndex": 2,
+      "durationMinutes": 20,
+      "contentMarkdown": "# Python Operators & Logical Expressions\n\nOperators in Python evaluate expressions and return typed values.\n\n### Categories:\n- **Arithmetic**: `+`, `-`, `*`, `/`, `//` (Floor Division), `%` (Modulo), `**` (Exponentiation)\n- **Comparison**: `==`, `!=`, `<`, `>`, `<=`, `>=`\n- **Logical**: `and`, `or`, `not` (Short-circuit evaluation)\n- **Identity & Membership**: `is`, `is not`, `in`, `not in`",
+      "codeExample": "a = 17\nb = 4\nprint(\"Floor division:\", a // b) # 4\nprint(\"Remainder:\", a % b)       # 1\nprint(\"Power:\", 2 ** 5)          # 32\n\nskills = [\"Python\", \"SQL\", \"Git\"]\nprint(\"Is Python present?\", \"Python\" in skills)",
+      "practiceTask": "Write a script that computes quotient and remainder of two numbers and checks if a target skill is in a list.",
+      "checkQuestion": {
+        "question": "What does `19 // 4` evaluate to in Python?",
+        "options": [
+          "4.75",
+          "4",
+          "5",
+          "3"
+        ],
+        "correctIndex": 1,
+        "explanation": "The `//` operator performs floor division, truncating fractional parts and returning the integer 4."
+      }
+    },
+    {
+      "id": "les_py_2_1",
+      "moduleId": "mod_py_2",
+      "courseId": "crs_python",
+      "title": "Conditionals & Branching Logic",
+      "orderIndex": 3,
+      "durationMinutes": 25,
+      "contentMarkdown": "# Control Flow with Conditionals\n\nPython uses clean indentation instead of braces to define code blocks.\n\n```python\nif condition_1:\n    # branch 1\nelif condition_2:\n    # branch 2\nelse:\n    # fallback\n```",
+      "codeExample": "def evaluate_candidate_readiness(score, cgpa):\n    if score >= 85 and cgpa >= 8.0:\n        return \"Placement Ready ✓ - High Match\"\n    elif score >= 70 and cgpa >= 7.0:\n        return \"Eligible with Minor Training\"\n    else:\n        return \"Needs Training Program\"\n\nprint(evaluate_candidate_readiness(86, 8.6))",
+      "practiceTask": "Write a function that accepts a student match percentage and returns whether they are Eligible (>=75%) or Not Yet Eligible.",
+      "checkQuestion": {
+        "question": "Which keyword in Python is used for chaining multiple conditional branches?",
+        "options": [
+          "elseif",
+          "else if",
+          "elif",
+          "elsif"
+        ],
+        "correctIndex": 2,
+        "explanation": "Python uses `elif` as shorthand for else-if conditional branching."
+      }
+    },
+    {
+      "id": "les_py_3_1",
+      "moduleId": "mod_py_3",
+      "courseId": "crs_python",
+      "title": "Python Collections: Lists, Tuples, Dictionaries & Sets",
+      "orderIndex": 4,
+      "durationMinutes": 30,
+      "contentMarkdown": "# Python Built-in Data Structures\n\n### Comparison Table:\n| Collection | Mutable | Ordered | Duplicates Allowed | Syntax |\n| :--- | :--- | :--- | :--- | :--- |\n| **List** | Yes | Yes | Yes | `[1, 2, 3]` |\n| **Tuple** | No | Yes | Yes | `(1, 2, 3)` |\n| **Dictionary** | Yes | Insertion-order | Keys: No, Values: Yes | `{'key': 'val'}` |\n| **Set** | Yes | No | No | `{1, 2, 3}` |",
+      "codeExample": "# Dictionary mapping skill to proficiency\nstudent_profile = {\n    \"name\": \"Alex Rivera\",\n    \"skills\": [\"Python\", \"SQL\", \"Git\"],\n    \"scores\": {\"Python\": 86, \"SQL\": 88}\n}\n\n# List comprehension\nhigh_demand_skills = [s for s in student_profile[\"skills\"] if s != \"None\"]\nprint(\"Candidate profile:\", student_profile)\nprint(\"Skills list:\", high_demand_skills)",
+      "practiceTask": "Create a dictionary of 3 skills and filter those with scores above 80 using a dictionary comprehension.",
+      "checkQuestion": {
+        "question": "Which of the following data structures in Python is IMMUTABLE?",
+        "options": [
+          "List",
+          "Dictionary",
+          "Tuple",
+          "Set"
+        ],
+        "correctIndex": 2,
+        "explanation": "Tuples in Python are immutable; once instantiated, their elements and length cannot be altered."
+      }
+    },
+    {
+      "id": "les_py_5_1",
+      "moduleId": "mod_py_5",
+      "courseId": "crs_python",
+      "title": "Object-Oriented Programming (OOP) in Python",
+      "orderIndex": 5,
+      "durationMinutes": 35,
+      "contentMarkdown": "# Object-Oriented Programming (OOP)\n\nMaster the 4 core pillars of OOP in Python:\n1. **Encapsulation**: Bundling state and methods within a class, using double underscore `__private` for encapsulation.\n2. **Inheritance**: Deriving specialized subclasses from base classes.\n3. **Polymorphism**: Unified interface for different underlying data types.\n4. **Abstraction**: Hiding implementation details with ABC (Abstract Base Classes).",
+      "codeExample": "class StudentCandidate:\n    def __init__(self, name: str, cgpa: float):\n        self.name = name\n        self.cgpa = cgpa\n        self._verified_skills = []\n\n    def add_verified_skill(self, skill_name: str, score: int):\n        self._verified_skills.append({\"skill\": skill_name, \"score\": score})\n\n    def get_readiness_score(self) -> int:\n        return min(100, 30 + len(self._verified_skills) * 20)\n\nalex = StudentCandidate(\"Alex Rivera\", 8.6)\nalex.add_verified_skill(\"Python\", 86)\nalex.add_verified_skill(\"SQL\", 88)\nprint(f\"Alex Readiness: {alex.get_readiness_score()}%\")",
+      "practiceTask": "Implement a `JobPosting` class with attributes `title`, `min_cgpa`, and a method `is_eligible(student)` returning boolean.",
+      "checkQuestion": {
+        "question": "What special method is invoked when an instance of a Python class is created?",
+        "options": [
+          "__create__",
+          "__init__",
+          "__new__",
+          "__construct__"
+        ],
+        "correctIndex": 1,
+        "explanation": "`__init__` is the instance initializer method in Python classes, receiving `self` along with constructor arguments."
+      }
+    }
+  ],
+  "lesson_progress": [
+    {
+      "id": "lp_std_1_les_py_1_1",
+      "studentId": "std_1",
+      "courseId": "crs_python",
+      "lessonId": "les_py_1_1",
+      "status": "completed",
+      "completedAt": "2026-08-26T10:45:03.715Z"
+    }
+  ],
+  "assessments": [
+    {
+      "id": "asm_python",
+      "skillId": "sk_python",
+      "skillName": "Python",
+      "title": "Python Core & OOP Certification Assessment",
+      "description": "Official Skill2Hire verification assessment evaluating core Python syntax, OOP, collection manipulation, and algorithmic problem solving.",
+      "targetLevel": "Intermediate",
+      "passingScore": 75,
+      "durationMinutes": 20,
+      "totalQuestions": 5,
+      "courseId": "crs_python"
+    },
+    {
+      "id": "asm_dsa",
+      "skillId": "sk_dsa",
+      "skillName": "DSA",
+      "title": "Data Structures & Algorithms Verification Assessment",
+      "description": "Evaluate algorithmic complexity, arrays, linked lists, trees, graphs, sorting, and dynamic programming problem solving.",
+      "targetLevel": "Intermediate",
+      "passingScore": 75,
+      "durationMinutes": 25,
+      "totalQuestions": 5,
+      "courseId": "crs_dsa"
+    },
+    {
+      "id": "asm_sql",
+      "skillId": "sk_sql",
+      "skillName": "SQL",
+      "title": "SQL Relational Queries & Database Verification",
+      "description": "Test relational schema querying, joins, aggregate GROUP BY filters, window functions, and indexing.",
+      "targetLevel": "Intermediate",
+      "passingScore": 75,
+      "durationMinutes": 20,
+      "totalQuestions": 5,
+      "courseId": "crs_sql"
+    },
+    {
+      "id": "asm_cpp",
+      "skillId": "sk_cpp",
+      "skillName": "C++",
+      "title": "C++ Systems & Memory Assessment",
+      "description": "Evaluate pointers, memory allocation, STL vector/map containers, and object lifetime rules.",
+      "targetLevel": "Intermediate",
+      "passingScore": 75,
+      "durationMinutes": 20,
+      "totalQuestions": 5,
+      "courseId": "crs_cpp"
+    },
+    {
+      "id": "asm_java",
+      "skillId": "sk_java",
+      "skillName": "Java",
+      "title": "Java Core & Collections Certification",
+      "description": "Evaluate JVM execution, interfaces, exception hierarchy, and concurrency primitives.",
+      "targetLevel": "Intermediate",
+      "passingScore": 75,
+      "durationMinutes": 20,
+      "totalQuestions": 5,
+      "courseId": "crs_java"
+    },
+    {
+      "id": "asm_git",
+      "skillId": "sk_git",
+      "skillName": "Git",
+      "title": "Git Version Control & Workflows",
+      "description": "Evaluate git commits, merge conflict resolution, rebasing, remotes, and pull requests.",
+      "targetLevel": "Beginner",
+      "passingScore": 75,
+      "durationMinutes": 15,
+      "totalQuestions": 5,
+      "courseId": "crs_git"
+    },
+    {
+      "id": "asm_aws",
+      "skillId": "sk_aws",
+      "skillName": "AWS",
+      "title": "AWS Cloud Fundamentals Assessment",
+      "description": "Verify understanding of EC2 compute, S3 object storage, IAM security policies, and VPC networking.",
+      "targetLevel": "Beginner",
+      "passingScore": 75,
+      "durationMinutes": 15,
+      "totalQuestions": 5,
+      "courseId": "crs_cloud"
+    },
+    {
+      "id": "asm_react",
+      "skillId": "sk_react",
+      "skillName": "React",
+      "title": "React & Component Architecture Assessment",
+      "description": "Test state hooks (useState, useEffect, useMemo), props drilling vs Context, and virtual DOM rendering.",
+      "targetLevel": "Intermediate",
+      "passingScore": 75,
+      "durationMinutes": 20,
+      "totalQuestions": 5
+    }
+  ],
+  "questions": [
+    {
+      "id": "q_py_1",
+      "assessmentId": "asm_python",
+      "questionText": "What is the time complexity of looking up a key in a standard Python dictionary (`dict`) with good hash distribution?",
+      "type": "mcq",
+      "options": [
+        "O(n)",
+        "O(log n)",
+        "O(1) average case",
+        "O(n log n)"
+      ],
+      "correctOptionIndex": 2,
+      "points": 20,
+      "explanation": "Python dictionaries are implemented as hash tables, providing O(1) average time complexity for key lookup, insertion, and deletion."
+    },
+    {
+      "id": "q_py_2",
+      "assessmentId": "asm_python",
+      "questionText": "Which keyword allows a function to yield values one by one as a memory-efficient generator instead of constructing a full list in memory?",
+      "type": "mcq",
+      "options": [
+        "return",
+        "yield",
+        "emit",
+        "generate"
+      ],
+      "correctOptionIndex": 1,
+      "points": 20,
+      "explanation": "The `yield` keyword turns a Python function into a generator iterator, emitting values lazily upon iteration."
+    },
+    {
+      "id": "q_py_3",
+      "assessmentId": "asm_python",
+      "questionText": "Examine the following code. What will be the output?\n\n```python\na = [1, 2, 3]\nb = a\nb.append(4)\nprint(len(a))\n```",
+      "type": "mcq",
+      "options": [
+        "3",
+        "4",
+        "TypeError",
+        "None"
+      ],
+      "correctOptionIndex": 1,
+      "points": 20,
+      "codeSnippet": "a = [1, 2, 3]\nb = a\nb.append(4)\nprint(len(a))",
+      "explanation": "Because lists are mutable objects, `b = a` assigns a reference to the exact same list in memory. Mutating `b` also mutates `a`."
+    },
+    {
+      "id": "q_py_4",
+      "assessmentId": "asm_python",
+      "questionText": "In Python Object-Oriented Programming, how do you call a method from the parent class inside an overridden child method?",
+      "type": "mcq",
+      "options": [
+        "parent().method()",
+        "super().method()",
+        "base.method()",
+        "this.__super__.method()"
+      ],
+      "correctOptionIndex": 1,
+      "points": 20,
+      "explanation": "The `super()` built-in proxy object delegates method calls to a parent or sibling class in the Method Resolution Order (MRO)."
+    },
+    {
+      "id": "q_py_5",
+      "assessmentId": "asm_python",
+      "questionText": "What is the output of the list comprehension `[x ** 2 for x in range(5) if x % 2 == 0]`?",
+      "type": "mcq",
+      "options": [
+        "[0, 4, 16]",
+        "[1, 9]",
+        "[0, 1, 4, 9, 16]",
+        "[4, 16]"
+      ],
+      "correctOptionIndex": 0,
+      "points": 20,
+      "explanation": "Range(5) generates [0, 1, 2, 3, 4]. The even numbers are 0, 2, 4. Their squares are 0, 4, 16."
+    },
+    {
+      "id": "q_dsa_1",
+      "assessmentId": "asm_dsa",
+      "questionText": "What is the worst-case time complexity of standard QuickSort with poor pivot selection?",
+      "type": "mcq",
+      "options": [
+        "O(n log n)",
+        "O(n^2)",
+        "O(n)",
+        "O(log n)"
+      ],
+      "correctOptionIndex": 1,
+      "points": 20,
+      "explanation": "When the pivot is consistently the smallest or largest element (e.g. sorted array without random pivot), QuickSort degrades to O(n^2)."
+    },
+    {
+      "id": "q_dsa_2",
+      "assessmentId": "asm_dsa",
+      "questionText": "Which data structure operates on a Last-In, First-Out (LIFO) order?",
+      "type": "mcq",
+      "options": [
+        "Queue",
+        "Stack",
+        "Heap",
+        "Hash Table"
+      ],
+      "correctOptionIndex": 1,
+      "points": 20,
+      "explanation": "A Stack follows the Last-In First-Out (LIFO) protocol."
+    },
+    {
+      "id": "q_dsa_3",
+      "assessmentId": "asm_dsa",
+      "questionText": "In a balanced Binary Search Tree (such as an AVL or Red-Black tree), what is the time complexity to search for an element?",
+      "type": "mcq",
+      "options": [
+        "O(1)",
+        "O(log n)",
+        "O(n)",
+        "O(n log n)"
+      ],
+      "correctOptionIndex": 1,
+      "points": 20,
+      "explanation": "A balanced BST guarantees a maximum height of O(log n), making search operations O(log n)."
+    },
+    {
+      "id": "q_dsa_4",
+      "assessmentId": "asm_dsa",
+      "questionText": "Which graph traversal algorithm uses a Queue data structure and visits nodes layer by layer?",
+      "type": "mcq",
+      "options": [
+        "Depth First Search (DFS)",
+        "Breadth First Search (BFS)",
+        "Bellman-Ford",
+        "Kruskal Algorithm"
+      ],
+      "correctOptionIndex": 1,
+      "points": 20,
+      "explanation": "BFS explores graph vertices level by level using a FIFO Queue."
+    },
+    {
+      "id": "q_dsa_5",
+      "assessmentId": "asm_dsa",
+      "questionText": "What algorithm strategy breaks a problem down into overlapping subproblems and stores previously computed results to avoid recomputation?",
+      "type": "mcq",
+      "options": [
+        "Greedy Method",
+        "Dynamic Programming (Memoization)",
+        "Divide and Conquer",
+        "Backtracking"
+      ],
+      "correctOptionIndex": 1,
+      "points": 20,
+      "explanation": "Dynamic Programming solves problems with overlapping subproblems by memoizing or tabulating intermediate subproblem results."
+    },
+    {
+      "id": "q_sql_1",
+      "assessmentId": "asm_sql",
+      "questionText": "Which SQL clause is used to filter rows AFTER an aggregate `GROUP BY` operation has taken place?",
+      "type": "mcq",
+      "options": [
+        "WHERE",
+        "HAVING",
+        "ORDER BY",
+        "FILTER"
+      ],
+      "correctOptionIndex": 1,
+      "points": 20,
+      "explanation": "`WHERE` filters rows before grouping; `HAVING` filters the aggregate groups resulting from `GROUP BY`."
+    },
+    {
+      "id": "q_sql_2",
+      "assessmentId": "asm_sql",
+      "questionText": "Which type of JOIN returns all records from the left table and matched records from the right table, filling with NULL where no match exists?",
+      "type": "mcq",
+      "options": [
+        "INNER JOIN",
+        "LEFT JOIN (LEFT OUTER JOIN)",
+        "RIGHT JOIN",
+        "CROSS JOIN"
+      ],
+      "correctOptionIndex": 1,
+      "points": 20,
+      "explanation": "LEFT JOIN returns all rows from the left table regardless of whether a matching record exists in the right table."
+    },
+    {
+      "id": "q_sql_3",
+      "assessmentId": "asm_sql",
+      "questionText": "What database structure significantly speeds up data retrieval on specified columns at the cost of additional storage and write overhead?",
+      "type": "mcq",
+      "options": [
+        "View",
+        "Trigger",
+        "Index (e.g. B-Tree)",
+        "Foreign Key"
+      ],
+      "correctOptionIndex": 2,
+      "points": 20,
+      "explanation": "Indexes (such as B-Trees) provide rapid O(log n) lookups on indexed columns."
+    },
+    {
+      "id": "q_sql_4",
+      "assessmentId": "asm_sql",
+      "questionText": "What does the \"A\" in ACID database transaction properties stand for?",
+      "type": "mcq",
+      "options": [
+        "Availability",
+        "Atomicity (All or Nothing)",
+        "Asynchronous",
+        "Authentication"
+      ],
+      "correctOptionIndex": 1,
+      "points": 20,
+      "explanation": "Atomicity guarantees that all operations within a database transaction either complete fully or are rolled back completely."
+    },
+    {
+      "id": "q_sql_5",
+      "assessmentId": "asm_sql",
+      "questionText": "Which SQL function calculates the average value of a numeric column across grouped rows?",
+      "type": "mcq",
+      "options": [
+        "MEDIAN()",
+        "SUM() / COUNT()",
+        "AVG()",
+        "MEAN()"
+      ],
+      "correctOptionIndex": 2,
+      "points": 20,
+      "explanation": "`AVG()` is the standard ANSI SQL aggregate function for computing the arithmetic mean."
+    }
+  ],
+  "assessment_results": [
+    {
+      "id": "res_1787679034870",
+      "studentId": "std_1",
+      "assessmentId": "asm_python",
+      "skillId": "sk_python",
+      "skillName": "Python",
+      "score": 20,
+      "passed": false,
+      "totalQuestions": 5,
+      "correctAnswers": 1,
+      "accuracy": 20,
+      "levelAwarded": "Intermediate",
+      "submittedAt": "2026-08-25T17:30:34.870Z"
+    },
+    {
+      "id": "res_1787721853098",
+      "studentId": "std_1",
+      "assessmentId": "asm_python",
+      "skillId": "sk_python",
+      "skillName": "Python",
+      "score": 20,
+      "passed": false,
+      "totalQuestions": 5,
+      "correctAnswers": 1,
+      "accuracy": 20,
+      "levelAwarded": "Intermediate",
+      "submittedAt": "2026-08-26T05:24:13.098Z"
+    },
+    {
+      "id": "res_1787741148362",
+      "studentId": "std_1",
+      "assessmentId": "asm_python",
+      "skillId": "sk_python",
+      "skillName": "Python",
+      "score": 40,
+      "passed": false,
+      "totalQuestions": 5,
+      "correctAnswers": 2,
+      "accuracy": 40,
+      "levelAwarded": "Intermediate",
+      "submittedAt": "2026-08-26T10:45:48.362Z"
+    }
+  ],
+  "applications": [
+    {
+      "id": "app_1787722857158_uyjh",
+      "jobId": "job_1",
+      "studentId": "std_1",
+      "companyId": "comp_1",
+      "studentName": "Alex Rivera",
+      "studentEmail": "alex.rivera@student.skill2hire.com",
+      "studentCollege": "Apex University of Engineering",
+      "jobTitle": "Software Developer",
+      "companyName": "TechNova",
+      "matchPercentage": 60,
+      "status": "Applied",
+      "notes": "Submitted via Skill2Hire verified talent pipeline",
+      "appliedAt": "2026-08-26T05:40:57.158Z",
+      "updatedAt": "2026-08-26T05:40:57.158Z"
+    }
+  ],
+  "training_programs": [
+    {
+      "id": "tp_1787624598609",
+      "collegeId": "col_1",
+      "title": "PYTHON",
+      "description": "Dedicated training program for PYTHON",
+      "durationWeeks": 8,
+      "targetSkills": [
+        "Python",
+        "DSA",
+        "SQL"
+      ],
+      "targetStudentCount": 200,
+      "enrolledStudentCount": 45,
+      "startDate": "2026-08-25",
+      "endDate": "2026-10-20",
+      "status": "active",
+      "modules": [
+        "Python Basics & Syntax",
+        "Conditions & Loops",
+        "Functions & Collections",
+        "Data Structures & Algorithms in Python",
+        "Object-Oriented Programming",
+        "File Handling & Exception Controls",
+        "Placement Coding Practice",
+        "Final Assessment"
+      ]
+    },
+    {
+      "id": "tp_1787624579117",
+      "collegeId": "col_1",
+      "title": "Industry Placement Bootcamp (Python + Git)",
+      "description": "Intensive 8-week placement training bootcamp covering practical Python OOP, Data Structures & Algorithms, and relational database queries.",
+      "durationWeeks": 8,
+      "targetSkills": [
+        "Python",
+        "Git"
+      ],
+      "targetStudentCount": 200,
+      "enrolledStudentCount": 45,
+      "startDate": "2026-08-25",
+      "endDate": "2026-10-20",
+      "status": "active",
+      "modules": [
+        "Python Basics & Syntax",
+        "Conditions & Loops",
+        "Functions & Collections",
+        "Data Structures & Algorithms in Python",
+        "Object-Oriented Programming",
+        "File Handling & Exception Controls",
+        "Placement Coding Practice",
+        "Final Assessment"
+      ]
+    }
+  ],
+  "training_enrollments": [],
+  "college_curriculum": [
+    {
+      "id": "curr_1",
+      "collegeId": "col_1",
+      "department": "Computer Science",
+      "subjectName": "Introduction to C Programming",
+      "semester": 1,
+      "coveredSkills": [
+        "C"
+      ],
+      "coverageLevel": "High"
+    },
+    {
+      "id": "curr_2",
+      "collegeId": "col_1",
+      "department": "Computer Science",
+      "subjectName": "Data Structures & Algorithms in C/C++",
+      "semester": 2,
+      "coveredSkills": [
+        "DSA",
+        "C++"
+      ],
+      "coverageLevel": "Medium"
+    },
+    {
+      "id": "curr_3",
+      "collegeId": "col_1",
+      "department": "Computer Science",
+      "subjectName": "Database Management Systems (DBMS)",
+      "semester": 3,
+      "coveredSkills": [
+        "SQL"
+      ],
+      "coverageLevel": "Medium"
+    },
+    {
+      "id": "curr_4",
+      "collegeId": "col_1",
+      "department": "Computer Science",
+      "subjectName": "Object-Oriented Programming with Java",
+      "semester": 4,
+      "coveredSkills": [
+        "Java",
+        "OOP"
+      ],
+      "coverageLevel": "High"
+    },
+    {
+      "id": "curr_5",
+      "collegeId": "col_1",
+      "department": "Computer Science",
+      "subjectName": "Operating Systems & Linux Basics",
+      "semester": 5,
+      "coveredSkills": [
+        "Linux CLI"
+      ],
+      "coverageLevel": "Medium"
+    },
+    {
+      "id": "curr_6",
+      "collegeId": "col_1",
+      "department": "Computer Science",
+      "subjectName": "Computer Networks & Protocols",
+      "semester": 6,
+      "coveredSkills": [
+        "Networking"
+      ],
+      "coverageLevel": "High"
+    }
+  ],
+  "industry_skill_demand": [],
+  "notifications": [
+    {
+      "id": "notif_1787722857160_student",
+      "userId": "u_student_1",
+      "role": "student",
+      "title": "Application Submitted: Software Developer",
+      "message": "Your application to TechNova has been received with a verified match score of 60%.",
+      "type": "success",
+      "link": "/student/applications",
+      "read": false,
+      "createdAt": "2026-08-26T05:40:57.160Z"
+    },
+    {
+      "id": "notif_1787722857159_recruiter",
+      "userId": "u_comp_1",
+      "role": "company",
+      "title": "New Verified Applicant for Software Developer",
+      "message": "Alex Rivera (Apex University of Engineering) applied with a 60% match score.",
+      "type": "success",
+      "link": "/recruiter/applications",
+      "read": false,
+      "createdAt": "2026-08-26T05:40:57.159Z"
+    },
+    {
+      "id": "notif_1787624705484_col_5",
+      "userId": "u_col_5",
+      "role": "college",
+      "title": "New Job Opportunity: Software Developer",
+      "message": "TechNova published Software Developer hiring for 8 positions.",
+      "type": "info",
+      "link": "/college/industry-demand",
+      "read": false,
+      "createdAt": "2026-08-25T02:25:05.484Z"
+    },
+    {
+      "id": "notif_1787624705483_col_4",
+      "userId": "u_col_4",
+      "role": "college",
+      "title": "New Job Opportunity: Software Developer",
+      "message": "TechNova published Software Developer hiring for 8 positions.",
+      "type": "info",
+      "link": "/college/industry-demand",
+      "read": false,
+      "createdAt": "2026-08-25T02:25:05.483Z"
+    },
+    {
+      "id": "notif_1787624705483_col_3",
+      "userId": "u_col_3",
+      "role": "college",
+      "title": "New Job Opportunity: Software Developer",
+      "message": "TechNova published Software Developer hiring for 8 positions.",
+      "type": "info",
+      "link": "/college/industry-demand",
+      "read": false,
+      "createdAt": "2026-08-25T02:25:05.483Z"
+    },
+    {
+      "id": "notif_1787624705482_col_2",
+      "userId": "u_col_2",
+      "role": "college",
+      "title": "New Job Opportunity: Software Developer",
+      "message": "TechNova published Software Developer hiring for 8 positions.",
+      "type": "info",
+      "link": "/college/industry-demand",
+      "read": false,
+      "createdAt": "2026-08-25T02:25:05.482Z"
+    },
+    {
+      "id": "notif_1787624705481_col_1",
+      "userId": "u_col_1",
+      "role": "college",
+      "title": "New Job Opportunity: Software Developer",
+      "message": "TechNova published Software Developer hiring for 8 positions.",
+      "type": "info",
+      "link": "/college/industry-demand",
+      "read": false,
+      "createdAt": "2026-08-25T02:25:05.481Z"
+    },
+    {
+      "id": "notif_1787624598617_std_10",
+      "userId": "u_std_10",
+      "role": "student",
+      "title": "New Training Program: PYTHON",
+      "message": "Your college has launched PYTHON (8 weeks) to bridge industry skill gaps.",
+      "type": "info",
+      "link": "/student/skills",
+      "read": false,
+      "createdAt": "2026-08-25T02:23:18.617Z"
+    },
+    {
+      "id": "notif_1787624598616_std_8",
+      "userId": "u_std_8",
+      "role": "student",
+      "title": "New Training Program: PYTHON",
+      "message": "Your college has launched PYTHON (8 weeks) to bridge industry skill gaps.",
+      "type": "info",
+      "link": "/student/skills",
+      "read": false,
+      "createdAt": "2026-08-25T02:23:18.616Z"
+    },
+    {
+      "id": "notif_1787624598614_std_6",
+      "userId": "u_std_6",
+      "role": "student",
+      "title": "New Training Program: PYTHON",
+      "message": "Your college has launched PYTHON (8 weeks) to bridge industry skill gaps.",
+      "type": "info",
+      "link": "/student/skills",
+      "read": false,
+      "createdAt": "2026-08-25T02:23:18.614Z"
+    },
+    {
+      "id": "notif_1787624598612_std_2",
+      "userId": "u_student_2",
+      "role": "student",
+      "title": "New Training Program: PYTHON",
+      "message": "Your college has launched PYTHON (8 weeks) to bridge industry skill gaps.",
+      "type": "info",
+      "link": "/student/skills",
+      "read": false,
+      "createdAt": "2026-08-25T02:23:18.612Z"
+    },
+    {
+      "id": "notif_1787624598611_std_1",
+      "userId": "u_student_1",
+      "role": "student",
+      "title": "New Training Program: PYTHON",
+      "message": "Your college has launched PYTHON (8 weeks) to bridge industry skill gaps.",
+      "type": "info",
+      "link": "/student/skills",
+      "read": false,
+      "createdAt": "2026-08-25T02:23:18.611Z"
+    },
+    {
+      "id": "notif_1787624579123_std_10",
+      "userId": "u_std_10",
+      "role": "student",
+      "title": "New Training Program: Industry Placement Bootcamp (Python + Git)",
+      "message": "Your college has launched Industry Placement Bootcamp (Python + Git) (8 weeks) to bridge industry skill gaps.",
+      "type": "info",
+      "link": "/student/skills",
+      "read": false,
+      "createdAt": "2026-08-25T02:22:59.123Z"
+    },
+    {
+      "id": "notif_1787624579123_std_8",
+      "userId": "u_std_8",
+      "role": "student",
+      "title": "New Training Program: Industry Placement Bootcamp (Python + Git)",
+      "message": "Your college has launched Industry Placement Bootcamp (Python + Git) (8 weeks) to bridge industry skill gaps.",
+      "type": "info",
+      "link": "/student/skills",
+      "read": false,
+      "createdAt": "2026-08-25T02:22:59.123Z"
+    },
+    {
+      "id": "notif_1787624579122_std_6",
+      "userId": "u_std_6",
+      "role": "student",
+      "title": "New Training Program: Industry Placement Bootcamp (Python + Git)",
+      "message": "Your college has launched Industry Placement Bootcamp (Python + Git) (8 weeks) to bridge industry skill gaps.",
+      "type": "info",
+      "link": "/student/skills",
+      "read": false,
+      "createdAt": "2026-08-25T02:22:59.122Z"
+    },
+    {
+      "id": "notif_1787624579121_std_2",
+      "userId": "u_student_2",
+      "role": "student",
+      "title": "New Training Program: Industry Placement Bootcamp (Python + Git)",
+      "message": "Your college has launched Industry Placement Bootcamp (Python + Git) (8 weeks) to bridge industry skill gaps.",
+      "type": "info",
+      "link": "/student/skills",
+      "read": false,
+      "createdAt": "2026-08-25T02:22:59.121Z"
+    },
+    {
+      "id": "notif_1787624579121_std_1",
+      "userId": "u_student_1",
+      "role": "student",
+      "title": "New Training Program: Industry Placement Bootcamp (Python + Git)",
+      "message": "Your college has launched Industry Placement Bootcamp (Python + Git) (8 weeks) to bridge industry skill gaps.",
+      "type": "info",
+      "link": "/student/skills",
+      "read": false,
+      "createdAt": "2026-08-25T02:22:59.121Z"
+    },
+    {
+      "id": "notif_1",
+      "userId": "u_student_1",
+      "role": "student",
+      "title": "Placement Readiness Update",
+      "message": "You have completed SQL verification! Complete Python and DSA assessments to reach 90%+ readiness for TechNova Software Developer openings.",
+      "type": "info",
+      "link": "/jobs/job_1",
+      "read": false,
+      "createdAt": "2026-02-15T10:00:00Z"
+    },
+    {
+      "id": "notif_2",
+      "userId": "u_col_1",
+      "role": "college",
+      "title": "Industry Skill Gap Alert",
+      "message": "87% of active hiring companies require Python & Cloud skills. Apex University CS syllabus currently has a critical gap in practical Python and Cloud training.",
+      "type": "alert",
+      "link": "/college/curriculum-gap",
+      "read": false,
+      "createdAt": "2026-02-14T09:00:00Z"
+    },
+    {
+      "id": "notif_3",
+      "userId": "u_comp_1",
+      "role": "company",
+      "title": "New Candidate Matches",
+      "message": "14 candidates from Apex University and Stanford Tech match your Software Developer opening with verified skill passports.",
+      "type": "success",
+      "link": "/recruiter/candidates",
+      "read": false,
+      "createdAt": "2026-02-15T11:30:00Z"
+    }
+  ],
+  "certificates": [
+    {
+      "id": "cert_1",
+      "certificateNumber": "CERT-SQL-8821",
+      "studentId": "std_1",
+      "studentName": "Alex Rivera",
+      "skillOrCourseName": "SQL Relational Queries",
+      "type": "skill",
+      "level": "Intermediate",
+      "score": 88,
+      "issuedDate": "2026-02-01",
+      "verificationUrl": "/verify/CERT-SQL-8821"
+    }
+  ],
+  "projects": [
+    {
+      "id": "proj_1",
+      "studentId": "std_1",
+      "title": "Distributed Task Queue & Cache Manager",
+      "description": "High-throughput async job processor built with Python, Redis, and PostgreSQL with automatic retries and dead-letter queueing.",
+      "technologies": [
+        "Python",
+        "SQL",
+        "Redis",
+        "Docker"
+      ],
+      "githubUrl": "https://github.com/alexrivera/distributed-queue",
+      "verified": true
+    },
+    {
+      "id": "proj_2",
+      "studentId": "std_1",
+      "title": "Campus Food Delivery Logistics Engine",
+      "description": "Interactive order tracking and delivery dispatch system utilizing Dijkstra shortest path algorithms.",
+      "technologies": [
+        "React",
+        "Node.js",
+        "DSA",
+        "SQL"
+      ],
+      "githubUrl": "https://github.com/alexrivera/campus-dispatch",
+      "verified": true
+    }
+  ],
+  "career_paths": [
+    {
+      "id": "cp_sw_dev",
+      "title": "Full Stack Software Developer",
+      "description": "Architect web applications, backend APIs, distributed microservices, and database layers.",
+      "targetRole": "Software Developer",
+      "requiredSkills": [
+        {
+          "skill": "Python",
+          "level": "Intermediate"
+        },
+        {
+          "skill": "DSA",
+          "level": "Intermediate"
+        },
+        {
+          "skill": "SQL",
+          "level": "Intermediate"
+        },
+        {
+          "skill": "Git",
+          "level": "Beginner"
+        },
+        {
+          "skill": "AWS",
+          "level": "Beginner"
+        }
+      ],
+      "recommendedCourses": [
+        "Python Fundamentals & OOP for Placement",
+        "Data Structures & Algorithms Masterclass",
+        "SQL & Relational Database Architecture",
+        "Git & GitHub Collaboration Essentials"
+      ],
+      "recommendedProjects": [
+        "High-Throughput Distributed Task Queue",
+        "Campus Food Delivery Logistics Engine"
+      ],
+      "matchOpportunities": 18
+    },
+    {
+      "id": "cp_data_analyst",
+      "title": "Data Analyst & ML Specialist",
+      "description": "Transform raw data into strategic insights, analytical models, and automated reporting systems.",
+      "targetRole": "Data Analyst",
+      "requiredSkills": [
+        {
+          "skill": "Python",
+          "level": "Intermediate"
+        },
+        {
+          "skill": "SQL",
+          "level": "Intermediate"
+        },
+        {
+          "skill": "Pandas & NumPy",
+          "level": "Intermediate"
+        },
+        {
+          "skill": "AI/ML",
+          "level": "Beginner"
+        },
+        {
+          "skill": "Aptitude & Problem Solving",
+          "level": "Intermediate"
+        }
+      ],
+      "recommendedCourses": [
+        "Python Fundamentals & OOP for Placement",
+        "SQL & Relational Database Architecture",
+        "Quantitative & Logical Aptitude for Placement"
+      ],
+      "recommendedProjects": [
+        "E-Commerce Predictive Customer Churn & Analytics",
+        "Financial Transaction Stream Analyzer"
+      ],
+      "matchOpportunities": 12
+    },
+    {
+      "id": "cp_cloud_devops",
+      "title": "Cloud & DevOps Engineer",
+      "description": "Automate continuous integration, Kubernetes clusters, and multi-region cloud infrastructure.",
+      "targetRole": "Cloud DevOps Associate",
+      "requiredSkills": [
+        {
+          "skill": "AWS",
+          "level": "Intermediate"
+        },
+        {
+          "skill": "Docker",
+          "level": "Intermediate"
+        },
+        {
+          "skill": "Linux CLI",
+          "level": "Intermediate"
+        },
+        {
+          "skill": "Git",
+          "level": "Intermediate"
+        }
+      ],
+      "recommendedCourses": [
+        "Cloud Fundamentals (AWS & Cloud Architecture)",
+        "Git & GitHub Collaboration Essentials"
+      ],
+      "recommendedProjects": [
+        "Cloud-Native Container Orchestration & CI/CD Pipeline",
+        "Multi-Region High-Availability VPC"
+      ],
+      "matchOpportunities": 9
+    }
+  ],
+  "placement_drives": [
+    {
+      "id": "drv_1",
+      "companyId": "comp_1",
+      "collegeId": "col_1",
+      "companyName": "TechNova",
+      "collegeName": "Apex University of Engineering",
+      "title": "TechNova 2026 Campus Placement Drive",
+      "date": "2026-09-15",
+      "venue": "Main Auditorium & Virtual Assessment Lab",
+      "minCgpa": 7.5,
+      "eligibleDepartments": [
+        "Computer Science",
+        "Information Technology",
+        "Software Engineering"
+      ],
+      "status": "scheduled"
+    },
+    {
+      "id": "drv_2",
+      "companyId": "comp_2",
+      "collegeId": "col_1",
+      "companyName": "InnoSoft",
+      "collegeName": "Apex University of Engineering",
+      "title": "InnoSoft AI & Data Hiring Drive",
+      "date": "2026-09-22",
+      "venue": "CS Department Placement Complex",
+      "minCgpa": 7.8,
+      "eligibleDepartments": [
+        "Computer Science",
+        "Data Science",
+        "IT"
+      ],
+      "status": "scheduled"
+    }
+  ],
+  "coding_problems": [
+    {
+      "id": "code_1",
+      "title": "Two Sum Problem",
+      "difficulty": "Easy",
+      "topic": "Arrays",
+      "description": "Given an array of integers `nums` and an integer `target`, return indices of the two numbers such that they add up to `target`. Each input has exactly one solution, and you may not use the same element twice.",
+      "initialCode": {
+        "python": "def twoSum(nums: list[int], target: int) -> list[int]:\n    # Write your solution here\n    seen = {}\n    for i, num in enumerate(nums):\n        complement = target - num\n        if complement in seen:\n            return [seen[complement], i]\n        seen[num] = i\n    return []",
+        "javascript": "function twoSum(nums, target) {\n    const seen = new Map();\n    for (let i = 0; i < nums.length; i++) {\n        const complement = target - nums[i];\n        if (seen.has(complement)) return [seen.get(complement), i];\n        seen.set(nums[i], i);\n    }\n    return [];\n}",
+        "cpp": "vector<int> twoSum(vector<int>& nums, int target) {\n    unordered_map<int, int> seen;\n    for (int i = 0; i < nums.size(); i++) {\n        int comp = target - nums[i];\n        if (seen.count(comp)) return {seen[comp], i};\n        seen[nums[i]] = i;\n    }\n    return {};\n}"
+      },
+      "testCases": [
+        {
+          "input": "nums = [2,7,11,15], target = 9",
+          "expectedOutput": "[0, 1]"
+        },
+        {
+          "input": "nums = [3,2,4], target = 6",
+          "expectedOutput": "[1, 2]"
+        },
+        {
+          "input": "nums = [3,3], target = 6",
+          "expectedOutput": "[0, 1]"
+        }
+      ],
+      "hints": [
+        "Use a hash map to look up the complement in O(1) time.",
+        "Iterate through the array once."
+      ],
+      "recommendedForSkills": [
+        "Python",
+        "DSA",
+        "C++"
+      ]
+    },
+    {
+      "id": "code_2",
+      "title": "Valid Parentheses",
+      "difficulty": "Easy",
+      "topic": "Strings",
+      "description": "Given a string `s` containing just the characters `(`, `)`, `{`, `}`, `[` and `]`, determine if the input string is valid. Brackets must close in the correct order and open brackets must be closed by the same type.",
+      "initialCode": {
+        "python": "def isValid(s: str) -> bool:\n    stack = []\n    mapping = {\")\": \"(\", \"}\": \"{\", \"]\": \"[\"}\n    for char in s:\n        if char in mapping:\n            if not stack or stack.pop() != mapping[char]:\n                return False\n        else:\n            stack.append(char)\n    return not stack",
+        "javascript": "function isValid(s) {\n    const stack = [];\n    const map = { \")\": \"(\", \"}\": \"{\", \"]\": \"[\" };\n    for (const c of s) {\n        if (map[c]) {\n            if (stack.pop() !== map[c]) return false;\n        } else {\n            stack.push(c);\n        }\n    }\n    return stack.length === 0;\n}",
+        "cpp": "bool isValid(string s) {\n    stack<char> st;\n    for (char c : s) {\n        if (c == '(' || c == '{' || c == '[') st.push(c);\n        else {\n            if (st.empty()) return false;\n            if (c == ')' && st.top() != '(') return false;\n            if (c == '}' && st.top() != '{') return false;\n            if (c == ']' && st.top() != '[') return false;\n            st.pop();\n        }\n    }\n    return st.empty();\n}"
+      },
+      "testCases": [
+        {
+          "input": "s = \"()\"",
+          "expectedOutput": "true"
+        },
+        {
+          "input": "s = \"()[]{}\"",
+          "expectedOutput": "true"
+        },
+        {
+          "input": "s = \"(]\"",
+          "expectedOutput": "false"
+        }
+      ],
+      "hints": [
+        "Use a LIFO Stack data structure.",
+        "Push opening brackets, pop on closing brackets."
+      ],
+      "recommendedForSkills": [
+        "DSA",
+        "Python",
+        "Java"
+      ]
+    },
+    {
+      "id": "code_3",
+      "title": "Maximum Subarray (Kadane Algorithm)",
+      "difficulty": "Medium",
+      "topic": "Dynamic Programming",
+      "description": "Given an integer array `nums`, find the subarray with the largest sum, and return its sum in O(n) linear time.",
+      "initialCode": {
+        "python": "def maxSubArray(nums: list[int]) -> int:\n    max_sum = current_sum = nums[0]\n    for x in nums[1:]:\n        current_sum = max(x, current_sum + x)\n        max_sum = max(max_sum, current_sum)\n    return max_sum",
+        "javascript": "function maxSubArray(nums) {\n    let max = nums[0], curr = nums[0];\n    for (let i = 1; i < nums.length; i++) {\n        curr = Math.max(nums[i], curr + nums[i]);\n        max = Math.max(max, curr);\n    }\n    return max;\n}",
+        "cpp": "int maxSubArray(vector<int>& nums) {\n    int max_sum = nums[0], curr = nums[0];\n    for (int i = 1; i < nums.size(); i++) {\n        curr = max(nums[i], curr + nums[i]);\n        max_sum = max(max_sum, curr);\n    }\n    return max_sum;\n}"
+      },
+      "testCases": [
+        {
+          "input": "nums = [-2,1,-3,4,-1,2,1,-5,4]",
+          "expectedOutput": "6"
+        },
+        {
+          "input": "nums = [1]",
+          "expectedOutput": "1"
+        },
+        {
+          "input": "nums = [5,4,-1,7,8]",
+          "expectedOutput": "23"
+        }
+      ],
+      "hints": [
+        "Kadane Algorithm maintains current running sum.",
+        "Reset sum if current number is greater than running sum."
+      ],
+      "recommendedForSkills": [
+        "DSA",
+        "Python",
+        "C++"
+      ]
+    },
+    {
+      "id": "code_4",
+      "title": "Binary Tree Inorder Traversal",
+      "difficulty": "Medium",
+      "topic": "Trees",
+      "description": "Given the root of a binary tree, return the inorder traversal of its nodes values (Left → Root → Right).",
+      "initialCode": {
+        "python": "def inorderTraversal(root):\n    res = []\n    def helper(node):\n        if not node: return\n        helper(node.left)\n        res.append(node.val)\n        helper(node.right)\n    helper(root)\n    return res",
+        "javascript": "function inorderTraversal(root) {\n    const res = [];\n    function traverse(node) {\n        if (!node) return;\n        traverse(node.left);\n        res.push(node.val);\n        traverse(node.right);\n    }\n    traverse(root);\n    return res;\n}",
+        "cpp": "vector<int> inorderTraversal(TreeNode* root) {\n    vector<int> res;\n    // DFS Inorder logic\n    return res;\n}"
+      },
+      "testCases": [
+        {
+          "input": "root = [1,null,2,3]",
+          "expectedOutput": "[1, 3, 2]"
+        },
+        {
+          "input": "root = []",
+          "expectedOutput": "[]"
+        },
+        {
+          "input": "root = [1]",
+          "expectedOutput": "[1]"
+        }
+      ],
+      "hints": [
+        "Recursion makes tree traversals elegant and clean.",
+        "Inorder visits Left subtree, then current node, then Right subtree."
+      ],
+      "recommendedForSkills": [
+        "DSA",
+        "Java",
+        "C++"
+      ]
+    }
+  ],
+  "coding_attempts": [
+    {
+      "id": "catt_1787742344754",
+      "studentId": "std_1",
+      "problemId": "code_1",
+      "problemTitle": "Two Sum Problem",
+      "topic": "Arrays",
+      "language": "python",
+      "code": "printf(\"hello\");",
+      "status": "Failed",
+      "accuracy": 33,
+      "executionTimeMs": 54,
+      "submittedAt": "2026-08-26T11:05:44.754Z"
+    },
+    {
+      "id": "catt_1787742313558",
+      "studentId": "std_1",
+      "problemId": "code_1",
+      "problemTitle": "Two Sum Problem",
+      "topic": "Arrays",
+      "language": "python",
+      "code": "def twoSum(nums: list[int], target: int) -> list[int]:\n    # Write your solution here\n    seen = {}\n    for i, num in enumerate(nums):\n        complement = target - num\n        if complement in seen:\n            return [seen[complement], i]\n        seen[num] = i\n    return []",
+      "status": "Solved ✓",
+      "accuracy": 100,
+      "executionTimeMs": 48,
+      "submittedAt": "2026-08-26T11:05:13.558Z"
+    }
+  ],
+  "interview_questions": [
+    {
+      "id": "iq_1",
+      "targetRole": "Software Developer",
+      "skillName": "Python",
+      "category": "Technical",
+      "difficulty": "Intermediate",
+      "question": "Explain how memory management and garbage collection work in Python. What is the difference between reference counting and the cyclic garbage collector?",
+      "sampleStrongAnswer": "Python manages memory primarily through reference counting. Every object has an internal reference counter that increments when assigned and decrements when dereferenced. When it drops to zero, the object is instantly deallocated. For cyclic references (where object A points to B and B points to A), Python has a generational cyclic garbage collector (Generations 0, 1, 2) that detects unreachable reference cycles.",
+      "keyEvaluationCriteria": [
+        "Reference counting mechanism",
+        "Cyclic reference handling",
+        "Generational GC (Gen 0, 1, 2)",
+        "Memory efficiency"
+      ]
+    },
+    {
+      "id": "iq_2",
+      "targetRole": "Software Developer",
+      "skillName": "DSA",
+      "category": "Technical",
+      "difficulty": "Intermediate",
+      "question": "How would you design a LRU (Least Recently Used) Cache with O(1) Get and O(1) Put operations? What data structures would you combine and why?",
+      "sampleStrongAnswer": "To achieve O(1) for both lookup and insertion/eviction, I combine a Hash Map and a Doubly Linked List. The Hash Map stores key-to-node references for O(1) access. The Doubly Linked List maintains access recency order with dummy Head and Tail nodes, allowing O(1) removal and moving accessed nodes to the front.",
+      "keyEvaluationCriteria": [
+        "Hash map + Doubly Linked List combination",
+        "O(1) time complexity explanation",
+        "Handling capacity evictions from tail",
+        "Clean state transitions"
+      ]
+    },
+    {
+      "id": "iq_3",
+      "targetRole": "Software Developer",
+      "skillName": "SQL",
+      "category": "Technical",
+      "difficulty": "Intermediate",
+      "question": "What is the difference between clustered and non-clustered indexes in relational databases, and how do database transactions guarantee ACID properties?",
+      "sampleStrongAnswer": "A clustered index physically alters the order in which data is stored on disk (one per table, usually the Primary Key). A non-clustered index is a separate B-Tree structure storing column keys with pointers to the actual row data. ACID is maintained via Write-Ahead Logging (WAL) for Atomicity & Durability, locks/MVCC for Isolation, and constraints for Consistency.",
+      "keyEvaluationCriteria": [
+        "Physical ordering vs logical pointer B-tree",
+        "Primary key relationship",
+        "WAL logging for Durability",
+        "MVCC / Locking for Isolation"
+      ]
+    },
+    {
+      "id": "iq_4",
+      "targetRole": "Software Developer",
+      "skillName": "Soft Skills",
+      "category": "Behavioral",
+      "difficulty": "Intermediate",
+      "question": "Tell me about a time you encountered a severe bug or production issue right before a deadline. How did you diagnose, resolve, and communicate it?",
+      "sampleStrongAnswer": "Using the STAR method: In our campus logistics project right before demo day, the dispatch route calculations were freezing due to an unhandled infinite loop in cyclic graph traversal. I isolated the bug using logging telemetry, implemented a visited set to detect cycles, wrote automated regression tests, and communicated the fix proactively to the team with 2 hours to spare.",
+      "keyEvaluationCriteria": [
+        "STAR methodology",
+        "Problem isolation & root cause analysis",
+        "Testing & validation",
+        "Communication & composure under pressure"
+      ]
+    }
+  ],
+  "interview_evaluations": [
+    {
+      "id": "ieval_1787742060179",
+      "studentId": "std_1",
+      "questionId": "iq_1",
+      "questionText": "Explain how memory management and garbage collection work in Python. What is the difference between reference counting and the cyclic garbage collector?",
+      "category": "Technical",
+      "answerText": "garbage",
+      "overallScore": 71,
+      "criteriaScores": {
+        "technicalCorrectness": 65,
+        "relevance": 80,
+        "structure": 60,
+        "communication": 80
+      },
+      "feedback": {
+        "strengths": [
+          "Good baseline understanding of the question premise."
+        ],
+        "improvements": [
+          "Include specific internal mechanisms (e.g. data structure names, time complexities, or system guarantees).",
+          "Elaborate further with real-world examples and trade-off analysis."
+        ],
+        "suggestedRefinement": "Tip: State the high-level concept first, break down the component details, and conclude with performance or operational trade-offs."
+      },
+      "submittedAt": "2026-08-26T11:01:00.179Z"
+    }
+  ],
+  "resume_analyses": [
+    {
+      "studentId": "std_1",
+      "jobId": "job_1787624705478",
+      "jobTitle": "Software Developer",
+      "resumeMatchScore": 20,
+      "matchedSkills": [
+        "Python"
+      ],
+      "missingSkills": [
+        "DSA",
+        "SQL",
+        "Git",
+        "AWS"
+      ],
+      "weakEvidenceSkills": [
+        {
+          "skill": "DSA",
+          "observation": "Your resume does not explicitly demonstrate hands-on production usage or projects using DSA.",
+          "recommendation": "Add a capstone project or lab demonstration highlighting DSA to strengthen your applicant profile."
+        },
+        {
+          "skill": "SQL",
+          "observation": "Your resume does not explicitly demonstrate hands-on production usage or projects using SQL.",
+          "recommendation": "Add a capstone project or lab demonstration highlighting SQL to strengthen your applicant profile."
+        },
+        {
+          "skill": "Git",
+          "observation": "Your resume does not explicitly demonstrate hands-on production usage or projects using Git.",
+          "recommendation": "Add a capstone project or lab demonstration highlighting Git to strengthen your applicant profile."
+        },
+        {
+          "skill": "AWS",
+          "observation": "Your resume does not explicitly demonstrate hands-on production usage or projects using AWS.",
+          "recommendation": "Add a capstone project or lab demonstration highlighting AWS to strengthen your applicant profile."
+        }
+      ],
+      "projectRecommendations": [
+        {
+          "title": "Distributed Software Developer Service Architecture",
+          "description": "High-scale backend service incorporating DSA + SQL + Git + AWS with automated CI/CD and unit testing.",
+          "targetTechnologies": [
+            "DSA",
+            "SQL",
+            "Git",
+            "AWS"
+          ],
+          "strengthensAreas": "Provides tangible proof-of-work for DSA, SQL, Git, AWS."
+        }
+      ],
+      "resumeStrengths": [
+        "Strong educational foundation with relevant engineering coursework.",
+        "Clear project descriptions detailing outcomes and technologies."
+      ],
+      "actionableFeedback": [
+        "Incorporate DSA, SQL, Git, AWS into your technical skills section and project bullet points.",
+        "Quantify your project outcomes with metrics (e.g. \"improved query latency by 40%\")."
+      ]
+    },
+    {
+      "studentId": "std_1",
+      "jobId": "job_3",
+      "jobTitle": "Cloud DevOps Associate",
+      "resumeMatchScore": 0,
+      "matchedSkills": [],
+      "missingSkills": [
+        "AWS",
+        "Docker",
+        "Linux CLI",
+        "Git"
+      ],
+      "weakEvidenceSkills": [
+        {
+          "skill": "AWS",
+          "observation": "Your resume does not explicitly demonstrate hands-on production usage or projects using AWS.",
+          "recommendation": "Add a capstone project or lab demonstration highlighting AWS to strengthen your applicant profile."
+        },
+        {
+          "skill": "Docker",
+          "observation": "Your resume does not explicitly demonstrate hands-on production usage or projects using Docker.",
+          "recommendation": "Add a capstone project or lab demonstration highlighting Docker to strengthen your applicant profile."
+        },
+        {
+          "skill": "Linux CLI",
+          "observation": "Your resume does not explicitly demonstrate hands-on production usage or projects using Linux CLI.",
+          "recommendation": "Add a capstone project or lab demonstration highlighting Linux CLI to strengthen your applicant profile."
+        },
+        {
+          "skill": "Git",
+          "observation": "Your resume does not explicitly demonstrate hands-on production usage or projects using Git.",
+          "recommendation": "Add a capstone project or lab demonstration highlighting Git to strengthen your applicant profile."
+        }
+      ],
+      "projectRecommendations": [
+        {
+          "title": "Distributed Cloud DevOps Associate Service Architecture",
+          "description": "High-scale backend service incorporating AWS + Docker + Linux CLI + Git with automated CI/CD and unit testing.",
+          "targetTechnologies": [
+            "AWS",
+            "Docker",
+            "Linux CLI",
+            "Git"
+          ],
+          "strengthensAreas": "Provides tangible proof-of-work for AWS, Docker, Linux CLI, Git."
+        }
+      ],
+      "resumeStrengths": [
+        "Strong educational foundation with relevant engineering coursework.",
+        "Clear project descriptions detailing outcomes and technologies."
+      ],
+      "actionableFeedback": [
+        "Incorporate AWS, Docker, Linux CLI, Git into your technical skills section and project bullet points.",
+        "Quantify your project outcomes with metrics (e.g. \"improved query latency by 40%\")."
+      ]
+    },
+    {
+      "studentId": "std_1",
+      "jobId": "job_1",
+      "jobTitle": "Software Developer",
+      "resumeMatchScore": 33,
+      "matchedSkills": [
+        "Python",
+        "Git"
+      ],
+      "missingSkills": [
+        "C++",
+        "DSA",
+        "SQL",
+        "AWS"
+      ],
+      "weakEvidenceSkills": [
+        {
+          "skill": "C++",
+          "observation": "Your resume does not explicitly demonstrate hands-on production usage or projects using C++.",
+          "recommendation": "Add a capstone project or lab demonstration highlighting C++ to strengthen your applicant profile."
+        },
+        {
+          "skill": "DSA",
+          "observation": "Your resume does not explicitly demonstrate hands-on production usage or projects using DSA.",
+          "recommendation": "Add a capstone project or lab demonstration highlighting DSA to strengthen your applicant profile."
+        },
+        {
+          "skill": "SQL",
+          "observation": "Your resume does not explicitly demonstrate hands-on production usage or projects using SQL.",
+          "recommendation": "Add a capstone project or lab demonstration highlighting SQL to strengthen your applicant profile."
+        },
+        {
+          "skill": "AWS",
+          "observation": "Your resume does not explicitly demonstrate hands-on production usage or projects using AWS.",
+          "recommendation": "Add a capstone project or lab demonstration highlighting AWS to strengthen your applicant profile."
+        }
+      ],
+      "projectRecommendations": [
+        {
+          "title": "Distributed Software Developer Service Architecture",
+          "description": "High-scale backend service incorporating C++ + DSA + SQL + AWS with automated CI/CD and unit testing.",
+          "targetTechnologies": [
+            "C++",
+            "DSA",
+            "SQL",
+            "AWS"
+          ],
+          "strengthensAreas": "Provides tangible proof-of-work for C++, DSA, SQL, AWS."
+        }
+      ],
+      "resumeStrengths": [
+        "Strong educational foundation with relevant engineering coursework.",
+        "Clear project descriptions detailing outcomes and technologies."
+      ],
+      "actionableFeedback": [
+        "Incorporate C++, DSA, SQL, AWS into your technical skills section and project bullet points.",
+        "Quantify your project outcomes with metrics (e.g. \"improved query latency by 40%\")."
+      ]
+    }
+  ],
+  "company_demand_signals": [
+    {
+      "id": "ds_1",
+      "companyId": "comp_1",
+      "companyName": "TechNova",
+      "targetRole": "Software Developer",
+      "requiredSkills": [
+        {
+          "skill": "Python",
+          "level": "Intermediate"
+        },
+        {
+          "skill": "DSA",
+          "level": "Intermediate"
+        },
+        {
+          "skill": "SQL",
+          "level": "Intermediate"
+        },
+        {
+          "skill": "AWS",
+          "level": "Beginner"
+        }
+      ],
+      "expectedHiringCount": 25,
+      "targetBatchYear": 2026,
+      "targetGraduationDate": "May 2026",
+      "minCgpa": 7.5,
+      "offeredSalaryBand": "$95,000 - $125,000 / year",
+      "status": "active",
+      "postedAt": "2026-02-15T09:00:00Z",
+      "messageToColleges": "TechNova is actively looking for 25 verified Python + DSA graduates from Apex University and Stanford Tech for our fall engineering rotation."
+    },
+    {
+      "id": "ds_2",
+      "companyId": "comp_2",
+      "companyName": "InnoSoft",
+      "targetRole": "Data Analyst & ML Specialist",
+      "requiredSkills": [
+        {
+          "skill": "Python",
+          "level": "Intermediate"
+        },
+        {
+          "skill": "SQL",
+          "level": "Intermediate"
+        },
+        {
+          "skill": "AI/ML",
+          "level": "Beginner"
+        }
+      ],
+      "expectedHiringCount": 15,
+      "targetBatchYear": 2026,
+      "targetGraduationDate": "May 2026",
+      "minCgpa": 7.8,
+      "offeredSalaryBand": "$90,000 - $115,000 / year",
+      "status": "active",
+      "postedAt": "2026-02-16T11:00:00Z",
+      "messageToColleges": "InnoSoft is recruiting 15 student data analysts with practical SQL, data visualization, and predictive modeling foundations."
+    }
+  ],
+  "project_recommendations": [
+    {
+      "id": "prec_1",
+      "title": "High-Throughput Distributed Task Queue & Cache",
+      "targetRole": "Software Developer",
+      "technologies": [
+        "Python",
+        "SQL",
+        "Redis",
+        "Docker"
+      ],
+      "difficulty": "Intermediate",
+      "description": "Build an asynchronous job processing system with Redis-backed queueing, retry policies, worker concurrency, and PostgreSQL execution telemetry.",
+      "features": [
+        "Worker thread pool for concurrent asynchronous job processing.",
+        "Exponential backoff retry policy for failed jobs with Dead Letter Queue (DLQ).",
+        "RESTful API dashboard displaying real-time throughput telemetry and worker health."
+      ],
+      "learningOutcomes": [
+        "Distributed systems architecture",
+        "Concurrency controls",
+        "Database connection pooling"
+      ],
+      "githubTemplateUrl": "https://github.com/skill2hire-templates/distributed-task-queue"
+    },
+    {
+      "id": "prec_2",
+      "title": "E-Commerce Predictive Customer Churn & Analytics",
+      "targetRole": "Data Analyst",
+      "technologies": [
+        "Python",
+        "SQL",
+        "Pandas & NumPy",
+        "AI/ML"
+      ],
+      "difficulty": "Intermediate",
+      "description": "Analyze consumer transaction history to predict customer churn, perform cohort retention analysis, and build an interactive reporting dashboard.",
+      "features": [
+        "ETL pipeline parsing 500k+ mock transaction rows using SQL & Pandas.",
+        "Random Forest and Logistic Regression classification models for churn likelihood.",
+        "Interactive analytics dashboard showcasing cohort churn drivers."
+      ],
+      "learningOutcomes": [
+        "Data wrangling at scale",
+        "Feature engineering",
+        "Business intelligence reporting"
+      ],
+      "githubTemplateUrl": "https://github.com/skill2hire-templates/customer-churn-analytics"
+    },
+    {
+      "id": "prec_3",
+      "title": "Cloud-Native Container Orchestration & CI/CD Pipeline",
+      "targetRole": "Cloud DevOps Associate",
+      "technologies": [
+        "AWS",
+        "Docker",
+        "Linux CLI",
+        "Git"
+      ],
+      "difficulty": "Intermediate",
+      "description": "Deploy a multi-service microservice application to AWS ECS/EKS with automated GitHub Actions testing and Infrastructure as Code.",
+      "features": [
+        "Dockerized backend and frontend services with multi-stage builds.",
+        "Automated CI/CD workflow triggering automated unit tests and Docker image publishing.",
+        "AWS infrastructure provisioning with IAM least-privilege security policies."
+      ],
+      "learningOutcomes": [
+        "Container security",
+        "Cloud infrastructure automation",
+        "DevOps best practices"
+      ],
+      "githubTemplateUrl": "https://github.com/skill2hire-templates/cloud-native-devops"
+    }
+  ],
+  "cohort_groups": [
+    {
+      "id": "ch_1",
+      "collegeId": "col_1",
+      "name": "DSA Foundation & Placement Acceleration Cohort",
+      "targetSkill": "DSA",
+      "studentCount": 42,
+      "studentIds": [
+        "std_1",
+        "std_5"
+      ],
+      "reason": "Low initial DSA proficiency (Beginner level). Needs upgrade to Intermediate for TechNova placement drives.",
+      "targetLevel": "Intermediate",
+      "recommendedDurationWeeks": 6,
+      "assignedBootcampId": "tp_bootcamp_1"
+    },
+    {
+      "id": "ch_2",
+      "collegeId": "col_1",
+      "name": "Python Systems & OOP Intensive Cohort",
+      "targetSkill": "Python",
+      "studentCount": 38,
+      "studentIds": [
+        "std_1"
+      ],
+      "reason": "High industry demand (88%) vs student self-declared proficiency gap.",
+      "targetLevel": "Intermediate",
+      "recommendedDurationWeeks": 8,
+      "assignedBootcampId": "tp_bootcamp_1"
+    }
+  ],
+  "academic_reports": [
+    {
+      "studentId": "std_1",
+      "rollNumber": "APX-2026-001",
+      "registrationNumber": "REG-2022-CS-9811",
+      "studentName": "Alex Rivera",
+      "phone": "+1 (555) 123-4567",
+      "email": "alex.rivera@student.skill2hire.com",
+      "collegeId": "col_1",
+      "collegeName": "Apex University of Engineering",
+      "degree": "B.S.",
+      "department": "Computer Science",
+      "admissionYear": 2022,
+      "graduationYear": 2026,
+      "currentSemester": 6,
+      "cgpa": 8.6,
+      "overallAttendancePercentage": 92.4,
+      "totalCreditsEarned": 98,
+      "totalCreditsRequired": 160,
+      "activeBacklogs": 0,
+      "semesters": [
+        {
+          "semesterNumber": 1,
+          "semesterName": "Semester I (Fall 2022)",
+          "academicYear": "2022-2023",
+          "sgpa": 8.42,
+          "totalCredits": 16,
+          "earnedCredits": 16,
+          "subjects": [
+            {
+              "code": "CS101",
+              "name": "Problem Solving & Python Programming",
+              "credits": 4,
+              "grade": "A+",
+              "gradePoint": 9,
+              "type": "Theory"
+            },
+            {
+              "code": "MA101",
+              "name": "Linear Algebra & Calculus I",
+              "credits": 4,
+              "grade": "A",
+              "gradePoint": 8,
+              "type": "Theory"
+            },
+            {
+              "code": "PH101",
+              "name": "Applied Physics for Engineers",
+              "credits": 3,
+              "grade": "A",
+              "gradePoint": 8,
+              "type": "Theory"
+            },
+            {
+              "code": "CS101P",
+              "name": "Python Systems Programming Lab",
+              "credits": 2,
+              "grade": "O",
+              "gradePoint": 10,
+              "type": "Lab"
+            },
+            {
+              "code": "EE101",
+              "name": "Basic Electrical & Electronics",
+              "credits": 3,
+              "grade": "B+",
+              "gradePoint": 7,
+              "type": "Theory"
+            }
+          ]
+        },
+        {
+          "semesterNumber": 2,
+          "semesterName": "Semester II (Spring 2023)",
+          "academicYear": "2022-2023",
+          "sgpa": 8.56,
+          "totalCredits": 16,
+          "earnedCredits": 16,
+          "subjects": [
+            {
+              "code": "CS201",
+              "name": "Data Structures & Algorithms I",
+              "credits": 4,
+              "grade": "A+",
+              "gradePoint": 9,
+              "type": "Theory"
+            },
+            {
+              "code": "MA201",
+              "name": "Differential Equations & Transforms",
+              "credits": 4,
+              "grade": "A",
+              "gradePoint": 8,
+              "type": "Theory"
+            },
+            {
+              "code": "CS202",
+              "name": "Digital Logic & System Design",
+              "credits": 3,
+              "grade": "A",
+              "gradePoint": 8,
+              "type": "Theory"
+            },
+            {
+              "code": "CS201P",
+              "name": "Data Structures Laboratory",
+              "credits": 2,
+              "grade": "O",
+              "gradePoint": 10,
+              "type": "Lab"
+            },
+            {
+              "code": "EN201",
+              "name": "Professional Technical Communication",
+              "credits": 3,
+              "grade": "A+",
+              "gradePoint": 9,
+              "type": "Theory"
+            }
+          ]
+        },
+        {
+          "semesterNumber": 3,
+          "semesterName": "Semester III (Fall 2023)",
+          "academicYear": "2023-2024",
+          "sgpa": 8.88,
+          "totalCredits": 17,
+          "earnedCredits": 17,
+          "subjects": [
+            {
+              "code": "CS301",
+              "name": "Database Management Systems & SQL",
+              "credits": 4,
+              "grade": "O",
+              "gradePoint": 10,
+              "type": "Theory"
+            },
+            {
+              "code": "CS302",
+              "name": "Object-Oriented Programming (C++/Java)",
+              "credits": 4,
+              "grade": "A+",
+              "gradePoint": 9,
+              "type": "Theory"
+            },
+            {
+              "code": "CS303",
+              "name": "Computer Organization & Architecture",
+              "credits": 3,
+              "grade": "A",
+              "gradePoint": 8,
+              "type": "Theory"
+            },
+            {
+              "code": "CS301P",
+              "name": "Relational Database & SQL Lab",
+              "credits": 2,
+              "grade": "O",
+              "gradePoint": 10,
+              "type": "Lab"
+            },
+            {
+              "code": "MA301",
+              "name": "Discrete Mathematics & Graph Theory",
+              "credits": 4,
+              "grade": "A",
+              "gradePoint": 8,
+              "type": "Theory"
+            }
+          ]
+        },
+        {
+          "semesterNumber": 4,
+          "semesterName": "Semester IV (Spring 2024)",
+          "academicYear": "2023-2024",
+          "sgpa": 8.41,
+          "totalCredits": 17,
+          "earnedCredits": 17,
+          "subjects": [
+            {
+              "code": "CS401",
+              "name": "Design & Analysis of Algorithms",
+              "credits": 4,
+              "grade": "A+",
+              "gradePoint": 9,
+              "type": "Theory"
+            },
+            {
+              "code": "CS402",
+              "name": "Operating Systems & Concurrency",
+              "credits": 4,
+              "grade": "A",
+              "gradePoint": 8,
+              "type": "Theory"
+            },
+            {
+              "code": "CS403",
+              "name": "Computer Networks & Protocols",
+              "credits": 4,
+              "grade": "A",
+              "gradePoint": 8,
+              "type": "Theory"
+            },
+            {
+              "code": "CS402P",
+              "name": "Operating Systems & Networks Lab",
+              "credits": 2,
+              "grade": "A+",
+              "gradePoint": 9,
+              "type": "Lab"
+            },
+            {
+              "code": "MA401",
+              "name": "Probability & Statistics",
+              "credits": 3,
+              "grade": "A",
+              "gradePoint": 8,
+              "type": "Theory"
+            }
+          ]
+        },
+        {
+          "semesterNumber": 5,
+          "semesterName": "Semester V (Fall 2024)",
+          "academicYear": "2024-2025",
+          "sgpa": 8.63,
+          "totalCredits": 16,
+          "earnedCredits": 16,
+          "subjects": [
+            {
+              "code": "CS501",
+              "name": "Web Architecture & Cloud Distributed Systems",
+              "credits": 4,
+              "grade": "A+",
+              "gradePoint": 9,
+              "type": "Theory"
+            },
+            {
+              "code": "CS502",
+              "name": "Theory of Computation & Automata",
+              "credits": 4,
+              "grade": "A",
+              "gradePoint": 8,
+              "type": "Theory"
+            },
+            {
+              "code": "CS503",
+              "name": "Software Engineering & Agile Methodologies",
+              "credits": 3,
+              "grade": "A",
+              "gradePoint": 8,
+              "type": "Theory"
+            },
+            {
+              "code": "CS504",
+              "name": "Cloud Computing & Docker Architecture",
+              "credits": 3,
+              "grade": "A",
+              "gradePoint": 8,
+              "type": "Theory"
+            },
+            {
+              "code": "CS501P",
+              "name": "Full Stack & Cloud Systems Lab",
+              "credits": 2,
+              "grade": "O",
+              "gradePoint": 10,
+              "type": "Lab"
+            }
+          ]
+        },
+        {
+          "semesterNumber": 6,
+          "semesterName": "Semester VI (Spring 2025 - Current)",
+          "academicYear": "2024-2025",
+          "sgpa": 9.06,
+          "totalCredits": 16,
+          "earnedCredits": 16,
+          "subjects": [
+            {
+              "code": "CS601",
+              "name": "Artificial Intelligence & Machine Learning",
+              "credits": 4,
+              "grade": "A+",
+              "gradePoint": 9,
+              "type": "Theory"
+            },
+            {
+              "code": "CS602",
+              "name": "Distributed Microservices & Task Queues",
+              "credits": 4,
+              "grade": "A+",
+              "gradePoint": 9,
+              "type": "Theory"
+            },
+            {
+              "code": "CS603",
+              "name": "Information & Network Security",
+              "credits": 3,
+              "grade": "A",
+              "gradePoint": 8,
+              "type": "Theory"
+            },
+            {
+              "code": "CS604",
+              "name": "Industry Capstone Project & Placement Sprint",
+              "credits": 3,
+              "grade": "O",
+              "gradePoint": 10,
+              "type": "Project"
+            },
+            {
+              "code": "CS605",
+              "name": "Technical Seminar & Viva Voce",
+              "credits": 2,
+              "grade": "O",
+              "gradePoint": 10,
+              "type": "Theory"
+            }
+          ]
+        }
+      ],
+      "verifiedSkills": [
+        {
+          "skillName": "SQL",
+          "level": "Intermediate",
+          "score": 88,
+          "credibilityScore": 94,
+          "certificateId": "CERT-SQL-8821",
+          "verifiedDate": "2026-02-01T14:30:00Z"
+        }
+      ],
+      "placementStatus": "In Training",
+      "placementReadinessScore": 62,
+      "institutionalRemarks": "Exemplary academic progression with consistent honors and high technical problem-solving proficiency. Eligible for Tier-1 corporate engineering placements.",
+      "issuedDate": "2026-08-24",
+      "verificationHash": "APX-2026-STD_1-VERIFIED"
+    }
+  ],
+  "otps": [
+    {
+      "id": "otp_1787675820452_65qu3",
+      "identifier": "test.user@skill2hire.com",
+      "type": "email",
+      "purpose": "registration",
+      "otpHash": "525001de04847454b7d6d6f60557a3f5b3a059d22abddc2a6519fd027bb8df86",
+      "plainOtpForDev": "528678",
+      "expiresAt": "2026-08-25T16:42:00.451Z",
+      "attempts": 1,
+      "maxAttempts": 5,
+      "resendAvailableAt": "2026-08-25T16:38:00.451Z",
+      "verified": true,
+      "createdAt": "2026-08-25T16:37:00.451Z"
+    },
+    {
+      "id": "otp_1787676125844_mwosz",
+      "identifier": "test.user@skill2hire.com",
+      "type": "email",
+      "purpose": "forgot_password",
+      "otpHash": "d098b7c3e604df236e941c9b4726dabe0f61388fe8ea26e3c2bf92e673f2a2cf",
+      "plainOtpForDev": "422350",
+      "expiresAt": "2026-08-25T16:47:05.844Z",
+      "attempts": 1,
+      "maxAttempts": 5,
+      "resendAvailableAt": "2026-08-25T16:43:05.844Z",
+      "verified": true,
+      "createdAt": "2026-08-25T16:42:05.844Z"
+    },
+    {
+      "id": "otp_1787678974422_l3w3z",
+      "identifier": "muskansah.com@gmail.com",
+      "type": "email",
+      "purpose": "registration",
+      "otpHash": "1b2704439c0aa12d156213b59eef2842c54031a2e67c87f517081f999b54ce1b",
+      "plainOtpForDev": "575568",
+      "expiresAt": "2026-08-25T17:34:34.422Z",
+      "attempts": 1,
+      "maxAttempts": 5,
+      "resendAvailableAt": "2026-08-25T17:30:34.422Z",
+      "verified": true,
+      "createdAt": "2026-08-25T17:29:34.422Z"
+    },
+    {
+      "id": "otp_1787678982897_18l4j",
+      "identifier": "9508542315",
+      "type": "phone",
+      "purpose": "registration",
+      "otpHash": "6b89a949ebc134bcc6ad6f434e738e1129349b00df9ca485a4658a955535d6c3",
+      "plainOtpForDev": "508347",
+      "expiresAt": "2026-08-25T17:34:42.897Z",
+      "attempts": 1,
+      "maxAttempts": 5,
+      "resendAvailableAt": "2026-08-25T17:30:42.897Z",
+      "verified": true,
+      "createdAt": "2026-08-25T17:29:42.897Z"
+    },
+    {
+      "id": "otp_1787680241879_sruvpr",
+      "identifier": "muskan@example.com",
+      "type": "email",
+      "purpose": "registration",
+      "otpHash": "49e27f053c5604054d500a4e0461ab18255093ea6df91904e8764898b686b3cb",
+      "expiresAt": "2026-08-25T17:55:41.878Z",
+      "attempts": 0,
+      "maxAttempts": 5,
+      "resendAvailableAt": "2026-08-25T17:51:41.878Z",
+      "verified": false,
+      "createdAt": "2026-08-25T17:50:41.878Z"
+    },
+    {
+      "id": "otp_1787680332552_vwlcf8",
+      "identifier": "real.student@test.com",
+      "type": "email",
+      "purpose": "registration",
+      "otpHash": "a59161e720ba75e44479ce65bc5dd5b38810b082a31b724f98abc4156795e291",
+      "expiresAt": "2026-08-25T17:57:12.552Z",
+      "attempts": 2,
+      "maxAttempts": 5,
+      "resendAvailableAt": "2026-08-25T17:53:12.552Z",
+      "verified": true,
+      "createdAt": "2026-08-25T17:52:12.552Z"
+    },
+    {
+      "id": "otp_1787680495197_qhalj3",
+      "identifier": "noncopyrightgaana@gmail.com",
+      "type": "email",
+      "purpose": "registration",
+      "otpHash": "da31751aba2ad7805938b43256735f93c7a8291498bb69170790463201daa073",
+      "expiresAt": "2026-08-25T17:59:55.197Z",
+      "attempts": 0,
+      "maxAttempts": 5,
+      "resendAvailableAt": "2026-08-25T17:55:55.197Z",
+      "verified": false,
+      "createdAt": "2026-08-25T17:54:55.197Z"
+    },
+    {
+      "id": "otp_1787682582578_fpx84l",
+      "identifier": "muskansah.work@gmail.com",
+      "type": "email",
+      "purpose": "registration",
+      "otpHash": "ea8353f5c373718bfb7dcb371811ff279a10d9233a98117859021ca3f8018716",
+      "expiresAt": "2026-08-25T18:34:42.578Z",
+      "attempts": 0,
+      "maxAttempts": 5,
+      "resendAvailableAt": "2026-08-25T18:30:42.578Z",
+      "verified": false,
+      "createdAt": "2026-08-25T18:29:42.578Z"
+    },
+    {
+      "id": "otp_1787716882152_3s40n6",
+      "identifier": "muskan.student@test.com",
+      "type": "email",
+      "purpose": "registration",
+      "otpHash": "65ce35759d1107cc094436eed9a6d513c75b117d21b0336c0f3b60c0d23179d2",
+      "expiresAt": "2026-08-26T04:06:22.151Z",
+      "attempts": 1,
+      "maxAttempts": 5,
+      "resendAvailableAt": "2026-08-26T04:02:22.151Z",
+      "verified": true,
+      "createdAt": "2026-08-26T04:01:22.151Z"
+    },
+    {
+      "id": "otp_1787716906366_rk3x8x",
+      "identifier": "test.user2@example.com",
+      "type": "email",
+      "purpose": "registration",
+      "otpHash": "f87cfef73c62f6f873681242fef8ab8fc8f92561d5135879b9386dcbe11e6eea",
+      "expiresAt": "2026-08-26T04:06:46.366Z",
+      "attempts": 1,
+      "maxAttempts": 5,
+      "resendAvailableAt": "2026-08-26T04:02:46.366Z",
+      "verified": false,
+      "createdAt": "2026-08-26T04:01:46.366Z"
+    },
+    {
+      "id": "otp_1787720600003_g8h63o",
+      "identifier": "919876543210",
+      "type": "phone",
+      "purpose": "registration",
+      "otpHash": "89ed15f1c3fc430699f64bdcf0a40a40d3e1ad0c22ade439365f07ea43acfe63",
+      "expiresAt": "2026-08-26T05:08:20.002Z",
+      "attempts": 0,
+      "maxAttempts": 5,
+      "resendAvailableAt": "2026-08-26T05:04:20.002Z",
+      "verified": false,
+      "createdAt": "2026-08-26T05:03:20.002Z"
+    }
+  ]
+}

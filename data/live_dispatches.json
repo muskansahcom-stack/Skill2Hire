@@ -1,0 +1,45 @@
+[
+  {
+    "id": "sms_1787720600004",
+    "channel": "SMS",
+    "destination": "+919876543210",
+    "otpCode": "510268",
+    "message": "Your Skill2Hire verification code is 510268. Valid for 5 minutes. Do not share this OTP with anyone.",
+    "provider": "Skill2Hire SMS Gateway",
+    "status": "DELIVERED",
+    "timestamp": "2026-08-26T05:03:20.004Z"
+  },
+  {
+    "id": "msg_1787716906367",
+    "channel": "EMAIL",
+    "destination": "test.user2@example.com",
+    "subject": "Your Skill2Hire Verification Code: 599962",
+    "otpCode": "599962",
+    "message": "Hello Skill2Hire User, your one-time verification code is 599962. Valid for 5 minutes.",
+    "provider": "Skill2Hire Live Gateway",
+    "status": "DELIVERED",
+    "timestamp": "2026-08-26T04:01:46.367Z"
+  },
+  {
+    "id": "msg_1787716882153",
+    "channel": "EMAIL",
+    "destination": "muskan.student@test.com",
+    "subject": "Your Skill2Hire Verification Code: 927394",
+    "otpCode": "927394",
+    "message": "Hello Skill2Hire User, your one-time verification code is 927394. Valid for 5 minutes.",
+    "provider": "Skill2Hire Live Gateway",
+    "status": "DELIVERED",
+    "timestamp": "2026-08-26T04:01:22.153Z"
+  },
+  {
+    "id": "msg_1787682582579",
+    "channel": "EMAIL",
+    "destination": "muskansah.work@gmail.com",
+    "subject": "Your Skill2Hire Verification Code: 350009",
+    "otpCode": "350009",
+    "message": "Hello Skill2Hire User, your one-time verification code is 350009. Valid for 5 minutes.",
+    "provider": "Skill2Hire Live Gateway",
+    "status": "DELIVERED",
+    "timestamp": "2026-08-25T18:29:42.579Z"
+  }
+]

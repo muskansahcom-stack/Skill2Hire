@@ -1,0 +1,246 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "sqlite"
+  url      = env("DATABASE_URL")
+}
+
+enum Role {
+  STUDENT
+  COLLEGE
+  COMPANY
+  ADMIN
+}
+
+enum ApplicationStatus {
+  APPLIED
+  UNDER_REVIEW
+  SHORTLISTED
+  INTERVIEW
+  SELECTED
+  REJECTED
+}
+
+enum CollegeVerificationStatus {
+  PENDING
+  VERIFIED
+  REJECTED
+}
+
+model User {
+  id              String             @id @default(uuid())
+  name            String
+  email           String             @unique
+  phone           String             @unique
+  passwordHash    String
+  role            String             @default("STUDENT") // STUDENT, COLLEGE, COMPANY, ADMIN
+  isEmailVerified Boolean            @default(false)
+  isPhoneVerified Boolean            @default(false)
+  status          String             @default("ACTIVE")
+  createdAt       DateTime           @default(now())
+  updatedAt       DateTime           @updatedAt
+
+  studentProfile  StudentProfile?
+  collegeProfile  CollegeProfile?
+  companyProfile  CompanyProfile?
+  notifications   Notification[]
+  otpVerifications OTPVerification[]
+
+  @@map("users")
+}
+
+model StudentProfile {
+  id              String             @id @default(uuid())
+  userId          String             @unique
+  user            User               @relation(fields: [userId], references: [id], onDelete: Cascade)
+  dateOfBirth     String?
+  gender          String?
+  location        String?
+  collegeName     String?
+  degree          String?
+  branch          String?
+  graduationYear  Int?
+  cgpa            Float?
+  bio             String?
+  profilePhoto    String?
+  resumeUrl       String?
+  createdAt       DateTime           @default(now())
+  updatedAt       DateTime           @updatedAt
+
+  skills          StudentSkill[]
+  projects        Project[]
+  certifications  Certification[]
+  applications    Application[]
+
+  @@map("student_profiles")
+}
+
+model CollegeProfile {
+  id                 String                    @id @default(uuid())
+  userId             String                    @unique
+  user               User                      @relation(fields: [userId], references: [id], onDelete: Cascade)
+  collegeName        String
+  description        String?
+  website            String?
+  location           String?
+  logo               String?
+  verificationStatus String                    @default("VERIFIED") // PENDING, VERIFIED, REJECTED
+  createdAt          DateTime                  @default(now())
+  updatedAt          DateTime                  @updatedAt
+
+  @@map("college_profiles")
+}
+
+model CompanyProfile {
+  id          String   @id @default(uuid())
+  userId      String   @unique
+  user        User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+  companyName String
+  description String?
+  website     String?
+  industry    String?
+  location    String?
+  logo        String?
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+
+  jobs        Job[]
+
+  @@map("company_profiles")
+}
+
+model Skill {
+  id          String         @id @default(uuid())
+  name        String         @unique
+  category    String
+  createdAt   DateTime       @default(now())
+
+  studentSkills StudentSkill[]
+  jobSkills     JobSkill[]
+
+  @@map("skills")
+}
+
+model StudentSkill {
+  id          String         @id @default(uuid())
+  studentId   String
+  student     StudentProfile @relation(fields: [studentId], references: [id], onDelete: Cascade)
+  skillId     String
+  skill       Skill          @relation(fields: [skillId], references: [id], onDelete: Cascade)
+  proficiency String         @default("BEGINNER") // BEGINNER, INTERMEDIATE, ADVANCED
+  isVerified  Boolean        @default(false)
+  score       Int            @default(0)
+  createdAt   DateTime       @default(now())
+  updatedAt   DateTime       @updatedAt
+
+  @@unique([studentId, skillId])
+  @@map("student_skills")
+}
+
+model Project {
+  id           String         @id @default(uuid())
+  studentId    String
+  student      StudentProfile @relation(fields: [studentId], references: [id], onDelete: Cascade)
+  title        String
+  description  String
+  technologies String         // Comma-separated or JSON string
+  githubUrl    String?
+  liveUrl      String?
+  createdAt    DateTime       @default(now())
+  updatedAt    DateTime       @updatedAt
+
+  @@map("projects")
+}
+
+model Certification {
+  id             String         @id @default(uuid())
+  studentId      String
+  student        StudentProfile @relation(fields: [studentId], references: [id], onDelete: Cascade)
+  title          String
+  issuer         String
+  issueDate      String
+  certificateUrl String?
+  createdAt      DateTime       @default(now())
+
+  @@map("certifications")
+}
+
+model Job {
+  id                  String         @id @default(uuid())
+  companyId           String
+  company             CompanyProfile @relation(fields: [companyId], references: [id], onDelete: Cascade)
+  title               String
+  description         String
+  location            String
+  jobType             String         @default("FULL_TIME") // FULL_TIME, INTERNSHIP, REMOTE
+  experienceRequired  String?
+  salaryMin           Int?
+  salaryMax           Int?
+  applicationDeadline String?
+  status              String         @default("OPEN") // OPEN, CLOSED
+  createdAt           DateTime       @default(now())
+  updatedAt           DateTime       @updatedAt
+
+  skills              JobSkill[]
+  applications        Application[]
+
+  @@map("jobs")
+}
+
+model JobSkill {
+  id            String   @id @default(uuid())
+  jobId         String
+  job           Job      @relation(fields: [jobId], references: [id], onDelete: Cascade)
+  skillId       String
+  skill         Skill    @relation(fields: [skillId], references: [id], onDelete: Cascade)
+  requiredLevel String   @default("INTERMEDIATE") // BEGINNER, INTERMEDIATE, ADVANCED
+  isMandatory   Boolean  @default(true)
+
+  @@unique([jobId, skillId])
+  @@map("job_skills")
+}
+
+model Application {
+  id          String            @id @default(uuid())
+  jobId       String
+  job         Job               @relation(fields: [jobId], references: [id], onDelete: Cascade)
+  studentId   String
+  student     StudentProfile    @relation(fields: [studentId], references: [id], onDelete: Cascade)
+  resumeUrl   String?
+  coverLetter String?
+  status      String            @default("APPLIED") // APPLIED, UNDER_REVIEW, SHORTLISTED, INTERVIEW, SELECTED, REJECTED
+  appliedAt   DateTime          @default(now())
+  updatedAt   DateTime          @updatedAt
+
+  @@unique([jobId, studentId])
+  @@map("applications")
+}
+
+model Notification {
+  id        String   @id @default(uuid())
+  userId    String
+  user      User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+  title     String
+  message   String
+  type      String   @default("INFO")
+  isRead    Boolean  @default(false)
+  createdAt DateTime @default(now())
+
+  @@map("notifications")
+}
+
+model OTPVerification {
+  id        String   @id @default(uuid())
+  userId    String
+  user      User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+  otpHash   String
+  purpose   String   @default("REGISTER") // REGISTER, LOGIN, PASSWORD_RESET
+  expiresAt DateTime
+  attempts  Int      @default(0)
+  verified  Boolean  @default(false)
+  createdAt DateTime @default(now())
+
+  @@map("otp_verifications")
+}
