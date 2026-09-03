@@ -25,6 +25,17 @@ export async function POST(
 
     db.updateLessonProgress(progress);
 
+    // If assessment score was awarded from video check, update student placement readiness
+    if (body.assessmentScore) {
+      const student = db.getStudentById(studentId);
+      if (student) {
+        const bonus = Math.min(100, (student.placementReadiness || 60) + Math.round(body.assessmentScore * 0.05));
+        db.updateStudent(student.id, {
+          placementReadiness: bonus
+        });
+      }
+    }
+
     // Calculate total course completion
     const allCourseLessons = db.getLessonsByCourseId(params.id);
     const userProgress = db.getLessonProgress(studentId, params.id);

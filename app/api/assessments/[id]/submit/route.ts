@@ -35,12 +35,14 @@ export async function POST(request: Request, { params }: { params: { id: string 
     let correctCount = 0;
     const questionFeedback: any[] = [];
 
+    const isViolation = body.violation === true;
+
     questions.forEach(q => {
       totalPoints += q.points;
       const studentAnswer = answers ? answers[q.id] : undefined;
       const isCorrect = studentAnswer === q.correctOptionIndex;
 
-      if (isCorrect) {
+      if (isCorrect && !isViolation) {
         earnedPoints += q.points;
         correctCount += 1;
       }
@@ -50,15 +52,15 @@ export async function POST(request: Request, { params }: { params: { id: string 
         questionText: q.questionText,
         selectedOptionIndex: studentAnswer,
         correctOptionIndex: q.correctOptionIndex,
-        isCorrect,
+        isCorrect: isViolation ? false : isCorrect,
         explanation: q.explanation
       });
     });
 
     const calculatedScore = totalPoints > 0 ? Math.round((earnedPoints / totalPoints) * 100) : 0;
-    // Specific demo alignment: If Python score was calculated above 75%, allow realistic 86% as in spec
-    const finalScore = calculatedScore >= 75 ? Math.max(calculatedScore, 86) : calculatedScore;
-    const passed = finalScore >= assessment.passingScore;
+    // Enforce strict 75% minimum passing threshold across all certifications
+    const finalScore = isViolation ? 0 : calculatedScore;
+    const passed = isViolation ? false : finalScore >= 75;
 
     // Determine skill level awarded
     let awardedLevel: SkillLevel = assessment.targetLevel || 'Intermediate';

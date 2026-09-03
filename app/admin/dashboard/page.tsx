@@ -20,8 +20,6 @@ import {
 export default function AdminDashboard() {
   const [statsData, setStatsData] = useState<any>(null);
   const [loading, setLoading] = useState(true);
-  const [resetting, setResetting] = useState(false);
-  const [resetSuccess, setResetSuccess] = useState(false);
 
   const loadAdminStats = async () => {
     try {
@@ -40,24 +38,6 @@ export default function AdminDashboard() {
   useEffect(() => {
     loadAdminStats();
   }, []);
-
-  const handleReset = async () => {
-    setResetting(true);
-    setResetSuccess(false);
-    try {
-      const res = await fetch('/api/demo/reset', { method: 'POST' });
-      const data = await res.json();
-      if (data.success) {
-        setResetSuccess(true);
-        await loadAdminStats();
-        setTimeout(() => setResetSuccess(false), 3000);
-      }
-    } catch (e) {
-      console.error(e);
-    } finally {
-      setResetting(false);
-    }
-  };
 
   if (loading) {
     return (
@@ -90,17 +70,6 @@ export default function AdminDashboard() {
             <p className="text-xs sm:text-sm text-slate-300 max-w-xl">
               Platform-wide telemetry tracking verified collegiate talent, company hiring engagement, and automated curriculum gap resolution.
             </p>
-          </div>
-
-          <div className="flex items-center gap-3">
-            <button
-              onClick={handleReset}
-              disabled={resetting}
-              className="px-5 py-3 rounded-2xl bg-white/10 hover:bg-white/20 border border-white/20 text-xs font-bold text-white flex items-center gap-2 transition-colors shadow-md"
-            >
-              <RefreshCw className={`w-4 h-4 ${resetting ? 'animate-spin' : ''}`} />
-              <span>{resetSuccess ? 'Database Reset Done! ✓' : 'Reset Demo Database'}</span>
-            </button>
           </div>
         </div>
 

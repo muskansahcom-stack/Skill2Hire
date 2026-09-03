@@ -50,16 +50,9 @@ export default function AppShell({ children }: { children: React.ReactNode }) {
           setIsCollapsed={setIsCollapsed}
           isMobileOpen={isMobileOpen}
           setIsMobileOpen={setIsMobileOpen}
-          isWorkflowOpen={isWorkflowOpen}
-          setIsWorkflowOpen={setIsWorkflowOpen}
+          isWorkflowOpen={false}
+          setIsWorkflowOpen={() => {}}
         />
-
-        {/* 12-Step Guided Walkthrough Bar (Collapsible) */}
-        {isWorkflowOpen && (
-          <div className="px-4 sm:px-6 lg:px-8 pt-4">
-            <DemoWorkflowBanner />
-          </div>
-        )}
 
         {/* Page Main Content */}
         <main className="flex-1 p-4 sm:p-6 lg:p-8">

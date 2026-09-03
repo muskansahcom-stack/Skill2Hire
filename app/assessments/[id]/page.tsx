@@ -1,6 +1,6 @@
 'use client';
 
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import Link from 'next/link';
 import { useRouter } from 'next/navigation';
 import { useAuth } from '@/context/AuthContext';
@@ -33,6 +33,25 @@ export default function AssessmentTestPage({ params }: { params: { id: string } 
   const [results, setResults] = useState<any>(null);
   const [loading, setLoading] = useState(true);
 
+  // Proctoring & Anti-Cheat System states
+  const [tabSwitchWarnings, setTabSwitchWarnings] = useState(0);
+  const [showWarningModal, setShowWarningModal] = useState(false);
+  const [proctoringCooldown, setProctoringCooldown] = useState(false);
+  const [warningMessage, setWarningMessage] = useState('');
+  const [isDisqualified, setIsDisqualified] = useState(false);
+  const MAX_WARNINGS = 2;
+
+  // Camera & face-api.js Proctoring states
+  const [faceApiLoaded, setFaceApiLoaded] = useState(false);
+  const [cameraActive, setCameraActive] = useState(false);
+  const [cameraError, setCameraError] = useState(false);
+  const [headTurnWarnings, setHeadTurnWarnings] = useState(0);
+  const [isFaceApiLoading, setIsFaceApiLoading] = useState(true);
+
+  const videoRef = useRef<HTMLVideoElement>(null);
+  const [baselineRatio, setBaselineRatio] = useState<number>(1.0);
+  const currentRatioRef = useRef<number>(1.0);
+
   useEffect(() => {
     async function loadAssessment() {
       try {
@@ -53,9 +72,234 @@ export default function AssessmentTestPage({ params }: { params: { id: string } 
     loadAssessment();
   }, [params.id]);
 
+  // Load face-api.js script dynamically
+  useEffect(() => {
+    if (typeof window === 'undefined') return;
+    const script = document.createElement('script');
+    script.src = 'https://cdn.jsdelivr.net/npm/@vladmandic/face-api/dist/face-api.js';
+    script.async = true;
+    script.onload = () => {
+      setFaceApiLoaded(true);
+    };
+    script.onerror = () => {
+      console.error('Failed to load face-api script');
+      setIsFaceApiLoading(false);
+    };
+    document.body.appendChild(script);
+    return () => {
+      try {
+        document.body.removeChild(script);
+      } catch (_) {}
+    };
+  }, []);
+
+  // Load models and initialize webcam
+  useEffect(() => {
+    if (!faceApiLoaded) return;
+    async function loadModelsAndStartCamera() {
+      try {
+        setIsFaceApiLoading(true);
+        // @ts-ignore
+        const faceapi = window.faceapi;
+        // Load model weights locally from the public folder
+        await faceapi.nets.tinyFaceDetector.loadFromUri('/models/');
+        await faceapi.nets.faceLandmark68Net.loadFromUri('/models/');
+        setIsFaceApiLoading(false);
+        
+        // Start user webcam
+        try {
+          const stream = await navigator.mediaDevices.getUserMedia({
+            video: { width: 320, height: 240, facingMode: 'user' }
+          });
+          if (videoRef.current) {
+            videoRef.current.srcObject = stream;
+            setCameraActive(true);
+          }
+        } catch (cErr) {
+          console.error('Webcam permission denied or error:', cErr);
+          setCameraError(true);
+        }
+      } catch (err) {
+        console.error('Error loading face-api models:', err);
+        setIsFaceApiLoading(false);
+        setCameraError(true);
+      }
+    }
+    loadModelsAndStartCamera();
+  }, [faceApiLoaded]);
+
+  // Clean up stream on unmount
+  useEffect(() => {
+    return () => {
+      if (videoRef.current && videoRef.current.srcObject) {
+        const stream = videoRef.current.srcObject as MediaStream;
+        stream.getTracks().forEach(track => track.stop());
+      }
+    };
+  }, []);
+
+  const handleCalibrateCamera = () => {
+    setBaselineRatio(currentRatioRef.current);
+    alert(`🎯 Webcam Calibrated! Baseline center ratio set to ${currentRatioRef.current.toFixed(2)}. Tracking thresholds: ${(currentRatioRef.current - 0.4).toFixed(2)} - ${(currentRatioRef.current + 0.6).toFixed(2)}.`);
+  };
+
+  // Detection loop
+  useEffect(() => {
+    if (!cameraActive || results || loading || isDisqualified) return;
+
+    let active = true;
+    let consecutiveViolations = 0;
+    let consecutiveMissing = 0;
+
+    const handleHeadTurnViolation = () => {
+      setHeadTurnWarnings(prev => {
+        const nextWarnings = prev + 1;
+        if (nextWarnings > 2) {
+          setIsDisqualified(true);
+          if (videoRef.current && videoRef.current.srcObject) {
+            const stream = videoRef.current.srcObject as MediaStream;
+            stream.getTracks().forEach(track => track.stop());
+          }
+          alert('🚨 Assessment Terminated: Multiple head movement / camera violations detected. Your assessment has been auto-submitted with a score of 0.');
+          handleSubmit(true).then(() => {
+            router.push('/courses');
+          });
+        } else {
+          setWarningMessage(`⚠️ Proctoring Alert (${nextWarnings}/2): Keep your head straight. Looking away from the screen / turning your head is strictly prohibited. Warning ${nextWarnings} of 2.`);
+          setShowWarningModal(true);
+        }
+        return nextWarnings;
+      });
+    };
+
+    async function detectionLoop() {
+      // @ts-ignore
+      const faceapi = window.faceapi;
+      if (!faceapi || !videoRef.current || !active || showWarningModal || proctoringCooldown) {
+        if (active) setTimeout(detectionLoop, 100); // retry/pause loop
+        return;
+      }
+
+      try {
+        const detection = await faceapi.detectSingleFace(
+          videoRef.current,
+          new faceapi.TinyFaceDetectorOptions()
+        ).withFaceLandmarks();
+
+        if (detection) {
+          consecutiveMissing = 0;
+          const landmarks = detection.landmarks.positions;
+          const noseX = landmarks[30].x;
+          const leftX = landmarks[0].x;
+          const rightX = landmarks[16].x;
+
+          const leftDist = noseX - leftX;
+          const rightDist = rightX - noseX;
+
+          if (rightDist > 0 && leftDist > 0) {
+            const ratio = leftDist / rightDist;
+            currentRatioRef.current = ratio; // Update ref for calibration trigger
+
+            // Dynamic check against calibrated baselineRatio (default 1.0)
+            if (ratio < baselineRatio - 0.4 || ratio > baselineRatio + 0.6) {
+              consecutiveViolations++;
+              if (consecutiveViolations >= 2) {
+                handleHeadTurnViolation();
+                consecutiveViolations = 0;
+              }
+            } else {
+              consecutiveViolations = 0;
+            }
+          }
+        } else {
+          // If face is not detected, do absolutely nothing (no alert, only turn head alerts)
+          consecutiveViolations = 0;
+          consecutiveMissing = 0;
+        }
+      } catch (err) {
+        console.error('Error in face detection loop:', err);
+      }
+
+      if (active) {
+        setTimeout(detectionLoop, 100);
+      }
+    }
+
+    detectionLoop();
+
+    return () => {
+      active = false;
+    };
+  }, [cameraActive, results, loading, isDisqualified, showWarningModal, proctoringCooldown, baselineRatio]);
+
+  // Tab switch & Window Blur Monitoring (Anti-ChatGPT / External search)
+  useEffect(() => {
+    if (results || loading || isDisqualified) return;
+
+    const handleVisibilityChange = () => {
+      if (document.hidden) {
+        setTabSwitchWarnings(prev => {
+          const updated = prev + 1;
+          if (updated >= MAX_WARNINGS) {
+            setIsDisqualified(true);
+            setWarningMessage('🚨 Security Alert: You have switched tabs / windows multiple times during the exam. Your session has been auto-submitted with an Integrity Violation.');
+            handleSubmit(true); // submit with violation
+          } else {
+            setWarningMessage(`⚠️ Tab Switch Detected (${updated}/${MAX_WARNINGS}): Switching tabs or using external AI tools (ChatGPT/Search) is strictly prohibited. Your session is monitored.`);
+            setShowWarningModal(true);
+          }
+          return updated;
+        });
+      }
+    };
+
+    const handleBlur = () => {
+      if (!document.hidden) {
+        // window lost focus (e.g. split screen / alt-tab)
+        setTabSwitchWarnings(prev => {
+          const updated = prev + 1;
+          if (updated >= MAX_WARNINGS) {
+            setIsDisqualified(true);
+            setWarningMessage('🚨 Focus Lost: External window detected. Test auto-submitted under Proctoring policy.');
+            handleSubmit(true);
+          } else {
+            setWarningMessage(`⚠️ Screen Focus Lost (${updated}/${MAX_WARNINGS}): Please stay inside the assessment window. External applications are restricted.`);
+            setShowWarningModal(true);
+          }
+          return updated;
+        });
+      }
+    };
+
+    // Block Copy-Paste to prevent pasting questions into ChatGPT
+    const handleCopyPaste = (e: ClipboardEvent) => {
+      e.preventDefault();
+      setWarningMessage('🔒 Copying/Pasting test questions or AI prompts is strictly disabled during monitored exams.');
+      setShowWarningModal(true);
+    };
+
+    const handleContextMenu = (e: MouseEvent) => {
+      e.preventDefault();
+    };
+
+    document.addEventListener('visibilitychange', handleVisibilityChange);
+    window.addEventListener('blur', handleBlur);
+    document.addEventListener('copy', handleCopyPaste);
+    document.addEventListener('paste', handleCopyPaste);
+    document.addEventListener('contextmenu', handleContextMenu);
+
+    return () => {
+      document.removeEventListener('visibilitychange', handleVisibilityChange);
+      window.removeEventListener('blur', handleBlur);
+      document.removeEventListener('copy', handleCopyPaste);
+      document.removeEventListener('paste', handleCopyPaste);
+      document.removeEventListener('contextmenu', handleContextMenu);
+    };
+  }, [results, loading, isDisqualified]);
+
   // Timer countdown
   useEffect(() => {
-    if (results || loading || timeLeft <= 0) return;
+    if (results || loading || timeLeft <= 0 || isDisqualified || showWarningModal) return;
     const timer = setInterval(() => {
       setTimeLeft(prev => {
         if (prev <= 1) {
@@ -67,13 +311,14 @@ export default function AssessmentTestPage({ params }: { params: { id: string } 
       });
     }, 1000);
     return () => clearInterval(timer);
-  }, [results, loading, timeLeft]);
+  }, [results, loading, timeLeft, isDisqualified, showWarningModal]);
 
   const handleSelectOption = (qId: string, optIdx: number) => {
+    if (isDisqualified) return;
     setAnswers(prev => ({ ...prev, [qId]: optIdx }));
   };
 
-  const handleSubmit = async () => {
+  const handleSubmit = async (forcedByViolation = false) => {
     setSubmitting(true);
     try {
       const res = await fetch(`/api/assessments/${params.id}/submit`, {
@@ -81,7 +326,9 @@ export default function AssessmentTestPage({ params }: { params: { id: string } 
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({
           studentId,
-          answers
+          answers,
+          tabSwitches: tabSwitchWarnings,
+          violation: forcedByViolation
         })
       });
       const data = await res.json();
@@ -89,8 +336,8 @@ export default function AssessmentTestPage({ params }: { params: { id: string } 
         setResults(data);
         await refreshProfile();
         
-        // Trigger celebratory confetti on passing
-        if (data.passed) {
+        // Trigger celebratory confetti on passing (>= 75%)
+        if (data.passed && !forcedByViolation) {
           confetti({
             particleCount: 120,
             spread: 80,
@@ -142,12 +389,18 @@ export default function AssessmentTestPage({ params }: { params: { id: string } 
             </span>
             <div>
               <h1 className="text-sm font-bold text-white">{assessment.title}</h1>
-              <p className="text-[11px] text-slate-400">Target Level: <strong className="text-emerald-400">{assessment.targetLevel}</strong> • Passing Score: <strong>{assessment.passingScore}%</strong></p>
+              <p className="text-[11px] text-slate-400">
+                Target Level: <strong className="text-emerald-400">{assessment.targetLevel}</strong> • Minimum Passing Score: <strong className="text-amber-400">75%</strong>
+              </p>
             </div>
           </div>
 
           {!results && (
-            <div className="flex items-center space-x-4">
+            <div className="flex items-center space-x-3">
+              <div className="flex items-center space-x-1.5 px-2.5 py-1 rounded-xl bg-emerald-500/10 border border-emerald-500/30 text-[11px] font-mono text-emerald-400">
+                <span className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse" />
+                <span>AI Proctor Active</span>
+              </div>
               <div className="flex items-center space-x-1.5 px-3 py-1.5 rounded-xl bg-slate-900 border border-slate-800 text-xs font-mono font-bold text-amber-400">
                 <Clock className="w-4 h-4" />
                 <span>{String(minutes).padStart(2, '0')}:{String(seconds).padStart(2, '0')}</span>
@@ -323,7 +576,7 @@ export default function AssessmentTestPage({ params }: { params: { id: string } 
                   </button>
                 ) : (
                   <button
-                    onClick={handleSubmit}
+                    onClick={() => handleSubmit(false)}
                     disabled={submitting}
                     className="px-6 py-2.5 rounded-xl bg-emerald-600 hover:bg-emerald-500 text-xs font-bold text-white shadow-lg transition-colors flex items-center gap-1.5"
                   >
@@ -333,6 +586,83 @@ export default function AssessmentTestPage({ params }: { params: { id: string } 
                 )}
               </div>
 
+            </div>
+          </div>
+        )}
+
+        {/* Proctoring Warning Modal */}
+        {showWarningModal && (
+          <div className="fixed inset-0 z-50 bg-slate-950/80 backdrop-blur-sm flex items-center justify-center p-4">
+            <div className="bg-slate-900 border border-rose-500/60 rounded-3xl p-6 max-w-md w-full shadow-2xl space-y-4 text-center animate-in fade-in zoom-in-95">
+              <div className="w-14 h-14 rounded-2xl bg-rose-500/20 text-rose-400 flex items-center justify-center mx-auto border border-rose-500/40">
+                <AlertCircle className="w-8 h-8" />
+              </div>
+              <div className="space-y-1.5">
+                <h3 className="text-base font-black text-white">AI Proctoring Alert</h3>
+                <p className="text-xs text-slate-300 leading-relaxed">
+                  {warningMessage}
+                </p>
+              </div>
+              <div className="p-3 rounded-xl bg-slate-950 border border-slate-800 text-[11px] text-amber-300 font-mono">
+                Tab Switches: {tabSwitchWarnings} / {MAX_WARNINGS} Max Allowed
+              </div>
+              <button
+                onClick={() => {
+                  setShowWarningModal(false);
+                  setProctoringCooldown(true);
+                  setTimeout(() => setProctoringCooldown(false), 3000);
+                }}
+                className="w-full py-2.5 rounded-xl bg-rose-600 hover:bg-rose-500 text-white font-black text-xs transition-colors"
+              >
+                I Understand, Return to Monitored Exam
+              </button>
+            </div>
+          </div>
+        )}
+
+        {/* Floating Camera Proctoring Monitor */}
+        {!results && (
+          <div className="fixed bottom-4 right-4 z-40 bg-slate-950 p-2 rounded-2xl border border-slate-800 shadow-2xl flex flex-col items-center space-y-1 animate-in slide-in-from-bottom-4 duration-300">
+            <div className="relative w-36 h-28 rounded-lg overflow-hidden bg-slate-900 border border-slate-800">
+              <video
+                ref={videoRef}
+                autoPlay
+                playsInline
+                muted
+                className="w-full h-full object-cover scale-x-[-1]"
+              />
+              
+              {/* Live indicator badge */}
+              {cameraActive && (
+                <div className="absolute top-2 left-2 flex items-center space-x-1 px-1.5 py-0.5 rounded bg-slate-950/80 text-[8px] font-mono font-bold text-red-500">
+                  <span className="w-1.5 h-1.5 rounded-full bg-red-500 animate-pulse" />
+                  <span>AI LIVE</span>
+                </div>
+              )}
+              
+              {isFaceApiLoading && (
+                <div className="absolute inset-0 bg-slate-950/90 flex flex-col items-center justify-center p-2 text-center">
+                  <div className="w-4 h-4 border-2 border-primary-500 border-t-transparent rounded-full animate-spin mb-1" />
+                  <span className="text-[8px] text-slate-400">Loading AI...</span>
+                </div>
+              )}
+
+              {cameraError && (
+                <div className="absolute inset-0 bg-slate-950/90 flex flex-col items-center justify-center p-2 text-center">
+                  <AlertCircle className="w-5 h-5 text-rose-500 mb-1" />
+                  <span className="text-[8px] text-rose-400">Camera Error</span>
+                </div>
+              )}
+            </div>
+            
+            <div className="text-[9px] font-mono font-bold text-slate-400 flex items-center gap-2">
+              <span>Camera Warns: <span className={headTurnWarnings > 0 ? "text-rose-500 font-extrabold" : "text-emerald-400"}>{headTurnWarnings}/2</span></span>
+              <button
+                onClick={handleCalibrateCamera}
+                className="px-1.5 py-0.5 rounded bg-slate-800 hover:bg-slate-700 text-[8px] font-sans font-black text-slate-200 hover:text-white transition-colors"
+              >
+                Calibrate
+              </button>
             </div>
           </div>
         )}

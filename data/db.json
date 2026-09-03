@@ -161,25 +161,59 @@
       "createdAt": "2025-01-01T00:00:00Z"
     },
     {
-      "id": "u_std_1787675894557",
-      "email": "test.user@skill2hire.com",
-      "phone": "+91 99999 88888",
-      "passwordHash": "44c3226641f0e831c329b697ba2a49a6adcfb95e1874e879da120efbc4e255eb",
+      "id": "u_std_1787949070722",
+      "firebaseUid": "fb_uid_tmdpngzhh_1787949070722",
+      "email": "saalimin21@gail.com",
+      "phone": "+91 8807894547",
+      "passwordHash": "551b9364a4b042fd6144f5443655e34c41d8574ae5f670e3e2be4a37e7b4c6e5",
       "role": "student",
-      "name": "Test Candidate",
-      "email_verified": true,
+      "name": "saalimin.n",
+      "email_verified": false,
       "phone_verified": true,
       "account_status": "ACTIVE",
       "verification_status": "VERIFIED",
       "avatar": "https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=150&auto=format&fit=crop&q=80",
-      "createdAt": "2026-08-25T16:38:14.557Z",
-      "updatedAt": "2026-08-25T16:42:13.588Z"
+      "createdAt": "2026-08-28T20:31:10.722Z",
+      "updatedAt": "2026-08-28T20:31:10.722Z"
     },
     {
-      "id": "u_std_1787678987769",
+      "id": "u_col_1787950720329",
+      "firebaseUid": "fb_uid_h8a2zqcro_1787950720329",
+      "email": "saalimin2000@gmail.com",
+      "phone": "8807894547",
+      "passwordHash": "dbccc18ebe73a7e983961c92f6b2831fd5d634934bde34b163e3e506074fbb13",
+      "role": "college",
+      "name": "rengantha",
+      "email_verified": false,
+      "phone_verified": true,
+      "account_status": "ACTIVE",
+      "verification_status": "VERIFIED",
+      "avatar": "https://images.unsplash.com/photo-1562774053-701939374585?w=150&auto=format&fit=crop&q=80",
+      "createdAt": "2026-08-28T20:58:40.329Z",
+      "updatedAt": "2026-08-28T20:58:40.329Z"
+    },
+    {
+      "id": "u_std_1787951082976",
+      "firebaseUid": "fb_uid_uik7v7ie1_1787951082976",
+      "email": "9925008052@klu.ac.in",
+      "phone": "8807894547",
+      "passwordHash": "551b9364a4b042fd6144f5443655e34c41d8574ae5f670e3e2be4a37e7b4c6e5",
+      "role": "student",
+      "name": "dilhar",
+      "email_verified": false,
+      "phone_verified": true,
+      "account_status": "ACTIVE",
+      "verification_status": "VERIFIED",
+      "avatar": "https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=150&auto=format&fit=crop&q=80",
+      "createdAt": "2026-08-28T21:04:42.976Z",
+      "updatedAt": "2026-08-28T21:04:42.976Z"
+    },
+    {
+      "id": "u_std_1787952516284",
+      "firebaseUid": "fb_uid_51g9sye7b_1787952516284",
       "email": "muskansah.com@gmail.com",
-      "phone": "9508542315",
-      "passwordHash": "5c08cdbff8183458d6d50413d80f7dfe00f9aba545d35fd9a95b22e5fa2de2c5",
+      "phone": "878756554556",
+      "passwordHash": "551b9364a4b042fd6144f5443655e34c41d8574ae5f670e3e2be4a37e7b4c6e5",
       "role": "student",
       "name": "muskan sah",
       "email_verified": true,
@@ -187,8 +221,40 @@
       "account_status": "ACTIVE",
       "verification_status": "VERIFIED",
       "avatar": "https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=150&auto=format&fit=crop&q=80",
-      "createdAt": "2026-08-25T17:29:47.769Z",
-      "updatedAt": "2026-08-25T17:29:47.769Z"
+      "createdAt": "2026-08-28T21:28:36.284Z",
+      "updatedAt": "2026-08-28T21:28:36.284Z"
+    },
+    {
+      "id": "u_std_1787952842596",
+      "firebaseUid": "fb_uid_5lcbe5ac4_1787952842596",
+      "email": "r.swetha892007@gmail.com",
+      "phone": "8921132974",
+      "passwordHash": "32d9acf47d37824ed6d879c7b7d1c724a22742b2055531252a04966d9522197a",
+      "role": "student",
+      "name": "Swetha",
+      "email_verified": true,
+      "phone_verified": true,
+      "account_status": "ACTIVE",
+      "verification_status": "VERIFIED",
+      "avatar": "https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=150&auto=format&fit=crop&q=80",
+      "createdAt": "2026-08-28T21:34:02.596Z",
+      "updatedAt": "2026-08-28T21:34:02.596Z"
+    },
+    {
+      "id": "u_std_1788179472010",
+      "firebaseUid": "fb_uid_ewokb698d_1788179472010",
+      "email": "saalimin21@gmail.com",
+      "phone": "8807894547",
+      "passwordHash": "a3ca2b672e4cc49f285d90311781d919f3b460bb8c3c5b95e19930ce6481f72c",
+      "role": "student",
+      "name": "saaalimmminnn",
+      "email_verified": true,
+      "phone_verified": true,
+      "account_status": "ACTIVE",
+      "verification_status": "VERIFIED",
+      "avatar": "https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=150&auto=format&fit=crop&q=80",
+      "createdAt": "2026-08-31T12:31:12.010Z",
+      "updatedAt": "2026-08-31T12:31:12.010Z"
     }
   ],
   "students": [
@@ -550,27 +616,29 @@
       "placementReadiness": 94
     },
     {
-      "id": "std_1787675894557",
-      "userId": "u_std_1787675894557",
-      "fullName": "Test Candidate",
-      "email": "test.user@skill2hire.com",
-      "phone": "+91 99999 88888",
+      "id": "std_1787949070722",
+      "userId": "u_std_1787949070722",
+      "fullName": "saalimin.n",
+      "email": "saalimin21@gail.com",
+      "phone": "+91 8807894547",
       "collegeId": "col_1",
-      "collegeName": "MIT",
+      "collegeName": "klu",
       "degree": "Bachelor of Science (B.S.)",
-      "department": "Data Science",
-      "graduationYear": 2027,
+      "department": "IT",
+      "graduationYear": 2029,
       "cgpa": 8.5,
       "location": "San Francisco, CA",
       "placementReadiness": 65,
-      "placementStatus": "In Training"
+      "placementStatus": "In Training",
+      "careerGoal": "Full Stack Software Engineer",
+      "resumeUrl": "https://storage.skill2hire.com/resumes/alex_resume.pdf"
     },
     {
-      "id": "std_1787678987769",
-      "userId": "u_std_1787678987769",
-      "fullName": "muskan sah",
-      "email": "muskansah.com@gmail.com",
-      "phone": "9508542315",
+      "id": "std_1787951082976",
+      "userId": "u_std_1787951082976",
+      "fullName": "dilhar",
+      "email": "9925008052@klu.ac.in",
+      "phone": "8807894547",
       "collegeId": "col_1",
       "collegeName": "Apex University of Engineering",
       "degree": "Bachelor of Science (B.S.)",
@@ -579,7 +647,63 @@
       "cgpa": 8.5,
       "location": "San Francisco, CA",
       "placementReadiness": 65,
-      "placementStatus": "In Training"
+      "placementStatus": "In Training",
+      "careerGoal": "Full Stack Software Engineer",
+      "resumeUrl": "https://storage.skill2hire.com/resumes/alex_resume.pdf"
+    },
+    {
+      "id": "std_1787952516284",
+      "userId": "u_std_1787952516284",
+      "fullName": "muskan sah",
+      "email": "muskansah.com@gmail.com",
+      "phone": "878756554556",
+      "collegeId": "col_1",
+      "collegeName": "Apex University of Engineering",
+      "degree": "Bachelor of Science (B.S.)",
+      "department": "Computer Science & Engineering",
+      "graduationYear": 2026,
+      "cgpa": 8.5,
+      "location": "San Francisco, CA",
+      "placementReadiness": 65,
+      "placementStatus": "In Training",
+      "careerGoal": "Full Stack Software Engineer",
+      "resumeUrl": "https://storage.skill2hire.com/resumes/alex_resume.pdf"
+    },
+    {
+      "id": "std_1787952842596",
+      "userId": "u_std_1787952842596",
+      "fullName": "Swetha",
+      "email": "r.swetha892007@gmail.com",
+      "phone": "8921132974",
+      "collegeId": "col_1",
+      "collegeName": "Kalasalingam University",
+      "degree": "Bachelor of Science (B.S.)",
+      "department": "Computer Science & Engineering",
+      "graduationYear": 2026,
+      "cgpa": 8.5,
+      "location": "San Francisco, CA",
+      "placementReadiness": 85,
+      "placementStatus": "In Training",
+      "careerGoal": "Full Stack Software Engineer",
+      "resumeUrl": "https://storage.skill2hire.com/resumes/alex_resume.pdf"
+    },
+    {
+      "id": "std_1788179472010",
+      "userId": "u_std_1788179472010",
+      "fullName": "saaalimmminnn",
+      "email": "saalimin21@gmail.com",
+      "phone": "8807894547",
+      "collegeId": "col_1",
+      "collegeName": "Apex University of Engineering",
+      "degree": "Bachelor of Science (B.S.)",
+      "department": "Computer Science & Engineering",
+      "graduationYear": 2026,
+      "cgpa": 8.5,
+      "location": "San Francisco, CA",
+      "placementReadiness": 65,
+      "placementStatus": "In Training",
+      "careerGoal": "Full Stack Software Engineer",
+      "resumeUrl": "https://storage.skill2hire.com/resumes/alex_resume.pdf"
     }
   ],
   "colleges": [
@@ -652,6 +776,21 @@
       "totalStudents": 2100,
       "placementRate": 82.3,
       "bio": "Fostering globally competitive engineers with deep foundations in software architecture and cloud computing."
+    },
+    {
+      "id": "col_1787950720329",
+      "userId": "u_col_1787950720329",
+      "name": "rengantha",
+      "code": "INST_892",
+      "email": "saalimin2000@gmail.com",
+      "phone": "8807894547",
+      "location": "Academic City Campus, Tech Corridor",
+      "website": "https://apexuniversity.edu",
+      "establishedYear": 2002,
+      "totalStudents": 120,
+      "placementRate": 78,
+      "bio": "Leading institution preparing students for tier-1 tech careers.",
+      "logo": "https://images.unsplash.com/photo-1562774053-701939374585?w=150&auto=format&fit=crop&q=80"
     }
   ],
   "companies": [
@@ -767,76 +906,6 @@
     }
   ],
   "jobs": [
-    {
-      "id": "job_1787624705478",
-      "companyId": "comp_1",
-      "companyName": "TechNova",
-      "companyLogo": "https://images.unsplash.com/photo-1572021335469-31706a17aaef?w=150&auto=format&fit=crop&q=80",
-      "title": "Software Developer",
-      "department": "Core Engineering",
-      "description": "We are looking for software developers with Python, SQL, data structures, Git and basic AWS knowledge.",
-      "responsibilities": [
-        "Design, build, and maintain efficient, reusable, and reliable code.",
-        "Implement optimized database queries, schema migrations, and indexing strategies with SQL.",
-        "Collaborate with product and DevOps teams using Git workflows and cloud deployment pipelines.",
-        "Solve complex algorithmic and data structure problems with clean code standards."
-      ],
-      "requirements": [
-        "B.S. or B.Tech in Computer Science, IT, or related technical field.",
-        "Strong fundamentals in Data Structures & Algorithms and Object-Oriented Programming.",
-        "Demonstrated proficiency in required verified technical skills.",
-        "Minimum CGPA of 7.5."
-      ],
-      "requiredSkills": [
-        {
-          "skillId": "sk_python",
-          "skillName": "Python",
-          "minLevel": "Intermediate",
-          "isRequired": true,
-          "weight": 1.5
-        },
-        {
-          "skillId": "sk_dsa",
-          "skillName": "DSA",
-          "minLevel": "Intermediate",
-          "isRequired": true,
-          "weight": 1.5
-        },
-        {
-          "skillId": "sk_sql",
-          "skillName": "SQL",
-          "minLevel": "Intermediate",
-          "isRequired": true,
-          "weight": 1.2
-        },
-        {
-          "skillId": "sk_git",
-          "skillName": "Git",
-          "minLevel": "Beginner",
-          "isRequired": true,
-          "weight": 1
-        },
-        {
-          "skillId": "sk_aws",
-          "skillName": "AWS",
-          "minLevel": "Beginner",
-          "isRequired": false,
-          "weight": 0.8
-        }
-      ],
-      "location": "San Francisco, CA (Hybrid)",
-      "workMode": "Hybrid",
-      "salary": "$95,000 - $125,000 / year",
-      "employmentType": "Full-time",
-      "minCgpa": 7.5,
-      "graduationYear": 2026,
-      "degree": "B.S. / B.Tech",
-      "branch": "Computer Science / IT",
-      "openings": 8,
-      "deadline": "2026-09-30",
-      "status": "published",
-      "createdAt": "2026-08-25T02:25:05.478Z"
-    },
     {
       "id": "job_1",
       "companyId": "comp_1",
@@ -2696,6 +2765,438 @@
       "score": 84,
       "verifiedAt": "2026-01-21T11:00:00Z",
       "assessmentId": "asm_sql"
+    },
+    {
+      "id": "ss_1787943900961_gzsk",
+      "studentId": "std_1787943900958",
+      "skillId": "sk_python",
+      "skillName": "Python",
+      "category": "Programming",
+      "status": "Self-Declared",
+      "level": "Intermediate"
+    },
+    {
+      "id": "ss_1787943900963_7a8y",
+      "studentId": "std_1787943900958",
+      "skillId": "sk_data_structures",
+      "skillName": "Data Structures",
+      "category": "Programming",
+      "status": "Self-Declared",
+      "level": "Intermediate"
+    },
+    {
+      "id": "ss_1787943900965_bkeh",
+      "studentId": "std_1787943900958",
+      "skillId": "sk_sql",
+      "skillName": "SQL",
+      "category": "Programming",
+      "status": "Self-Declared",
+      "level": "Intermediate"
+    },
+    {
+      "id": "ss_1787943900966_tgiu",
+      "studentId": "std_1787943900958",
+      "skillId": "sk_git",
+      "skillName": "Git",
+      "category": "Programming",
+      "status": "Self-Declared",
+      "level": "Intermediate"
+    },
+    {
+      "id": "ss_1787947895516_fjwu",
+      "studentId": "std_1787947895512",
+      "skillId": "sk_python",
+      "skillName": "Python",
+      "category": "Programming",
+      "status": "Self-Declared",
+      "level": "Intermediate"
+    },
+    {
+      "id": "ss_1787947895518_mm3b",
+      "studentId": "std_1787947895512",
+      "skillId": "sk_data_structures",
+      "skillName": "Data Structures",
+      "category": "Programming",
+      "status": "Self-Declared",
+      "level": "Intermediate"
+    },
+    {
+      "id": "ss_1787947895519_j173",
+      "studentId": "std_1787947895512",
+      "skillId": "sk_sql",
+      "skillName": "SQL",
+      "category": "Programming",
+      "status": "Self-Declared",
+      "level": "Intermediate"
+    },
+    {
+      "id": "ss_1787947895521_ek4u",
+      "studentId": "std_1787947895512",
+      "skillId": "sk_git",
+      "skillName": "Git",
+      "category": "Programming",
+      "status": "Self-Declared",
+      "level": "Intermediate"
+    },
+    {
+      "id": "ss_1787948525715_x8w6",
+      "studentId": "std_1787948525713",
+      "skillId": "sk_python",
+      "skillName": "Python",
+      "category": "Programming",
+      "status": "Self-Declared",
+      "level": "Intermediate"
+    },
+    {
+      "id": "ss_1787948525717_i5eg",
+      "studentId": "std_1787948525713",
+      "skillId": "sk_data_structures",
+      "skillName": "Data Structures",
+      "category": "Programming",
+      "status": "Self-Declared",
+      "level": "Intermediate"
+    },
+    {
+      "id": "ss_1787948525718_mlnd",
+      "studentId": "std_1787948525713",
+      "skillId": "sk_sql",
+      "skillName": "SQL",
+      "category": "Programming",
+      "status": "Self-Declared",
+      "level": "Intermediate"
+    },
+    {
+      "id": "ss_1787948525719_m3ko",
+      "studentId": "std_1787948525713",
+      "skillId": "sk_git",
+      "skillName": "Git",
+      "category": "Programming",
+      "status": "Self-Declared",
+      "level": "Intermediate"
+    },
+    {
+      "id": "ss_1787949070725_2juv",
+      "studentId": "std_1787949070722",
+      "skillId": "sk_python",
+      "skillName": "Python",
+      "category": "Programming",
+      "status": "Self-Declared",
+      "level": "Intermediate"
+    },
+    {
+      "id": "ss_1787949070728_srwy",
+      "studentId": "std_1787949070722",
+      "skillId": "sk_data_structures",
+      "skillName": "Data Structures",
+      "category": "Programming",
+      "status": "Self-Declared",
+      "level": "Intermediate"
+    },
+    {
+      "id": "ss_1787949070730_i6fs",
+      "studentId": "std_1787949070722",
+      "skillId": "sk_sql",
+      "skillName": "SQL",
+      "category": "Programming",
+      "status": "Self-Declared",
+      "level": "Intermediate"
+    },
+    {
+      "id": "ss_1787949070732_19pr",
+      "studentId": "std_1787949070722",
+      "skillId": "sk_git",
+      "skillName": "Git",
+      "category": "Programming",
+      "status": "Self-Declared",
+      "level": "Intermediate"
+    },
+    {
+      "id": "ss_1787950461851_nqgh",
+      "studentId": "std_1787950461847",
+      "skillId": "sk_python",
+      "skillName": "Python",
+      "category": "Programming",
+      "status": "Self-Declared",
+      "level": "Intermediate"
+    },
+    {
+      "id": "ss_1787950461853_prjf",
+      "studentId": "std_1787950461847",
+      "skillId": "sk_data_structures",
+      "skillName": "Data Structures",
+      "category": "Programming",
+      "status": "Self-Declared",
+      "level": "Intermediate"
+    },
+    {
+      "id": "ss_1787950461855_zu8s",
+      "studentId": "std_1787950461847",
+      "skillId": "sk_sql",
+      "skillName": "SQL",
+      "category": "Programming",
+      "status": "Self-Declared",
+      "level": "Intermediate"
+    },
+    {
+      "id": "ss_1787950461857_rh80",
+      "studentId": "std_1787950461847",
+      "skillId": "sk_git",
+      "skillName": "Git",
+      "category": "Programming",
+      "status": "Self-Declared",
+      "level": "Intermediate"
+    },
+    {
+      "id": "ss_1787951082979_1u5l",
+      "studentId": "std_1787951082976",
+      "skillId": "sk_python",
+      "skillName": "Python",
+      "category": "Programming",
+      "status": "Self-Declared",
+      "level": "Intermediate"
+    },
+    {
+      "id": "ss_1787951082982_rz18",
+      "studentId": "std_1787951082976",
+      "skillId": "sk_data_structures",
+      "skillName": "Data Structures",
+      "category": "Programming",
+      "status": "Self-Declared",
+      "level": "Intermediate"
+    },
+    {
+      "id": "ss_1787951082984_rom7",
+      "studentId": "std_1787951082976",
+      "skillId": "sk_sql",
+      "skillName": "SQL",
+      "category": "Programming",
+      "status": "Self-Declared",
+      "level": "Intermediate"
+    },
+    {
+      "id": "ss_1787951082986_zq4x",
+      "studentId": "std_1787951082976",
+      "skillId": "sk_git",
+      "skillName": "Git",
+      "category": "Programming",
+      "status": "Self-Declared",
+      "level": "Intermediate"
+    },
+    {
+      "id": "ss_1787951232240_fwj1",
+      "studentId": "std_1787951232237",
+      "skillId": "sk_python",
+      "skillName": "Python",
+      "category": "Programming",
+      "status": "Self-Declared",
+      "level": "Intermediate"
+    },
+    {
+      "id": "ss_1787951232242_hzb3",
+      "studentId": "std_1787951232237",
+      "skillId": "sk_data_structures",
+      "skillName": "Data Structures",
+      "category": "Programming",
+      "status": "Self-Declared",
+      "level": "Intermediate"
+    },
+    {
+      "id": "ss_1787951232244_0c1p",
+      "studentId": "std_1787951232237",
+      "skillId": "sk_sql",
+      "skillName": "SQL",
+      "category": "Programming",
+      "status": "Self-Declared",
+      "level": "Intermediate"
+    },
+    {
+      "id": "ss_1787951232246_k4uy",
+      "studentId": "std_1787951232237",
+      "skillId": "sk_git",
+      "skillName": "Git",
+      "category": "Programming",
+      "status": "Self-Declared",
+      "level": "Intermediate"
+    },
+    {
+      "id": "ss_1787951501713_5asy",
+      "studentId": "std_1787951501710",
+      "skillId": "sk_python",
+      "skillName": "Python",
+      "category": "Programming",
+      "status": "Self-Declared",
+      "level": "Intermediate"
+    },
+    {
+      "id": "ss_1787951501715_2rgp",
+      "studentId": "std_1787951501710",
+      "skillId": "sk_data_structures",
+      "skillName": "Data Structures",
+      "category": "Programming",
+      "status": "Self-Declared",
+      "level": "Intermediate"
+    },
+    {
+      "id": "ss_1787951501717_q6x4",
+      "studentId": "std_1787951501710",
+      "skillId": "sk_sql",
+      "skillName": "SQL",
+      "category": "Programming",
+      "status": "Self-Declared",
+      "level": "Intermediate"
+    },
+    {
+      "id": "ss_1787951501720_b9xp",
+      "studentId": "std_1787951501710",
+      "skillId": "sk_git",
+      "skillName": "Git",
+      "category": "Programming",
+      "status": "Self-Declared",
+      "level": "Intermediate"
+    },
+    {
+      "id": "ss_1787952398835_9qvp",
+      "studentId": "std_1787952398832",
+      "skillId": "sk_python",
+      "skillName": "Python",
+      "category": "Programming",
+      "status": "Self-Declared",
+      "level": "Intermediate"
+    },
+    {
+      "id": "ss_1787952398838_oxpl",
+      "studentId": "std_1787952398832",
+      "skillId": "sk_data_structures",
+      "skillName": "Data Structures",
+      "category": "Programming",
+      "status": "Self-Declared",
+      "level": "Intermediate"
+    },
+    {
+      "id": "ss_1787952398840_bwvy",
+      "studentId": "std_1787952398832",
+      "skillId": "sk_sql",
+      "skillName": "SQL",
+      "category": "Programming",
+      "status": "Self-Declared",
+      "level": "Intermediate"
+    },
+    {
+      "id": "ss_1787952398842_2c4b",
+      "studentId": "std_1787952398832",
+      "skillId": "sk_git",
+      "skillName": "Git",
+      "category": "Programming",
+      "status": "Self-Declared",
+      "level": "Intermediate"
+    },
+    {
+      "id": "ss_1787952516287_duc1",
+      "studentId": "std_1787952516284",
+      "skillId": "sk_python",
+      "skillName": "Python",
+      "category": "Programming",
+      "status": "Self-Declared",
+      "level": "Intermediate"
+    },
+    {
+      "id": "ss_1787952516290_7xb1",
+      "studentId": "std_1787952516284",
+      "skillId": "sk_data_structures",
+      "skillName": "Data Structures",
+      "category": "Programming",
+      "status": "Self-Declared",
+      "level": "Intermediate"
+    },
+    {
+      "id": "ss_1787952516292_klil",
+      "studentId": "std_1787952516284",
+      "skillId": "sk_sql",
+      "skillName": "SQL",
+      "category": "Programming",
+      "status": "Self-Declared",
+      "level": "Intermediate"
+    },
+    {
+      "id": "ss_1787952516294_h2i9",
+      "studentId": "std_1787952516284",
+      "skillId": "sk_git",
+      "skillName": "Git",
+      "category": "Programming",
+      "status": "Self-Declared",
+      "level": "Intermediate"
+    },
+    {
+      "id": "ss_1787952842599_se7r",
+      "studentId": "std_1787952842596",
+      "skillId": "sk_python",
+      "skillName": "Python",
+      "category": "Programming",
+      "status": "Self-Declared",
+      "level": "Intermediate"
+    },
+    {
+      "id": "ss_1787952842601_tm0b",
+      "studentId": "std_1787952842596",
+      "skillId": "sk_data_structures",
+      "skillName": "Data Structures",
+      "category": "Programming",
+      "status": "Self-Declared",
+      "level": "Intermediate"
+    },
+    {
+      "id": "ss_1787952842603_xxjj",
+      "studentId": "std_1787952842596",
+      "skillId": "sk_sql",
+      "skillName": "SQL",
+      "category": "Programming",
+      "status": "Self-Declared",
+      "level": "Intermediate"
+    },
+    {
+      "id": "ss_1787952842606_yt7i",
+      "studentId": "std_1787952842596",
+      "skillId": "sk_git",
+      "skillName": "Git",
+      "category": "Programming",
+      "status": "Self-Declared",
+      "level": "Intermediate"
+    },
+    {
+      "id": "ss_1788179472014_kh7c",
+      "studentId": "std_1788179472010",
+      "skillId": "sk_python",
+      "skillName": "Python",
+      "category": "Programming",
+      "status": "Self-Declared",
+      "level": "Intermediate"
+    },
+    {
+      "id": "ss_1788179472017_t5sx",
+      "studentId": "std_1788179472010",
+      "skillId": "sk_data_structures",
+      "skillName": "Data Structures",
+      "category": "Programming",
+      "status": "Self-Declared",
+      "level": "Intermediate"
+    },
+    {
+      "id": "ss_1788179472019_o0n0",
+      "studentId": "std_1788179472010",
+      "skillId": "sk_sql",
+      "skillName": "SQL",
+      "category": "Programming",
+      "status": "Self-Declared",
+      "level": "Intermediate"
+    },
+    {
+      "id": "ss_1788179472021_yfaf",
+      "studentId": "std_1788179472010",
+      "skillId": "sk_git",
+      "skillName": "Git",
+      "category": "Programming",
+      "status": "Self-Declared",
+      "level": "Intermediate"
     }
   ],
   "verified_skills": [
@@ -2876,7 +3377,7 @@
       "level": "Beginner",
       "duration": "6 Hours (3 Modules)",
       "description": "Branching strategies, rebase vs merge, resolve conflicts, pull request reviews, and automated GitHub Actions.",
-      "thumbnail": "https://images.unsplash.com/photo-1618401471353-b98aedd04e11?w=600&auto=format&fit=crop&q=80",
+      "thumbnail": "https://images.unsplash.com/photo-1629654297299-c8506221ca97?w=600&auto=format&fit=crop&q=80",
       "modulesCount": 3,
       "lessonsCount": 9,
       "enrolledCount": 1650,
@@ -3127,12 +3628,44 @@
   ],
   "lesson_progress": [
     {
+      "id": "lp_std_1787952842596_les_py_1_1",
+      "studentId": "std_1787952842596",
+      "courseId": "crs_python",
+      "lessonId": "les_py_1_1",
+      "status": "in_progress",
+      "completedAt": "2026-08-29T01:53:08.923Z"
+    },
+    {
+      "id": "lp_std_1787952842596_les_crs_cpp_1_1",
+      "studentId": "std_1787952842596",
+      "courseId": "crs_cpp",
+      "lessonId": "les_crs_cpp_1_1",
+      "status": "in_progress",
+      "completedAt": "2026-08-29T01:10:02.185Z"
+    },
+    {
+      "id": "lp_std_1787952842596_les_crs_git_1_1",
+      "studentId": "std_1787952842596",
+      "courseId": "crs_git",
+      "lessonId": "les_crs_git_1_1",
+      "status": "in_progress",
+      "completedAt": "2026-08-28T22:38:34.116Z"
+    },
+    {
+      "id": "lp_std_1787952842596_les_crs_java_1_1",
+      "studentId": "std_1787952842596",
+      "courseId": "crs_java",
+      "lessonId": "les_crs_java_1_1",
+      "status": "in_progress",
+      "completedAt": "2026-08-28T23:09:02.701Z"
+    },
+    {
       "id": "lp_std_1_les_py_1_1",
       "studentId": "std_1",
       "courseId": "crs_python",
       "lessonId": "les_py_1_1",
-      "status": "completed",
-      "completedAt": "2026-08-26T10:45:03.715Z"
+      "status": "in_progress",
+      "completedAt": "2026-08-29T03:43:50.185Z"
     }
   ],
   "assessments": [
@@ -3458,40 +3991,416 @@
       "correctOptionIndex": 2,
       "points": 20,
       "explanation": "`AVG()` is the standard ANSI SQL aggregate function for computing the arithmetic mean."
+    },
+    {
+      "id": "q_cpp_1",
+      "assessmentId": "asm_cpp",
+      "questionText": "In C++, what is the primary purpose of RAII (Resource Acquisition Is Initialization)?",
+      "type": "mcq",
+      "options": [
+        "To execute functions asynchronously",
+        "To automatically manage resource lifetimes using object scope and destructors",
+        "To speed up compilation times",
+        "To check types at runtime"
+      ],
+      "correctOptionIndex": 1,
+      "points": 20,
+      "explanation": "RAII binds resource management (like memory, file handles, or locks) to the lifetime of stack-allocated objects, utilizing destructors for automatic cleanup when scope is exited."
+    },
+    {
+      "id": "q_cpp_2",
+      "assessmentId": "asm_cpp",
+      "questionText": "Which C++ smart pointer type should be used when you want exclusive, single ownership of a dynamically allocated resource with zero runtime overhead?",
+      "type": "mcq",
+      "options": [
+        "std::shared_ptr",
+        "std::weak_ptr",
+        "std::unique_ptr",
+        "std::auto_ptr"
+      ],
+      "correctOptionIndex": 2,
+      "points": 20,
+      "explanation": "`std::unique_ptr` maintains sole ownership of a resource, freeing it when the pointer goes out of scope. It operates with zero overhead compared to raw pointers."
+    },
+    {
+      "id": "q_cpp_3",
+      "assessmentId": "asm_cpp",
+      "questionText": "What is the main difference between `std::vector` and `std::list` in the C++ Standard Template Library (STL)?",
+      "type": "mcq",
+      "options": [
+        "std::vector is a linked list while std::list is a dynamic array",
+        "std::vector provides O(1) random access while std::list provides O(N) sequential access",
+        "std::list has lower memory overhead than std::vector",
+        "std::vector only stores integer types"
+      ],
+      "correctOptionIndex": 1,
+      "points": 20,
+      "explanation": "`std::vector` stores elements contiguously allowing O(1) index access, while `std::list` is a doubly linked list requiring O(N) traversal to reach a index."
+    },
+    {
+      "id": "q_cpp_4",
+      "assessmentId": "asm_cpp",
+      "questionText": "What does the `virtual` keyword on a C++ member function indicate?",
+      "type": "mcq",
+      "options": [
+        "The function has no implementation",
+        "The function is compiled to WebAssembly",
+        "The function can be overridden in derived classes and resolved dynamically at runtime",
+        "The function is static and cannot access member fields"
+      ],
+      "correctOptionIndex": 2,
+      "points": 20,
+      "explanation": "The `virtual` keyword enables dynamic dispatch (runtime polymorphism) by using a vtable to determine which overridden method to execute based on the actual object type."
+    },
+    {
+      "id": "q_cpp_5",
+      "assessmentId": "asm_cpp",
+      "questionText": "Examine the code snippet: `int x = 5; int* p = &x; *p = 10;`. What is the value of `x` after execution?",
+      "type": "mcq",
+      "options": [
+        "5",
+        "10",
+        "Null / Reference Error",
+        "0"
+      ],
+      "correctOptionIndex": 1,
+      "points": 20,
+      "codeSnippet": "int x = 5;\nint* p = &x;\n*p = 10;",
+      "explanation": "The pointer `p` stores the memory address of `x`. Dereferencing the pointer using `*p` and assigning 10 updates the value of the variable `x` directly in memory."
+    },
+    {
+      "id": "q_java_1",
+      "assessmentId": "asm_java",
+      "questionText": "In Java, what does the `final` keyword indicate when applied to a class definition?",
+      "type": "mcq",
+      "options": [
+        "The class cannot have static methods",
+        "The class cannot be instantiated",
+        "The class cannot be subclassed (inherited from)",
+        "All fields in the class are automatically mutable"
+      ],
+      "correctOptionIndex": 2,
+      "points": 20,
+      "explanation": "Applying `final` to a class prevents other classes from inheriting from or subclassing it (e.g., the built-in Java `String` class is final)."
+    },
+    {
+      "id": "q_java_2",
+      "assessmentId": "asm_java",
+      "questionText": "Which memory area in the Java Virtual Machine (JVM) stores dynamically allocated objects and is managed by the Garbage Collector?",
+      "type": "mcq",
+      "options": [
+        "Stack Memory",
+        "Heap Memory",
+        "Method Area",
+        "PC Registers"
+      ],
+      "correctOptionIndex": 1,
+      "points": 20,
+      "explanation": "JVM Stack memory stores local variable frames and primitive values; all objects are allocated on the central JVM Heap and reclaimed by the Garbage Collector when unreachable."
+    },
+    {
+      "id": "q_java_3",
+      "assessmentId": "asm_java",
+      "questionText": "Which collection class in Java implements the `List` interface, maintains insertion order, and uses a resizable array internally?",
+      "type": "mcq",
+      "options": [
+        "LinkedList",
+        "HashSet",
+        "ArrayList",
+        "TreeMap"
+      ],
+      "correctOptionIndex": 2,
+      "points": 20,
+      "explanation": "`ArrayList` uses a dynamically resizing array to store items, providing fast read access and preserving the sequence in which items were added."
+    },
+    {
+      "id": "q_java_4",
+      "assessmentId": "asm_java",
+      "questionText": "What is the primary difference between a checked exception and an unchecked exception in Java?",
+      "type": "mcq",
+      "options": [
+        "Checked exceptions must be declared or handled at compile time; unchecked exceptions do not require compile-time handling",
+        "Unchecked exceptions occur only in multi-threaded programs",
+        "Checked exceptions inherit from RuntimeException",
+        "Unchecked exceptions are checked by the JVM compiler"
+      ],
+      "correctOptionIndex": 0,
+      "points": 20,
+      "explanation": "Checked exceptions (inheriting from `Exception` but not `RuntimeException`) are checked at compile-time and require `try-catch` or `throws`. Unchecked exceptions (`RuntimeException`) do not."
+    },
+    {
+      "id": "q_java_5",
+      "assessmentId": "asm_java",
+      "questionText": "What does the `synchronized` keyword in Java do?",
+      "type": "mcq",
+      "options": [
+        "It makes the execution of methods faster",
+        "It ensures that only one thread can execute a block of code or method at a time on a given monitor object",
+        "It serializes objects to disk",
+        "It compiles code at runtime"
+      ],
+      "correctOptionIndex": 1,
+      "points": 20,
+      "explanation": "`synchronized` locks access to a method or block, preventing multiple threads from concurrently modifying shared resources and causing race conditions."
+    },
+    {
+      "id": "q_git_1",
+      "assessmentId": "asm_git",
+      "questionText": "Which Git command is used to record staged changes permanently to the local repository history?",
+      "type": "mcq",
+      "options": [
+        "git add",
+        "git push",
+        "git commit",
+        "git checkout"
+      ],
+      "correctOptionIndex": 2,
+      "points": 20,
+      "explanation": "`git add` stages changes; `git commit` takes a snapshot of those staged changes and saves them to local repository history."
+    },
+    {
+      "id": "q_git_2",
+      "assessmentId": "asm_git",
+      "questionText": "What is the purpose of the `git stash` command?",
+      "type": "mcq",
+      "options": [
+        "To delete the local branch permanently",
+        "To temporarily save uncommitted local changes and reset the working directory to match HEAD",
+        "To push local branches to the remote server",
+        "To merge two conflicting branches"
+      ],
+      "correctOptionIndex": 1,
+      "points": 20,
+      "explanation": "`git stash` allows you to save your modified files temporarily in a stack and cleans your workspace, so you can work on something else and restore the changes later using `git stash pop`."
+    },
+    {
+      "id": "q_git_3",
+      "assessmentId": "asm_git",
+      "questionText": "What does the command `git checkout -b feature-auth` do?",
+      "type": "mcq",
+      "options": [
+        "Deletes the branch feature-auth",
+        "Creates a new branch named feature-auth and switches your working branch to it",
+        "Resets the current branch to feature-auth",
+        "Displays a list of all branches starting with feature-auth"
+      ],
+      "correctOptionIndex": 1,
+      "points": 20,
+      "explanation": "This combines two operations: `git branch feature-auth` (creation) and `git checkout feature-auth` (switching working branch)."
+    },
+    {
+      "id": "q_git_4",
+      "assessmentId": "asm_git",
+      "questionText": "What is the main difference between `git merge` and `git rebase`?",
+      "type": "mcq",
+      "options": [
+        "Merge deletes history; rebase preserves it",
+        "Merge creates a new commit joining two branches; rebase moves the base of a branch to create a linear history",
+        "Rebase can only be used on remote repositories",
+        "Merge requires internet access; rebase does not"
+      ],
+      "correctOptionIndex": 1,
+      "points": 20,
+      "explanation": "`merge` preserves the exact chronological branches via a merge commit; `rebase` rewrites history by placing local commits on top of the target branch base for a linear history."
+    },
+    {
+      "id": "q_git_5",
+      "assessmentId": "asm_git",
+      "questionText": "What is the purpose of the `.gitignore` file in a Git repository?",
+      "type": "mcq",
+      "options": [
+        "To list files that should be force-pushed to the remote origin",
+        "To specify file paths and patterns that Git should untrack and ignore",
+        "To store user login credentials",
+        "To set repository access permissions"
+      ],
+      "correctOptionIndex": 1,
+      "points": 20,
+      "explanation": "`.gitignore` ensures that build directories, environment secrets (`.env`), or node dependencies (`node_modules`) are not tracked or committed to version control."
+    },
+    {
+      "id": "q_aws_1",
+      "assessmentId": "asm_aws",
+      "questionText": "Which AWS service provides resizable, on-demand virtual servers in the cloud?",
+      "type": "mcq",
+      "options": [
+        "Amazon S3",
+        "Amazon EC2",
+        "Amazon RDS",
+        "AWS Lambda"
+      ],
+      "correctOptionIndex": 1,
+      "points": 20,
+      "explanation": "Amazon EC2 (Elastic Compute Cloud) provides virtual machines, letting you choose OS, instance specs, and network settings on a pay-as-you-go model."
+    },
+    {
+      "id": "q_aws_2",
+      "assessmentId": "asm_aws",
+      "questionText": "What is the primary service type of Amazon Simple Storage Service (S3)?",
+      "type": "mcq",
+      "options": [
+        "Relational database storage",
+        "Object-based storage for files and assets",
+        "Block storage for OS drives",
+        "In-memory cache cluster"
+      ],
+      "correctOptionIndex": 1,
+      "points": 20,
+      "explanation": "Amazon S3 is an object storage service designed to store and retrieve any amount of unstructured data (files, images, backups) from anywhere on the web."
+    },
+    {
+      "id": "q_aws_3",
+      "assessmentId": "asm_aws",
+      "questionText": "Which AWS tool is used to securely manage user access, credentials, and permissions to AWS services?",
+      "type": "mcq",
+      "options": [
+        "Amazon CloudWatch",
+        "AWS Identity and Access Management (IAM)",
+        "AWS CloudTrail",
+        "Amazon VPC"
+      ],
+      "correctOptionIndex": 1,
+      "points": 20,
+      "explanation": "IAM (Identity and Access Management) allows you to define granular permission policies, roles, groups, and users to secure your AWS resource control plane."
+    },
+    {
+      "id": "q_aws_4",
+      "assessmentId": "asm_aws",
+      "questionText": "What is the primary benefit of AWS Lambda?",
+      "type": "mcq",
+      "options": [
+        "It provides dedicated virtual servers with root access",
+        "It runs code in response to events and handles scale automatically without provisioning servers (Serverless)",
+        "It hosts domain name systems",
+        "It performs data warehouse analytical queries"
+      ],
+      "correctOptionIndex": 1,
+      "points": 20,
+      "explanation": "AWS Lambda is serverless compute; it runs custom code triggers (API requests, file uploads) and scales down to zero when idle, saving cost."
+    },
+    {
+      "id": "q_aws_5",
+      "assessmentId": "asm_aws",
+      "questionText": "What does Amazon VPC stand for, and what is its purpose?",
+      "type": "mcq",
+      "options": [
+        "Virtual Private Cache, for storing session data",
+        "Virtual Private Cloud, to define a logically isolated virtual network for your AWS resources",
+        "Variable Power Compute, for machine learning jobs",
+        "Vector Point Connection, for direct fiber connections"
+      ],
+      "correctOptionIndex": 1,
+      "points": 20,
+      "explanation": "Amazon VPC (Virtual Private Cloud) allows you to partition a section of AWS into an isolated network, giving you control over IP ranges, subnets, route tables, and gateways."
+    },
+    {
+      "id": "q_react_1",
+      "assessmentId": "asm_react",
+      "questionText": "In React, which built-in Hook is used to add and update component state?",
+      "type": "mcq",
+      "options": [
+        "useEffect",
+        "useState",
+        "useContext",
+        "useReducer"
+      ],
+      "correctOptionIndex": 1,
+      "points": 20,
+      "explanation": "`useState` declares a state variable and a dispatch function to update it, trigger a component re-render, and preserve state values across renders."
+    },
+    {
+      "id": "q_react_2",
+      "assessmentId": "asm_react",
+      "questionText": "What is the primary purpose of the `useEffect` Hook in functional React components?",
+      "type": "mcq",
+      "options": [
+        "To speed up virtual DOM updates",
+        "To perform side effects (such as data fetching, subscriptions, or DOM mutations)",
+        "To bind event handlers to elements",
+        "To memoize expensive calculation outputs"
+      ],
+      "correctOptionIndex": 1,
+      "points": 20,
+      "explanation": "`useEffect` runs asynchronous side-effects, executing code after rendering and cleaning up resources (e.g. event listeners) when the component unmounts or dependencies change."
+    },
+    {
+      "id": "q_react_3",
+      "assessmentId": "asm_react",
+      "questionText": "Why is it important to use `key` props when rendering lists of elements in React?",
+      "type": "mcq",
+      "options": [
+        "To style list items differently",
+        "To help React identify which items have changed, been added, or been removed, ensuring efficient re-rendering",
+        "To secure list items from cross-site scripting",
+        "To make list items clickable"
+      ],
+      "correctOptionIndex": 1,
+      "points": 20,
+      "explanation": "Keys provide stable identities to list elements. This helps React's reconciliation algorithm match changes between virtual and actual DOM trees without recreating the entire list."
+    },
+    {
+      "id": "q_react_4",
+      "assessmentId": "asm_react",
+      "questionText": "What is the difference between `Props` and `State` in React?",
+      "type": "mcq",
+      "options": [
+        "Props are internal and private to a component; State is passed down from parents",
+        "Props are immutable configuration passed to a component; State is mutable internal data managed by the component",
+        "State is read-only; Props can be modified by the child component",
+        "There is no difference; they are aliases"
+      ],
+      "correctOptionIndex": 1,
+      "points": 20,
+      "explanation": "Props are read-only variables passed from parents to children to customize configuration. State represents mutable internal data variables managed by the component itself."
+    },
+    {
+      "id": "q_react_5",
+      "assessmentId": "asm_react",
+      "questionText": "What does React's Virtual DOM do?",
+      "type": "mcq",
+      "options": [
+        "Directly renders 3D elements in the browser",
+        "Keeps a lightweight representation of the real DOM in memory and syncs changes via a diffing process (reconciliation)",
+        "Replaces the browser's CSS rendering engine",
+        "Enables server-side database connections"
+      ],
+      "correctOptionIndex": 1,
+      "points": 20,
+      "explanation": "The Virtual DOM sits as an in-memory buffer. When state changes, React computes minimal changes against the old tree and batches updates to the real DOM, optimizing render performance."
     }
   ],
   "assessment_results": [
     {
-      "id": "res_1787679034870",
-      "studentId": "std_1",
+      "id": "res_1787956361703",
+      "studentId": "std_1787952842596",
       "assessmentId": "asm_python",
       "skillId": "sk_python",
       "skillName": "Python",
+      "score": 0,
+      "passed": false,
+      "totalQuestions": 5,
+      "correctAnswers": 0,
+      "accuracy": 0,
+      "levelAwarded": "Intermediate",
+      "submittedAt": "2026-08-28T22:32:41.703Z"
+    },
+    {
+      "id": "res_1787956404735",
+      "studentId": "std_1787952842596",
+      "assessmentId": "asm_cpp",
+      "skillId": "sk_cpp",
+      "skillName": "C++",
       "score": 20,
       "passed": false,
       "totalQuestions": 5,
       "correctAnswers": 1,
       "accuracy": 20,
       "levelAwarded": "Intermediate",
-      "submittedAt": "2026-08-25T17:30:34.870Z"
+      "submittedAt": "2026-08-28T22:33:24.735Z"
     },
     {
-      "id": "res_1787721853098",
-      "studentId": "std_1",
-      "assessmentId": "asm_python",
-      "skillId": "sk_python",
-      "skillName": "Python",
-      "score": 20,
-      "passed": false,
-      "totalQuestions": 5,
-      "correctAnswers": 1,
-      "accuracy": 20,
-      "levelAwarded": "Intermediate",
-      "submittedAt": "2026-08-26T05:24:13.098Z"
-    },
-    {
-      "id": "res_1787741148362",
-      "studentId": "std_1",
+      "id": "res_1787956846069",
+      "studentId": "std_1787952842596",
       "assessmentId": "asm_python",
       "skillId": "sk_python",
       "skillName": "Python",
@@ -3501,82 +4410,207 @@
       "correctAnswers": 2,
       "accuracy": 40,
       "levelAwarded": "Intermediate",
-      "submittedAt": "2026-08-26T10:45:48.362Z"
-    }
-  ],
-  "applications": [
-    {
-      "id": "app_1787722857158_uyjh",
-      "jobId": "job_1",
-      "studentId": "std_1",
-      "companyId": "comp_1",
-      "studentName": "Alex Rivera",
-      "studentEmail": "alex.rivera@student.skill2hire.com",
-      "studentCollege": "Apex University of Engineering",
-      "jobTitle": "Software Developer",
-      "companyName": "TechNova",
-      "matchPercentage": 60,
-      "status": "Applied",
-      "notes": "Submitted via Skill2Hire verified talent pipeline",
-      "appliedAt": "2026-08-26T05:40:57.158Z",
-      "updatedAt": "2026-08-26T05:40:57.158Z"
-    }
-  ],
-  "training_programs": [
-    {
-      "id": "tp_1787624598609",
-      "collegeId": "col_1",
-      "title": "PYTHON",
-      "description": "Dedicated training program for PYTHON",
-      "durationWeeks": 8,
-      "targetSkills": [
-        "Python",
-        "DSA",
-        "SQL"
-      ],
-      "targetStudentCount": 200,
-      "enrolledStudentCount": 45,
-      "startDate": "2026-08-25",
-      "endDate": "2026-10-20",
-      "status": "active",
-      "modules": [
-        "Python Basics & Syntax",
-        "Conditions & Loops",
-        "Functions & Collections",
-        "Data Structures & Algorithms in Python",
-        "Object-Oriented Programming",
-        "File Handling & Exception Controls",
-        "Placement Coding Practice",
-        "Final Assessment"
-      ]
+      "submittedAt": "2026-08-28T22:40:46.069Z"
     },
     {
-      "id": "tp_1787624579117",
-      "collegeId": "col_1",
-      "title": "Industry Placement Bootcamp (Python + Git)",
-      "description": "Intensive 8-week placement training bootcamp covering practical Python OOP, Data Structures & Algorithms, and relational database queries.",
-      "durationWeeks": 8,
-      "targetSkills": [
-        "Python",
-        "Git"
-      ],
-      "targetStudentCount": 200,
-      "enrolledStudentCount": 45,
-      "startDate": "2026-08-25",
-      "endDate": "2026-10-20",
-      "status": "active",
-      "modules": [
-        "Python Basics & Syntax",
-        "Conditions & Loops",
-        "Functions & Collections",
-        "Data Structures & Algorithms in Python",
-        "Object-Oriented Programming",
-        "File Handling & Exception Controls",
-        "Placement Coding Practice",
-        "Final Assessment"
-      ]
+      "id": "res_1787956877962",
+      "studentId": "std_1787952842596",
+      "assessmentId": "asm_python",
+      "skillId": "sk_python",
+      "skillName": "Python",
+      "score": 40,
+      "passed": false,
+      "totalQuestions": 5,
+      "correctAnswers": 2,
+      "accuracy": 40,
+      "levelAwarded": "Intermediate",
+      "submittedAt": "2026-08-28T22:41:17.962Z"
+    },
+    {
+      "id": "res_1787967573612",
+      "studentId": "std_1787952842596",
+      "assessmentId": "asm_cpp",
+      "skillId": "sk_cpp",
+      "skillName": "C++",
+      "score": 0,
+      "passed": false,
+      "totalQuestions": 5,
+      "correctAnswers": 0,
+      "accuracy": 0,
+      "levelAwarded": "Intermediate",
+      "submittedAt": "2026-08-29T01:39:33.612Z"
+    },
+    {
+      "id": "res_1787969041666",
+      "studentId": "std_1787952842596",
+      "assessmentId": "asm_cpp",
+      "skillId": "sk_cpp",
+      "skillName": "C++",
+      "score": 0,
+      "passed": false,
+      "totalQuestions": 5,
+      "correctAnswers": 0,
+      "accuracy": 0,
+      "levelAwarded": "Intermediate",
+      "submittedAt": "2026-08-29T02:04:01.666Z"
+    },
+    {
+      "id": "res_1787969041671",
+      "studentId": "std_1787952842596",
+      "assessmentId": "asm_cpp",
+      "skillId": "sk_cpp",
+      "skillName": "C++",
+      "score": 0,
+      "passed": false,
+      "totalQuestions": 5,
+      "correctAnswers": 0,
+      "accuracy": 0,
+      "levelAwarded": "Intermediate",
+      "submittedAt": "2026-08-29T02:04:01.671Z"
+    },
+    {
+      "id": "res_1787969157204",
+      "studentId": "std_1787952842596",
+      "assessmentId": "asm_python",
+      "skillId": "sk_python",
+      "skillName": "Python",
+      "score": 20,
+      "passed": false,
+      "totalQuestions": 5,
+      "correctAnswers": 1,
+      "accuracy": 20,
+      "levelAwarded": "Intermediate",
+      "submittedAt": "2026-08-29T02:05:57.204Z"
+    },
+    {
+      "id": "res_1787969193496",
+      "studentId": "std_1787952842596",
+      "assessmentId": "asm_cpp",
+      "skillId": "sk_cpp",
+      "skillName": "C++",
+      "score": 0,
+      "passed": false,
+      "totalQuestions": 5,
+      "correctAnswers": 0,
+      "accuracy": 0,
+      "levelAwarded": "Intermediate",
+      "submittedAt": "2026-08-29T02:06:33.496Z"
+    },
+    {
+      "id": "res_1787969193503",
+      "studentId": "std_1787952842596",
+      "assessmentId": "asm_cpp",
+      "skillId": "sk_cpp",
+      "skillName": "C++",
+      "score": 0,
+      "passed": false,
+      "totalQuestions": 5,
+      "correctAnswers": 0,
+      "accuracy": 0,
+      "levelAwarded": "Intermediate",
+      "submittedAt": "2026-08-29T02:06:33.503Z"
+    },
+    {
+      "id": "res_1787969544199",
+      "studentId": "std_1787952842596",
+      "assessmentId": "asm_python",
+      "skillId": "sk_python",
+      "skillName": "Python",
+      "score": 0,
+      "passed": false,
+      "totalQuestions": 5,
+      "correctAnswers": 0,
+      "accuracy": 0,
+      "levelAwarded": "Intermediate",
+      "submittedAt": "2026-08-29T02:12:24.199Z"
+    },
+    {
+      "id": "res_1787969544217",
+      "studentId": "std_1787952842596",
+      "assessmentId": "asm_python",
+      "skillId": "sk_python",
+      "skillName": "Python",
+      "score": 0,
+      "passed": false,
+      "totalQuestions": 5,
+      "correctAnswers": 0,
+      "accuracy": 0,
+      "levelAwarded": "Intermediate",
+      "submittedAt": "2026-08-29T02:12:24.217Z"
+    },
+    {
+      "id": "res_1787969592030",
+      "studentId": "std_1787952842596",
+      "assessmentId": "asm_cpp",
+      "skillId": "sk_cpp",
+      "skillName": "C++",
+      "score": 0,
+      "passed": false,
+      "totalQuestions": 5,
+      "correctAnswers": 0,
+      "accuracy": 0,
+      "levelAwarded": "Intermediate",
+      "submittedAt": "2026-08-29T02:13:12.030Z"
+    },
+    {
+      "id": "res_1787969592037",
+      "studentId": "std_1787952842596",
+      "assessmentId": "asm_cpp",
+      "skillId": "sk_cpp",
+      "skillName": "C++",
+      "score": 0,
+      "passed": false,
+      "totalQuestions": 5,
+      "correctAnswers": 0,
+      "accuracy": 0,
+      "levelAwarded": "Intermediate",
+      "submittedAt": "2026-08-29T02:13:12.037Z"
+    },
+    {
+      "id": "res_1787970016798",
+      "studentId": "std_1787952842596",
+      "assessmentId": "asm_cpp",
+      "skillId": "sk_cpp",
+      "skillName": "C++",
+      "score": 0,
+      "passed": false,
+      "totalQuestions": 5,
+      "correctAnswers": 0,
+      "accuracy": 0,
+      "levelAwarded": "Intermediate",
+      "submittedAt": "2026-08-29T02:20:16.798Z"
+    },
+    {
+      "id": "res_1787981638065",
+      "studentId": "std_1",
+      "assessmentId": "asm_cpp",
+      "skillId": "sk_cpp",
+      "skillName": "C++",
+      "score": 0,
+      "passed": false,
+      "totalQuestions": 5,
+      "correctAnswers": 0,
+      "accuracy": 0,
+      "levelAwarded": "Intermediate",
+      "submittedAt": "2026-08-29T05:33:58.065Z"
+    },
+    {
+      "id": "res_1787985753315",
+      "studentId": "std_1",
+      "assessmentId": "asm_python",
+      "skillId": "sk_python",
+      "skillName": "Python",
+      "score": 0,
+      "passed": false,
+      "totalQuestions": 5,
+      "correctAnswers": 0,
+      "accuracy": 0,
+      "levelAwarded": "Intermediate",
+      "submittedAt": "2026-08-29T06:42:33.315Z"
     }
   ],
+  "applications": [],
+  "training_programs": [],
   "training_enrollments": [],
   "college_curriculum": [
     {
@@ -3650,193 +4684,6 @@
   ],
   "industry_skill_demand": [],
   "notifications": [
-    {
-      "id": "notif_1787722857160_student",
-      "userId": "u_student_1",
-      "role": "student",
-      "title": "Application Submitted: Software Developer",
-      "message": "Your application to TechNova has been received with a verified match score of 60%.",
-      "type": "success",
-      "link": "/student/applications",
-      "read": false,
-      "createdAt": "2026-08-26T05:40:57.160Z"
-    },
-    {
-      "id": "notif_1787722857159_recruiter",
-      "userId": "u_comp_1",
-      "role": "company",
-      "title": "New Verified Applicant for Software Developer",
-      "message": "Alex Rivera (Apex University of Engineering) applied with a 60% match score.",
-      "type": "success",
-      "link": "/recruiter/applications",
-      "read": false,
-      "createdAt": "2026-08-26T05:40:57.159Z"
-    },
-    {
-      "id": "notif_1787624705484_col_5",
-      "userId": "u_col_5",
-      "role": "college",
-      "title": "New Job Opportunity: Software Developer",
-      "message": "TechNova published Software Developer hiring for 8 positions.",
-      "type": "info",
-      "link": "/college/industry-demand",
-      "read": false,
-      "createdAt": "2026-08-25T02:25:05.484Z"
-    },
-    {
-      "id": "notif_1787624705483_col_4",
-      "userId": "u_col_4",
-      "role": "college",
-      "title": "New Job Opportunity: Software Developer",
-      "message": "TechNova published Software Developer hiring for 8 positions.",
-      "type": "info",
-      "link": "/college/industry-demand",
-      "read": false,
-      "createdAt": "2026-08-25T02:25:05.483Z"
-    },
-    {
-      "id": "notif_1787624705483_col_3",
-      "userId": "u_col_3",
-      "role": "college",
-      "title": "New Job Opportunity: Software Developer",
-      "message": "TechNova published Software Developer hiring for 8 positions.",
-      "type": "info",
-      "link": "/college/industry-demand",
-      "read": false,
-      "createdAt": "2026-08-25T02:25:05.483Z"
-    },
-    {
-      "id": "notif_1787624705482_col_2",
-      "userId": "u_col_2",
-      "role": "college",
-      "title": "New Job Opportunity: Software Developer",
-      "message": "TechNova published Software Developer hiring for 8 positions.",
-      "type": "info",
-      "link": "/college/industry-demand",
-      "read": false,
-      "createdAt": "2026-08-25T02:25:05.482Z"
-    },
-    {
-      "id": "notif_1787624705481_col_1",
-      "userId": "u_col_1",
-      "role": "college",
-      "title": "New Job Opportunity: Software Developer",
-      "message": "TechNova published Software Developer hiring for 8 positions.",
-      "type": "info",
-      "link": "/college/industry-demand",
-      "read": false,
-      "createdAt": "2026-08-25T02:25:05.481Z"
-    },
-    {
-      "id": "notif_1787624598617_std_10",
-      "userId": "u_std_10",
-      "role": "student",
-      "title": "New Training Program: PYTHON",
-      "message": "Your college has launched PYTHON (8 weeks) to bridge industry skill gaps.",
-      "type": "info",
-      "link": "/student/skills",
-      "read": false,
-      "createdAt": "2026-08-25T02:23:18.617Z"
-    },
-    {
-      "id": "notif_1787624598616_std_8",
-      "userId": "u_std_8",
-      "role": "student",
-      "title": "New Training Program: PYTHON",
-      "message": "Your college has launched PYTHON (8 weeks) to bridge industry skill gaps.",
-      "type": "info",
-      "link": "/student/skills",
-      "read": false,
-      "createdAt": "2026-08-25T02:23:18.616Z"
-    },
-    {
-      "id": "notif_1787624598614_std_6",
-      "userId": "u_std_6",
-      "role": "student",
-      "title": "New Training Program: PYTHON",
-      "message": "Your college has launched PYTHON (8 weeks) to bridge industry skill gaps.",
-      "type": "info",
-      "link": "/student/skills",
-      "read": false,
-      "createdAt": "2026-08-25T02:23:18.614Z"
-    },
-    {
-      "id": "notif_1787624598612_std_2",
-      "userId": "u_student_2",
-      "role": "student",
-      "title": "New Training Program: PYTHON",
-      "message": "Your college has launched PYTHON (8 weeks) to bridge industry skill gaps.",
-      "type": "info",
-      "link": "/student/skills",
-      "read": false,
-      "createdAt": "2026-08-25T02:23:18.612Z"
-    },
-    {
-      "id": "notif_1787624598611_std_1",
-      "userId": "u_student_1",
-      "role": "student",
-      "title": "New Training Program: PYTHON",
-      "message": "Your college has launched PYTHON (8 weeks) to bridge industry skill gaps.",
-      "type": "info",
-      "link": "/student/skills",
-      "read": false,
-      "createdAt": "2026-08-25T02:23:18.611Z"
-    },
-    {
-      "id": "notif_1787624579123_std_10",
-      "userId": "u_std_10",
-      "role": "student",
-      "title": "New Training Program: Industry Placement Bootcamp (Python + Git)",
-      "message": "Your college has launched Industry Placement Bootcamp (Python + Git) (8 weeks) to bridge industry skill gaps.",
-      "type": "info",
-      "link": "/student/skills",
-      "read": false,
-      "createdAt": "2026-08-25T02:22:59.123Z"
-    },
-    {
-      "id": "notif_1787624579123_std_8",
-      "userId": "u_std_8",
-      "role": "student",
-      "title": "New Training Program: Industry Placement Bootcamp (Python + Git)",
-      "message": "Your college has launched Industry Placement Bootcamp (Python + Git) (8 weeks) to bridge industry skill gaps.",
-      "type": "info",
-      "link": "/student/skills",
-      "read": false,
-      "createdAt": "2026-08-25T02:22:59.123Z"
-    },
-    {
-      "id": "notif_1787624579122_std_6",
-      "userId": "u_std_6",
-      "role": "student",
-      "title": "New Training Program: Industry Placement Bootcamp (Python + Git)",
-      "message": "Your college has launched Industry Placement Bootcamp (Python + Git) (8 weeks) to bridge industry skill gaps.",
-      "type": "info",
-      "link": "/student/skills",
-      "read": false,
-      "createdAt": "2026-08-25T02:22:59.122Z"
-    },
-    {
-      "id": "notif_1787624579121_std_2",
-      "userId": "u_student_2",
-      "role": "student",
-      "title": "New Training Program: Industry Placement Bootcamp (Python + Git)",
-      "message": "Your college has launched Industry Placement Bootcamp (Python + Git) (8 weeks) to bridge industry skill gaps.",
-      "type": "info",
-      "link": "/student/skills",
-      "read": false,
-      "createdAt": "2026-08-25T02:22:59.121Z"
-    },
-    {
-      "id": "notif_1787624579121_std_1",
-      "userId": "u_student_1",
-      "role": "student",
-      "title": "New Training Program: Industry Placement Bootcamp (Python + Git)",
-      "message": "Your college has launched Industry Placement Bootcamp (Python + Git) (8 weeks) to bridge industry skill gaps.",
-      "type": "info",
-      "link": "/student/skills",
-      "read": false,
-      "createdAt": "2026-08-25T02:22:59.121Z"
-    },
     {
       "id": "notif_1",
       "userId": "u_student_1",
@@ -4207,20 +5054,7 @@
   ],
   "coding_attempts": [
     {
-      "id": "catt_1787742344754",
-      "studentId": "std_1",
-      "problemId": "code_1",
-      "problemTitle": "Two Sum Problem",
-      "topic": "Arrays",
-      "language": "python",
-      "code": "printf(\"hello\");",
-      "status": "Failed",
-      "accuracy": 33,
-      "executionTimeMs": 54,
-      "submittedAt": "2026-08-26T11:05:44.754Z"
-    },
-    {
-      "id": "catt_1787742313558",
+      "id": "catt_1787975121850",
       "studentId": "std_1",
       "problemId": "code_1",
       "problemTitle": "Two Sum Problem",
@@ -4229,8 +5063,21 @@
       "code": "def twoSum(nums: list[int], target: int) -> list[int]:\n    # Write your solution here\n    seen = {}\n    for i, num in enumerate(nums):\n        complement = target - num\n        if complement in seen:\n            return [seen[complement], i]\n        seen[num] = i\n    return []",
       "status": "Solved ✓",
       "accuracy": 100,
+      "executionTimeMs": 58,
+      "submittedAt": "2026-08-29T03:45:21.850Z"
+    },
+    {
+      "id": "catt_1787956979715",
+      "studentId": "std_1787952842596",
+      "problemId": "code_3",
+      "problemTitle": "Maximum Subarray (Kadane Algorithm)",
+      "topic": "Dynamic Programming",
+      "language": "python",
+      "code": "def maxSubArray(nums: list[int]) -> int:\n    max_sum = current_sum = nums[0]\n    for x in nums[1:]:\n        current_sum = max(x, current_sum + x)\n        max_sum = max(max_sum, current_sum)\n    return max_sum",
+      "status": "Solved ✓",
+      "accuracy": 100,
       "executionTimeMs": 48,
-      "submittedAt": "2026-08-26T11:05:13.558Z"
+      "submittedAt": "2026-08-28T22:42:59.715Z"
     }
   ],
   "interview_questions": [
@@ -4295,180 +5142,24 @@
       ]
     }
   ],
-  "interview_evaluations": [
-    {
-      "id": "ieval_1787742060179",
-      "studentId": "std_1",
-      "questionId": "iq_1",
-      "questionText": "Explain how memory management and garbage collection work in Python. What is the difference between reference counting and the cyclic garbage collector?",
-      "category": "Technical",
-      "answerText": "garbage",
-      "overallScore": 71,
-      "criteriaScores": {
-        "technicalCorrectness": 65,
-        "relevance": 80,
-        "structure": 60,
-        "communication": 80
-      },
-      "feedback": {
-        "strengths": [
-          "Good baseline understanding of the question premise."
-        ],
-        "improvements": [
-          "Include specific internal mechanisms (e.g. data structure names, time complexities, or system guarantees).",
-          "Elaborate further with real-world examples and trade-off analysis."
-        ],
-        "suggestedRefinement": "Tip: State the high-level concept first, break down the component details, and conclude with performance or operational trade-offs."
-      },
-      "submittedAt": "2026-08-26T11:01:00.179Z"
-    }
-  ],
+  "interview_evaluations": [],
   "resume_analyses": [
-    {
-      "studentId": "std_1",
-      "jobId": "job_1787624705478",
-      "jobTitle": "Software Developer",
-      "resumeMatchScore": 20,
-      "matchedSkills": [
-        "Python"
-      ],
-      "missingSkills": [
-        "DSA",
-        "SQL",
-        "Git",
-        "AWS"
-      ],
-      "weakEvidenceSkills": [
-        {
-          "skill": "DSA",
-          "observation": "Your resume does not explicitly demonstrate hands-on production usage or projects using DSA.",
-          "recommendation": "Add a capstone project or lab demonstration highlighting DSA to strengthen your applicant profile."
-        },
-        {
-          "skill": "SQL",
-          "observation": "Your resume does not explicitly demonstrate hands-on production usage or projects using SQL.",
-          "recommendation": "Add a capstone project or lab demonstration highlighting SQL to strengthen your applicant profile."
-        },
-        {
-          "skill": "Git",
-          "observation": "Your resume does not explicitly demonstrate hands-on production usage or projects using Git.",
-          "recommendation": "Add a capstone project or lab demonstration highlighting Git to strengthen your applicant profile."
-        },
-        {
-          "skill": "AWS",
-          "observation": "Your resume does not explicitly demonstrate hands-on production usage or projects using AWS.",
-          "recommendation": "Add a capstone project or lab demonstration highlighting AWS to strengthen your applicant profile."
-        }
-      ],
-      "projectRecommendations": [
-        {
-          "title": "Distributed Software Developer Service Architecture",
-          "description": "High-scale backend service incorporating DSA + SQL + Git + AWS with automated CI/CD and unit testing.",
-          "targetTechnologies": [
-            "DSA",
-            "SQL",
-            "Git",
-            "AWS"
-          ],
-          "strengthensAreas": "Provides tangible proof-of-work for DSA, SQL, Git, AWS."
-        }
-      ],
-      "resumeStrengths": [
-        "Strong educational foundation with relevant engineering coursework.",
-        "Clear project descriptions detailing outcomes and technologies."
-      ],
-      "actionableFeedback": [
-        "Incorporate DSA, SQL, Git, AWS into your technical skills section and project bullet points.",
-        "Quantify your project outcomes with metrics (e.g. \"improved query latency by 40%\")."
-      ]
-    },
-    {
-      "studentId": "std_1",
-      "jobId": "job_3",
-      "jobTitle": "Cloud DevOps Associate",
-      "resumeMatchScore": 0,
-      "matchedSkills": [],
-      "missingSkills": [
-        "AWS",
-        "Docker",
-        "Linux CLI",
-        "Git"
-      ],
-      "weakEvidenceSkills": [
-        {
-          "skill": "AWS",
-          "observation": "Your resume does not explicitly demonstrate hands-on production usage or projects using AWS.",
-          "recommendation": "Add a capstone project or lab demonstration highlighting AWS to strengthen your applicant profile."
-        },
-        {
-          "skill": "Docker",
-          "observation": "Your resume does not explicitly demonstrate hands-on production usage or projects using Docker.",
-          "recommendation": "Add a capstone project or lab demonstration highlighting Docker to strengthen your applicant profile."
-        },
-        {
-          "skill": "Linux CLI",
-          "observation": "Your resume does not explicitly demonstrate hands-on production usage or projects using Linux CLI.",
-          "recommendation": "Add a capstone project or lab demonstration highlighting Linux CLI to strengthen your applicant profile."
-        },
-        {
-          "skill": "Git",
-          "observation": "Your resume does not explicitly demonstrate hands-on production usage or projects using Git.",
-          "recommendation": "Add a capstone project or lab demonstration highlighting Git to strengthen your applicant profile."
-        }
-      ],
-      "projectRecommendations": [
-        {
-          "title": "Distributed Cloud DevOps Associate Service Architecture",
-          "description": "High-scale backend service incorporating AWS + Docker + Linux CLI + Git with automated CI/CD and unit testing.",
-          "targetTechnologies": [
-            "AWS",
-            "Docker",
-            "Linux CLI",
-            "Git"
-          ],
-          "strengthensAreas": "Provides tangible proof-of-work for AWS, Docker, Linux CLI, Git."
-        }
-      ],
-      "resumeStrengths": [
-        "Strong educational foundation with relevant engineering coursework.",
-        "Clear project descriptions detailing outcomes and technologies."
-      ],
-      "actionableFeedback": [
-        "Incorporate AWS, Docker, Linux CLI, Git into your technical skills section and project bullet points.",
-        "Quantify your project outcomes with metrics (e.g. \"improved query latency by 40%\")."
-      ]
-    },
     {
       "studentId": "std_1",
       "jobId": "job_1",
       "jobTitle": "Software Developer",
-      "resumeMatchScore": 33,
+      "resumeMatchScore": 83,
       "matchedSkills": [
         "Python",
-        "Git"
-      ],
-      "missingSkills": [
         "C++",
         "DSA",
         "SQL",
+        "Git"
+      ],
+      "missingSkills": [
         "AWS"
       ],
       "weakEvidenceSkills": [
-        {
-          "skill": "C++",
-          "observation": "Your resume does not explicitly demonstrate hands-on production usage or projects using C++.",
-          "recommendation": "Add a capstone project or lab demonstration highlighting C++ to strengthen your applicant profile."
-        },
-        {
-          "skill": "DSA",
-          "observation": "Your resume does not explicitly demonstrate hands-on production usage or projects using DSA.",
-          "recommendation": "Add a capstone project or lab demonstration highlighting DSA to strengthen your applicant profile."
-        },
-        {
-          "skill": "SQL",
-          "observation": "Your resume does not explicitly demonstrate hands-on production usage or projects using SQL.",
-          "recommendation": "Add a capstone project or lab demonstration highlighting SQL to strengthen your applicant profile."
-        },
         {
           "skill": "AWS",
           "observation": "Your resume does not explicitly demonstrate hands-on production usage or projects using AWS.",
@@ -4478,14 +5169,11 @@
       "projectRecommendations": [
         {
           "title": "Distributed Software Developer Service Architecture",
-          "description": "High-scale backend service incorporating C++ + DSA + SQL + AWS with automated CI/CD and unit testing.",
+          "description": "High-scale backend service incorporating AWS with automated CI/CD and unit testing.",
           "targetTechnologies": [
-            "C++",
-            "DSA",
-            "SQL",
             "AWS"
           ],
-          "strengthensAreas": "Provides tangible proof-of-work for C++, DSA, SQL, AWS."
+          "strengthensAreas": "Provides tangible proof-of-work for AWS."
         }
       ],
       "resumeStrengths": [
@@ -4493,7 +5181,7 @@
         "Clear project descriptions detailing outcomes and technologies."
       ],
       "actionableFeedback": [
-        "Incorporate C++, DSA, SQL, AWS into your technical skills section and project bullet points.",
+        "Incorporate AWS into your technical skills section and project bullet points.",
         "Quantify your project outcomes with metrics (e.g. \"improved query latency by 40%\")."
       ]
     }
@@ -4666,6 +5354,687 @@
     }
   ],
   "academic_reports": [
+    {
+      "studentId": "std_2",
+      "rollNumber": "APX-2026-002",
+      "registrationNumber": "REG-2022-CS-9812",
+      "studentName": "Priya Sharma",
+      "phone": "+1 (555) 234-5679",
+      "email": "priya.sharma@student.skill2hire.com",
+      "collegeId": "col_1",
+      "collegeName": "Apex University of Engineering",
+      "degree": "B.Tech",
+      "department": "Information Technology",
+      "admissionYear": 2022,
+      "graduationYear": 2026,
+      "currentSemester": 6,
+      "cgpa": 9.1,
+      "overallAttendancePercentage": 92.4,
+      "totalCreditsEarned": 98,
+      "totalCreditsRequired": 160,
+      "activeBacklogs": 0,
+      "semesters": [
+        {
+          "semesterNumber": 1,
+          "semesterName": "Semester I (Fall 2022)",
+          "academicYear": "2022-2023",
+          "sgpa": 8.42,
+          "totalCredits": 16,
+          "earnedCredits": 16,
+          "subjects": [
+            {
+              "code": "CS101",
+              "name": "Problem Solving & Python Programming",
+              "credits": 4,
+              "grade": "A+",
+              "gradePoint": 9,
+              "type": "Theory"
+            },
+            {
+              "code": "MA101",
+              "name": "Linear Algebra & Calculus I",
+              "credits": 4,
+              "grade": "A",
+              "gradePoint": 8,
+              "type": "Theory"
+            },
+            {
+              "code": "PH101",
+              "name": "Applied Physics for Engineers",
+              "credits": 3,
+              "grade": "A",
+              "gradePoint": 8,
+              "type": "Theory"
+            },
+            {
+              "code": "CS101P",
+              "name": "Python Systems Programming Lab",
+              "credits": 2,
+              "grade": "O",
+              "gradePoint": 10,
+              "type": "Lab"
+            },
+            {
+              "code": "EE101",
+              "name": "Basic Electrical & Electronics",
+              "credits": 3,
+              "grade": "B+",
+              "gradePoint": 7,
+              "type": "Theory"
+            }
+          ]
+        },
+        {
+          "semesterNumber": 2,
+          "semesterName": "Semester II (Spring 2023)",
+          "academicYear": "2022-2023",
+          "sgpa": 8.56,
+          "totalCredits": 16,
+          "earnedCredits": 16,
+          "subjects": [
+            {
+              "code": "CS201",
+              "name": "Data Structures & Algorithms I",
+              "credits": 4,
+              "grade": "A+",
+              "gradePoint": 9,
+              "type": "Theory"
+            },
+            {
+              "code": "MA201",
+              "name": "Differential Equations & Transforms",
+              "credits": 4,
+              "grade": "A",
+              "gradePoint": 8,
+              "type": "Theory"
+            },
+            {
+              "code": "CS202",
+              "name": "Digital Logic & System Design",
+              "credits": 3,
+              "grade": "A",
+              "gradePoint": 8,
+              "type": "Theory"
+            },
+            {
+              "code": "CS201P",
+              "name": "Data Structures Laboratory",
+              "credits": 2,
+              "grade": "O",
+              "gradePoint": 10,
+              "type": "Lab"
+            },
+            {
+              "code": "EN201",
+              "name": "Professional Technical Communication",
+              "credits": 3,
+              "grade": "A+",
+              "gradePoint": 9,
+              "type": "Theory"
+            }
+          ]
+        },
+        {
+          "semesterNumber": 3,
+          "semesterName": "Semester III (Fall 2023)",
+          "academicYear": "2023-2024",
+          "sgpa": 8.88,
+          "totalCredits": 17,
+          "earnedCredits": 17,
+          "subjects": [
+            {
+              "code": "CS301",
+              "name": "Database Management Systems & SQL",
+              "credits": 4,
+              "grade": "O",
+              "gradePoint": 10,
+              "type": "Theory"
+            },
+            {
+              "code": "CS302",
+              "name": "Object-Oriented Programming (C++/Java)",
+              "credits": 4,
+              "grade": "A+",
+              "gradePoint": 9,
+              "type": "Theory"
+            },
+            {
+              "code": "CS303",
+              "name": "Computer Organization & Architecture",
+              "credits": 3,
+              "grade": "A",
+              "gradePoint": 8,
+              "type": "Theory"
+            },
+            {
+              "code": "CS301P",
+              "name": "Relational Database & SQL Lab",
+              "credits": 2,
+              "grade": "O",
+              "gradePoint": 10,
+              "type": "Lab"
+            },
+            {
+              "code": "MA301",
+              "name": "Discrete Mathematics & Graph Theory",
+              "credits": 4,
+              "grade": "A",
+              "gradePoint": 8,
+              "type": "Theory"
+            }
+          ]
+        },
+        {
+          "semesterNumber": 4,
+          "semesterName": "Semester IV (Spring 2024)",
+          "academicYear": "2023-2024",
+          "sgpa": 8.41,
+          "totalCredits": 17,
+          "earnedCredits": 17,
+          "subjects": [
+            {
+              "code": "CS401",
+              "name": "Design & Analysis of Algorithms",
+              "credits": 4,
+              "grade": "A+",
+              "gradePoint": 9,
+              "type": "Theory"
+            },
+            {
+              "code": "CS402",
+              "name": "Operating Systems & Concurrency",
+              "credits": 4,
+              "grade": "A",
+              "gradePoint": 8,
+              "type": "Theory"
+            },
+            {
+              "code": "CS403",
+              "name": "Computer Networks & Protocols",
+              "credits": 4,
+              "grade": "A",
+              "gradePoint": 8,
+              "type": "Theory"
+            },
+            {
+              "code": "CS402P",
+              "name": "Operating Systems & Networks Lab",
+              "credits": 2,
+              "grade": "A+",
+              "gradePoint": 9,
+              "type": "Lab"
+            },
+            {
+              "code": "MA401",
+              "name": "Probability & Statistics",
+              "credits": 3,
+              "grade": "A",
+              "gradePoint": 8,
+              "type": "Theory"
+            }
+          ]
+        },
+        {
+          "semesterNumber": 5,
+          "semesterName": "Semester V (Fall 2024)",
+          "academicYear": "2024-2025",
+          "sgpa": 8.63,
+          "totalCredits": 16,
+          "earnedCredits": 16,
+          "subjects": [
+            {
+              "code": "CS501",
+              "name": "Web Architecture & Cloud Distributed Systems",
+              "credits": 4,
+              "grade": "A+",
+              "gradePoint": 9,
+              "type": "Theory"
+            },
+            {
+              "code": "CS502",
+              "name": "Theory of Computation & Automata",
+              "credits": 4,
+              "grade": "A",
+              "gradePoint": 8,
+              "type": "Theory"
+            },
+            {
+              "code": "CS503",
+              "name": "Software Engineering & Agile Methodologies",
+              "credits": 3,
+              "grade": "A",
+              "gradePoint": 8,
+              "type": "Theory"
+            },
+            {
+              "code": "CS504",
+              "name": "Cloud Computing & Docker Architecture",
+              "credits": 3,
+              "grade": "A",
+              "gradePoint": 8,
+              "type": "Theory"
+            },
+            {
+              "code": "CS501P",
+              "name": "Full Stack & Cloud Systems Lab",
+              "credits": 2,
+              "grade": "O",
+              "gradePoint": 10,
+              "type": "Lab"
+            }
+          ]
+        },
+        {
+          "semesterNumber": 6,
+          "semesterName": "Semester VI (Spring 2025 - Current)",
+          "academicYear": "2024-2025",
+          "sgpa": 9.06,
+          "totalCredits": 16,
+          "earnedCredits": 16,
+          "subjects": [
+            {
+              "code": "CS601",
+              "name": "Artificial Intelligence & Machine Learning",
+              "credits": 4,
+              "grade": "A+",
+              "gradePoint": 9,
+              "type": "Theory"
+            },
+            {
+              "code": "CS602",
+              "name": "Distributed Microservices & Task Queues",
+              "credits": 4,
+              "grade": "A+",
+              "gradePoint": 9,
+              "type": "Theory"
+            },
+            {
+              "code": "CS603",
+              "name": "Information & Network Security",
+              "credits": 3,
+              "grade": "A",
+              "gradePoint": 8,
+              "type": "Theory"
+            },
+            {
+              "code": "CS604",
+              "name": "Industry Capstone Project & Placement Sprint",
+              "credits": 3,
+              "grade": "O",
+              "gradePoint": 10,
+              "type": "Project"
+            },
+            {
+              "code": "CS605",
+              "name": "Technical Seminar & Viva Voce",
+              "credits": 2,
+              "grade": "O",
+              "gradePoint": 10,
+              "type": "Theory"
+            }
+          ]
+        }
+      ],
+      "verifiedSkills": [
+        {
+          "skillName": "Python",
+          "level": "Advanced",
+          "score": 94,
+          "credibilityScore": 96,
+          "certificateId": "CERT-PY-9411",
+          "verifiedDate": "2026-01-20T11:00:00Z"
+        },
+        {
+          "skillName": "SQL",
+          "level": "Advanced",
+          "score": 92,
+          "credibilityScore": 95,
+          "certificateId": "CERT-SQL-9233",
+          "verifiedDate": "2026-01-22T15:00:00Z"
+        },
+        {
+          "skillName": "DSA",
+          "level": "Intermediate",
+          "score": 86,
+          "credibilityScore": 92,
+          "certificateId": "CERT-DSA-8640",
+          "verifiedDate": "2026-01-28T10:00:00Z"
+        }
+      ],
+      "placementStatus": "Placement Ready",
+      "placementReadinessScore": 88,
+      "institutionalRemarks": "Exemplary academic progression with consistent honors and high technical problem-solving proficiency. Eligible for Tier-1 corporate engineering placements.",
+      "issuedDate": "2026-08-28",
+      "verificationHash": "APX-2026-STD_2-VERIFIED"
+    },
+    {
+      "studentId": "std_1787952842596",
+      "rollNumber": "APX-2026-001787952842596",
+      "registrationNumber": "REG-2022-CS-9811787952842596",
+      "studentName": "Swetha",
+      "phone": "8921132974",
+      "email": "r.swetha892007@gmail.com",
+      "collegeId": "col_1",
+      "collegeName": "Kalasalingam University",
+      "degree": "Bachelor of Science (B.S.)",
+      "department": "Computer Science & Engineering",
+      "admissionYear": 2022,
+      "graduationYear": 2026,
+      "currentSemester": 6,
+      "cgpa": 8.5,
+      "overallAttendancePercentage": 92.4,
+      "totalCreditsEarned": 98,
+      "totalCreditsRequired": 160,
+      "activeBacklogs": 0,
+      "semesters": [
+        {
+          "semesterNumber": 1,
+          "semesterName": "Semester I (Fall 2022)",
+          "academicYear": "2022-2023",
+          "sgpa": 8.42,
+          "totalCredits": 16,
+          "earnedCredits": 16,
+          "subjects": [
+            {
+              "code": "CS101",
+              "name": "Problem Solving & Python Programming",
+              "credits": 4,
+              "grade": "A+",
+              "gradePoint": 9,
+              "type": "Theory"
+            },
+            {
+              "code": "MA101",
+              "name": "Linear Algebra & Calculus I",
+              "credits": 4,
+              "grade": "A",
+              "gradePoint": 8,
+              "type": "Theory"
+            },
+            {
+              "code": "PH101",
+              "name": "Applied Physics for Engineers",
+              "credits": 3,
+              "grade": "A",
+              "gradePoint": 8,
+              "type": "Theory"
+            },
+            {
+              "code": "CS101P",
+              "name": "Python Systems Programming Lab",
+              "credits": 2,
+              "grade": "O",
+              "gradePoint": 10,
+              "type": "Lab"
+            },
+            {
+              "code": "EE101",
+              "name": "Basic Electrical & Electronics",
+              "credits": 3,
+              "grade": "B+",
+              "gradePoint": 7,
+              "type": "Theory"
+            }
+          ]
+        },
+        {
+          "semesterNumber": 2,
+          "semesterName": "Semester II (Spring 2023)",
+          "academicYear": "2022-2023",
+          "sgpa": 8.56,
+          "totalCredits": 16,
+          "earnedCredits": 16,
+          "subjects": [
+            {
+              "code": "CS201",
+              "name": "Data Structures & Algorithms I",
+              "credits": 4,
+              "grade": "A+",
+              "gradePoint": 9,
+              "type": "Theory"
+            },
+            {
+              "code": "MA201",
+              "name": "Differential Equations & Transforms",
+              "credits": 4,
+              "grade": "A",
+              "gradePoint": 8,
+              "type": "Theory"
+            },
+            {
+              "code": "CS202",
+              "name": "Digital Logic & System Design",
+              "credits": 3,
+              "grade": "A",
+              "gradePoint": 8,
+              "type": "Theory"
+            },
+            {
+              "code": "CS201P",
+              "name": "Data Structures Laboratory",
+              "credits": 2,
+              "grade": "O",
+              "gradePoint": 10,
+              "type": "Lab"
+            },
+            {
+              "code": "EN201",
+              "name": "Professional Technical Communication",
+              "credits": 3,
+              "grade": "A+",
+              "gradePoint": 9,
+              "type": "Theory"
+            }
+          ]
+        },
+        {
+          "semesterNumber": 3,
+          "semesterName": "Semester III (Fall 2023)",
+          "academicYear": "2023-2024",
+          "sgpa": 8.88,
+          "totalCredits": 17,
+          "earnedCredits": 17,
+          "subjects": [
+            {
+              "code": "CS301",
+              "name": "Database Management Systems & SQL",
+              "credits": 4,
+              "grade": "O",
+              "gradePoint": 10,
+              "type": "Theory"
+            },
+            {
+              "code": "CS302",
+              "name": "Object-Oriented Programming (C++/Java)",
+              "credits": 4,
+              "grade": "A+",
+              "gradePoint": 9,
+              "type": "Theory"
+            },
+            {
+              "code": "CS303",
+              "name": "Computer Organization & Architecture",
+              "credits": 3,
+              "grade": "A",
+              "gradePoint": 8,
+              "type": "Theory"
+            },
+            {
+              "code": "CS301P",
+              "name": "Relational Database & SQL Lab",
+              "credits": 2,
+              "grade": "O",
+              "gradePoint": 10,
+              "type": "Lab"
+            },
+            {
+              "code": "MA301",
+              "name": "Discrete Mathematics & Graph Theory",
+              "credits": 4,
+              "grade": "A",
+              "gradePoint": 8,
+              "type": "Theory"
+            }
+          ]
+        },
+        {
+          "semesterNumber": 4,
+          "semesterName": "Semester IV (Spring 2024)",
+          "academicYear": "2023-2024",
+          "sgpa": 8.41,
+          "totalCredits": 17,
+          "earnedCredits": 17,
+          "subjects": [
+            {
+              "code": "CS401",
+              "name": "Design & Analysis of Algorithms",
+              "credits": 4,
+              "grade": "A+",
+              "gradePoint": 9,
+              "type": "Theory"
+            },
+            {
+              "code": "CS402",
+              "name": "Operating Systems & Concurrency",
+              "credits": 4,
+              "grade": "A",
+              "gradePoint": 8,
+              "type": "Theory"
+            },
+            {
+              "code": "CS403",
+              "name": "Computer Networks & Protocols",
+              "credits": 4,
+              "grade": "A",
+              "gradePoint": 8,
+              "type": "Theory"
+            },
+            {
+              "code": "CS402P",
+              "name": "Operating Systems & Networks Lab",
+              "credits": 2,
+              "grade": "A+",
+              "gradePoint": 9,
+              "type": "Lab"
+            },
+            {
+              "code": "MA401",
+              "name": "Probability & Statistics",
+              "credits": 3,
+              "grade": "A",
+              "gradePoint": 8,
+              "type": "Theory"
+            }
+          ]
+        },
+        {
+          "semesterNumber": 5,
+          "semesterName": "Semester V (Fall 2024)",
+          "academicYear": "2024-2025",
+          "sgpa": 8.63,
+          "totalCredits": 16,
+          "earnedCredits": 16,
+          "subjects": [
+            {
+              "code": "CS501",
+              "name": "Web Architecture & Cloud Distributed Systems",
+              "credits": 4,
+              "grade": "A+",
+              "gradePoint": 9,
+              "type": "Theory"
+            },
+            {
+              "code": "CS502",
+              "name": "Theory of Computation & Automata",
+              "credits": 4,
+              "grade": "A",
+              "gradePoint": 8,
+              "type": "Theory"
+            },
+            {
+              "code": "CS503",
+              "name": "Software Engineering & Agile Methodologies",
+              "credits": 3,
+              "grade": "A",
+              "gradePoint": 8,
+              "type": "Theory"
+            },
+            {
+              "code": "CS504",
+              "name": "Cloud Computing & Docker Architecture",
+              "credits": 3,
+              "grade": "A",
+              "gradePoint": 8,
+              "type": "Theory"
+            },
+            {
+              "code": "CS501P",
+              "name": "Full Stack & Cloud Systems Lab",
+              "credits": 2,
+              "grade": "O",
+              "gradePoint": 10,
+              "type": "Lab"
+            }
+          ]
+        },
+        {
+          "semesterNumber": 6,
+          "semesterName": "Semester VI (Spring 2025 - Current)",
+          "academicYear": "2024-2025",
+          "sgpa": 9.06,
+          "totalCredits": 16,
+          "earnedCredits": 16,
+          "subjects": [
+            {
+              "code": "CS601",
+              "name": "Artificial Intelligence & Machine Learning",
+              "credits": 4,
+              "grade": "A+",
+              "gradePoint": 9,
+              "type": "Theory"
+            },
+            {
+              "code": "CS602",
+              "name": "Distributed Microservices & Task Queues",
+              "credits": 4,
+              "grade": "A+",
+              "gradePoint": 9,
+              "type": "Theory"
+            },
+            {
+              "code": "CS603",
+              "name": "Information & Network Security",
+              "credits": 3,
+              "grade": "A",
+              "gradePoint": 8,
+              "type": "Theory"
+            },
+            {
+              "code": "CS604",
+              "name": "Industry Capstone Project & Placement Sprint",
+              "credits": 3,
+              "grade": "O",
+              "gradePoint": 10,
+              "type": "Project"
+            },
+            {
+              "code": "CS605",
+              "name": "Technical Seminar & Viva Voce",
+              "credits": 2,
+              "grade": "O",
+              "gradePoint": 10,
+              "type": "Theory"
+            }
+          ]
+        }
+      ],
+      "verifiedSkills": [],
+      "placementStatus": "In Training",
+      "placementReadinessScore": 82,
+      "institutionalRemarks": "Exemplary academic progression with consistent honors and high technical problem-solving proficiency. Eligible for Tier-1 corporate engineering placements.",
+      "issuedDate": "2026-08-28",
+      "verificationHash": "APX-2026-STD_1787952842596-VERIFIED"
+    },
     {
       "studentId": "std_1",
       "rollNumber": "APX-2026-001",
@@ -5000,157 +6369,442 @@
       "placementStatus": "In Training",
       "placementReadinessScore": 62,
       "institutionalRemarks": "Exemplary academic progression with consistent honors and high technical problem-solving proficiency. Eligible for Tier-1 corporate engineering placements.",
-      "issuedDate": "2026-08-24",
+      "issuedDate": "2026-08-29",
       "verificationHash": "APX-2026-STD_1-VERIFIED"
+    },
+    {
+      "studentId": "std_1787952516284",
+      "rollNumber": "APX-2026-001787952516284",
+      "registrationNumber": "REG-2022-CS-9811787952516284",
+      "studentName": "muskan sah",
+      "phone": "878756554556",
+      "email": "muskansah.com@gmail.com",
+      "collegeId": "col_1",
+      "collegeName": "Apex University of Engineering",
+      "degree": "Bachelor of Science (B.S.)",
+      "department": "Computer Science & Engineering",
+      "admissionYear": 2022,
+      "graduationYear": 2026,
+      "currentSemester": 6,
+      "cgpa": 8.5,
+      "overallAttendancePercentage": 92.4,
+      "totalCreditsEarned": 98,
+      "totalCreditsRequired": 160,
+      "activeBacklogs": 0,
+      "semesters": [
+        {
+          "semesterNumber": 1,
+          "semesterName": "Semester I (Fall 2022)",
+          "academicYear": "2022-2023",
+          "sgpa": 8.42,
+          "totalCredits": 16,
+          "earnedCredits": 16,
+          "subjects": [
+            {
+              "code": "CS101",
+              "name": "Problem Solving & Python Programming",
+              "credits": 4,
+              "grade": "A+",
+              "gradePoint": 9,
+              "type": "Theory"
+            },
+            {
+              "code": "MA101",
+              "name": "Linear Algebra & Calculus I",
+              "credits": 4,
+              "grade": "A",
+              "gradePoint": 8,
+              "type": "Theory"
+            },
+            {
+              "code": "PH101",
+              "name": "Applied Physics for Engineers",
+              "credits": 3,
+              "grade": "A",
+              "gradePoint": 8,
+              "type": "Theory"
+            },
+            {
+              "code": "CS101P",
+              "name": "Python Systems Programming Lab",
+              "credits": 2,
+              "grade": "O",
+              "gradePoint": 10,
+              "type": "Lab"
+            },
+            {
+              "code": "EE101",
+              "name": "Basic Electrical & Electronics",
+              "credits": 3,
+              "grade": "B+",
+              "gradePoint": 7,
+              "type": "Theory"
+            }
+          ]
+        },
+        {
+          "semesterNumber": 2,
+          "semesterName": "Semester II (Spring 2023)",
+          "academicYear": "2022-2023",
+          "sgpa": 8.56,
+          "totalCredits": 16,
+          "earnedCredits": 16,
+          "subjects": [
+            {
+              "code": "CS201",
+              "name": "Data Structures & Algorithms I",
+              "credits": 4,
+              "grade": "A+",
+              "gradePoint": 9,
+              "type": "Theory"
+            },
+            {
+              "code": "MA201",
+              "name": "Differential Equations & Transforms",
+              "credits": 4,
+              "grade": "A",
+              "gradePoint": 8,
+              "type": "Theory"
+            },
+            {
+              "code": "CS202",
+              "name": "Digital Logic & System Design",
+              "credits": 3,
+              "grade": "A",
+              "gradePoint": 8,
+              "type": "Theory"
+            },
+            {
+              "code": "CS201P",
+              "name": "Data Structures Laboratory",
+              "credits": 2,
+              "grade": "O",
+              "gradePoint": 10,
+              "type": "Lab"
+            },
+            {
+              "code": "EN201",
+              "name": "Professional Technical Communication",
+              "credits": 3,
+              "grade": "A+",
+              "gradePoint": 9,
+              "type": "Theory"
+            }
+          ]
+        },
+        {
+          "semesterNumber": 3,
+          "semesterName": "Semester III (Fall 2023)",
+          "academicYear": "2023-2024",
+          "sgpa": 8.88,
+          "totalCredits": 17,
+          "earnedCredits": 17,
+          "subjects": [
+            {
+              "code": "CS301",
+              "name": "Database Management Systems & SQL",
+              "credits": 4,
+              "grade": "O",
+              "gradePoint": 10,
+              "type": "Theory"
+            },
+            {
+              "code": "CS302",
+              "name": "Object-Oriented Programming (C++/Java)",
+              "credits": 4,
+              "grade": "A+",
+              "gradePoint": 9,
+              "type": "Theory"
+            },
+            {
+              "code": "CS303",
+              "name": "Computer Organization & Architecture",
+              "credits": 3,
+              "grade": "A",
+              "gradePoint": 8,
+              "type": "Theory"
+            },
+            {
+              "code": "CS301P",
+              "name": "Relational Database & SQL Lab",
+              "credits": 2,
+              "grade": "O",
+              "gradePoint": 10,
+              "type": "Lab"
+            },
+            {
+              "code": "MA301",
+              "name": "Discrete Mathematics & Graph Theory",
+              "credits": 4,
+              "grade": "A",
+              "gradePoint": 8,
+              "type": "Theory"
+            }
+          ]
+        },
+        {
+          "semesterNumber": 4,
+          "semesterName": "Semester IV (Spring 2024)",
+          "academicYear": "2023-2024",
+          "sgpa": 8.41,
+          "totalCredits": 17,
+          "earnedCredits": 17,
+          "subjects": [
+            {
+              "code": "CS401",
+              "name": "Design & Analysis of Algorithms",
+              "credits": 4,
+              "grade": "A+",
+              "gradePoint": 9,
+              "type": "Theory"
+            },
+            {
+              "code": "CS402",
+              "name": "Operating Systems & Concurrency",
+              "credits": 4,
+              "grade": "A",
+              "gradePoint": 8,
+              "type": "Theory"
+            },
+            {
+              "code": "CS403",
+              "name": "Computer Networks & Protocols",
+              "credits": 4,
+              "grade": "A",
+              "gradePoint": 8,
+              "type": "Theory"
+            },
+            {
+              "code": "CS402P",
+              "name": "Operating Systems & Networks Lab",
+              "credits": 2,
+              "grade": "A+",
+              "gradePoint": 9,
+              "type": "Lab"
+            },
+            {
+              "code": "MA401",
+              "name": "Probability & Statistics",
+              "credits": 3,
+              "grade": "A",
+              "gradePoint": 8,
+              "type": "Theory"
+            }
+          ]
+        },
+        {
+          "semesterNumber": 5,
+          "semesterName": "Semester V (Fall 2024)",
+          "academicYear": "2024-2025",
+          "sgpa": 8.63,
+          "totalCredits": 16,
+          "earnedCredits": 16,
+          "subjects": [
+            {
+              "code": "CS501",
+              "name": "Web Architecture & Cloud Distributed Systems",
+              "credits": 4,
+              "grade": "A+",
+              "gradePoint": 9,
+              "type": "Theory"
+            },
+            {
+              "code": "CS502",
+              "name": "Theory of Computation & Automata",
+              "credits": 4,
+              "grade": "A",
+              "gradePoint": 8,
+              "type": "Theory"
+            },
+            {
+              "code": "CS503",
+              "name": "Software Engineering & Agile Methodologies",
+              "credits": 3,
+              "grade": "A",
+              "gradePoint": 8,
+              "type": "Theory"
+            },
+            {
+              "code": "CS504",
+              "name": "Cloud Computing & Docker Architecture",
+              "credits": 3,
+              "grade": "A",
+              "gradePoint": 8,
+              "type": "Theory"
+            },
+            {
+              "code": "CS501P",
+              "name": "Full Stack & Cloud Systems Lab",
+              "credits": 2,
+              "grade": "O",
+              "gradePoint": 10,
+              "type": "Lab"
+            }
+          ]
+        },
+        {
+          "semesterNumber": 6,
+          "semesterName": "Semester VI (Spring 2025 - Current)",
+          "academicYear": "2024-2025",
+          "sgpa": 9.06,
+          "totalCredits": 16,
+          "earnedCredits": 16,
+          "subjects": [
+            {
+              "code": "CS601",
+              "name": "Artificial Intelligence & Machine Learning",
+              "credits": 4,
+              "grade": "A+",
+              "gradePoint": 9,
+              "type": "Theory"
+            },
+            {
+              "code": "CS602",
+              "name": "Distributed Microservices & Task Queues",
+              "credits": 4,
+              "grade": "A+",
+              "gradePoint": 9,
+              "type": "Theory"
+            },
+            {
+              "code": "CS603",
+              "name": "Information & Network Security",
+              "credits": 3,
+              "grade": "A",
+              "gradePoint": 8,
+              "type": "Theory"
+            },
+            {
+              "code": "CS604",
+              "name": "Industry Capstone Project & Placement Sprint",
+              "credits": 3,
+              "grade": "O",
+              "gradePoint": 10,
+              "type": "Project"
+            },
+            {
+              "code": "CS605",
+              "name": "Technical Seminar & Viva Voce",
+              "credits": 2,
+              "grade": "O",
+              "gradePoint": 10,
+              "type": "Theory"
+            }
+          ]
+        }
+      ],
+      "verifiedSkills": [],
+      "placementStatus": "In Training",
+      "placementReadinessScore": 65,
+      "institutionalRemarks": "Exemplary academic progression with consistent honors and high technical problem-solving proficiency. Eligible for Tier-1 corporate engineering placements.",
+      "issuedDate": "2026-08-29",
+      "verificationHash": "APX-2026-STD_1787952516284-VERIFIED"
     }
   ],
   "otps": [
     {
-      "id": "otp_1787675820452_65qu3",
-      "identifier": "test.user@skill2hire.com",
+      "id": "otp_1787945232648_abauap",
+      "identifier": "muskansah.com@gmail.com",
+      "type": "email",
+      "purpose": "login",
+      "otpHash": "f0cbb59b4b6f3d7543ef4af0ab512ecbfd29c83985c74663d54fbdd50b1e9396",
+      "expiresAt": "2026-08-28T19:32:12.648Z",
+      "attempts": 0,
+      "maxAttempts": 5,
+      "resendAvailableAt": "2026-08-28T19:28:12.648Z",
+      "verified": false,
+      "createdAt": "2026-08-28T19:27:12.648Z"
+    },
+    {
+      "id": "otp_1787949070759_0xv8e8",
+      "identifier": "saalimin21@gail.com",
       "type": "email",
       "purpose": "registration",
-      "otpHash": "525001de04847454b7d6d6f60557a3f5b3a059d22abddc2a6519fd027bb8df86",
-      "plainOtpForDev": "528678",
-      "expiresAt": "2026-08-25T16:42:00.451Z",
-      "attempts": 1,
+      "otpHash": "a995da1f5826d226d0687c83b7c565ef07d9aac3ef0b2c73f477a03bb64e1001",
+      "expiresAt": "2026-08-28T20:36:10.759Z",
+      "attempts": 0,
       "maxAttempts": 5,
-      "resendAvailableAt": "2026-08-25T16:38:00.451Z",
-      "verified": true,
-      "createdAt": "2026-08-25T16:37:00.451Z"
+      "resendAvailableAt": "2026-08-28T20:32:10.759Z",
+      "verified": false,
+      "createdAt": "2026-08-28T20:31:10.759Z"
     },
     {
-      "id": "otp_1787676125844_mwosz",
-      "identifier": "test.user@skill2hire.com",
+      "id": "otp_1787950720340_r3jbcj",
+      "identifier": "saalimin2000@gmail.com",
       "type": "email",
-      "purpose": "forgot_password",
-      "otpHash": "d098b7c3e604df236e941c9b4726dabe0f61388fe8ea26e3c2bf92e673f2a2cf",
-      "plainOtpForDev": "422350",
-      "expiresAt": "2026-08-25T16:47:05.844Z",
-      "attempts": 1,
+      "purpose": "registration",
+      "otpHash": "7756b4c1120c28d9ea23753493f5c7199b7cb4d2c5e8cb8308b0b5da5f862b03",
+      "expiresAt": "2026-08-28T21:03:40.340Z",
+      "attempts": 0,
       "maxAttempts": 5,
-      "resendAvailableAt": "2026-08-25T16:43:05.844Z",
-      "verified": true,
-      "createdAt": "2026-08-25T16:42:05.844Z"
+      "resendAvailableAt": "2026-08-28T20:59:40.340Z",
+      "verified": false,
+      "createdAt": "2026-08-28T20:58:40.340Z"
     },
     {
-      "id": "otp_1787678974422_l3w3z",
+      "id": "otp_1787951083009_f1w4u7",
+      "identifier": "9925008052@klu.ac.in",
+      "type": "email",
+      "purpose": "registration",
+      "otpHash": "c22d33042006a8d096a7fc15d17f0ec30a128255bae2910d263ab14d69845d08",
+      "expiresAt": "2026-08-28T21:09:43.009Z",
+      "attempts": 0,
+      "maxAttempts": 5,
+      "resendAvailableAt": "2026-08-28T21:05:43.009Z",
+      "verified": false,
+      "createdAt": "2026-08-28T21:04:43.009Z"
+    },
+    {
+      "id": "otp_1787952340151_rbqdbz",
+      "identifier": "saalimin21@gmail.com",
+      "type": "email",
+      "purpose": "login",
+      "otpHash": "34402dbef73953b39b4f59878839ce5678a0bd48fbeeb911ebc7504d35502ae7",
+      "expiresAt": "2026-08-28T21:30:40.151Z",
+      "attempts": 0,
+      "maxAttempts": 5,
+      "resendAvailableAt": "2026-08-28T21:26:40.151Z",
+      "verified": false,
+      "createdAt": "2026-08-28T21:25:40.151Z"
+    },
+    {
+      "id": "otp_1787952516321_t6tde0",
       "identifier": "muskansah.com@gmail.com",
       "type": "email",
       "purpose": "registration",
-      "otpHash": "1b2704439c0aa12d156213b59eef2842c54031a2e67c87f517081f999b54ce1b",
-      "plainOtpForDev": "575568",
-      "expiresAt": "2026-08-25T17:34:34.422Z",
+      "otpHash": "48c6abea4f792d01139eb0138b5948efa5b4b71b98250f4e70efca601d91a9ff",
+      "expiresAt": "2026-08-28T21:33:36.321Z",
       "attempts": 1,
       "maxAttempts": 5,
-      "resendAvailableAt": "2026-08-25T17:30:34.422Z",
+      "resendAvailableAt": "2026-08-28T21:29:36.321Z",
       "verified": true,
-      "createdAt": "2026-08-25T17:29:34.422Z"
+      "createdAt": "2026-08-28T21:28:36.321Z"
     },
     {
-      "id": "otp_1787678982897_18l4j",
-      "identifier": "9508542315",
-      "type": "phone",
+      "id": "otp_1787952842614_eko51r",
+      "identifier": "r.swetha892007@gmail.com",
+      "type": "email",
       "purpose": "registration",
-      "otpHash": "6b89a949ebc134bcc6ad6f434e738e1129349b00df9ca485a4658a955535d6c3",
-      "plainOtpForDev": "508347",
-      "expiresAt": "2026-08-25T17:34:42.897Z",
+      "otpHash": "4006117b2aae4aa26429932879e46c0f3111d7ed51bfa40b73ea5212f80ab57f",
+      "expiresAt": "2026-08-28T21:39:02.614Z",
       "attempts": 1,
       "maxAttempts": 5,
-      "resendAvailableAt": "2026-08-25T17:30:42.897Z",
+      "resendAvailableAt": "2026-08-28T21:35:02.614Z",
       "verified": true,
-      "createdAt": "2026-08-25T17:29:42.897Z"
+      "createdAt": "2026-08-28T21:34:02.614Z"
     },
     {
-      "id": "otp_1787680241879_sruvpr",
-      "identifier": "muskan@example.com",
+      "id": "otp_1788179472044_ulo37d",
+      "identifier": "saalimin21@gmail.com",
       "type": "email",
       "purpose": "registration",
-      "otpHash": "49e27f053c5604054d500a4e0461ab18255093ea6df91904e8764898b686b3cb",
-      "expiresAt": "2026-08-25T17:55:41.878Z",
-      "attempts": 0,
-      "maxAttempts": 5,
-      "resendAvailableAt": "2026-08-25T17:51:41.878Z",
-      "verified": false,
-      "createdAt": "2026-08-25T17:50:41.878Z"
-    },
-    {
-      "id": "otp_1787680332552_vwlcf8",
-      "identifier": "real.student@test.com",
-      "type": "email",
-      "purpose": "registration",
-      "otpHash": "a59161e720ba75e44479ce65bc5dd5b38810b082a31b724f98abc4156795e291",
-      "expiresAt": "2026-08-25T17:57:12.552Z",
-      "attempts": 2,
-      "maxAttempts": 5,
-      "resendAvailableAt": "2026-08-25T17:53:12.552Z",
-      "verified": true,
-      "createdAt": "2026-08-25T17:52:12.552Z"
-    },
-    {
-      "id": "otp_1787680495197_qhalj3",
-      "identifier": "noncopyrightgaana@gmail.com",
-      "type": "email",
-      "purpose": "registration",
-      "otpHash": "da31751aba2ad7805938b43256735f93c7a8291498bb69170790463201daa073",
-      "expiresAt": "2026-08-25T17:59:55.197Z",
-      "attempts": 0,
-      "maxAttempts": 5,
-      "resendAvailableAt": "2026-08-25T17:55:55.197Z",
-      "verified": false,
-      "createdAt": "2026-08-25T17:54:55.197Z"
-    },
-    {
-      "id": "otp_1787682582578_fpx84l",
-      "identifier": "muskansah.work@gmail.com",
-      "type": "email",
-      "purpose": "registration",
-      "otpHash": "ea8353f5c373718bfb7dcb371811ff279a10d9233a98117859021ca3f8018716",
-      "expiresAt": "2026-08-25T18:34:42.578Z",
-      "attempts": 0,
-      "maxAttempts": 5,
-      "resendAvailableAt": "2026-08-25T18:30:42.578Z",
-      "verified": false,
-      "createdAt": "2026-08-25T18:29:42.578Z"
-    },
-    {
-      "id": "otp_1787716882152_3s40n6",
-      "identifier": "muskan.student@test.com",
-      "type": "email",
-      "purpose": "registration",
-      "otpHash": "65ce35759d1107cc094436eed9a6d513c75b117d21b0336c0f3b60c0d23179d2",
-      "expiresAt": "2026-08-26T04:06:22.151Z",
+      "otpHash": "2fee6c4b3e2c80ca60b0408e8fe87614f28ecd465acdce50e3f71d7d7a6d4779",
+      "expiresAt": "2026-08-31T12:36:12.044Z",
       "attempts": 1,
       "maxAttempts": 5,
-      "resendAvailableAt": "2026-08-26T04:02:22.151Z",
+      "resendAvailableAt": "2026-08-31T12:32:12.044Z",
       "verified": true,
-      "createdAt": "2026-08-26T04:01:22.151Z"
-    },
-    {
-      "id": "otp_1787716906366_rk3x8x",
-      "identifier": "test.user2@example.com",
-      "type": "email",
-      "purpose": "registration",
-      "otpHash": "f87cfef73c62f6f873681242fef8ab8fc8f92561d5135879b9386dcbe11e6eea",
-      "expiresAt": "2026-08-26T04:06:46.366Z",
-      "attempts": 1,
-      "maxAttempts": 5,
-      "resendAvailableAt": "2026-08-26T04:02:46.366Z",
-      "verified": false,
-      "createdAt": "2026-08-26T04:01:46.366Z"
-    },
-    {
-      "id": "otp_1787720600003_g8h63o",
-      "identifier": "919876543210",
-      "type": "phone",
-      "purpose": "registration",
-      "otpHash": "89ed15f1c3fc430699f64bdcf0a40a40d3e1ad0c22ade439365f07ea43acfe63",
-      "expiresAt": "2026-08-26T05:08:20.002Z",
-      "attempts": 0,
-      "maxAttempts": 5,
-      "resendAvailableAt": "2026-08-26T05:04:20.002Z",
-      "verified": false,
-      "createdAt": "2026-08-26T05:03:20.002Z"
+      "createdAt": "2026-08-31T12:31:12.044Z"
     }
   ]
 }

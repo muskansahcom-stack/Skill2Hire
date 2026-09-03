@@ -15,20 +15,28 @@ import {
 } from 'lucide-react';
 import { ProjectRecommendationItem } from '@/lib/types';
 
+interface ScoredProjectItem extends ProjectRecommendationItem {
+  matchScore?: number;
+  matchReasons?: string[];
+}
+
 export default function ProjectsHubPage() {
+  const { profile } = useAuth();
+  const studentId = profile?.id || 'std_1';
+  
   const [role, setRole] = useState('Software Developer');
-  const [projects, setProjects] = useState<ProjectRecommendationItem[]>([]);
+  const [projects, setProjects] = useState<ScoredProjectItem[]>([]);
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    fetch(`/api/projects/recommendations?role=${role}`)
+    fetch(`/api/projects/recommendations?role=${role}&studentId=${studentId}`)
       .then(res => res.json())
       .then(data => {
         if (data.recommendations) setProjects(data.recommendations);
       })
       .catch(e => console.error(e))
       .finally(() => setLoading(false));
-  }, [role]);
+  }, [role, studentId]);
 
   const roles = ['Software Developer', 'Data Analyst', 'Cloud DevOps Associate'];
 
@@ -90,6 +98,21 @@ export default function ProjectsHubPage() {
                   </div>
                   <h2 className="text-lg font-bold text-slate-900 mt-2">{proj.title}</h2>
                   <p className="text-xs text-slate-600 leading-relaxed">{proj.description}</p>
+                  
+                  {proj.matchReasons && proj.matchReasons.length > 0 && (
+                    <div className="mt-3 p-3 bg-purple-50/60 rounded-2xl border border-purple-100 space-y-1">
+                      <span className="text-[10px] font-black uppercase text-purple-700 tracking-wider flex items-center gap-1">
+                        <Sparkles className="w-3 h-3 text-purple-500 animate-pulse" /> AI Recommendation Rationale:
+                      </span>
+                      <div className="flex flex-col gap-0.5 pl-4 text-[10px] text-purple-600 leading-snug">
+                        {proj.matchReasons.map((reason: string, rIdx: number) => (
+                          <span key={rIdx} className="relative before:content-['•'] before:absolute before:-left-3 font-medium">
+                            {reason}
+                          </span>
+                        ))}
+                      </div>
+                    </div>
+                  )}
                 </div>
 
                 {/* Technologies */}
@@ -121,7 +144,7 @@ export default function ProjectsHubPage() {
               <div className="pt-4 border-t border-slate-100 flex items-center justify-between">
                 <span className="text-xs text-emerald-600 font-bold">Strengthens Resume & Passport ✓</span>
                 <Link
-                  href="/student/coding-practice"
+                  href={`/student/projects/${proj.id}`}
                   className="px-4 py-2 rounded-xl text-xs font-bold text-white bg-slate-900 hover:bg-primary-600 transition-colors flex items-center gap-1"
                 >
                   <span>Build Project</span>

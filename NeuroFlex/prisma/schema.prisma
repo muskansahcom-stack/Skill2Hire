@@ -1,0 +1,172 @@
+// NeuroFlex Production Database Schema
+// Optimized for PostgreSQL + Prisma ORM
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model User {
+  id                String              @id @default(uuid())
+  email             String?             @unique
+  name              String              @default("NeuroFlex Student")
+  passwordHash      String?
+  avatarUrl         String?
+  createdAt         DateTime            @default(now())
+  updatedAt         DateTime            @updatedAt
+
+  // Relationships
+  preference        UserPreference?
+  learningSessions  LearningSession[]
+  topicProgress     TopicProgress[]
+  quizAttempts      QuizAttempt[]
+  recommendations   Recommendation[]
+
+  @@map("users")
+}
+
+model UserPreference {
+  id                   String   @id @default(uuid())
+  userId               String   @unique
+  user                 User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+  
+  fieldOfStudy         String   @default("Computer Science") // "Computer Science" | "Engineering" | "Mathematics" | "Science" | "Business" | "Other"
+  learningPreference   String   @default("mixed") // "visual" | "example-based" | "question-based" | "mixed"
+  difficulty           String   @default("beginner") // "beginner" | "intermediate" | "advanced"
+  density              String   @default("balanced") // "simple" | "balanced" | "detailed"
+  learningGoal         String   @default("Understand concepts") // "Understand concepts" | "Exam preparation" | "Interview preparation" | "Practice" | "Academic improvement"
+  onboardingCompleted  Boolean  @default(true)
+  highContrast         Boolean  @default(false)
+  dyslexiaFont         Boolean  @default(false)
+  reducedMotion        Boolean  @default(false)
+  
+  createdAt            DateTime @default(now())
+  updatedAt            DateTime @updatedAt
+
+  @@map("user_preferences")
+}
+
+model Topic {
+  id               String          @id @default(uuid())
+  slug             String          @unique
+  title            String
+  category         String          @default("Computer Science")
+  difficulty       String          @default("beginner")
+  estimatedMinutes Int             @default(5)
+  description      String?
+  tags             String[]        @default([])
+  createdAt        DateTime        @default(now())
+  updatedAt        DateTime        @updatedAt
+
+  @@map("topics")
+}
+
+model LearningSession {
+  id               String        @id @default(uuid())
+  userId           String
+  user             User          @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  topic            String
+  topicSlug        String?
+  difficulty       String        @default("beginner")
+  preference       String        @default("mixed")
+  generatedContent Json?
+  startedAt        DateTime      @default(now())
+  completedAt      DateTime?
+  durationSeconds  Int           @default(0)
+  modeCompleted    String        @default("all") // "analogy" | "flowchart" | "socratic" | "all"
+
+  // Relationships
+  quizAttempts     QuizAttempt[]
+
+  @@index([userId, topic])
+  @@map("learning_sessions")
+}
+
+model TopicProgress {
+  id               String   @id @default(uuid())
+  userId           String
+  user             User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  topic            String
+  topicSlug        String
+  category         String   @default("Computer Science")
+  masteryScore     Int      @default(0) // 0 to 100 percentage
+  attempts         Int      @default(1)
+  correctAnswers   Int      @default(0)
+  totalQuestions   Int      @default(0)
+  weakConcepts     String[] @default([])
+  strongConcepts   String[] @default([])
+  lastStudied      DateTime @default(now())
+  createdAt        DateTime @default(now())
+  updatedAt        DateTime @updatedAt
+
+  @@unique([userId, topicSlug])
+  @@index([userId])
+  @@map("topic_progress")
+}
+
+model QuizAttempt {
+  id                   String         @id @default(uuid())
+  userId               String
+  user                 User           @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  sessionId            String?
+  session              LearningSession? @relation(fields: [sessionId], references: [id], onDelete: SetNull)
+
+  topicSlug            String
+  topicTitle           String
+  category             String         @default("Computer Science")
+  score                Int            @default(0)
+  accuracy             Int            @default(0) // 0 to 100 percentage
+  totalQuestions       Int            @default(4)
+  correctCount         Int            @default(0)
+  incorrectCount       Int            @default(0)
+  weakConceptsDetected String[]       @default([])
+  completedAt          DateTime       @default(now())
+
+  // Relationships
+  questions            QuizQuestion[]
+
+  @@index([userId, topicSlug])
+  @@map("quiz_attempts")
+}
+
+model QuizQuestion {
+  id             String      @id @default(uuid())
+  quizAttemptId  String
+  quizAttempt    QuizAttempt @relation(fields: [quizAttemptId], references: [id], onDelete: Cascade)
+
+  question       String
+  options        String[]
+  selectedOption Int?
+  correctOption  Int         @default(0)
+  isCorrect      Boolean     @default(false)
+  explanation    String?
+  conceptTested  String?
+  createdAt      DateTime    @default(now())
+
+  @@map("quiz_questions")
+}
+
+model Recommendation {
+  id              String   @id @default(uuid())
+  userId          String
+  user            User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  topic           String
+  topicSlug       String
+  category        String   @default("Computer Science")
+  reason          String
+  difficulty      String   @default("beginner")
+  recommendedMode String   @default("mixed")
+  priority        String   @default("standard")
+  createdAt       DateTime @default(now())
+
+  @@index([userId])
+  @@map("recommendations")
+}

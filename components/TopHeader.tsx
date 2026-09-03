@@ -226,19 +226,8 @@ export default function TopHeader({
         )}
       </div>
 
-      {/* RIGHT CONTROLS: Walkthrough Trigger, Notifications, Persona Switcher */}
+      {/* RIGHT CONTROLS: Notifications, Persona Switcher */}
       <div className="flex items-center gap-2 sm:gap-3">
-        
-        {/* 12-Step Guided Walkthrough Bar Toggle */}
-        <button
-          onClick={() => setIsWorkflowOpen(!isWorkflowOpen)}
-          className="px-3 py-1.5 rounded-xl text-xs font-bold bg-amber-50 hover:bg-amber-100 text-amber-800 border border-amber-300 transition-colors flex items-center gap-1.5 shadow-sm"
-          title="Toggle 12-Step Ecosystem Demo Bar"
-        >
-          <Sparkles className="w-3.5 h-3.5 text-amber-600" />
-          <span className="hidden sm:inline">12-Step Demo Flow</span>
-        </button>
-
         {/* Notifications Popover */}
         <div ref={notifRef} className="relative">
           <button

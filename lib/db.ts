@@ -78,14 +78,56 @@ export function getDb(): DatabaseSchema {
       const { generateInitialDatabase } = require('./seedData');
       const seedDefaults = generateInitialDatabase();
 
-      if (!parsed.coding_problems || parsed.coding_problems.length === 0) parsed.coding_problems = seedDefaults.coding_problems;
-      if (!parsed.coding_attempts) parsed.coding_attempts = seedDefaults.coding_attempts || [];
-      if (!parsed.interview_questions || parsed.interview_questions.length === 0) parsed.interview_questions = seedDefaults.interview_questions;
-      if (!parsed.interview_evaluations) parsed.interview_evaluations = seedDefaults.interview_evaluations || [];
-      if (!parsed.resume_analyses) parsed.resume_analyses = seedDefaults.resume_analyses || [];
-      if (!parsed.company_demand_signals || parsed.company_demand_signals.length === 0) parsed.company_demand_signals = seedDefaults.company_demand_signals;
-      if (!parsed.project_recommendations || parsed.project_recommendations.length === 0) parsed.project_recommendations = seedDefaults.project_recommendations;
-      if (!parsed.cohort_groups) parsed.cohort_groups = seedDefaults.cohort_groups || [];
+      let shouldWriteBack = false;
+      if (!parsed.questions || parsed.questions.length < 30) {
+        parsed.questions = seedDefaults.questions;
+        shouldWriteBack = true;
+      }
+      if (!parsed.coding_problems || parsed.coding_problems.length === 0) {
+        parsed.coding_problems = seedDefaults.coding_problems;
+        shouldWriteBack = true;
+      }
+      if (!parsed.coding_attempts) {
+        parsed.coding_attempts = seedDefaults.coding_attempts || [];
+        shouldWriteBack = true;
+      }
+      if (!parsed.interview_questions || parsed.interview_questions.length === 0) {
+        parsed.interview_questions = seedDefaults.interview_questions;
+        shouldWriteBack = true;
+      }
+      if (!parsed.interview_evaluations) {
+        parsed.interview_evaluations = seedDefaults.interview_evaluations || [];
+        shouldWriteBack = true;
+      }
+      if (!parsed.resume_analyses) {
+        parsed.resume_analyses = seedDefaults.resume_analyses || [];
+        shouldWriteBack = true;
+      }
+      if (!parsed.company_demand_signals || parsed.company_demand_signals.length === 0) {
+        parsed.company_demand_signals = seedDefaults.company_demand_signals;
+        shouldWriteBack = true;
+      }
+      if (!parsed.project_recommendations || parsed.project_recommendations.length === 0) {
+        parsed.project_recommendations = seedDefaults.project_recommendations;
+        shouldWriteBack = true;
+      }
+      if (!parsed.cohort_groups) {
+        parsed.cohort_groups = seedDefaults.cohort_groups || [];
+        shouldWriteBack = true;
+      }
+
+      // Upgrade old broken Git thumbnail if it exists in local DB
+      if (parsed.courses) {
+        const gitCourse = parsed.courses.find((c: any) => c.id === 'crs_git');
+        if (gitCourse && gitCourse.thumbnail.includes('1618401471353-b98aedd04e11')) {
+          gitCourse.thumbnail = 'https://images.unsplash.com/photo-1629654297299-c8506221ca97?w=600&auto=format&fit=crop&q=80';
+          shouldWriteBack = true;
+        }
+      }
+
+      if (shouldWriteBack) {
+        fs.writeFileSync(DB_FILE, JSON.stringify(parsed, null, 2), 'utf-8');
+      }
 
       dbCache = parsed;
       return dbCache!;
@@ -294,20 +336,26 @@ export const db = {
   }) => {
     const database = getDb();
 
-    // Check duplicate email / phone
-    if (db.findUserByEmail(data.email)) {
+    // Check duplicate email
+    const existingEmail = db.findUserByEmail(data.email);
+    if (existingEmail && existingEmail.email_verified && existingEmail.verification_status === 'VERIFIED') {
       throw new Error('An account with this email address already exists. Please log in.');
     }
-    if (db.findUserByPhone(data.phone)) {
-      throw new Error('An account with this phone number already exists. Please log in.');
+
+    // If an unverified user already exists, remove it first
+    if (existingEmail) {
+      database.users = database.users.filter(u => u.id !== existingEmail.id);
+      database.students = database.students.filter(s => s.userId !== existingEmail.id);
     }
 
     const userId = `u_std_${Date.now()}`;
     const studentId = `std_${Date.now()}`;
+    const firebaseUid = `fb_uid_${Math.random().toString(36).substr(2, 9)}_${Date.now()}`;
     const now = new Date().toISOString();
 
     const newUser: User = {
       id: userId,
+      firebaseUid,
       email: data.email.toLowerCase(),
       phone: data.phone,
       passwordHash: db.hashPassword(data.password),
@@ -357,16 +405,24 @@ export const db = {
   }) => {
     const database = getDb();
 
-    if (db.findUserByEmail(data.email)) {
+    const existingEmail = db.findUserByEmail(data.email);
+    if (existingEmail && existingEmail.email_verified && existingEmail.verification_status === 'VERIFIED') {
       throw new Error('An institution with this email address already exists. Please log in.');
+    }
+
+    if (existingEmail) {
+      database.users = database.users.filter(u => u.id !== existingEmail.id);
+      database.colleges = database.colleges.filter(c => c.userId !== existingEmail.id);
     }
 
     const userId = `u_col_${Date.now()}`;
     const collegeId = `col_${Date.now()}`;
+    const firebaseUid = `fb_uid_${Math.random().toString(36).substr(2, 9)}_${Date.now()}`;
     const now = new Date().toISOString();
 
     const newUser: User = {
       id: userId,
+      firebaseUid,
       email: data.email.toLowerCase(),
       phone: data.phone,
       passwordHash: db.hashPassword(data.password),
@@ -415,16 +471,24 @@ export const db = {
   }) => {
     const database = getDb();
 
-    if (db.findUserByEmail(data.email)) {
+    const existingEmail = db.findUserByEmail(data.email);
+    if (existingEmail && existingEmail.email_verified && existingEmail.verification_status === 'VERIFIED') {
       throw new Error('A company with this official email already exists. Please log in.');
+    }
+
+    if (existingEmail) {
+      database.users = database.users.filter(u => u.id !== existingEmail.id);
+      database.companies = database.companies.filter(c => c.userId !== existingEmail.id);
     }
 
     const userId = `u_comp_${Date.now()}`;
     const companyId = `comp_${Date.now()}`;
+    const firebaseUid = `fb_uid_${Math.random().toString(36).substr(2, 9)}_${Date.now()}`;
     const now = new Date().toISOString();
 
     const newUser: User = {
       id: userId,
+      firebaseUid,
       email: data.email.toLowerCase(),
       phone: data.phone,
       passwordHash: db.hashPassword(data.password),
@@ -664,6 +728,22 @@ export const db = {
     const title = course ? course.title : 'Course';
     const skill = course && course.targetSkills ? course.targetSkills[0] : 'Skill';
 
+    // Real curated video IDs mapped specifically per course
+    const videoIdMap: Record<string, string[]> = {
+      'crs_python': ['kqtD5dpn9C8', 'DWgzHbcastg', 'rfscVS0vtbw', '8DvywoWvM8I'],
+      'crs_cpp': ['vLnPwxZdW4Y', '18c3MTX0PK0', '_bYFu9mBnr4', 'i_Iq4_Kd7rc'],
+      'crs_java': ['A74TOX803D0', 'eIrMbAQSU34', 'grEKMHGYyns', 'GoXwIVyNvX0'],
+      'crs_dsa': ['8hly31xKli0', 'RBSGKlAnoiM', 'BBpAmxU_NQo', 't0Cq6tVNRBA'],
+      'crs_sql': ['HXV3zeRR3h4', '7S_tz1z_5bA', 'p3qvj9hO_Bo', 'ztHopE5Wnpc'],
+      'crs_git': ['RGOj5yH7evk', '8JJ101D3knE', 'usSGSF_v1mE', 'DVRQwsm_Z5E'],
+      'crs_oop': ['pTB0EiLXUC8', 'v9ejT8FO-7I', 'FLmBqI3IKMA', 'tv-_1er1mWI'],
+      'crs_cloud': ['3hLmDS179YE', 'Ia-UEYYR44s', 'k1RI5locZE4', 'r4YIdn2OH14'],
+      'crs_aptitude': ['s1oXfQ9N3kI', 'Z9dD4Hk1aV8', 'M4v_n0Zz_8g', 'x0FhJm5jYwU'],
+      'crs_interview': ['xpDnVSmNFX0', 'i0v_7k_Z1zE', 'UzLMhqg3_Wc', 'F0l2hL3q97w']
+    };
+
+    const vids = videoIdMap[courseId] || ['kqtD5dpn9C8', '8hly31xKli0', 'HXV3zeRR3h4'];
+
     return [
       {
         id: `les_${courseId}_1_1`,
@@ -673,6 +753,7 @@ export const db = {
         orderIndex: 1,
         durationMinutes: 20,
         videoDuration: '18:45',
+        videoUrl: `https://www.youtube.com/watch?v=${vids[0]}`,
         contentMarkdown: `# ${title}\n\nMaster the essential industry concepts of **${skill}** required for technical placement interviews.\n\n### Key Concepts Covered:\n- Core architectural foundations and execution lifecycle\n- Memory model, state management, and type safety\n- Industry coding best practices and performance optimization standards`,
         notesMarkdown: `## Summary Notes: ${skill}\n- Understand runtime characteristics and asymptotic complexity\n- Master standard library data structures and built-in utilities\n- Optimize for high throughput and maintainability`,
         practiceTask: `Implement a fundamental ${skill} function demonstrating proper encapsulation and error handling.`,
@@ -691,6 +772,7 @@ export const db = {
         orderIndex: 2,
         durationMinutes: 25,
         videoDuration: '22:10',
+        videoUrl: `https://www.youtube.com/watch?v=${vids[1] || vids[0]}`,
         contentMarkdown: `# ${skill} In-Depth Operations\n\nLearn how to efficiently manage data structures, collections, streams, and asynchronous workflows in **${skill}**.\n\n### Essential Topics:\n- Efficient operations and indexing strategies\n- Concurrent patterns and resource cleanup\n- Common placement pitfalls and edge case handling`,
         notesMarkdown: `## Key Takeaways:\n- Always handle null or out-of-bound edge cases gracefully\n- Benchmark critical execution paths\n- Use idiomatic language constructs`,
         practiceTask: `Write a modular solution handling edge cases for collection transformations in ${skill}.`,
@@ -709,6 +791,7 @@ export const db = {
         orderIndex: 3,
         durationMinutes: 30,
         videoDuration: '24:50',
+        videoUrl: `https://www.youtube.com/watch?v=${vids[2] || vids[0]}`,
         contentMarkdown: `# Placement Coding in ${skill}\n\nSolve real technical screening interview questions curated from tier-1 tech companies hiring for ${skill}.\n\n### Problem Solving Framework:\n1. Understand constraints and edge cases\n2. Design optimal data structure layout\n3. Implement clean, readable, bug-free logic\n4. Verify time complexity ($O(N)$ vs $O(N^2)$)`,
         notesMarkdown: `## Interview Checklist:\n- Clarify inputs and expected output format\n- State space/time complexity before writing code\n- Walk through test cases aloud`,
         practiceTask: `Solve the two-pointer or hash-map optimized variation of the placement coding problem in ${skill}.`,

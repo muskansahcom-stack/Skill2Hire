@@ -163,7 +163,7 @@ export default function CoursesCatalogPage() {
                   {/* Card Footer */}
                   <div className="p-5 pt-0">
                     <Link
-                      href={`/courses/${course.id}`}
+                      href={`/courses/${course.id}/learn`}
                       className="w-full py-2.5 rounded-xl text-xs font-bold text-white bg-slate-900 group-hover:bg-primary-600 transition-colors flex items-center justify-center space-x-1.5 shadow-sm"
                     >
                       <span>Start Learning for Free</span>
@@ -174,6 +174,133 @@ export default function CoursesCatalogPage() {
               ))}
             </div>
           )}
+        </div>
+
+        {/* 🎬 RECOMMENDED YOUTUBE TUTORIALS & MASTERCLASSES */}
+        <div className="bg-white rounded-3xl p-6 sm:p-8 border border-slate-200 shadow-sm space-y-6">
+          <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3">
+            <div>
+              <div className="flex items-center gap-2">
+                <span className="px-2.5 py-0.5 rounded-full text-[10px] font-extrabold uppercase tracking-wider bg-red-100 text-red-700 border border-red-200 flex items-center gap-1">
+                  <svg className="w-3 h-3 fill-red-600" viewBox="0 0 24 24">
+                    <path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/>
+                  </svg>
+                  YouTube Masterclasses
+                </span>
+                <span className="text-xs font-bold text-slate-400">• High Demand Video Lessons</span>
+              </div>
+              <h2 className="text-xl sm:text-2xl font-black text-slate-900 mt-1">
+                Recommended Placement Video Tutorials
+              </h2>
+              <p className="text-xs text-slate-500 mt-0.5">
+                Handpicked full-length crash courses and interview guides directly playable in high definition.
+              </p>
+            </div>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+            {[
+              {
+                title: 'Python for Beginners – Full Course [Programming Tutorial]',
+                channel: 'freeCodeCamp.org',
+                views: '45M views',
+                duration: '4h 26m',
+                videoId: 'kqtD5dpn9C8',
+                category: 'Python',
+                badge: 'Top Rated'
+              },
+              {
+                title: 'Data Structures and Algorithms in 15 Minutes [Crash Course]',
+                channel: 'CS Dojo / NeetCode',
+                views: '12M views',
+                duration: '5h 15m',
+                videoId: '8hly31xKli0',
+                category: 'DSA',
+                badge: 'Interview Prep'
+              },
+              {
+                title: 'SQL Tutorial - Full Database Course for Beginners',
+                channel: 'freeCodeCamp.org',
+                views: '18M views',
+                duration: '4h 20m',
+                videoId: 'HXV3zeRR3h4',
+                category: 'SQL',
+                badge: 'Database'
+              },
+              {
+                title: 'C++ Programming Course - Beginner to Advanced',
+                channel: 'FreeCodeCamp / The Cherno',
+                views: '9.2M views',
+                duration: '6h 10m',
+                videoId: 'vLnPwxZdW4Y',
+                category: 'C++',
+                badge: 'Systems'
+              },
+              {
+                title: 'Java Full Course for Beginners [2026 Edition]',
+                channel: 'Programming with Mosh',
+                views: '14M views',
+                duration: '4h 00m',
+                videoId: 'A74TOX803D0',
+                category: 'Java',
+                badge: 'OOP'
+              },
+              {
+                title: 'AWS Certified Cloud Practitioner - Full Course',
+                channel: 'freeCodeCamp.org',
+                views: '7.8M views',
+                duration: '13h 40m',
+                videoId: '3hLmDS179YE',
+                category: 'Cloud',
+                badge: 'AWS Certified'
+              }
+            ].map((video) => (
+              <div
+                key={video.videoId}
+                className="bg-slate-900 rounded-2xl overflow-hidden border border-slate-800 shadow-md flex flex-col justify-between group hover:border-cyan-500/50 transition-all"
+              >
+                <div>
+                  <div className="relative aspect-video w-full bg-black overflow-hidden">
+                    <iframe
+                      className="w-full h-full border-0"
+                      src={`https://www.youtube-nocookie.com/embed/${video.videoId}?rel=0&modestbranding=1`}
+                      title={video.title}
+                      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                      allowFullScreen
+                    />
+                  </div>
+
+                  <div className="p-4 space-y-2">
+                    <div className="flex items-center justify-between text-[11px]">
+                      <span className="font-bold text-cyan-400">{video.category}</span>
+                      <span className="px-2 py-0.5 rounded bg-slate-800 text-slate-300 font-mono text-[10px]">
+                        {video.duration}
+                      </span>
+                    </div>
+
+                    <h3 className="text-xs sm:text-sm font-bold text-white line-clamp-2 leading-snug">
+                      {video.title}
+                    </h3>
+
+                    <div className="flex items-center justify-between text-[11px] text-slate-400 pt-1">
+                      <span>{video.channel}</span>
+                      <span>{video.views}</span>
+                    </div>
+                  </div>
+                </div>
+
+                <div className="p-4 pt-0">
+                  <Link
+                    href={`/courses/crs_${video.category.toLowerCase()}/learn`}
+                    className="w-full py-2 rounded-xl text-[11px] font-bold text-white bg-slate-800 hover:bg-cyan-600 transition-colors flex items-center justify-center gap-1.5"
+                  >
+                    <span>Open Interactive Practice Sandbox</span>
+                    <ArrowRight className="w-3 h-3" />
+                  </Link>
+                </div>
+              </div>
+            ))}
+          </div>
         </div>
 
       </div>

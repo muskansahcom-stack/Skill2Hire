@@ -50,22 +50,26 @@ export interface FlowchartRepresentation {
 export interface SocraticOption {
   id: string;
   text: string;
-  explanation: string;
+  explanation?: string;
   isCorrect: boolean;
 }
 
 export interface SocraticQuestion {
   id: string;
   question: string;
+  options: SocraticOption[]; // Exactly 4 options for active recall
+  correctAnswer?: number; // 0-3 index
+  explanation: string;
+  difficulty?: DifficultyLevel;
+  conceptTested: string;
   context?: string;
-  options: SocraticOption[]; // Exactly 4 options for clear multiple choice
   reflectionPrompt?: string;
   hint?: string;
 }
 
 export interface SocraticRepresentation {
   questions: SocraticQuestion[];
-  overallSummary: string;
+  overallSummary?: string;
 }
 
 export interface Topic {

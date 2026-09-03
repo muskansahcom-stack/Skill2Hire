@@ -1,3 +1,5 @@
+"use client";
+
 import React from "react";
 import Link from "next/link";
 import { Sparkles, Heart, Shield, Terminal, BookOpen, Layers } from "lucide-react";
@@ -10,9 +12,15 @@ export function Footer() {
           {/* Brand Column */}
           <div className="space-y-4 md:col-span-1">
             <div className="flex items-center gap-2.5">
-              <div className="flex h-8 w-8 items-center justify-center rounded-xl bg-brand-600 text-white">
-                <Sparkles className="h-4 w-4" />
-              </div>
+              {/* eslint-disable-next-line @next/next/no-img-element */}
+              <img
+                src="/neuroflex-logo.png"
+                alt="NeuroFlex Logo"
+                width={32}
+                height={32}
+                style={{ width: "32px", height: "32px", minWidth: "32px", maxWidth: "32px" }}
+                className="h-8 w-8 rounded-xl object-cover shrink-0"
+              />
               <span className="text-lg font-bold text-white font-display">
                 Neuro<span className="text-accent-cyan">Flex</span>
               </span>

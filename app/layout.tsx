@@ -2,7 +2,6 @@ import type { Metadata } from 'next';
 import './globals.css';
 import { AuthProvider } from '@/context/AuthContext';
 import AppShell from '@/components/AppShell';
-import SmsNotificationBanner from '@/components/SmsNotificationBanner';
 
 export const metadata: Metadata = {
   title: 'Skill2Hire — Learn. Verify. Get Hired.',
@@ -18,7 +17,6 @@ export default function RootLayout({
     <html lang="en" className="h-full">
       <body className="min-h-screen bg-slate-50 font-sans antialiased">
         <AuthProvider>
-          <SmsNotificationBanner />
           <AppShell>
             {children}
           </AppShell>

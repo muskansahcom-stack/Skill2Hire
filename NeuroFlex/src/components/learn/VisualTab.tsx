@@ -2,7 +2,7 @@
 
 import React, { useState } from "react";
 import { FlowchartRepresentation } from "@/types";
-import { MermaidViewer } from "@/components/diagram/MermaidViewer";
+import { MermaidDiagram } from "@/components/learning/MermaidDiagram";
 import { Network, Layers, Info, CheckCircle2 } from "lucide-react";
 import { Card, CardHeader, CardTitle, CardContent } from "@/components/ui/Card";
 import { Badge } from "@/components/ui/Badge";
@@ -16,6 +16,13 @@ export function VisualTab({ flowchart }: VisualTabProps) {
     flowchart.steps.length > 0 ? flowchart.steps[0].id : null
   );
 
+  const fallbackSteps = flowchart.steps.map((step, idx) => ({
+    stepNumber: idx + 1,
+    title: step.label,
+    description: step.description,
+    phase: step.phase,
+  }));
+
   return (
     <div className="space-y-6 animate-fadeIn">
       {/* Header bar */}
@@ -27,12 +34,16 @@ export function VisualTab({ flowchart }: VisualTabProps) {
           </Badge>
         </div>
         <span className="text-xs text-slate-400">
-          Rendered dynamically with Mermaid.js • Zoom, Pan & Inspect
+          Rendered dynamically with Mermaid.js • Zoom, Pan &amp; Horizontal Scroll
         </span>
       </div>
 
-      {/* Dedicated Dynamic Mermaid Diagram Container */}
-      <MermaidViewer chart={flowchart.mermaidCode} />
+      {/* Production Mermaid Diagram Component */}
+      <MermaidDiagram
+        chart={flowchart.mermaidCode}
+        title="Interactive System Diagram"
+        fallbackSteps={fallbackSteps}
+      />
 
       {/* Synchronized Process Step Inspection */}
       {flowchart.steps && flowchart.steps.length > 0 && (

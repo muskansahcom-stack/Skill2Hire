@@ -5,6 +5,7 @@ export type VerificationStatus = 'PENDING' | 'VERIFIED' | 'REJECTED';
 
 export interface User {
   id: string;
+  firebaseUid?: string;
   email: string;
   phone?: string;
   passwordHash: string;

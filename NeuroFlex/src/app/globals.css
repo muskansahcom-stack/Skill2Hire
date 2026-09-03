@@ -6,6 +6,11 @@
   :root {
     --background: #06090f;
     --foreground: #f8fafc;
+    --font-scale: 100%;
+  }
+
+  html {
+    font-size: var(--font-scale);
   }
 
   body {
@@ -16,6 +21,89 @@
     -moz-osx-font-smoothing: grayscale;
     overflow-x: hidden;
   }
+
+  /* Universal high-visibility focus indicator */
+  *:focus-visible {
+    outline: 2px solid #38bdf8 !important;
+    outline-offset: 3px !important;
+    border-radius: 4px;
+  }
+}
+
+/* Accessibility: Text Size Classes */
+html.text-size-normal {
+  --font-scale: 100%;
+}
+
+html.text-size-large {
+  --font-scale: 112.5%;
+}
+
+html.text-size-extra-large {
+  --font-scale: 125%;
+}
+
+/* Accessibility: Reduced Motion Support */
+html.reduced-motion *,
+@media (prefers-reduced-motion: reduce) {
+  *,
+  ::before,
+  ::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+/* Accessibility: Enhanced High Contrast Mode */
+html.high-contrast {
+  --background: #000000;
+  --foreground: #ffffff;
+}
+
+html.high-contrast body {
+  background-color: #000000;
+  color: #ffffff;
+}
+
+html.high-contrast .border,
+html.high-contrast [class*="border-"] {
+  border-color: #ffffff !important;
+}
+
+html.high-contrast button,
+html.high-contrast [role="button"],
+html.high-contrast [role="tab"],
+html.high-contrast [role="radio"] {
+  border-width: 2px !important;
+}
+
+/* Accessibility: Dyslexia-friendly typography */
+html.dyslexia-font,
+.dyslexia-font {
+  font-family: "Comic Sans MS", "Arial Rounded MT Bold", sans-serif !important;
+  letter-spacing: 0.06em !important;
+  line-height: 1.85 !important;
+}
+
+/* Skip to Main Content link for keyboard / screen-reader accessibility */
+.skip-to-content {
+  position: absolute;
+  top: -100px;
+  left: 16px;
+  z-index: 9999;
+  background: #4f46e5;
+  color: #ffffff;
+  padding: 12px 20px;
+  font-weight: 700;
+  border-radius: 8px;
+  border: 2px solid #38bdf8;
+  transition: top 0.2s ease;
+}
+
+.skip-to-content:focus {
+  top: 16px;
 }
 
 /* Custom subtle scrollbar */
@@ -37,25 +125,11 @@
   background: #334155;
 }
 
-/* Dyslexia mode helper */
-.dyslexia-font {
-  font-family: "Comic Sans MS", "Arial Rounded MT Bold", sans-serif !important;
-  letter-spacing: 0.05em !important;
-  line-height: 1.8 !important;
-}
-
-/* High contrast mode helper */
-.high-contrast {
-  --background: #000000;
-  --foreground: #ffffff;
-  border-color: #ffffff !important;
-}
-
-/* Simple fade-in animation helper */
+/* Animations */
 @keyframes fadeIn {
   from {
     opacity: 0;
-    transform: translateY(6px);
+    transform: translateY(4px);
   }
   to {
     opacity: 1;
@@ -64,5 +138,5 @@
 }
 
 .animate-fadeIn {
-  animation: fadeIn 0.25s ease-out forwards;
+  animation: fadeIn 0.2s ease-out forwards;
 }

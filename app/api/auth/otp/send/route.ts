@@ -17,17 +17,17 @@ export async function POST(request: Request) {
     if (purpose === 'registration') {
       if (channelType === 'email') {
         const existing = db.findUserByEmail(identifier.trim());
-        if (existing && existing.email_verified) {
+        if (existing && existing.email_verified && existing.verification_status === 'VERIFIED') {
           return NextResponse.json(
-            { error: 'This email is already registered. Please login instead.' },
+            { error: 'This email is already registered and verified. Please login instead.' },
             { status: 409 }
           );
         }
       } else {
         const existing = db.findUserByPhone(identifier.trim());
-        if (existing && existing.phone_verified) {
+        if (existing && existing.phone_verified && existing.verification_status === 'VERIFIED') {
           return NextResponse.json(
-            { error: 'This phone number is already registered. Please login instead.' },
+            { error: 'This phone number is already registered and verified. Please login instead.' },
             { status: 409 }
           );
         }

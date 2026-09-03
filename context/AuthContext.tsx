@@ -8,10 +8,13 @@ interface AuthContextType {
   role: UserRole;
   profile: Student | College | Company | any | null;
   isLoading: boolean;
-  login: (identifier: string, passwordOrOtp?: string, isOtp?: boolean) => Promise<boolean>;
-  loginWithPhone: (phone: string, otp: string) => Promise<boolean>;
+  login: (identifier: string, passwordOrOtp?: string, isOtp?: boolean) => Promise<{ success: boolean; error?: string; requireOtp?: boolean }>;
+  loginWithPhone: (phone: string, otp: string) => Promise<{ success: boolean; error?: string }>;
+  loginWithGoogle: (emailPrompt?: string) => Promise<{ success: boolean; isNewUser?: boolean; email?: string; name?: string; error?: string }>;
+  loginWithGmail: (gmailAddress: string) => Promise<{ success: boolean; isNewUser?: boolean; email?: string; name?: string; error?: string }>;
   switchPersona: (role: UserRole, userId?: string) => Promise<boolean>;
-  logout: () => void;
+  setAuthSession: (user: User, profile?: any) => void;
+  logout: () => Promise<void>;
   refreshProfile: () => Promise<void>;
 }
 
@@ -69,14 +72,30 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
   const [profile, setProfile] = useState<any>(null);
   const [isLoading, setIsLoading] = useState(true);
 
-  // Initialize with student persona (Alex Rivera) for immediate interactive testing
+  // Initialize with logged-in user session or active persona
   useEffect(() => {
     const savedUserId = typeof window !== 'undefined' ? localStorage.getItem('s2h_user_id') : null;
-    const targetUserId = savedUserId || 'u_student_1';
+    const savedRole = typeof window !== 'undefined' ? (localStorage.getItem('s2h_role') as UserRole) : null;
     
-    switchPersona('student', targetUserId).finally(() => {
+    if (savedUserId) {
+      // Fetch the actual authenticated user account from backend
+      fetch('/api/auth/login', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ userId: savedUserId })
+      })
+        .then(res => res.json())
+        .then(data => {
+          if (data.success && data.user) {
+            setUser(data.user);
+            setProfile(data.profile);
+          }
+        })
+        .catch(e => console.error('Session load error', e))
+        .finally(() => setIsLoading(false));
+    } else {
       setIsLoading(false);
-    });
+    }
   }, []);
 
   const switchPersona = async (role: UserRole, userId?: string) => {
@@ -120,19 +139,18 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
         body: JSON.stringify(payload)
       });
       const data = await res.json();
-      if (data.success) {
+      if (data.success && data.user) {
         setUser(data.user);
         setProfile(data.profile);
         if (typeof window !== 'undefined') {
           localStorage.setItem('s2h_user_id', data.user.id);
           localStorage.setItem('s2h_role', data.user.role);
         }
-        return true;
+        return { success: true, user: data.user, profile: data.profile };
       }
-      return false;
-    } catch (e) {
-      console.error('Login error', e);
-      return false;
+      return { success: false, error: data.error || 'Login failed' };
+    } catch (e: any) {
+      return { success: false, error: e.message || 'Login error' };
     } finally {
       setIsLoading(false);
     }
@@ -142,9 +160,88 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
     return login(phone, otp, true);
   };
 
-  const logout = () => {
-    // Revert to demo student
-    switchPersona('student', 'u_student_1');
+  // Gmail / Google login — directly uses our app's identity API (no Supabase redirect)
+  const loginWithGoogle = async (emailPrompt?: string) => {
+    setIsLoading(true);
+    try {
+      if (!emailPrompt) {
+        return { success: false, error: 'Please enter your Gmail address to continue.' };
+      }
+      return await loginWithGmail(emailPrompt);
+    } catch (e: any) {
+      return { success: false, error: e.message || 'Google authentication error' };
+    } finally {
+      setIsLoading(false);
+    }
+  };
+
+  const loginWithGmail = async (gmailAddress: string) => {
+    setIsLoading(true);
+    try {
+      const cleanEmail = gmailAddress.trim().toLowerCase();
+      const cleanName = cleanEmail.split('@')[0].replace(/[._]/g, ' ').replace(/\b\w/g, c => c.toUpperCase());
+
+      const res = await fetch('/api/auth/login', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          email: cleanEmail,
+          name: cleanName,
+          isGoogleAuth: true
+        })
+      });
+      const data = await res.json();
+
+      // User does not exist yet — send to signup with prefilled Gmail
+      if (data.isNewUser || data.requireProfileCompletion) {
+        return {
+          success: false,
+          isNewUser: true,
+          email: data.googleEmail || cleanEmail,
+          name: data.googleName || cleanName
+        };
+      }
+
+      // Existing user — set session and proceed to dashboard
+      if (data.success && data.user) {
+        setUser(data.user);
+        setProfile(data.profile);
+        if (typeof window !== 'undefined') {
+          localStorage.setItem('s2h_user_id', data.user.id);
+          localStorage.setItem('s2h_role', data.user.role);
+        }
+        return { success: true, user: data.user, profile: data.profile };
+      }
+
+      return { success: false, error: data.error || 'This Google account is not registered. Please sign up first.' };
+    } catch (e: any) {
+      return { success: false, error: e.message || 'Gmail login error' };
+    } finally {
+      setIsLoading(false);
+    }
+  };
+
+  const setAuthSession = (newUser: User, newProfile?: any) => {
+    setUser(newUser);
+    if (newProfile) setProfile(newProfile);
+    if (typeof window !== 'undefined') {
+      localStorage.setItem('s2h_user_id', newUser.id);
+      localStorage.setItem('s2h_role', newUser.role);
+    }
+  };
+
+  const logout = async () => {
+    try {
+      await fetch('/api/auth/logout', { method: 'POST' });
+      if (typeof window !== 'undefined') {
+        localStorage.removeItem('s2h_user_id');
+        localStorage.removeItem('s2h_role');
+      }
+      setUser(null);
+      setProfile(null);
+    } catch (e) {
+      console.error('Logout error:', e);
+    }
   };
 
   const refreshProfile = async () => {
@@ -173,7 +270,10 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
         isLoading,
         login,
         loginWithPhone,
+        loginWithGoogle,
+        loginWithGmail,
         switchPersona,
+        setAuthSession,
         logout,
         refreshProfile
       }}

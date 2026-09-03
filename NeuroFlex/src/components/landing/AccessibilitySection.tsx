@@ -1,3 +1,5 @@
+"use client";
+
 import React from "react";
 import Link from "next/link";
 import { Eye, Type, Sliders, Sparkles, ShieldCheck, ArrowRight } from "lucide-react";

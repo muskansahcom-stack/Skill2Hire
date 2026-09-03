@@ -1,3 +1,5 @@
+"use client";
+
 import React from "react";
 import Link from "next/link";
 import { Sparkles, Network, HelpCircle, CheckCircle2, ArrowRight } from "lucide-react";

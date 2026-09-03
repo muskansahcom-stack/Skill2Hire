@@ -600,6 +600,96 @@ export function generateInitialDatabase(): DatabaseSchema {
       ],
       learningOutcomes: ['Container security', 'Cloud infrastructure automation', 'DevOps best practices'],
       githubTemplateUrl: 'https://github.com/skill2hire-templates/cloud-native-devops'
+    },
+    {
+      id: 'prec_4',
+      title: 'AI Conversational Agent with Retrieval-Augmented Generation (RAG)',
+      targetRole: 'Software Developer',
+      technologies: ['Python', 'AI/ML', 'SQL', 'Git'],
+      difficulty: 'Advanced' as const,
+      description: 'Build an intelligent chatbot utilizing PDF document indexing, text embedding vectors database, and OpenAI API with context-augmented chat history.',
+      features: [
+        'PDF parser and document text splitter pipelines.',
+        'Vector similarity search using pgvector or pinecone database indexes.',
+        'Conversational agent stream interface retaining chat session memory.'
+      ],
+      learningOutcomes: ['Retrieval-Augmented Generation concepts', 'Vector databases schema', 'Large language model prompting'],
+      githubTemplateUrl: 'https://github.com/skill2hire-templates/ai-rag-chatbot'
+    },
+    {
+      id: 'prec_5',
+      title: 'Kubernetes Microservices Deploy & GitOps Reconciliation',
+      targetRole: 'Cloud DevOps Associate',
+      technologies: ['Docker', 'Linux CLI', 'Git', 'AWS'],
+      difficulty: 'Advanced' as const,
+      description: 'Build a containerized deployment workflow utilizing Kubernetes manifests and automated GitOps sync tracking using mock ArgoCD agents.',
+      features: [
+        'Kubernetes pod liveness and readiness probe configurations.',
+        'Automated cluster health telemetry logging.',
+        'Declarative state reconciliation loop matching active environment to Git repo changes.'
+      ],
+      learningOutcomes: ['Cluster deployment controls', 'Infrastructure GitOps concepts', 'System health automation'],
+      githubTemplateUrl: 'https://github.com/skill2hire-templates/gitops-kubernetes'
+    },
+    {
+      id: 'prec_6',
+      title: 'Financial Portfolio Analytics Dashboard & Forecasting',
+      targetRole: 'Data Analyst',
+      technologies: ['Python', 'Pandas & NumPy', 'SQL', 'AI/ML'],
+      difficulty: 'Advanced' as const,
+      description: 'Collect mock public stock ticks history, analyze rolling moving averages covariance matrix, and forecast market performance using statistical regression models.',
+      features: [
+        'Pandas vectorization calculating Sharpe ratio and portfolio risk allocations.',
+        'Time-series stock price forecasting using linear regression classifiers.',
+        'Interactive charts rendering historical analytics and expected returns forecasts.'
+      ],
+      learningOutcomes: ['Time-series math', 'Financial data structures', 'Exploratory metrics visualization'],
+      githubTemplateUrl: 'https://github.com/skill2hire-templates/financial-analytics'
+    },
+    {
+      id: 'prec_7',
+      title: 'E-Commerce React Component Hub with Stripe Checkout',
+      targetRole: 'Software Developer',
+      technologies: ['React', 'JavaScript', 'HTML', 'CSS'],
+      difficulty: 'Beginner' as const,
+      description: 'Build an interactive storefront frontend utilizing custom React context state containers, filters, search catalogs, and simulated checkout flows.',
+      features: [
+        'Cart state manager handling item quantities and subtotals across pages.',
+        'CSS Flexbox/Grid layouts rendering responsive product cards catalogs.',
+        'Simulated Stripe payment checkout flow validating card fields and showing confirmation.'
+      ],
+      learningOutcomes: ['Client state handling', 'Responsive CSS templates', 'Simulated API processing'],
+      githubTemplateUrl: 'https://github.com/skill2hire-templates/react-storefront'
+    },
+    {
+      id: 'prec_8',
+      title: 'Secure OTP Verification API Gateways',
+      targetRole: 'Software Developer',
+      technologies: ['Python', 'Redis', 'SQL', 'Git'],
+      difficulty: 'Intermediate' as const,
+      description: 'Build a rate-limited secure OTP verification endpoint utilizing local Redis caching for dynamic verification codes and expiry timelines.',
+      features: [
+        'Redis-backed TTL code storage expiring records after 2 minutes.',
+        'IP rate-limiter blocking users after 3 incorrect verification attempts.',
+        'Automated telemetry logging for successful and blocked validation audits.'
+      ],
+      learningOutcomes: ['API security structures', 'Redis cache key management', 'System rate limiting design'],
+      githubTemplateUrl: 'https://github.com/skill2hire-templates/secure-otp-gateway'
+    },
+    {
+      id: 'prec_9',
+      title: 'Auto-Scaling RESTful API Express Server',
+      targetRole: 'Software Developer',
+      technologies: ['JavaScript', 'Docker', 'AWS', 'Linux CLI'],
+      difficulty: 'Intermediate' as const,
+      description: 'Build a Node.js Express server packaged inside multi-stage Docker container builds, configured for cluster worker threading and scaling.',
+      features: [
+        'Node.js clusters spawning workers based on logical CPU core counts.',
+        'Express endpoints returning server load stats and processing health.',
+        'Dockerized orchestration mapping ports and environment variables cleanly.'
+      ],
+      learningOutcomes: ['Multi-threaded node engines', 'Docker image builds optimization', 'Cloud runtime scaling'],
+      githubTemplateUrl: 'https://github.com/skill2hire-templates/scaling-express-server'
     }
   ];
 
@@ -986,7 +1076,7 @@ export function generateInitialDatabase(): DatabaseSchema {
       level: 'Beginner',
       duration: '6 Hours (3 Modules)',
       description: 'Branching strategies, rebase vs merge, resolve conflicts, pull request reviews, and automated GitHub Actions.',
-      thumbnail: 'https://images.unsplash.com/photo-1618401471353-b98aedd04e11?w=600&auto=format&fit=crop&q=80',
+      thumbnail: 'https://images.unsplash.com/photo-1629654297299-c8506221ca97?w=600&auto=format&fit=crop&q=80',
       modulesCount: 3,
       lessonsCount: 9,
       enrolledCount: 1650,
@@ -1502,6 +1592,262 @@ print(f"Alex Readiness: {alex.get_readiness_score()}%")`,
       correctOptionIndex: 2,
       points: 20,
       explanation: '`AVG()` is the standard ANSI SQL aggregate function for computing the arithmetic mean.'
+    },
+    // C++ Assessment Questions
+    {
+      id: 'q_cpp_1',
+      assessmentId: 'asm_cpp',
+      questionText: 'In C++, what is the primary purpose of RAII (Resource Acquisition Is Initialization)?',
+      type: 'mcq',
+      options: ['To execute functions asynchronously', 'To automatically manage resource lifetimes using object scope and destructors', 'To speed up compilation times', 'To check types at runtime'],
+      correctOptionIndex: 1,
+      points: 20,
+      explanation: 'RAII binds resource management (like memory, file handles, or locks) to the lifetime of stack-allocated objects, utilizing destructors for automatic cleanup when scope is exited.'
+    },
+    {
+      id: 'q_cpp_2',
+      assessmentId: 'asm_cpp',
+      questionText: 'Which C++ smart pointer type should be used when you want exclusive, single ownership of a dynamically allocated resource with zero runtime overhead?',
+      type: 'mcq',
+      options: ['std::shared_ptr', 'std::weak_ptr', 'std::unique_ptr', 'std::auto_ptr'],
+      correctOptionIndex: 2,
+      points: 20,
+      explanation: '`std::unique_ptr` maintains sole ownership of a resource, freeing it when the pointer goes out of scope. It operates with zero overhead compared to raw pointers.'
+    },
+    {
+      id: 'q_cpp_3',
+      assessmentId: 'asm_cpp',
+      questionText: 'What is the main difference between `std::vector` and `std::list` in the C++ Standard Template Library (STL)?',
+      type: 'mcq',
+      options: ['std::vector is a linked list while std::list is a dynamic array', 'std::vector provides O(1) random access while std::list provides O(N) sequential access', 'std::list has lower memory overhead than std::vector', 'std::vector only stores integer types'],
+      correctOptionIndex: 1,
+      points: 20,
+      explanation: '`std::vector` stores elements contiguously allowing O(1) index access, while `std::list` is a doubly linked list requiring O(N) traversal to reach a index.'
+    },
+    {
+      id: 'q_cpp_4',
+      assessmentId: 'asm_cpp',
+      questionText: 'What does the `virtual` keyword on a C++ member function indicate?',
+      type: 'mcq',
+      options: ['The function has no implementation', 'The function is compiled to WebAssembly', 'The function can be overridden in derived classes and resolved dynamically at runtime', 'The function is static and cannot access member fields'],
+      correctOptionIndex: 2,
+      points: 20,
+      explanation: 'The `virtual` keyword enables dynamic dispatch (runtime polymorphism) by using a vtable to determine which overridden method to execute based on the actual object type.'
+    },
+    {
+      id: 'q_cpp_5',
+      assessmentId: 'asm_cpp',
+      questionText: 'Examine the code snippet: `int x = 5; int* p = &x; *p = 10;`. What is the value of `x` after execution?',
+      type: 'mcq',
+      options: ['5', '10', 'Null / Reference Error', '0'],
+      correctOptionIndex: 1,
+      points: 20,
+      codeSnippet: 'int x = 5;\nint* p = &x;\n*p = 10;',
+      explanation: 'The pointer `p` stores the memory address of `x`. Dereferencing the pointer using `*p` and assigning 10 updates the value of the variable `x` directly in memory.'
+    },
+    // Java Assessment Questions
+    {
+      id: 'q_java_1',
+      assessmentId: 'asm_java',
+      questionText: 'In Java, what does the `final` keyword indicate when applied to a class definition?',
+      type: 'mcq',
+      options: ['The class cannot have static methods', 'The class cannot be instantiated', 'The class cannot be subclassed (inherited from)', 'All fields in the class are automatically mutable'],
+      correctOptionIndex: 2,
+      points: 20,
+      explanation: 'Applying `final` to a class prevents other classes from inheriting from or subclassing it (e.g., the built-in Java `String` class is final).'
+    },
+    {
+      id: 'q_java_2',
+      assessmentId: 'asm_java',
+      questionText: 'Which memory area in the Java Virtual Machine (JVM) stores dynamically allocated objects and is managed by the Garbage Collector?',
+      type: 'mcq',
+      options: ['Stack Memory', 'Heap Memory', 'Method Area', 'PC Registers'],
+      correctOptionIndex: 1,
+      points: 20,
+      explanation: 'JVM Stack memory stores local variable frames and primitive values; all objects are allocated on the central JVM Heap and reclaimed by the Garbage Collector when unreachable.'
+    },
+    {
+      id: 'q_java_3',
+      assessmentId: 'asm_java',
+      questionText: 'Which collection class in Java implements the `List` interface, maintains insertion order, and uses a resizable array internally?',
+      type: 'mcq',
+      options: ['LinkedList', 'HashSet', 'ArrayList', 'TreeMap'],
+      correctOptionIndex: 2,
+      points: 20,
+      explanation: '`ArrayList` uses a dynamically resizing array to store items, providing fast read access and preserving the sequence in which items were added.'
+    },
+    {
+      id: 'q_java_4',
+      assessmentId: 'asm_java',
+      questionText: 'What is the primary difference between a checked exception and an unchecked exception in Java?',
+      type: 'mcq',
+      options: ['Checked exceptions must be declared or handled at compile time; unchecked exceptions do not require compile-time handling', 'Unchecked exceptions occur only in multi-threaded programs', 'Checked exceptions inherit from RuntimeException', 'Unchecked exceptions are checked by the JVM compiler'],
+      correctOptionIndex: 0,
+      points: 20,
+      explanation: 'Checked exceptions (inheriting from `Exception` but not `RuntimeException`) are checked at compile-time and require `try-catch` or `throws`. Unchecked exceptions (`RuntimeException`) do not.'
+    },
+    {
+      id: 'q_java_5',
+      assessmentId: 'asm_java',
+      questionText: 'What does the `synchronized` keyword in Java do?',
+      type: 'mcq',
+      options: ['It makes the execution of methods faster', 'It ensures that only one thread can execute a block of code or method at a time on a given monitor object', 'It serializes objects to disk', 'It compiles code at runtime'],
+      correctOptionIndex: 1,
+      points: 20,
+      explanation: '`synchronized` locks access to a method or block, preventing multiple threads from concurrently modifying shared resources and causing race conditions.'
+    },
+    // Git Assessment Questions
+    {
+      id: 'q_git_1',
+      assessmentId: 'asm_git',
+      questionText: 'Which Git command is used to record staged changes permanently to the local repository history?',
+      type: 'mcq',
+      options: ['git add', 'git push', 'git commit', 'git checkout'],
+      correctOptionIndex: 2,
+      points: 20,
+      explanation: '`git add` stages changes; `git commit` takes a snapshot of those staged changes and saves them to local repository history.'
+    },
+    {
+      id: 'q_git_2',
+      assessmentId: 'asm_git',
+      questionText: 'What is the purpose of the `git stash` command?',
+      type: 'mcq',
+      options: ['To delete the local branch permanently', 'To temporarily save uncommitted local changes and reset the working directory to match HEAD', 'To push local branches to the remote server', 'To merge two conflicting branches'],
+      correctOptionIndex: 1,
+      points: 20,
+      explanation: '`git stash` allows you to save your modified files temporarily in a stack and cleans your workspace, so you can work on something else and restore the changes later using `git stash pop`.'
+    },
+    {
+      id: 'q_git_3',
+      assessmentId: 'asm_git',
+      questionText: 'What does the command `git checkout -b feature-auth` do?',
+      type: 'mcq',
+      options: ['Deletes the branch feature-auth', 'Creates a new branch named feature-auth and switches your working branch to it', 'Resets the current branch to feature-auth', 'Displays a list of all branches starting with feature-auth'],
+      correctOptionIndex: 1,
+      points: 20,
+      explanation: 'This combines two operations: `git branch feature-auth` (creation) and `git checkout feature-auth` (switching working branch).'
+    },
+    {
+      id: 'q_git_4',
+      assessmentId: 'asm_git',
+      questionText: 'What is the main difference between `git merge` and `git rebase`?',
+      type: 'mcq',
+      options: ['Merge deletes history; rebase preserves it', 'Merge creates a new commit joining two branches; rebase moves the base of a branch to create a linear history', 'Rebase can only be used on remote repositories', 'Merge requires internet access; rebase does not'],
+      correctOptionIndex: 1,
+      points: 20,
+      explanation: '`merge` preserves the exact chronological branches via a merge commit; `rebase` rewrites history by placing local commits on top of the target branch base for a linear history.'
+    },
+    {
+      id: 'q_git_5',
+      assessmentId: 'asm_git',
+      questionText: 'What is the purpose of the `.gitignore` file in a Git repository?',
+      type: 'mcq',
+      options: ['To list files that should be force-pushed to the remote origin', 'To specify file paths and patterns that Git should untrack and ignore', 'To store user login credentials', 'To set repository access permissions'],
+      correctOptionIndex: 1,
+      points: 20,
+      explanation: '`.gitignore` ensures that build directories, environment secrets (`.env`), or node dependencies (`node_modules`) are not tracked or committed to version control.'
+    },
+    // AWS Cloud Assessment Questions
+    {
+      id: 'q_aws_1',
+      assessmentId: 'asm_aws',
+      questionText: 'Which AWS service provides resizable, on-demand virtual servers in the cloud?',
+      type: 'mcq',
+      options: ['Amazon S3', 'Amazon EC2', 'Amazon RDS', 'AWS Lambda'],
+      correctOptionIndex: 1,
+      points: 20,
+      explanation: 'Amazon EC2 (Elastic Compute Cloud) provides virtual machines, letting you choose OS, instance specs, and network settings on a pay-as-you-go model.'
+    },
+    {
+      id: 'q_aws_2',
+      assessmentId: 'asm_aws',
+      questionText: 'What is the primary service type of Amazon Simple Storage Service (S3)?',
+      type: 'mcq',
+      options: ['Relational database storage', 'Object-based storage for files and assets', 'Block storage for OS drives', 'In-memory cache cluster'],
+      correctOptionIndex: 1,
+      points: 20,
+      explanation: 'Amazon S3 is an object storage service designed to store and retrieve any amount of unstructured data (files, images, backups) from anywhere on the web.'
+    },
+    {
+      id: 'q_aws_3',
+      assessmentId: 'asm_aws',
+      questionText: 'Which AWS tool is used to securely manage user access, credentials, and permissions to AWS services?',
+      type: 'mcq',
+      options: ['Amazon CloudWatch', 'AWS Identity and Access Management (IAM)', 'AWS CloudTrail', 'Amazon VPC'],
+      correctOptionIndex: 1,
+      points: 20,
+      explanation: 'IAM (Identity and Access Management) allows you to define granular permission policies, roles, groups, and users to secure your AWS resource control plane.'
+    },
+    {
+      id: 'q_aws_4',
+      assessmentId: 'asm_aws',
+      questionText: 'What is the primary benefit of AWS Lambda?',
+      type: 'mcq',
+      options: ['It provides dedicated virtual servers with root access', 'It runs code in response to events and handles scale automatically without provisioning servers (Serverless)', 'It hosts domain name systems', 'It performs data warehouse analytical queries'],
+      correctOptionIndex: 1,
+      points: 20,
+      explanation: 'AWS Lambda is serverless compute; it runs custom code triggers (API requests, file uploads) and scales down to zero when idle, saving cost.'
+    },
+    {
+      id: 'q_aws_5',
+      assessmentId: 'asm_aws',
+      questionText: 'What does Amazon VPC stand for, and what is its purpose?',
+      type: 'mcq',
+      options: ['Virtual Private Cache, for storing session data', 'Virtual Private Cloud, to define a logically isolated virtual network for your AWS resources', 'Variable Power Compute, for machine learning jobs', 'Vector Point Connection, for direct fiber connections'],
+      correctOptionIndex: 1,
+      points: 20,
+      explanation: 'Amazon VPC (Virtual Private Cloud) allows you to partition a section of AWS into an isolated network, giving you control over IP ranges, subnets, route tables, and gateways.'
+    },
+    // React Assessment Questions
+    {
+      id: 'q_react_1',
+      assessmentId: 'asm_react',
+      questionText: 'In React, which built-in Hook is used to add and update component state?',
+      type: 'mcq',
+      options: ['useEffect', 'useState', 'useContext', 'useReducer'],
+      correctOptionIndex: 1,
+      points: 20,
+      explanation: '`useState` declares a state variable and a dispatch function to update it, trigger a component re-render, and preserve state values across renders.'
+    },
+    {
+      id: 'q_react_2',
+      assessmentId: 'asm_react',
+      questionText: 'What is the primary purpose of the `useEffect` Hook in functional React components?',
+      type: 'mcq',
+      options: ['To speed up virtual DOM updates', 'To perform side effects (such as data fetching, subscriptions, or DOM mutations)', 'To bind event handlers to elements', 'To memoize expensive calculation outputs'],
+      correctOptionIndex: 1,
+      points: 20,
+      explanation: '`useEffect` runs asynchronous side-effects, executing code after rendering and cleaning up resources (e.g. event listeners) when the component unmounts or dependencies change.'
+    },
+    {
+      id: 'q_react_3',
+      assessmentId: 'asm_react',
+      questionText: 'Why is it important to use `key` props when rendering lists of elements in React?',
+      type: 'mcq',
+      options: ['To style list items differently', 'To help React identify which items have changed, been added, or been removed, ensuring efficient re-rendering', 'To secure list items from cross-site scripting', 'To make list items clickable'],
+      correctOptionIndex: 1,
+      points: 20,
+      explanation: 'Keys provide stable identities to list elements. This helps React\'s reconciliation algorithm match changes between virtual and actual DOM trees without recreating the entire list.'
+    },
+    {
+      id: 'q_react_4',
+      assessmentId: 'asm_react',
+      questionText: 'What is the difference between `Props` and `State` in React?',
+      type: 'mcq',
+      options: ['Props are internal and private to a component; State is passed down from parents', 'Props are immutable configuration passed to a component; State is mutable internal data managed by the component', 'State is read-only; Props can be modified by the child component', 'There is no difference; they are aliases'],
+      correctOptionIndex: 1,
+      points: 20,
+      explanation: 'Props are read-only variables passed from parents to children to customize configuration. State represents mutable internal data variables managed by the component itself.'
+    },
+    {
+      id: 'q_react_5',
+      assessmentId: 'asm_react',
+      questionText: "What does React's Virtual DOM do?",
+      type: 'mcq',
+      options: ['Directly renders 3D elements in the browser', 'Keeps a lightweight representation of the real DOM in memory and syncs changes via a diffing process (reconciliation)', 'Replaces the browser\'s CSS rendering engine', 'Enables server-side database connections'],
+      correctOptionIndex: 1,
+      points: 20,
+      explanation: 'The Virtual DOM sits as an in-memory buffer. When state changes, React computes minimal changes against the old tree and batches updates to the real DOM, optimizing render performance.'
     }
   ];
 

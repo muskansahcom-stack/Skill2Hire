@@ -1,30 +1,45 @@
+"use client";
+
+import React from "react";
 import { HeroSection } from "@/components/landing/HeroSection";
-import { WhySection } from "@/components/landing/WhySection";
+import { ProblemSection } from "@/components/landing/ProblemSection";
 import { HowItWorksSection } from "@/components/landing/HowItWorksSection";
 import { LearningModesSection } from "@/components/landing/LearningModesSection";
+import { AdaptiveSection } from "@/components/landing/AdaptiveSection";
+import { ActiveRecallSection } from "@/components/landing/ActiveRecallSection";
+import { ProgressSection } from "@/components/landing/ProgressSection";
 import { AccessibilitySection } from "@/components/landing/AccessibilitySection";
-import { BenefitsSection } from "@/components/landing/BenefitsSection";
+import { CtaSection } from "@/components/landing/CtaSection";
 
 export default function LandingPage() {
   return (
     <div className="flex flex-col w-full overflow-hidden">
-      {/* 1. Hero Section */}
+      {/* Hero Banner: NEUROFLEX - "One Concept. Three Ways to Understand." */}
       <HeroSection />
 
-      {/* 2. Why NeuroFlex Section */}
-      <WhySection />
+      {/* Section 1: The Problem */}
+      <ProblemSection />
 
-      {/* 3. How It Works Section */}
+      {/* Section 2: How NeuroFlex Works */}
       <HowItWorksSection />
 
-      {/* 4. Three Learning Modes Section */}
+      {/* Section 3: Three Learning Modes */}
       <LearningModesSection />
 
-      {/* 5. Accessibility Section */}
+      {/* Section 4: Adaptive Learning */}
+      <AdaptiveSection />
+
+      {/* Section 5: Active Recall */}
+      <ActiveRecallSection />
+
+      {/* Section 6: Learning Progress */}
+      <ProgressSection />
+
+      {/* Section 7: Accessibility */}
       <AccessibilitySection />
 
-      {/* 6. Benefits Section */}
-      <BenefitsSection />
+      {/* Section 8: Call To Action */}
+      <CtaSection />
     </div>
   );
 }

@@ -92,6 +92,7 @@ export default function Sidebar({
             { href: '/student/academic-report', label: 'Skill Passport', icon: ShieldCheck, badge: 'Verified', badgeColor: 'bg-indigo-600' },
             { href: '/assessments/asm_python', label: 'Assessments', icon: FileCheck2 },
             { href: '/student/coding-practice', label: 'Coding Practice', icon: Code2 },
+            { href: '/student/compiler', label: 'Universal Compiler', icon: Cpu, badge: 'Full IDE', badgeColor: 'bg-emerald-600' },
           ]
         },
         {
@@ -106,8 +107,9 @@ export default function Sidebar({
           ]
         },
         {
-          title: 'ACCOUNT & BRAND',
+          title: 'ACCOUNT & SECURITY',
           items: [
+            { href: '/security-audit', label: 'Security & Access Control', icon: ShieldCheck, badge: 'Audit' },
             { href: '/brand', label: 'Brand & Identity', icon: Sparkles },
             { href: '/differentiation', label: 'Platform Philosophy', icon: Flame },
           ]
@@ -220,6 +222,7 @@ export default function Sidebar({
             { href: '/learn', label: 'Videos', icon: BookOpen },
             { href: '/assessments/asm_python', label: 'Assessments', icon: FileCheck2 },
             { href: '/student/projects', label: 'Projects', icon: FolderGit2 },
+            { href: '/student/compiler', label: 'Compiler Playground', icon: Cpu },
             { href: '/college/training', label: 'Training Programs', icon: GraduationCap },
             { href: '/recruiter/applications', label: 'Applications', icon: Send },
             { href: '/college/industry-demand', label: 'Industry Demand', icon: Compass },

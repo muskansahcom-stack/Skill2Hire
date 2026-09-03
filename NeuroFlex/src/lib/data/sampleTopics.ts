@@ -129,69 +129,59 @@ Now, both sides know for certain that both transmitters and both receivers work 
         questions: [
           {
             id: "tcp-q1",
-            question: "Why can't a reliable TCP connection be established in only TWO steps (SYN then SYN-ACK) instead of THREE?",
-            context: "Consider what the Server knows vs what the Client knows after Step 2.",
+            question: "What happens immediately after the server receives the initial SYN packet?",
             options: [
-              {
-                id: "opt-1",
-                text: "Because after Step 2, the Server has no confirmation whether the Client successfully received its SYN-ACK response.",
-                explanation: "Correct! If the 3rd packet (ACK) is omitted, the server cannot know if its response was lost in transit.",
-                isCorrect: true,
-              },
-              {
-                id: "opt-2",
-                text: "Because the internet firewall protocol requires odd-numbered packet counts.",
-                explanation: "Incorrect. Packet protocols are not governed by odd/even rules.",
-                isCorrect: false,
-              },
-              {
-                id: "opt-3",
-                text: "Because sequence numbers must always be multiplied by 3 before data transmission.",
-                explanation: "Incorrect. Sequence numbers increment by 1 per handshake step.",
-                isCorrect: false,
-              },
-              {
-                id: "opt-4",
-                text: "Because the client needs a 3rd step to calculate the download file size.",
-                explanation: "Incorrect. File sizes are application layer metadata (HTTP headers), not TCP handshake requirements.",
-                isCorrect: false,
-              },
+              { id: "opt-1", text: "The server sends a SYN-ACK packet and transitions to the SYN_RECEIVED state.", isCorrect: true },
+              { id: "opt-2", text: "The server immediately begins sending HTTP data payload.", isCorrect: false },
+              { id: "opt-3", text: "The server terminates the socket connection.", isCorrect: false },
+              { id: "opt-4", text: "The server requests a new IP address from the DNS router.", isCorrect: false },
             ],
-            reflectionPrompt: "What vulnerability occurs if a malicious actor sends thousands of SYN packets but never sends the final ACK?",
-            hint: "Look at what state the server enters after receiving SYN.",
+            correctAnswer: 0,
+            explanation: "Upon receiving SYN, the server acknowledges it by sending SYN-ACK containing its own sequence number and enters SYN_RECEIVED state.",
+            difficulty: "Beginner",
+            conceptTested: "Connection establishment",
           },
           {
             id: "tcp-q2",
-            question: "What happens to the sequence number during each step of the handshake?",
-            context: "Observe the numbers in the sequence diagram: 100 -> 101, 300 -> 301.",
+            question: "Why can't a reliable TCP connection be established in only TWO steps (SYN then SYN-ACK) instead of THREE?",
             options: [
-              {
-                id: "q2-opt1",
-                text: "Each acknowledgment packet sets ack = (received seq + 1) to confirm the next expected byte.",
-                explanation: "Exact! ack = seq + 1 signals: 'I received everything up to seq, now send me seq + 1.'",
-                isCorrect: true,
-              },
-              {
-                id: "q2-opt2",
-                text: "The sequence number resets to zero at every step.",
-                explanation: "Incorrect. Resetting to zero would cause packet collision and lost order.",
-                isCorrect: false,
-              },
-              {
-                id: "q2-opt3",
-                text: "The sequence number doubles on every hop.",
-                explanation: "Incorrect. Sequence numbers increment linearly.",
-                isCorrect: false,
-              },
-              {
-                id: "q2-opt4",
-                text: "Sequence numbers are randomly regenerated on every packet.",
-                explanation: "Incorrect. ISN is random once at the start, then increments predictably.",
-                isCorrect: false,
-              },
+              { id: "q2-1", text: "Because the server would never know if the client received its SYN-ACK response.", isCorrect: true },
+              { id: "q2-2", text: "Because packet sequence numbers must always be prime numbers.", isCorrect: false },
+              { id: "q2-3", text: "Because DNS servers block any 2-step packet exchange.", isCorrect: false },
+              { id: "q2-4", text: "Because the client needs a 3rd step to calculate file compression.", isCorrect: false },
             ],
-            reflectionPrompt: "Why are Initial Sequence Numbers (ISNs) randomized rather than starting at 0 for every socket?",
-            hint: "Think about old delayed packets from previous closed connections.",
+            correctAnswer: 0,
+            explanation: "Without the 3rd ACK packet from client to server, the server cannot know whether its SYN-ACK was delivered or lost in transmission.",
+            difficulty: "Beginner",
+            conceptTested: "Bidirectional reliability",
+          },
+          {
+            id: "tcp-q3",
+            question: "What does the acknowledgment number 'ack = 101' in the SYN-ACK packet signify if the client's initial sequence was 100?",
+            options: [
+              { id: "q3-1", text: "It confirms receipt of byte 100 and requests byte 101 next.", isCorrect: true },
+              { id: "q3-2", text: "It indicates that the download speed is 101 Mbps.", isCorrect: false },
+              { id: "q3-3", text: "It tells the client that 101 errors occurred during transmission.", isCorrect: false },
+              { id: "q3-4", text: "It resets the socket timer to 101 milliseconds.", isCorrect: false },
+            ],
+            correctAnswer: 0,
+            explanation: "TCP acknowledgment numbers are cumulative: ack = N means 'I have received all bytes up to N-1, and expect byte N next.'",
+            difficulty: "Intermediate",
+            conceptTested: "Sequence synchronization",
+          },
+          {
+            id: "tcp-q4",
+            question: "What vulnerability occurs if an attacker sends millions of SYN packets with spoofed IPs but never replies with ACK?",
+            options: [
+              { id: "q4-1", text: "SYN Flood Denial of Service (DoS), exhausting the server's half-open connection memory table.", isCorrect: true },
+              { id: "q4-2", text: "SQL Injection into the web server database.", isCorrect: false },
+              { id: "q4-3", text: "Cross-Site Scripting (XSS) in browser tabs.", isCorrect: false },
+              { id: "q4-4", text: "Permanent corruption of the server's hard drive firmware.", isCorrect: false },
+            ],
+            correctAnswer: 0,
+            explanation: "A SYN flood fills the server's connection backlog with half-open sockets waiting for final ACKs, preventing legitimate users from connecting.",
+            difficulty: "Intermediate",
+            conceptTested: "Security & resource limits",
           },
         ],
         overallSummary:
@@ -252,18 +242,6 @@ Even in a list of 1,000,000 items, you find any item in at most **20 comparisons
         ],
         keyTakeaway:
           "Binary Search achieves exponential speed by throwing away 50% of the remaining search space on every single decision.",
-        alternativeAnalogies: [
-          {
-            title: "The High-Low Number Guessing Game",
-            metaphor: "Guessing a secret number from 1 to 100 where the computer only tells you 'Too High' or 'Too Low'.",
-            narrative: "Starting at 50, then 75, then 88, then 81—each guess eliminates half of all remaining possibilities in seconds.",
-            breakdown: [
-              { conceptTerm: "Target", analogyEquivalent: "Secret number", explanation: "Value to match" },
-              { conceptTerm: "Comparison", analogyEquivalent: "Too high / too low feedback", explanation: "Directional clue" },
-            ],
-            keyTakeaway: "Doubling dataset size only adds 1 additional comparison.",
-          },
-        ],
       },
       flowchart: {
         diagramType: "flowchart",
@@ -303,174 +281,48 @@ Even in a list of 1,000,000 items, you find any item in at most **20 comparisons
         questions: [
           {
             id: "bs-q1",
-            question: "What is the prerequisite condition for Binary Search to work correctly?",
+            question: "What mandatory prerequisite must be satisfied for Binary Search to work?",
             options: [
-              {
-                id: "bs1-opt1",
-                text: "The data collection must be sorted in monotonic (ascending or descending) order.",
-                explanation: "Correct! If the data is unsorted, discarding half might throw away the target.",
-                isCorrect: true,
-              },
-              {
-                id: "bs1-opt2",
-                text: "The total number of elements must always be an exact power of 2.",
-                explanation: "Incorrect. Binary search works on arrays of any arbitrary length.",
-                isCorrect: false,
-              },
-              {
-                id: "bs1-opt3",
-                text: "All elements in the array must be positive integers.",
-                explanation: "Incorrect. It works on strings, floats, dates, or any comparable object.",
-                isCorrect: false,
-              },
-              {
-                id: "bs1-opt4",
-                text: "The array must be stored on an SSD drive.",
-                explanation: "Incorrect. Hardware storage medium is irrelevant to the algorithmic logic.",
-                isCorrect: false,
-              },
+              { id: "bs1", text: "The collection elements must be sorted in monotonic order.", isCorrect: true },
+              { id: "bs2", text: "The number of elements must be an exact power of two.", isCorrect: false },
+              { id: "bs3", text: "All numbers must be positive integers.", isCorrect: false },
+              { id: "bs4", text: "The array must be stored in volatile RAM cache.", isCorrect: false },
             ],
-            reflectionPrompt: "Why does calculating 'mid = (low + high) / 2' cause integer overflow bugs in languages like Java or C++?",
-            hint: "Think about what happens if low + high exceeds 2,147,483,647.",
+            correctAnswer: 0,
+            explanation: "Binary Search relies on ordering to discard half the search space. Unsorted data produces incorrect results.",
+            difficulty: "Beginner",
+            conceptTested: "Monotonic sorted ordering",
+          },
+          {
+            id: "bs-q2",
+            question: "In a sorted list of 1,000,000 items, what is the MAXIMUM number of comparisons needed?",
+            options: [
+              { id: "bs2-1", text: "20 comparisons (since 2^20 = 1,048,576 > 1,000,000).", isCorrect: true },
+              { id: "bs2-2", text: "500,000 comparisons.", isCorrect: false },
+              { id: "bs2-3", text: "1,000 comparisons.", isCorrect: false },
+              { id: "bs2-4", text: "1,000,000 comparisons.", isCorrect: false },
+            ],
+            correctAnswer: 0,
+            explanation: "Log2(1,000,000) ≈ 19.93, meaning at most 20 steps are required to find any item or determine it is absent.",
+            difficulty: "Intermediate",
+            conceptTested: "Logarithmic time complexity",
+          },
+          {
+            id: "bs-q3",
+            question: "If Array[mid] is strictly LESS than target, how should search pointers update?",
+            options: [
+              { id: "bs3-1", text: "Set low = mid + 1 to search the right half.", isCorrect: true },
+              { id: "bs3-2", text: "Set high = mid - 1 to search the left half.", isCorrect: false },
+              { id: "bs3-3", text: "Reset low = 0 and high = mid.", isCorrect: false },
+              { id: "bs3-4", text: "Return mid immediately.", isCorrect: false },
+            ],
+            correctAnswer: 0,
+            explanation: "Because the array is sorted ascendingly and Array[mid] < target, the target must reside in indices strictly greater than mid.",
+            difficulty: "Beginner",
+            conceptTested: "Boundary elimination",
           },
         ],
         overallSummary: "Binary search replaces linear brute force with logarithmic elimination.",
-      },
-    },
-  },
-  {
-    id: "neural-networks",
-    slug: "neural-networks",
-    title: "Neural Networks",
-    subtitle: "Layers of interconnected artificial neurons that learn patterns through forward passes and backpropagation",
-    category: "Artificial Intelligence",
-    difficulty: "Intermediate",
-    estimatedMinutes: 7,
-    tags: ["AI", "Deep Learning", "Weights", "Backpropagation"],
-    representations: {
-      analogy: {
-        title: "The Recipe Tasting Kitchen",
-        simpleExplanation:
-          "A neural network is an interconnected computational model inspired by biological brains. Data passes through multiple layers of nodes (neurons), where each connection has a weight (importance) that is tuned automatically to recognize complex patterns.",
-        metaphor:
-          "Imagine an industrial test kitchen preparing soup: Seasoning chefs (input layer) add ingredients, Sauce master chefs (hidden layers) blend flavors, and Head chefs (output layer) grade the soup. If the soup tastes off (Error/Loss), feedback travels backward so each chef tweaks their spice measurements.",
-        narrative: `A Neural Network processes information in two complementary passes:
-1. **Forward Propagation**: Input data (pixels, text, numbers) is multiplied by connection **weights**, summed with a **bias**, and passed through an **activation function** (like ReLU) to decide whether to activate the next neuron.
-2. **Loss Calculation**: The final prediction is compared against the true target to measure error.
-3. **Backward Propagation (Backprop)**: Calculus (chain rule) calculates gradients, and the optimizer (like Adam or SGD) nudges each weight slightly in the direction that minimizes overall loss.`,
-        simplerExplanation:
-          "Think of tuning a guitar with 1,000 strings. You pluck a string (input), listen to the tone (output), and turn the peg slightly until the sound is harmonious (backpropagation).",
-        breakdown: [
-          {
-            conceptTerm: "Weights (W)",
-            analogyEquivalent: "Volume Dial on Each Instrument",
-            explanation: "Determines how strongly a signal from one neuron influences the next neuron.",
-          },
-          {
-            conceptTerm: "Activation Function",
-            analogyEquivalent: "Light Switch Trigger (Threshold)",
-            explanation: "Introduces non-linearity so the network can learn complex curvy decision boundaries.",
-          },
-          {
-            conceptTerm: "Loss Function",
-            analogyEquivalent: "Scorecard / Error Margin",
-            explanation: "Quantifies how far off the prediction was from the actual ground truth.",
-          },
-          {
-            conceptTerm: "Backpropagation",
-            analogyEquivalent: "Chef Feedback Relay",
-            explanation: "Calculates which specific weights contributed most to the error and updates them.",
-          },
-        ],
-        keyTakeaway:
-          "Neural networks learn not by hardcoded rules, but by iteratively adjusting millions of tiny weights through gradient descent.",
-      },
-      flowchart: {
-        diagramType: "flowchart",
-        mermaidCode: `flowchart LR
-    subgraph Inputs ["Input Layer"]
-      X1["Feature x₁"]
-      X2["Feature x₂"]
-    end
-
-    subgraph Hidden ["Hidden Layer (Non-Linear)"]
-      H1["Neuron h₁ = σ(W₁·X + b₁)"]
-      H2["Neuron h₂ = σ(W₂·X + b₂)"]
-    end
-
-    subgraph Output ["Output Layer"]
-      Y["Prediction ŷ"]
-    end
-
-    subgraph Feedback ["Loss & Backpropagation"]
-      Loss["Loss: L(ŷ, y_true)"]
-      Grad["Gradient Descent ∇W"]
-    end
-
-    X1 --> H1
-    X1 --> H2
-    X2 --> H1
-    X2 --> H2
-
-    H1 --> Y
-    H2 --> Y
-
-    Y --> Loss
-    Loss --> Grad
-    Grad -.->|Update Weights| Hidden
-
-    classDef inp fill:#1e293b,stroke:#94a3b8,stroke-width:2px,color:#fff;
-    classDef hid fill:#1e1b4b,stroke:#818cf8,stroke-width:2px,color:#fff;
-    classDef out fill:#064e3b,stroke:#10b981,stroke-width:2px,color:#fff;
-    classDef opt fill:#78350f,stroke:#f59e0b,stroke-width:2px,color:#fff;
-
-    class X1,X2 inp;
-    class H1,H2 hid;
-    class Y out;
-    class Loss,Grad opt;`,
-        steps: [
-          { id: "s1", nodeKey: "Inputs", label: "Forward Pass", description: "Features flow across weighted synapses through non-linear activations.", phase: "Inference" },
-          { id: "s2", nodeKey: "Loss", label: "Error Measurement", description: "Quantifies the discrepancy between prediction and true label.", phase: "Evaluation" },
-          { id: "s3", nodeKey: "Grad", label: "Backpropagation", description: "Gradients flow in reverse using the Chain Rule to adjust weights.", phase: "Optimization" },
-        ],
-        coreInsight: "Non-linear activation functions enable networks to approximate any mathematical function.",
-      },
-      socratic: {
-        questions: [
-          {
-            id: "nn-q1",
-            question: "Why do neural networks require NON-LINEAR activation functions (like ReLU or Sigmoid) between hidden layers?",
-            options: [
-              {
-                id: "nn1-opt1",
-                text: "Without non-linear activations, stacking 100 layers collapses mathematically into just a single simple linear regression (matrix multiplication).",
-                explanation: "Correct! The composition of multiple linear functions is strictly linear, unable to learn complex non-linear patterns.",
-                isCorrect: true,
-              },
-              {
-                id: "nn1-opt2",
-                text: "To prevent GPUs from overheating during training runs.",
-                explanation: "Incorrect. Activation choice is mathematical, not thermal.",
-                isCorrect: false,
-              },
-              {
-                id: "nn1-opt3",
-                text: "Because binary computers cannot perform floating-point addition without non-linearity.",
-                explanation: "Incorrect. Computers perform linear arithmetic natively.",
-                isCorrect: false,
-              },
-              {
-                id: "nn1-opt4",
-                text: "To automatically delete corrupted dataset images.",
-                explanation: "Incorrect. Activation functions compute neuron outputs, not dataset cleaning.",
-                isCorrect: false,
-              },
-            ],
-            reflectionPrompt: "What is the 'Vanishing Gradient Problem' and why does ReLU help prevent it compared to Sigmoid?",
-            hint: "Look at the derivative of Sigmoid for large inputs vs ReLU derivative (1.0).",
-          },
-        ],
-        overallSummary: "Neural networks combine weighted linear transforms with non-linear activations to model complex real-world data.",
       },
     },
   },
@@ -535,39 +387,165 @@ Even in a list of 1,000,000 items, you find any item in at most **20 comparisons
       socratic: {
         questions: [
           {
-            id: "photo-q1",
+            id: "ph-q1",
             question: "Where does the Oxygen ($O_2$) released during photosynthesis originate from?",
             options: [
-              {
-                id: "ph1-opt1",
-                text: "From the splitting of water molecules ($H_2O$) during the light-dependent reactions.",
-                explanation: "Correct! Photolysis cracks H2O into protons, electrons, and O2 exhaust.",
-                isCorrect: true,
-              },
-              {
-                id: "ph1-opt2",
-                text: "From carbon dioxide ($CO_2$) gas inhaled through leaves.",
-                explanation: "Incorrect. The oxygen in CO2 is incorporated into the glucose sugar molecule, not released as free gas.",
-                isCorrect: false,
-              },
-              {
-                id: "ph1-opt3",
-                text: "From nitrogen compounds inside soil fertilizer.",
-                explanation: "Incorrect. Fertilizer provides nitrates for proteins, not photosynthetic oxygen.",
-                isCorrect: false,
-              },
-              {
-                id: "ph1-opt4",
-                text: "From solar photons transforming directly into gas.",
-                explanation: "Incorrect. Photons are pure energy without mass, not chemical elements.",
-                isCorrect: false,
-              },
+              { id: "ph1-1", text: "From the photolysis splitting of water (H2O) in Photosystem II.", isCorrect: true },
+              { id: "ph1-2", text: "From carbon dioxide (CO2) gas absorbed from the atmosphere.", isCorrect: false },
+              { id: "ph1-3", text: "From nitrogen ions in the root soil.", isCorrect: false },
+              { id: "ph1-4", text: "From solar photons decaying into atomic oxygen.", isCorrect: false },
             ],
-            reflectionPrompt: "What would happen to plant glucose synthesis if carbon dioxide was completely removed from the environment?",
-            hint: "Check which step requires CO2 in the flowchart.",
+            correctAnswer: 0,
+            explanation: "Photolysis cracks water molecules into protons, electrons (to replenish chlorophyll), and free O2 gas.",
+            difficulty: "Beginner",
+            conceptTested: "Photolysis water splitting",
+          },
+          {
+            id: "ph-q2",
+            question: "Which high-energy chemical carriers are synthesized by the Light Reactions to power the Calvin Cycle?",
+            options: [
+              { id: "ph2-1", text: "ATP and NADPH", isCorrect: true },
+              { id: "ph2-2", text: "DNA and RNA", isCorrect: false },
+              { id: "ph2-3", text: "Glucose and Starch", isCorrect: false },
+              { id: "ph2-4", text: "Lactic Acid and Ethanol", isCorrect: false },
+            ],
+            correctAnswer: 0,
+            explanation: "ATP provides phosphorylation energy and NADPH provides reducing electrons to fix CO2 in the dark reactions.",
+            difficulty: "Intermediate",
+            conceptTested: "Energy carrier synthesis",
+          },
+          {
+            id: "ph-q3",
+            question: "In which sub-compartment of the chloroplast does the Calvin Cycle (carbon fixation) take place?",
+            options: [
+              { id: "ph3-1", text: "In the Stroma (fluid surrounding thylakoids).", isCorrect: true },
+              { id: "ph3-2", text: "Inside the Thylakoid Lumen.", isCorrect: false },
+              { id: "ph3-3", text: "In the outer chloroplast membrane pores.", isCorrect: false },
+              { id: "ph3-4", text: "Inside the cellular nucleus.", isCorrect: false },
+            ],
+            correctAnswer: 0,
+            explanation: "Light reactions occur on thylakoid membranes, while the enzymatic Calvin cycle runs in the aqueous stroma.",
+            difficulty: "Beginner",
+            conceptTested: "Chloroplast compartmentalization",
           },
         ],
         overallSummary: "Light reactions generate high-energy carriers that drive the enzymatic fixation of carbon into sugars.",
+      },
+    },
+  },
+  {
+    id: "neural-networks",
+    slug: "neural-networks",
+    title: "Neural Networks",
+    subtitle: "Layers of interconnected artificial neurons that learn patterns through forward passes and backpropagation",
+    category: "Artificial Intelligence",
+    difficulty: "Intermediate",
+    estimatedMinutes: 7,
+    tags: ["AI", "Deep Learning", "Weights", "Backpropagation"],
+    representations: {
+      analogy: {
+        title: "The Recipe Tasting Kitchen",
+        simpleExplanation:
+          "A neural network is an interconnected computational model inspired by biological brains. Data passes through multiple layers of nodes (neurons), where each connection has a weight (importance) that is tuned automatically to recognize complex patterns.",
+        metaphor:
+          "Imagine an industrial test kitchen preparing soup: Seasoning chefs (input layer) add ingredients, Sauce master chefs (hidden layers) blend flavors, and Head chefs (output layer) grade the soup. If the soup tastes off (Error/Loss), feedback travels backward so each chef tweaks their spice measurements.",
+        narrative: `A Neural Network processes information in two complementary passes:
+1. **Forward Propagation**: Input data (pixels, text, numbers) is multiplied by connection **weights**, summed with a **bias**, and passed through an **activation function** (like ReLU) to decide whether to activate the next neuron.
+2. **Loss Calculation**: The final prediction is compared against the true target to measure error.
+3. **Backward Propagation (Backprop)**: Calculus (chain rule) calculates gradients, and the optimizer (like Adam or SGD) nudges each weight slightly in the direction that minimizes overall loss.`,
+        simplerExplanation:
+          "Think of tuning a guitar with 1,000 strings. You pluck a string (input), listen to the tone (output), and turn the peg slightly until the sound is harmonious (backpropagation).",
+        breakdown: [
+          { conceptTerm: "Weights (W)", analogyEquivalent: "Volume Dial on Each Instrument", explanation: "Determines how strongly a signal from one neuron influences the next neuron." },
+          { conceptTerm: "Activation Function", analogyEquivalent: "Light Switch Trigger (Threshold)", explanation: "Introduces non-linearity so the network can learn complex curvy decision boundaries." },
+          { conceptTerm: "Loss Function", analogyEquivalent: "Scorecard / Error Margin", explanation: "Quantifies how far off the prediction was from the actual ground truth." },
+          { conceptTerm: "Backpropagation", analogyEquivalent: "Chef Feedback Relay", explanation: "Calculates which specific weights contributed most to the error and updates them." },
+        ],
+        keyTakeaway:
+          "Neural networks learn not by hardcoded rules, but by iteratively adjusting millions of tiny weights through gradient descent.",
+      },
+      flowchart: {
+        diagramType: "flowchart",
+        mermaidCode: `flowchart LR
+    subgraph Inputs ["Input Layer"]
+      X1["Feature x₁"]
+      X2["Feature x₂"]
+    end
+
+    subgraph Hidden ["Hidden Layer (Non-Linear)"]
+      H1["Neuron h₁ = σ(W₁·X + b₁)"]
+      H2["Neuron h₂ = σ(W₂·X + b₂)"]
+    end
+
+    subgraph Output ["Output Layer"]
+      Y["Prediction ŷ"]
+    end
+
+    subgraph Feedback ["Loss & Backpropagation"]
+      Loss["Loss: L(ŷ, y_true)"]
+      Grad["Gradient Descent ∇W"]
+    end
+
+    X1 --> H1
+    X1 --> H2
+    X2 --> H1
+    X2 --> H2
+
+    H1 --> Y
+    H2 --> Y
+
+    Y --> Loss
+    Loss --> Grad
+    Grad -.->|Update Weights| Hidden
+
+    classDef inp fill:#1e293b,stroke:#94a3b8,stroke-width:2px,color:#fff;
+    classDef hid fill:#1e1b4b,stroke:#818cf8,stroke-width:2px,color:#fff;
+    classDef out fill:#064e3b,stroke:#10b981,stroke-width:2px,color:#fff;
+    classDef opt fill:#78350f,stroke:#f59e0b,stroke-width:2px,color:#fff;
+
+    class X1,X2 inp;
+    class H1,H2 hid;
+    class Y out;
+    class Loss,Grad opt;`,
+        steps: [
+          { id: "s1", nodeKey: "Inputs", label: "Forward Pass", description: "Features flow across weighted synapses through non-linear activations.", phase: "Inference" },
+          { id: "s2", nodeKey: "Loss", label: "Error Measurement", description: "Quantifies the discrepancy between prediction and true label.", phase: "Evaluation" },
+          { id: "s3", nodeKey: "Grad", label: "Backpropagation", description: "Gradients flow in reverse using the Chain Rule to adjust weights.", phase: "Optimization" },
+        ],
+        coreInsight: "Non-linear activation functions enable networks to approximate any mathematical function.",
+      },
+      socratic: {
+        questions: [
+          {
+            id: "nn-q1",
+            question: "Why do deep neural networks require NON-LINEAR activation functions between layers?",
+            options: [
+              { id: "nn1", text: "Without non-linearity, stacking layers collapses into a single linear regression.", isCorrect: true },
+              { id: "nn2", text: "To restrict GPU processor temperatures during backpropagation.", isCorrect: false },
+              { id: "nn3", text: "Because computers cannot compute decimals without non-linear math.", isCorrect: false },
+              { id: "nn4", text: "To automatically delete corrupt images from the training set.", isCorrect: false },
+            ],
+            correctAnswer: 0,
+            explanation: "Linear combinations of linear functions remain strictly linear; non-linear activations are required to learn non-linear patterns.",
+            difficulty: "Intermediate",
+            conceptTested: "Non-linear approximation",
+          },
+          {
+            id: "nn-q2",
+            question: "What mathematical principle powers Backpropagation to compute parameter gradients across deep layers?",
+            options: [
+              { id: "nn2-1", text: "The Calculus Chain Rule for composite derivatives.", isCorrect: true },
+              { id: "nn2-2", text: "Euler's formula for complex plane geometry.", isCorrect: false },
+              { id: "nn2-3", text: "Pythagorean theorem of hypotenuse vectors.", isCorrect: false },
+              { id: "nn2-4", text: "Fourier frequency decomposition.", isCorrect: false },
+            ],
+            correctAnswer: 0,
+            explanation: "The chain rule allows computing how small changes in deep weights influence the final loss output.",
+            difficulty: "Advanced",
+            conceptTested: "Chain rule gradient flow",
+          },
+        ],
+        overallSummary: "Neural networks combine weighted linear transforms with non-linear activations to model complex real-world data.",
       },
     },
   },
@@ -636,35 +614,17 @@ When two particles are created in an entangled Bell state $|\\Phi^+\\rangle = \\
         questions: [
           {
             id: "qe-q1",
-            question: "Why can't Alice use quantum entanglement to send instant Morse code messages to Bob on Mars faster than light?",
+            question: "Why can't Alice transmit instantaneous Morse code signals to Bob using entangled particles?",
             options: [
-              {
-                id: "qe1-opt1",
-                text: "Because Alice cannot choose or force the outcome of her measurement—it is purely random, so Bob only observes random static until Alice sends a classical decoding key.",
-                explanation: "Correct! The No-Communication Theorem proves that because quantum measurement outcomes are random, no controllable information travels.",
-                isCorrect: true,
-              },
-              {
-                id: "qe1-opt2",
-                text: "Because space vacuum slows down quantum entanglement waves.",
-                explanation: "Incorrect. Entanglement is instantaneous and does not travel as a physical wave through space.",
-                isCorrect: false,
-              },
-              {
-                id: "qe1-opt3",
-                text: "Because Mars has a different magnetic field that disables qubits.",
-                explanation: "Incorrect. Planetary magnetic fields can be shielded and do not break entanglement principle.",
-                isCorrect: false,
-              },
-              {
-                id: "qe1-opt4",
-                text: "Because Morse code frequencies are too low for quantum states.",
-                explanation: "Incorrect. The constraint is fundamental information theory, not Morse code encoding.",
-                isCorrect: false,
-              },
+              { id: "qe1", text: "Because Alice cannot control her measurement outcome; it is fundamentally random.", isCorrect: true },
+              { id: "qe2", text: "Because space vacuum absorbs quantum entangled signals.", isCorrect: false },
+              { id: "qe3", text: "Because qubits stop spinning when communicating across oceans.", isCorrect: false },
+              { id: "qe4", text: "Because Morse code frequencies break quantum entanglement.", isCorrect: false },
             ],
-            reflectionPrompt: "How does Quantum Key Distribution (QKD) use entanglement to detect eavesdroppers?",
-            hint: "What happens to the entangled state if an eavesdropper attempts to measure the photons in flight?",
+            correctAnswer: 0,
+            explanation: "The No-Communication Theorem proves that because measurement outcomes are random, no controllable information is sent without a classical channel.",
+            difficulty: "Advanced",
+            conceptTested: "No-Communication Theorem",
           },
         ],
         overallSummary: "Quantum entanglement represents non-local correlation without violating causality.",
@@ -742,33 +702,29 @@ Core operations:
             id: "stk-q1",
             question: "If you push elements [A, B, C, D] in order into an empty stack and then execute two pop() operations, which element is currently at the top of the stack?",
             options: [
-              {
-                id: "stk1-opt1",
-                text: "Element B (D and C were popped off, leaving B at top and A at bottom).",
-                explanation: "Correct! Push order: [A, B, C, D (top)]. 1st pop removes D. 2nd pop removes C. Remaining top is B.",
-                isCorrect: true,
-              },
-              {
-                id: "stk1-opt2",
-                text: "Element D",
-                explanation: "Incorrect. Element D was the first item removed during the first pop().",
-                isCorrect: false,
-              },
-              {
-                id: "stk1-opt3",
-                text: "Element A",
-                explanation: "Incorrect. Element A is at the bottom of the stack.",
-                isCorrect: false,
-              },
-              {
-                id: "stk1-opt4",
-                text: "The stack is completely empty.",
-                explanation: "Incorrect. 4 items pushed minus 2 popped leaves 2 items in the stack.",
-                isCorrect: false,
-              },
+              { id: "stk1-1", text: "Element B (D and C were popped off, leaving B at top and A at bottom).", isCorrect: true },
+              { id: "stk1-2", text: "Element D", isCorrect: false },
+              { id: "stk1-3", text: "Element A", isCorrect: false },
+              { id: "stk1-4", text: "The stack is completely empty.", isCorrect: false },
             ],
-            reflectionPrompt: "How can two Stacks be used together to construct a First-In First-Out (FIFO) Queue?",
-            hint: "Think about what happens when you pour the contents of one stack upside-down into another.",
+            correctAnswer: 0,
+            explanation: "Push order is [A, B, C, D (top)]. The first pop removes D. The second pop removes C. The remaining top item is B.",
+            difficulty: "Beginner",
+            conceptTested: "LIFO order mechanics",
+          },
+          {
+            id: "stk-q2",
+            question: "What is the computational time complexity of pushing an element onto the top of a stack?",
+            options: [
+              { id: "stk2-1", text: "O(1) constant time.", isCorrect: true },
+              { id: "stk2-2", text: "O(N) linear time.", isCorrect: false },
+              { id: "stk2-3", text: "O(log N) logarithmic time.", isCorrect: false },
+              { id: "stk2-4", text: "O(N^2) quadratic time.", isCorrect: false },
+            ],
+            correctAnswer: 0,
+            explanation: "Pushing to a stack only requires updating the top pointer and writing to the top memory address in constant time.",
+            difficulty: "Beginner",
+            conceptTested: "Constant time complexity O(1)",
           },
         ],
         overallSummary: "LIFO ordering ensures that the most recent context is always resolved first.",
@@ -793,7 +749,6 @@ export function getMockTopic(query: string): Topic {
 
   if (found) return found;
 
-  // Generate a dynamic mock topic for arbitrary inputs
   const formattedTitle = query
     .split(" ")
     .map((w) => w.charAt(0).toUpperCase() + w.slice(1))
@@ -824,18 +779,6 @@ export function getMockTopic(query: string): Topic {
           { conceptTerm: "Terminal Boundary", analogyEquivalent: "Destination Station", explanation: "The final stable state reached." },
         ],
         keyTakeaway: `${formattedTitle} achieves efficiency by decomposing complex tasks into discrete, predictable transitions.`,
-        alternativeAnalogies: [
-          {
-            title: `The Postal Sorting Office for ${formattedTitle}`,
-            metaphor: `A central post office scanning package barcodes and directing them onto the fastest delivery truck.`,
-            narrative: `Packages are sorted by zip code and distributed along conveyor belts so nothing is lost in transit.`,
-            breakdown: [
-              { conceptTerm: "Input", analogyEquivalent: "Incoming Mail Drop", explanation: "Data packets or stimuli" },
-              { conceptTerm: "Processing", analogyEquivalent: "Barcode Optical Scanner", explanation: "Rule validation" },
-            ],
-            keyTakeaway: "Clear categorization eliminates pipeline clutter.",
-          },
-        ],
       },
       flowchart: {
         diagramType: "flowchart",
@@ -874,36 +817,31 @@ export function getMockTopic(query: string): Topic {
         questions: [
           {
             id: "dyn-q1",
-            question: `What is the fundamental mechanism that enables ${formattedTitle} to operate reliably?`,
-            context: `Consider the decision flow from initiation to output in the visual representation.`,
+            question: `What fundamental principle allows ${formattedTitle} to operate reliably under varying conditions?`,
             options: [
-              {
-                id: "dyn-opt1",
-                text: "It enforces clear state transitions and validates conditions at each stage before committing output.",
-                explanation: "Correct! Structured validation and modular state management prevent race conditions and unhandled errors.",
-                isCorrect: true,
-              },
-              {
-                id: "dyn-opt2",
-                text: "It randomly bypasses validation checks whenever traffic volume increases.",
-                explanation: "Incorrect. Bypassing validation breaks correctness guarantees.",
-                isCorrect: false,
-              },
-              {
-                id: "dyn-opt3",
-                text: "It requires all external hardware components to restart simultaneously.",
-                explanation: "Incorrect. Modern architectures maintain high availability without full hardware reboots.",
-                isCorrect: false,
-              },
-              {
-                id: "dyn-opt4",
-                text: "It replaces all mathematical logic with static pre-printed lookup tables.",
-                explanation: "Incorrect. Dynamic systems evaluate runtime states rather than relying exclusively on static lists.",
-                isCorrect: false,
-              },
+              { id: "dq1-1", text: "It enforces clear state transitions and validates conditions at each stage before committing output.", isCorrect: true },
+              { id: "dq1-2", text: "It randomly bypasses validation checks whenever traffic volume increases.", isCorrect: false },
+              { id: "dq1-3", text: "It requires all external hardware components to restart simultaneously.", isCorrect: false },
+              { id: "dq1-4", text: "It replaces dynamic computation with hardcoded static lookup tables.", isCorrect: false },
             ],
-            reflectionPrompt: `How would you optimize the convergence step if input load scales by 100x?`,
-            hint: `Look at the parallel branches feeding into the convergence node.`,
+            correctAnswer: 0,
+            explanation: "Structured validation and modular state management prevent race conditions and unhandled error states.",
+            difficulty: "Intermediate",
+            conceptTested: "State validation & integrity",
+          },
+          {
+            id: "dyn-q2",
+            question: `If an exception or invalid input occurs during the initialization stage of ${formattedTitle}, what is the standard recovery behavior?`,
+            options: [
+              { id: "dq2-1", text: "The pipeline triggers fallback error handling and prevents corrupted state propagation.", isCorrect: true },
+              { id: "dq2-2", text: "The system continues with corrupted data silently.", isCorrect: false },
+              { id: "dq2-3", text: "All historical user logs are permanently deleted.", isCorrect: false },
+              { id: "dq2-4", text: "The CPU shuts down power to the server.", isCorrect: false },
+            ],
+            correctAnswer: 0,
+            explanation: "Robust systems trap exceptions early at the boundary layer to prevent downstream cascading failures.",
+            difficulty: "Beginner",
+            conceptTested: "Error boundary handling",
           },
         ],
         overallSummary: `Mastering ${formattedTitle} requires understanding how inputs propagate across validated transformation stages.`,

@@ -104,33 +104,40 @@ export async function sendEmailOtp({ to, otp, recipientName = 'Skill2Hire User',
     }
   }
 
-  // 2. Check SMTP Configuration
-  if (!externalSent && process.env.SMTP_HOST && process.env.SMTP_USER && process.env.SMTP_PASS) {
-    try {
-      const transporter = nodemailer.createTransport({
-        host: process.env.SMTP_HOST,
-        port: parseInt(process.env.SMTP_PORT || '587', 10),
-        secure: process.env.SMTP_SECURE === 'true' || process.env.SMTP_PORT === '465',
-        auth: {
-          user: process.env.SMTP_USER,
-          pass: process.env.SMTP_PASS
+  // 2. Gmail SMTP / Custom SMTP Sending
+  if (!externalSent && ((process.env.SMTP_HOST || process.env.SMTP_USER) && process.env.SMTP_PASS)) {
+    const isGmail = process.env.SMTP_HOST?.includes('gmail') || process.env.SMTP_USER?.includes('@gmail.com');
+    const transportConfig: any = isGmail
+      ? {
+          service: 'gmail',
+          auth: {
+            user: process.env.SMTP_USER,
+            pass: process.env.SMTP_PASS?.replace(/\s+/g, '')
+          }
         }
-      });
+      : {
+          host: process.env.SMTP_HOST,
+          port: parseInt(process.env.SMTP_PORT || '587', 10),
+          secure: process.env.SMTP_SECURE === 'true' || process.env.SMTP_PORT === '465',
+          auth: {
+            user: process.env.SMTP_USER,
+            pass: process.env.SMTP_PASS?.replace(/\s+/g, '')
+          },
+          tls: { rejectUnauthorized: false }
+        };
 
-      const info = await transporter.sendMail({
-        from: process.env.EMAIL_FROM || process.env.SMTP_FROM || `"Skill2Hire" <${process.env.SMTP_USER}>`,
-        to,
-        subject: `Your Skill2Hire Verification Code: ${otp}`,
-        text: `Your Skill2Hire verification code is ${otp}. It will expire in 5 minutes. Do not share this code with anyone.`,
-        html: getEmailHtml(otp, recipientName, purposeText)
-      });
+    const transporter = nodemailer.createTransport(transportConfig);
+    const info = await transporter.sendMail({
+      from: process.env.EMAIL_FROM || `"Skill2Hire Verification" <${process.env.SMTP_USER}>`,
+      to: to.trim().toLowerCase(),
+      subject: `Your Skill2Hire Verification Code: ${otp}`,
+      text: `Your Skill2Hire OTP is ${otp}. Valid for 5 minutes. Do not share this with anyone.`,
+      html: getEmailHtml(otp, recipientName, purposeText)
+    });
 
-      providerUsed = 'SMTP (' + process.env.SMTP_HOST + ')';
-      messageId = info.messageId;
-      externalSent = true;
-    } catch (err: any) {
-      console.warn('[SMTP delivery attempt]:', err.message);
-    }
+    providerUsed = isGmail ? 'Gmail' : `SMTP (${process.env.SMTP_HOST})`;
+    messageId = info.messageId;
+    externalSent = true;
   }
 
   // 3. Record Live Dispatch (Guarantees user receives their real OTP in live inbox)

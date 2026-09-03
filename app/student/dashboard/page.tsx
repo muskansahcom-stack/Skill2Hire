@@ -161,7 +161,7 @@ export default function StudentDashboard() {
                     </span>
                   </div>
                   <h1 className="text-2xl sm:text-3xl font-black tracking-tight text-white">
-                    Welcome back, {student.fullName || 'Alex'}!
+                    Welcome back, {profile?.fullName || profile?.name || student?.fullName || 'Candidate'}!
                   </h1>
                   <p className="text-xs sm:text-sm text-slate-300">
                     {student.collegeName} • {student.department} ({student.graduationYear}) • CGPA: {student.cgpa?.toFixed(2)}

@@ -1,3 +1,5 @@
+"use client";
+
 import React from "react";
 import { Sparkles, Network, HelpCircle, ArrowRight } from "lucide-react";
 

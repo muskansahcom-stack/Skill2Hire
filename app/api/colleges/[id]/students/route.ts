@@ -1,8 +1,21 @@
 import { NextResponse } from 'next/server';
 import { db } from '@/lib/db';
+import { getAuthenticatedSession, authorizeRole, authorizeOwnership } from '@/lib/authMiddleware';
 
 export async function GET(request: Request, { params }: { params: { id: string } }) {
   try {
+    const session = getAuthenticatedSession(request);
+    
+    // 1. Only College and Admin can view student roster for that college
+    const roleAuth = authorizeRole(session, ['college', 'admin']);
+    if (!roleAuth.authorized) return roleAuth.errorResponse!;
+
+    // 2. Enforce institution boundary check
+    if (session?.role === 'college') {
+      const ownerAuth = authorizeOwnership(session, params.id, 'college');
+      if (!ownerAuth.authorized) return ownerAuth.errorResponse!;
+    }
+
     const { searchParams } = new URL(request.url);
     const filter = searchParams.get('filter'); // 'placement_ready' | 'needs_training' | 'all'
     const department = searchParams.get('department');
@@ -42,6 +55,6 @@ export async function GET(request: Request, { params }: { params: { id: string }
       students: studentsWithSkills
     });
   } catch (error: any) {
-    return NextResponse.json({ error: error.message }, { status: 500 });
+    return NextResponse.json({ error: 'Unable to complete the request. Please try again.' }, { status: 500 });
   }
 }

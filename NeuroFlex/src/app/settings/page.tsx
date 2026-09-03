@@ -1,8 +1,10 @@
 "use client";
 
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { defaultUserSettings } from "@/lib/data/sampleTopics";
-import { UserSettings, DifficultyLevel } from "@/types";
+import { UserSettings } from "@/types";
+import { useAuth } from "@/contexts/AuthContext";
+import { AccessibilityPanel } from "@/components/accessibility/AccessibilityPanel";
 import {
   Settings,
   Eye,
@@ -15,179 +17,281 @@ import {
   RotateCcw,
   Type,
   Cpu,
+  SlidersHorizontal,
+  GraduationCap,
+  Target,
+  Layers,
+  BookOpen,
 } from "lucide-react";
 import { Card, CardHeader, CardTitle, CardContent } from "@/components/ui/Card";
-import { Switch } from "@/components/ui/Switch";
 import { Button } from "@/components/ui/Button";
 import { Badge } from "@/components/ui/Badge";
 
 export default function SettingsPage() {
+  const { user } = useAuth();
+
+  const [fieldOfStudy, setFieldOfStudy] = useState("Computer Science");
+  const [learningPreference, setLearningPreference] = useState("mixed");
+  const [difficulty, setDifficulty] = useState("beginner");
+  const [density, setDensity] = useState("balanced");
+  const [learningGoal, setLearningGoal] = useState("Understand concepts");
+
   const [settings, setSettings] = useState<UserSettings>(defaultUserSettings);
   const [savedSuccess, setSavedSuccess] = useState<boolean>(false);
+  const [isSaving, setIsSaving] = useState<boolean>(false);
 
-  const handleSave = () => {
-    setSavedSuccess(true);
-    // Apply dyslexia font to document root if enabled
-    if (settings.dyslexiaFont) {
-      document.documentElement.classList.add("dyslexia-font");
-    } else {
-      document.documentElement.classList.remove("dyslexia-font");
+  // Load existing user preferences on mount
+  useEffect(() => {
+    async function loadPreferences() {
+      try {
+        const res = await fetch("/api/onboarding");
+        if (res.ok) {
+          const data = await res.json();
+          if (data.preferences) {
+            if (data.preferences.fieldOfStudy) setFieldOfStudy(data.preferences.fieldOfStudy);
+            if (data.preferences.learningPreference) setLearningPreference(data.preferences.learningPreference);
+            if (data.preferences.difficulty) setDifficulty(data.preferences.difficulty);
+            if (data.preferences.density) setDensity(data.preferences.density);
+            if (data.preferences.learningGoal) setLearningGoal(data.preferences.learningGoal);
+          }
+        }
+      } catch (e) {
+        console.warn("Could not fetch user preferences:", e);
+      }
     }
+    loadPreferences();
+  }, []);
 
-    setTimeout(() => setSavedSuccess(false), 3000);
+  const handleSave = async () => {
+    setIsSaving(true);
+    try {
+      await fetch("/api/onboarding", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          userId: user?.id,
+          fieldOfStudy,
+          learningPreference,
+          difficulty,
+          density,
+          learningGoal,
+        }),
+      });
+
+      setSavedSuccess(true);
+      setTimeout(() => setSavedSuccess(false), 3000);
+    } catch (e) {
+      console.error(e);
+    } finally {
+      setIsSaving(false);
+    }
   };
 
   const handleReset = () => {
     setSettings(defaultUserSettings);
-    document.documentElement.classList.remove("dyslexia-font");
+    setFieldOfStudy("Computer Science");
+    setLearningPreference("mixed");
+    setDifficulty("beginner");
+    setDensity("balanced");
+    setLearningGoal("Understand concepts");
   };
 
   return (
-    <div className="min-h-screen bg-[#06090f] text-slate-100 py-8">
-      <div className="mx-auto max-w-4xl px-4 sm:px-6 lg:px-8 space-y-8">
+    <div className="min-h-screen bg-[#06090f] text-slate-100 py-8 lg:py-10">
+      <div className="mx-auto max-w-4xl px-4 sm:px-6 lg:px-8 space-y-8 animate-fadeIn">
         {/* Header */}
         <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 border-b border-slate-800/80 pb-6">
-          <div>
+          <div className="space-y-1">
             <div className="flex items-center gap-2">
-              <Badge variant="brand" className="gap-1">
-                <Settings className="h-3 w-3" />
+              <Badge variant="brand" className="gap-1 px-3 py-1 font-semibold">
+                <Settings className="h-3.5 w-3.5" />
                 <span>Configuration</span>
               </Badge>
+              <Badge variant="cyan">WCAG AAA Accessible</Badge>
             </div>
-            <h1 className="text-2xl sm:text-3xl font-extrabold text-white font-display mt-2">
-              Platform & Accessibility Settings
+            <h1 className="text-2xl sm:text-3xl font-extrabold text-white font-display tracking-tight mt-1">
+              Platform &amp; Student Learning Settings
             </h1>
-            <p className="text-xs sm:text-sm text-slate-400 mt-1">
-              Customize your sensory preferences, default representation pathways, and AI engine parameters.
+            <p className="text-xs sm:text-sm text-slate-400">
+              Customize your academic focus, learning preferences, difficulty tier, and accessibility modes.
             </p>
           </div>
 
-          <div className="flex items-center gap-2">
-            <Button variant="ghost" size="sm" onClick={handleReset} icon={<RotateCcw className="h-4 w-4" />}>
+          <div className="flex items-center gap-2 self-start sm:self-center">
+            <Button
+              variant="ghost"
+              size="sm"
+              onClick={handleReset}
+              icon={<RotateCcw className="h-3.5 w-3.5" />}
+              className="text-xs text-slate-400 hover:text-white"
+            >
               Reset
             </Button>
             <Button
               variant="primary"
               size="sm"
               onClick={handleSave}
-              icon={savedSuccess ? <Check className="h-4 w-4" /> : <Save className="h-4 w-4" />}
+              disabled={isSaving}
+              icon={savedSuccess ? <Check className="h-3.5 w-3.5" /> : <Save className="h-3.5 w-3.5" />}
+              className="text-xs font-semibold"
             >
-              {savedSuccess ? "Saved!" : "Save Changes"}
+              {savedSuccess ? "Saved to Database!" : isSaving ? "Saving..." : "Save Changes"}
             </Button>
           </div>
         </div>
 
-        {/* 1. Accessibility & Sensory Settings */}
+        {/* 1. Academic Focus & Learning Preferences (Configured during Onboarding) */}
         <Card glass>
           <CardHeader>
-            <div className="flex items-center gap-2">
-              <Eye className="h-5 w-5 text-emerald-400" />
-              <CardTitle>Universal Accessibility & Sensory Comfort</CardTitle>
+            <div className="flex items-center justify-between">
+              <div className="flex items-center gap-2">
+                <GraduationCap className="h-5 w-5 text-accent-cyan" />
+                <CardTitle>Academic Focus &amp; Learning Preferences</CardTitle>
+              </div>
+              <Badge variant="cyan">Database Synced</Badge>
             </div>
             <p className="text-xs text-slate-400">
-              Tailor the reading environment to your neurotype and visual preferences.
+              Adjust the 5 core learning dimensions set during onboarding.
             </p>
           </CardHeader>
-          <CardContent className="space-y-4 divide-y divide-slate-800/60">
-            <div className="pt-2">
-              <Switch
-                checked={settings.dyslexiaFont}
-                onChange={(val) => setSettings({ ...settings, dyslexiaFont: val })}
-                label="Dyslexia-Friendly Typography"
-                description="Increases character distinctiveness, letter spacing, and line height to eliminate visual distortion."
-              />
-            </div>
 
-            <div className="pt-4">
-              <Switch
-                checked={settings.highContrast}
-                onChange={(val) => setSettings({ ...settings, highContrast: val })}
-                label="Enhanced High Contrast"
-                description="Strengthens borders and text contrast to exceed WCAG AAA standards for low-vision readers."
-              />
-            </div>
-
-            <div className="pt-4">
-              <Switch
-                checked={settings.reducedMotion}
-                onChange={(val) => setSettings({ ...settings, reducedMotion: val })}
-                label="Reduced Motion Mode"
-                description="Disables background pulses, floating gradient animations, and smooth sliding transitions."
-              />
-            </div>
-
-            <div className="pt-4">
-              <Switch
-                checked={settings.autoPlayFlowcharts}
-                onChange={(val) => setSettings({ ...settings, autoPlayFlowcharts: val })}
-                label="Interactive Step-by-Step Flowchart Mode"
-                description="Enables interactive node highlights and phase inspections in Mermaid diagrams by default."
-              />
-            </div>
-          </CardContent>
-        </Card>
-
-        {/* 2. Learning Pathway Preferences */}
-        <Card glass>
-          <CardHeader>
-            <div className="flex items-center gap-2">
-              <Sliders className="h-5 w-5 text-brand-400" />
-              <CardTitle>Learning Pathway & Pedagogical Preferences</CardTitle>
-            </div>
-            <p className="text-xs text-slate-400">
-              Choose your primary mental on-ramp when opening a new micro-module.
-            </p>
-          </CardHeader>
           <CardContent className="space-y-6">
-            <div>
-              <label className="block text-xs font-semibold text-slate-300 mb-2">
-                Default Representation View
+            {/* 1. Field of Study */}
+            <div className="space-y-2">
+              <label className="block text-xs font-semibold text-slate-300">
+                1. What are you studying?
               </label>
-              <div className="grid grid-cols-2 sm:grid-cols-4 gap-2.5">
+              <div className="grid grid-cols-2 sm:grid-cols-3 gap-2">
                 {[
-                  { id: "all", label: "Tri-Modal Split" },
-                  { id: "analogy", label: "Analogy First" },
-                  { id: "flowchart", label: "Flowchart First" },
-                  { id: "socratic", label: "Socratic First" },
-                ].map((mode) => (
+                  "Computer Science",
+                  "Engineering",
+                  "Mathematics",
+                  "Science",
+                  "Business",
+                  "Other",
+                ].map((field) => (
                   <button
-                    key={mode.id}
+                    key={field}
                     type="button"
-                    onClick={() =>
-                      setSettings({
-                        ...settings,
-                        defaultMode: mode.id as UserSettings["defaultMode"],
-                      })
-                    }
-                    className={`p-3 rounded-xl border text-xs font-medium text-center transition-all cursor-pointer ${
-                      settings.defaultMode === mode.id
-                        ? "border-brand-500 bg-brand-950/60 text-white shadow-sm shadow-brand-500/20"
-                        : "border-slate-800 bg-slate-900/40 text-slate-400 hover:text-slate-200"
+                    onClick={() => setFieldOfStudy(field)}
+                    className={`py-2 px-3 rounded-xl border text-xs font-medium text-left transition-all cursor-pointer ${
+                      fieldOfStudy === field
+                        ? "border-accent-cyan bg-cyan-950/40 text-white ring-1 ring-accent-cyan"
+                        : "border-slate-800 bg-slate-950/50 text-slate-400 hover:border-slate-700 hover:text-white"
                     }`}
                   >
-                    {mode.label}
+                    {field}
                   </button>
                 ))}
               </div>
             </div>
 
-            <div>
-              <label className="block text-xs font-semibold text-slate-300 mb-2">
-                Preferred Conceptual Depth Tier
+            {/* 2. Preferred Learning Style */}
+            <div className="space-y-2">
+              <label className="block text-xs font-semibold text-slate-300">
+                2. Preferred learning style:
               </label>
-              <div className="grid grid-cols-3 gap-2.5">
-                {(["Beginner", "Intermediate", "Advanced"] as DifficultyLevel[]).map((level) => (
+              <div className="grid grid-cols-2 sm:grid-cols-4 gap-2">
+                {[
+                  { id: "visual", label: "Visual" },
+                  { id: "example-based", label: "Real-world examples" },
+                  { id: "question-based", label: "Questions" },
+                  { id: "mixed", label: "Mixed" },
+                ].map((style) => (
                   <button
-                    key={level}
+                    key={style.id}
                     type="button"
-                    onClick={() => setSettings({ ...settings, preferredDifficulty: level })}
-                    className={`p-3 rounded-xl border text-xs font-medium text-center transition-all cursor-pointer ${
-                      settings.preferredDifficulty === level
-                        ? "border-accent-cyan bg-cyan-950/60 text-white shadow-sm shadow-accent-cyan/20"
-                        : "border-slate-800 bg-slate-900/40 text-slate-400 hover:text-slate-200"
+                    onClick={() => setLearningPreference(style.id)}
+                    className={`py-2 px-3 rounded-xl border text-xs font-medium text-center transition-all cursor-pointer ${
+                      learningPreference === style.id
+                        ? "border-brand-500 bg-brand-950/40 text-white ring-1 ring-brand-400"
+                        : "border-slate-800 bg-slate-950/50 text-slate-400 hover:border-slate-700 hover:text-white"
                     }`}
                   >
-                    {level}
+                    {style.label}
+                  </button>
+                ))}
+              </div>
+            </div>
+
+            {/* 3. Difficulty Tier */}
+            <div className="space-y-2">
+              <label className="block text-xs font-semibold text-slate-300">
+                3. Default difficulty:
+              </label>
+              <div className="grid grid-cols-3 gap-2">
+                {[
+                  { id: "beginner", label: "Beginner" },
+                  { id: "intermediate", label: "Intermediate" },
+                  { id: "advanced", label: "Advanced" },
+                ].map((tier) => (
+                  <button
+                    key={tier.id}
+                    type="button"
+                    onClick={() => setDifficulty(tier.id)}
+                    className={`py-2 px-3 rounded-xl border text-xs font-medium text-center transition-all cursor-pointer ${
+                      difficulty === tier.id
+                        ? "border-purple-500 bg-purple-950/40 text-white ring-1 ring-purple-400"
+                        : "border-slate-800 bg-slate-950/50 text-slate-400 hover:border-slate-700 hover:text-white"
+                    }`}
+                  >
+                    {tier.label}
+                  </button>
+                ))}
+              </div>
+            </div>
+
+            {/* 4. Explanation Preference */}
+            <div className="space-y-2">
+              <label className="block text-xs font-semibold text-slate-300">
+                4. Explanation preference:
+              </label>
+              <div className="grid grid-cols-3 gap-2">
+                {[
+                  { id: "simple", label: "Simple" },
+                  { id: "balanced", label: "Balanced" },
+                  { id: "detailed", label: "Detailed" },
+                ].map((dens) => (
+                  <button
+                    key={dens.id}
+                    type="button"
+                    onClick={() => setDensity(dens.id)}
+                    className={`py-2 px-3 rounded-xl border text-xs font-medium text-center transition-all cursor-pointer ${
+                      density === dens.id
+                        ? "border-emerald-500 bg-emerald-950/40 text-white ring-1 ring-emerald-400"
+                        : "border-slate-800 bg-slate-950/50 text-slate-400 hover:border-slate-700 hover:text-white"
+                    }`}
+                  >
+                    {dens.label}
+                  </button>
+                ))}
+              </div>
+            </div>
+
+            {/* 5. Main Learning Goal */}
+            <div className="space-y-2">
+              <label className="block text-xs font-semibold text-slate-300">
+                5. Main learning goal:
+              </label>
+              <div className="grid grid-cols-2 sm:grid-cols-3 gap-2">
+                {[
+                  "Understand concepts",
+                  "Exam preparation",
+                  "Interview preparation",
+                  "Practice",
+                  "Academic improvement",
+                ].map((goal) => (
+                  <button
+                    key={goal}
+                    type="button"
+                    onClick={() => setLearningGoal(goal)}
+                    className={`py-2 px-3 rounded-xl border text-xs font-medium text-left transition-all cursor-pointer ${
+                      learningGoal === goal
+                        ? "border-amber-500 bg-amber-950/40 text-white ring-1 ring-amber-400"
+                        : "border-slate-800 bg-slate-950/50 text-slate-400 hover:border-slate-700 hover:text-white"
+                    }`}
+                  >
+                    {goal}
                   </button>
                 ))}
               </div>
@@ -195,70 +299,44 @@ export default function SettingsPage() {
           </CardContent>
         </Card>
 
-        {/* 3. Modular AI Engine Configuration (Ready for future backend) */}
+        {/* 2. Universal Accessibility Preference Panel */}
+        <AccessibilityPanel />
+
+        {/* 3. AI Engine & Model Backend */}
         <Card glass>
           <CardHeader>
             <div className="flex items-center justify-between">
               <div className="flex items-center gap-2">
                 <Cpu className="h-5 w-5 text-accent-cyan" />
-                <CardTitle>AI Engine & Model Backend</CardTitle>
+                <CardTitle>AI Engine &amp; Model Backend</CardTitle>
               </div>
-              <Badge variant="cyan">Modular AI Architecture</Badge>
+              <Badge variant="cyan">Modular Architecture</Badge>
             </div>
             <p className="text-xs text-slate-400">
-              Configure your preferred LLM provider for live generation of novel analogies and Mermaid diagrams.
+              Configure your preferred LLM provider for live generation of analogies, flowcharts, and Socratic checks.
             </p>
           </CardHeader>
           <CardContent className="space-y-4">
             <div>
               <label className="block text-xs font-semibold text-slate-300 mb-2">
-                Active AI Provider
+                Active AI Generation Engine
               </label>
-              <div className="grid grid-cols-2 sm:grid-cols-4 gap-2.5">
-                {[
-                  { id: "gemini", label: "Google Gemini 2.0" },
-                  { id: "openai", label: "OpenAI GPT-4o" },
-                  { id: "claude", label: "Claude 3.5 Sonnet" },
-                  { id: "local", label: "Local Ollama" },
-                ].map((prov) => (
-                  <button
-                    key={prov.id}
-                    type="button"
-                    onClick={() =>
-                      setSettings({
-                        ...settings,
-                        aiProvider: prov.id as UserSettings["aiProvider"],
-                      })
-                    }
-                    className={`p-3 rounded-xl border text-xs font-medium text-center transition-all cursor-pointer ${
-                      settings.aiProvider === prov.id
-                        ? "border-accent-cyan bg-cyan-950/60 text-white shadow-sm shadow-accent-cyan/20"
-                        : "border-slate-800 bg-slate-900/40 text-slate-400 hover:text-slate-200"
-                    }`}
-                  >
-                    {prov.label}
-                  </button>
-                ))}
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
+                <div className="p-3.5 rounded-xl border border-brand-500 bg-brand-950/30 text-white flex items-center justify-between">
+                  <div className="flex items-center gap-2">
+                    <Sparkles className="h-4 w-4 text-brand-400" />
+                    <span className="text-xs font-semibold">Gemini 2.5 Flash / Pro (Primary)</span>
+                  </div>
+                  <span className="h-2 w-2 rounded-full bg-emerald-400" />
+                </div>
+                <div className="p-3.5 rounded-xl border border-slate-800 bg-slate-950/50 text-slate-400 flex items-center justify-between">
+                  <div className="flex items-center gap-2">
+                    <Cpu className="h-4 w-4" />
+                    <span className="text-xs font-medium">OpenAI GPT-4o / Mini (Fallback)</span>
+                  </div>
+                  <Badge variant="default" size="sm">Available</Badge>
+                </div>
               </div>
-            </div>
-
-            <div>
-              <label className="block text-xs font-semibold text-slate-300 mb-1.5">
-                Custom Provider API Key (Optional)
-              </label>
-              <div className="relative">
-                <Key className="absolute left-3.5 top-1/2 -translate-y-1/2 h-4 w-4 text-slate-500" />
-                <input
-                  type="password"
-                  value={settings.customApiKey || ""}
-                  onChange={(e) => setSettings({ ...settings, customApiKey: e.target.value })}
-                  placeholder="sk-... or AIzaSy... (stored locally in browser session)"
-                  className="w-full pl-10 pr-4 py-2.5 text-xs font-mono bg-slate-950 border border-slate-800 rounded-xl text-slate-200 placeholder-slate-600 focus:outline-none focus:ring-2 focus:ring-accent-cyan"
-                />
-              </div>
-              <p className="text-[11px] text-slate-500 mt-1">
-                Keys remain confidential within your local environment and are used solely for direct client API calls.
-              </p>
             </div>
           </CardContent>
         </Card>
