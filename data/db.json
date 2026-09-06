@@ -4607,6 +4607,20 @@
       "accuracy": 0,
       "levelAwarded": "Intermediate",
       "submittedAt": "2026-08-29T06:42:33.315Z"
+    },
+    {
+      "id": "res_1788455036792",
+      "studentId": "std_1787952516284",
+      "assessmentId": "asm_python",
+      "skillId": "sk_python",
+      "skillName": "Python",
+      "score": 40,
+      "passed": false,
+      "totalQuestions": 5,
+      "correctAnswers": 2,
+      "accuracy": 40,
+      "levelAwarded": "Intermediate",
+      "submittedAt": "2026-09-03T17:03:56.792Z"
     }
   ],
   "applications": [],
@@ -5144,6 +5158,51 @@
   ],
   "interview_evaluations": [],
   "resume_analyses": [
+    {
+      "studentId": "std_1787952516284",
+      "jobId": "job_2",
+      "jobTitle": "Data Analyst & ML Engineer",
+      "resumeMatchScore": 50,
+      "matchedSkills": [
+        "Python",
+        "SQL"
+      ],
+      "missingSkills": [
+        "AI/ML",
+        "Pandas & NumPy"
+      ],
+      "weakEvidenceSkills": [
+        {
+          "skill": "AI/ML",
+          "observation": "Your resume does not explicitly demonstrate hands-on production usage or projects using AI/ML.",
+          "recommendation": "Add a capstone project or lab demonstration highlighting AI/ML to strengthen your applicant profile."
+        },
+        {
+          "skill": "Pandas & NumPy",
+          "observation": "Your resume does not explicitly demonstrate hands-on production usage or projects using Pandas & NumPy.",
+          "recommendation": "Add a capstone project or lab demonstration highlighting Pandas & NumPy to strengthen your applicant profile."
+        }
+      ],
+      "projectRecommendations": [
+        {
+          "title": "Distributed Data Analyst & ML Engineer Service Architecture",
+          "description": "High-scale backend service incorporating AI/ML + Pandas & NumPy with automated CI/CD and unit testing.",
+          "targetTechnologies": [
+            "AI/ML",
+            "Pandas & NumPy"
+          ],
+          "strengthensAreas": "Provides tangible proof-of-work for AI/ML, Pandas & NumPy."
+        }
+      ],
+      "resumeStrengths": [
+        "Strong educational foundation with relevant engineering coursework.",
+        "Clear project descriptions detailing outcomes and technologies."
+      ],
+      "actionableFeedback": [
+        "Incorporate AI/ML, Pandas & NumPy into your technical skills section and project bullet points.",
+        "Quantify your project outcomes with metrics (e.g. \"improved query latency by 40%\")."
+      ]
+    },
     {
       "studentId": "std_1",
       "jobId": "job_1",
