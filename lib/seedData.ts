@@ -2037,16 +2037,16 @@ print(f"Alex Readiness: {alex.get_readiness_score()}%")`,
   ];
 
   const regions: Region[] = [
-    { id: 'in-bihar', countryId: 'in', name: 'Bihar', code: 'BR', type: 'state', isActive: true, hasRegionalIntelligence: true },
-    { id: 'in-tamilnadu', countryId: 'in', name: 'Tamil Nadu', code: 'TN', type: 'state', isActive: true, hasRegionalIntelligence: true },
-    { id: 'in-telangana', countryId: 'in', name: 'Telangana', code: 'TS', type: 'state', isActive: true, hasRegionalIntelligence: true },
-    { id: 'in-maharashtra', countryId: 'in', name: 'Maharashtra', code: 'MH', type: 'state', isActive: true, hasRegionalIntelligence: true },
-    { id: 'in-karnataka', countryId: 'in', name: 'Karnataka', code: 'KA', type: 'state', isActive: true, hasRegionalIntelligence: true },
-    { id: 'kr-seoul', countryId: 'kr', name: 'Seoul Capital Area (Pangyo)', code: 'KR-11', type: 'province', isActive: true, hasRegionalIntelligence: true },
-    { id: 'cn-guangdong', countryId: 'cn', name: 'Greater Bay Area (Shenzhen)', code: 'CN-GD', type: 'province', isActive: true, hasRegionalIntelligence: true },
-    { id: 'in-delhi', countryId: 'in', name: 'Delhi NCR', code: 'DL', type: 'territory', isActive: true, hasRegionalIntelligence: false },
-    { id: 'us-ca', countryId: 'us', name: 'California', code: 'CA', type: 'state', isActive: true, hasRegionalIntelligence: false },
-    { id: 'sg-central', countryId: 'sg', name: 'Central Singapore', code: 'SG-01', type: 'region', isActive: true, hasRegionalIntelligence: false }
+    { id: 'in-bihar', countryId: 'in', name: 'Bihar', code: 'BR', type: 'state', isActive: true, hasRegionalIntelligence: true, deploymentStatus: 'ACTIVE_FLAGSHIP' },
+    { id: 'in-tamilnadu', countryId: 'in', name: 'Tamil Nadu', code: 'TN', type: 'state', isActive: true, hasRegionalIntelligence: true, deploymentStatus: 'EXPANSION_DEMO' },
+    { id: 'in-telangana', countryId: 'in', name: 'Telangana', code: 'TS', type: 'state', isActive: true, hasRegionalIntelligence: true, deploymentStatus: 'EXPANSION_DEMO' },
+    { id: 'in-maharashtra', countryId: 'in', name: 'Maharashtra', code: 'MH', type: 'state', isActive: true, hasRegionalIntelligence: true, deploymentStatus: 'EXPANSION_DEMO' },
+    { id: 'kr-seoul', countryId: 'kr', name: 'Seoul Capital Area (Pangyo)', code: 'KR-11', type: 'province', isActive: true, hasRegionalIntelligence: true, deploymentStatus: 'EXPANSION_DEMO' },
+    { id: 'cn-guangdong', countryId: 'cn', name: 'Greater Bay Area (Shenzhen)', code: 'CN-GD', type: 'province', isActive: true, hasRegionalIntelligence: true, deploymentStatus: 'EXPANSION_DEMO' },
+    { id: 'in-karnataka', countryId: 'in', name: 'Karnataka', code: 'KA', type: 'state', isActive: true, hasRegionalIntelligence: true, deploymentStatus: 'PLANNED' },
+    { id: 'in-delhi', countryId: 'in', name: 'Delhi NCR', code: 'DL', type: 'territory', isActive: true, hasRegionalIntelligence: false, deploymentStatus: 'PLANNED' },
+    { id: 'us-ca', countryId: 'us', name: 'California', code: 'CA', type: 'state', isActive: true, hasRegionalIntelligence: false, deploymentStatus: 'PLANNED' },
+    { id: 'sg-central', countryId: 'sg', name: 'Central Singapore', code: 'SG-01', type: 'region', isActive: true, hasRegionalIntelligence: false, deploymentStatus: 'PLANNED' }
   ];
 
   const cities: City[] = [
@@ -2216,7 +2216,17 @@ print(f"Alex Readiness: {alex.get_readiness_score()}%")`,
           benefits: 'Free government-funded skill verification, ₹1,000 monthly stipend during training, and direct campus placement drives.',
           portalUrl: 'https://skillmissionbihar.org',
           targetAudience: 'Youth aged 15-28 seeking industry qualification',
-          eligibility: 'Resident of Bihar, minimum 10th or 12th standard pass'
+          eligibility: 'Resident of Bihar, minimum 10th or 12th standard pass',
+          metadata: {
+            source_name: 'Labour Resources Dept, Govt. of Bihar',
+            source_url: 'https://skillmissionbihar.org',
+            source_type: 'GOVERNMENT_PORTAL',
+            data_period: '2026',
+            geographic_scope: 'State of Bihar',
+            last_updated: '2026-09-22',
+            verification_status: 'VERIFIED_EXTERNAL',
+            disclaimer: 'Official government skilling mission with verified public portal link'
+          }
         },
         {
           id: 'scheme_kyp',
@@ -2227,7 +2237,17 @@ print(f"Alex Readiness: {alex.get_readiness_score()}%")`,
           benefits: 'Guaranteed 240 hours certified digital training, verified KYP Skill Badge on Skill2Hire, and preferential interview scheduling.',
           portalUrl: 'https://skillmissionbihar.org/kushal-yuva-program',
           targetAudience: 'Undergraduates & first-time job seekers',
-          eligibility: 'Aged 15-28, minimum 10th pass under Mukhyamantri Nishchay Swayam Sahayata Bhatta Yojana'
+          eligibility: 'Aged 15-28, minimum 10th pass under Mukhyamantri Nishchay Swayam Sahayata Bhatta Yojana',
+          metadata: {
+            source_name: 'Bihar Skill Development Mission',
+            source_url: 'https://skillmissionbihar.org/kushal-yuva-program',
+            source_type: 'GOVERNMENT_PORTAL',
+            data_period: '2026',
+            geographic_scope: 'All 38 Districts of Bihar',
+            last_updated: '2026-09-22',
+            verification_status: 'VERIFIED_EXTERNAL',
+            disclaimer: 'Official government program portal'
+          }
         },
         {
           id: 'scheme_startup_bihar',
@@ -2238,7 +2258,17 @@ print(f"Alex Readiness: {alex.get_readiness_score()}%")`,
           benefits: 'Up to ₹10 Lakhs 10-year interest-free seed grant, free co-working at STPI Patna incubation facility, and investor matching.',
           portalUrl: 'https://startup.bihar.gov.in',
           targetAudience: 'Engineering graduates, student founders, and tech innovators',
-          eligibility: 'Registered entity with innovative tech product based in Bihar'
+          eligibility: 'Registered entity with innovative tech product based in Bihar',
+          metadata: {
+            source_name: 'Department of Industries, Govt. of Bihar',
+            source_url: 'https://startup.bihar.gov.in',
+            source_type: 'GOVERNMENT_PORTAL',
+            data_period: '2026',
+            geographic_scope: 'State of Bihar',
+            last_updated: '2026-09-22',
+            verification_status: 'VERIFIED_EXTERNAL',
+            disclaimer: 'Official state startup policy portal'
+          }
         },
         {
           id: 'scheme_udyami_yojana',
@@ -2249,7 +2279,17 @@ print(f"Alex Readiness: {alex.get_readiness_score()}%")`,
           benefits: '₹10 Lakhs total capital support: ₹5 Lakh grant subsidy + ₹5 Lakh low-interest loan (1% interest for young men, 0% for women/SC/ST).',
           portalUrl: 'https://udyami.bihar.gov.in',
           targetAudience: 'Youth aged 18-50 establishing regional commercial ventures',
-          eligibility: '10+2, Intermediate, ITI, Polytechnic diploma or degree holder'
+          eligibility: '10+2, Intermediate, ITI, Polytechnic diploma or degree holder',
+          metadata: {
+            source_name: 'Industries Department, Bihar',
+            source_url: 'https://udyami.bihar.gov.in',
+            source_type: 'GOVERNMENT_PORTAL',
+            data_period: '2026',
+            geographic_scope: 'State of Bihar',
+            last_updated: '2026-09-22',
+            verification_status: 'VERIFIED_EXTERNAL',
+            disclaimer: 'Official enterprise support portal'
+          }
         }
       ],
       migrationCorridors: [
@@ -2262,7 +2302,16 @@ print(f"Alex Readiness: {alex.get_readiness_score()}%")`,
           averageSalaryMultiplier: 2.8,
           readinessGapAverage: 22,
           topRequiredBridgeSkills: ['System Design & Microservices', 'Docker & Containerization', 'Cloud (AWS/GCP) Architecture'],
-          description: 'Primary high-mobility tech migration corridor. High demand for React, Python, and Java developers transitioning from regional colleges into Bengaluru software teams and MNC GCCs.'
+          description: 'Primary high-mobility tech migration corridor. High demand for React, Python, and Java developers transitioning from regional colleges into Bengaluru software teams and MNC GCCs.',
+          metadata: {
+            source_name: 'Skill2Hire Career Mobility Benchmark Model',
+            source_type: 'SYNTHETIC_MODEL',
+            data_period: '2026-Q1',
+            geographic_scope: 'Patna ➔ Bengaluru',
+            last_updated: '2026-09-22',
+            verification_status: 'DEMO',
+            disclaimer: 'Illustrative data — not official statistics. Multiplier represents modeled entry salary delta.'
+          }
         },
         {
           id: 'corr-pat-noida',
@@ -2273,7 +2322,16 @@ print(f"Alex Readiness: {alex.get_readiness_score()}%")`,
           averageSalaryMultiplier: 2.2,
           readinessGapAverage: 18,
           topRequiredBridgeSkills: ['Next.js App Router', 'RESTful API Security', 'SQL Complex Query Optimization'],
-          description: 'Largest northern migration corridor. High absorption into FinTech startups, enterprise SaaS companies, and digital marketing tech agencies in NCR.'
+          description: 'Largest northern migration corridor. High absorption into FinTech startups, enterprise SaaS companies, and digital marketing tech agencies in NCR.',
+          metadata: {
+            source_name: 'Skill2Hire Career Mobility Benchmark Model',
+            source_type: 'SYNTHETIC_MODEL',
+            data_period: '2026-Q1',
+            geographic_scope: 'Patna ➔ Noida / Gurgaon',
+            last_updated: '2026-09-22',
+            verification_status: 'DEMO',
+            disclaimer: 'Illustrative data — not official statistics. Multiplier represents modeled entry salary delta.'
+          }
         },
         {
           id: 'corr-pat-pune',
@@ -2284,7 +2342,16 @@ print(f"Alex Readiness: {alex.get_readiness_score()}%")`,
           averageSalaryMultiplier: 2.1,
           readinessGapAverage: 20,
           topRequiredBridgeSkills: ['Spring Boot & JVM Concurrency', 'Linux Shell Automation', 'CI/CD Pipelines'],
-          description: 'Key industrial and product engineering corridor with strong placement ties to manufacturing IT and telecom engineering firms.'
+          description: 'Key industrial and product engineering corridor with strong placement ties to manufacturing IT and telecom engineering firms.',
+          metadata: {
+            source_name: 'Skill2Hire Career Mobility Benchmark Model',
+            source_type: 'SYNTHETIC_MODEL',
+            data_period: '2026-Q1',
+            geographic_scope: 'Patna ➔ Pune',
+            last_updated: '2026-09-22',
+            verification_status: 'DEMO',
+            disclaimer: 'Illustrative data — not official statistics. Multiplier represents modeled entry salary delta.'
+          }
         },
         {
           id: 'corr-pat-local',
@@ -2295,9 +2362,28 @@ print(f"Alex Readiness: {alex.get_readiness_score()}%")`,
           averageSalaryMultiplier: 1.4,
           readinessGapAverage: 12,
           topRequiredBridgeSkills: ['SQL Database Management', 'Web Fundamentals (HTML/CSS/JS)', 'Cybersecurity Hygiene'],
-          description: 'In-state economic retention pathway providing sustainable local employment with low cost of living, Beltron government digitizations, and STPI incubation ventures.'
+          description: 'In-state economic retention pathway providing sustainable local employment with low cost of living, Beltron government digitizations, and STPI incubation ventures.',
+          metadata: {
+            source_name: 'Skill2Hire In-State Retention Model',
+            source_type: 'SYNTHETIC_MODEL',
+            data_period: '2026-Q1',
+            geographic_scope: 'Bihar Districts ➔ Patna',
+            last_updated: '2026-09-22',
+            verification_status: 'DEMO',
+            disclaimer: 'Illustrative retention metric based on living cost differential and local tech placement'
+          }
         }
       ],
+      metadata: {
+        source_name: 'Bihar Skill Development Mission & State Portals',
+        source_url: 'https://skillmissionbihar.org',
+        source_type: 'GOVERNMENT_PORTAL',
+        data_period: '2026-Q1',
+        geographic_scope: 'State (Bihar, India)',
+        last_updated: '2026-09-22',
+        verification_status: 'PLATFORM_DATA',
+        disclaimer: 'Flagship Active Regional Implementation. Official public schemes verified; district telemetry is illustrative prototype data.'
+      },
       createdAt: '2026-01-01T00:00:00Z',
       updatedAt: '2026-09-22T00:00:00Z'
     },
@@ -2328,7 +2414,17 @@ print(f"Alex Readiness: {alex.get_readiness_score()}%")`,
           benefits: 'Zero-cost certification in Cloud, Data Science, and VLSI, direct access to 500+ hiring partners.',
           portalUrl: 'https://naanmudhalvan.tn.gov.in',
           targetAudience: 'Engineering and arts/science college students',
-          eligibility: 'Enrolled in accredited Tamil Nadu higher education institution'
+          eligibility: 'Enrolled in accredited Tamil Nadu higher education institution',
+          metadata: {
+            source_name: 'Tamil Nadu Skill Development Corporation (TNSDC)',
+            source_url: 'https://naanmudhalvan.tn.gov.in',
+            source_type: 'GOVERNMENT_PORTAL',
+            data_period: '2026',
+            geographic_scope: 'State of Tamil Nadu',
+            last_updated: '2026-09-22',
+            verification_status: 'VERIFIED_EXTERNAL',
+            disclaimer: 'Official state skilling initiative portal'
+          }
         },
         {
           id: 'scheme_tansim',
@@ -2339,7 +2435,17 @@ print(f"Alex Readiness: {alex.get_readiness_score()}%")`,
           benefits: '₹10 Lakhs TANSEED seed grant, subsidized co-working at regional hubs, mentoring by unicorn founders.',
           portalUrl: 'https://startuptn.in',
           targetAudience: 'Student and early-stage entrepreneurs in Tamil Nadu',
-          eligibility: 'Registered DPIIT startup headquartered in Tamil Nadu'
+          eligibility: 'Registered DPIIT startup headquartered in Tamil Nadu',
+          metadata: {
+            source_name: 'TANSIM, Govt. of Tamil Nadu',
+            source_url: 'https://startuptn.in',
+            source_type: 'GOVERNMENT_PORTAL',
+            data_period: '2026',
+            geographic_scope: 'State of Tamil Nadu',
+            last_updated: '2026-09-22',
+            verification_status: 'VERIFIED_EXTERNAL',
+            disclaimer: 'Official startup acceleration platform'
+          }
         }
       ],
       migrationCorridors: [
@@ -2352,7 +2458,16 @@ print(f"Alex Readiness: {alex.get_readiness_score()}%")`,
           averageSalaryMultiplier: 2.6,
           readinessGapAverage: 15,
           topRequiredBridgeSkills: ['Kubernetes Multi-Cluster', 'International FinTech Compliance', 'High-Concurrency Golang'],
-          description: 'Major international ASEAN tech corridor with deep bilateral workforce and fintech ties.'
+          description: 'Major international ASEAN tech corridor with deep bilateral workforce and fintech ties.',
+          metadata: {
+            source_name: 'Skill2Hire Mobility Benchmark Model',
+            source_type: 'SYNTHETIC_MODEL',
+            data_period: '2026-Q1',
+            geographic_scope: 'Chennai ➔ Singapore',
+            last_updated: '2026-09-22',
+            verification_status: 'DEMO',
+            disclaimer: 'Illustrative data — not official statistics'
+          }
         },
         {
           id: 'corr-tn-blr',
@@ -2363,9 +2478,27 @@ print(f"Alex Readiness: {alex.get_readiness_score()}%")`,
           averageSalaryMultiplier: 1.5,
           readinessGapAverage: 10,
           topRequiredBridgeSkills: ['Distributed Caching', 'Vector Databases', 'gRPC Services'],
-          description: 'Seamless cross-state corridor connecting Chennai SaaS talent with Bengaluru venture-funded product unicorns.'
+          description: 'Seamless cross-state corridor connecting Chennai SaaS talent with Bengaluru venture-funded product unicorns.',
+          metadata: {
+            source_name: 'Skill2Hire Mobility Benchmark Model',
+            source_type: 'SYNTHETIC_MODEL',
+            data_period: '2026-Q1',
+            geographic_scope: 'Chennai ➔ Bengaluru',
+            last_updated: '2026-09-22',
+            verification_status: 'DEMO',
+            disclaimer: 'Illustrative data — not official statistics'
+          }
         }
       ],
+      metadata: {
+        source_name: 'Tamil Nadu Innovation Ecosystem (Modeled Expansion)',
+        source_type: 'SYNTHETIC_MODEL',
+        data_period: '2026-Q1',
+        geographic_scope: 'State (Tamil Nadu, India)',
+        last_updated: '2026-09-22',
+        verification_status: 'DEMO',
+        disclaimer: 'Expansion Region — illustrative modeling data, not active operational deployment'
+      },
       createdAt: '2026-01-01T00:00:00Z',
       updatedAt: '2026-09-22T00:00:00Z'
     },
@@ -2396,7 +2529,17 @@ print(f"Alex Readiness: {alex.get_readiness_score()}%")`,
           benefits: 'Subsidized Microsoft/AWS certifications, direct pre-placement mock interviews, and campus recruitment drives.',
           portalUrl: 'https://task.telangana.gov.in',
           targetAudience: 'Graduating students from engineering and degree colleges',
-          eligibility: 'Student in TASK registered college in Telangana'
+          eligibility: 'Student in TASK registered college in Telangana',
+          metadata: {
+            source_name: 'IT E&C Dept, Govt. of Telangana',
+            source_url: 'https://task.telangana.gov.in',
+            source_type: 'GOVERNMENT_PORTAL',
+            data_period: '2026',
+            geographic_scope: 'State of Telangana',
+            last_updated: '2026-09-22',
+            verification_status: 'VERIFIED_EXTERNAL',
+            disclaimer: 'Official state skilling initiative portal'
+          }
         },
         {
           id: 'scheme_thub',
@@ -2407,7 +2550,17 @@ print(f"Alex Readiness: {alex.get_readiness_score()}%")`,
           benefits: 'Full incubation, venture capital access, mentorship from global corporate innovators.',
           portalUrl: 'https://t-hub.co',
           targetAudience: 'Student innovators and tech founders',
-          eligibility: 'Early-stage tech startup'
+          eligibility: 'Early-stage tech startup',
+          metadata: {
+            source_name: 'T-Hub Foundation & Govt. of Telangana',
+            source_url: 'https://t-hub.co',
+            source_type: 'GOVERNMENT_PORTAL',
+            data_period: '2026',
+            geographic_scope: 'Telangana & Global Innovators',
+            last_updated: '2026-09-22',
+            verification_status: 'VERIFIED_EXTERNAL',
+            disclaimer: 'Official startup incubator portal'
+          }
         }
       ],
       migrationCorridors: [
@@ -2420,9 +2573,27 @@ print(f"Alex Readiness: {alex.get_readiness_score()}%")`,
           averageSalaryMultiplier: 3.8,
           readinessGapAverage: 18,
           topRequiredBridgeSkills: ['LLM Fine-Tuning & Quantization', 'Distributed ML Training', 'Cloud Native Security'],
-          description: 'Premier trans-pacific tech talent migration corridor connecting Hyderabad deep-tech alumni with Silicon Valley tech giants.'
+          description: 'Premier trans-pacific tech talent migration corridor connecting Hyderabad deep-tech alumni with Silicon Valley tech giants.',
+          metadata: {
+            source_name: 'Skill2Hire Mobility Benchmark Model',
+            source_type: 'SYNTHETIC_MODEL',
+            data_period: '2026-Q1',
+            geographic_scope: 'Hyderabad ➔ Silicon Valley',
+            last_updated: '2026-09-22',
+            verification_status: 'DEMO',
+            disclaimer: 'Illustrative data — not official statistics'
+          }
         }
       ],
+      metadata: {
+        source_name: 'Telangana Technology & Innovation Ecosystem (Modeled Expansion)',
+        source_type: 'SYNTHETIC_MODEL',
+        data_period: '2026-Q1',
+        geographic_scope: 'State (Telangana, India)',
+        last_updated: '2026-09-22',
+        verification_status: 'DEMO',
+        disclaimer: 'Expansion Region — illustrative modeling data, not active operational deployment'
+      },
       createdAt: '2026-01-01T00:00:00Z',
       updatedAt: '2026-09-22T00:00:00Z'
     },
@@ -2453,7 +2624,17 @@ print(f"Alex Readiness: {alex.get_readiness_score()}%")`,
           benefits: 'Certified apprenticeships, industry-sponsored stipends, and placement assurance.',
           portalUrl: 'https://mssds.gov.in',
           targetAudience: 'Youth aged 18-35 across all 36 districts',
-          eligibility: 'Domicile of Maharashtra, 10th/12th/Diploma/Degree'
+          eligibility: 'Domicile of Maharashtra, 10th/12th/Diploma/Degree',
+          metadata: {
+            source_name: 'Skill Development Dept, Govt. of Maharashtra',
+            source_url: 'https://mssds.gov.in',
+            source_type: 'GOVERNMENT_PORTAL',
+            data_period: '2026',
+            geographic_scope: 'State of Maharashtra',
+            last_updated: '2026-09-22',
+            verification_status: 'VERIFIED_EXTERNAL',
+            disclaimer: 'Official state skill mission portal'
+          }
         }
       ],
       migrationCorridors: [
@@ -2466,9 +2647,27 @@ print(f"Alex Readiness: {alex.get_readiness_score()}%")`,
           averageSalaryMultiplier: 3.2,
           readinessGapAverage: 16,
           topRequiredBridgeSkills: ['Algorithmic Trading Systems', 'Low-Latency C++', 'Open Banking APIs'],
-          description: 'Global financial technology corridor connecting Mumbai financial software engineers with London City firms.'
+          description: 'Global financial technology corridor connecting Mumbai financial software engineers with London City firms.',
+          metadata: {
+            source_name: 'Skill2Hire Mobility Benchmark Model',
+            source_type: 'SYNTHETIC_MODEL',
+            data_period: '2026-Q1',
+            geographic_scope: 'Mumbai ➔ London',
+            last_updated: '2026-09-22',
+            verification_status: 'DEMO',
+            disclaimer: 'Illustrative data — not official statistics'
+          }
         }
       ],
+      metadata: {
+        source_name: 'Maharashtra State Innovation Society (Modeled Expansion)',
+        source_type: 'SYNTHETIC_MODEL',
+        data_period: '2026-Q1',
+        geographic_scope: 'State (Maharashtra, India)',
+        last_updated: '2026-09-22',
+        verification_status: 'DEMO',
+        disclaimer: 'Expansion Region — illustrative modeling data, not active operational deployment'
+      },
       createdAt: '2026-01-01T00:00:00Z',
       updatedAt: '2026-09-22T00:00:00Z'
     },
@@ -2498,7 +2697,17 @@ print(f"Alex Readiness: {alex.get_readiness_score()}%")`,
           benefits: 'Up to $100,000 grant funding, office space in Pangyo, and global team visa fast-track.',
           portalUrl: 'https://k-startupgc.org',
           targetAudience: 'Global tech founders, developers, and engineers',
-          eligibility: 'High-tech AI, hardware, or software venture'
+          eligibility: 'High-tech AI, hardware, or software venture',
+          metadata: {
+            source_name: 'Ministry of SMEs and Startups (MSS), South Korea',
+            source_url: 'https://k-startupgc.org',
+            source_type: 'GOVERNMENT_PORTAL',
+            data_period: '2026',
+            geographic_scope: 'National (South Korea)',
+            last_updated: '2026-09-22',
+            verification_status: 'VERIFIED_EXTERNAL',
+            disclaimer: 'Official government acceleration scheme portal'
+          }
         }
       ],
       migrationCorridors: [
@@ -2511,9 +2720,27 @@ print(f"Alex Readiness: {alex.get_readiness_score()}%")`,
           averageSalaryMultiplier: 1.8,
           readinessGapAverage: 12,
           topRequiredBridgeSkills: ['Bilingual Technical Leadership', 'Distributed GPU Cluster Ops', 'CUDA Kernel Optimization'],
-          description: 'High-value hardware-software talent pipeline connecting Pangyo labs with US tech titans.'
+          description: 'High-value hardware-software talent pipeline connecting Pangyo labs with US tech titans.',
+          metadata: {
+            source_name: 'Skill2Hire Mobility Benchmark Model',
+            source_type: 'SYNTHETIC_MODEL',
+            data_period: '2026-Q1',
+            geographic_scope: 'Seoul ➔ Silicon Valley',
+            last_updated: '2026-09-22',
+            verification_status: 'DEMO',
+            disclaimer: 'Illustrative data — not official statistics'
+          }
         }
       ],
+      metadata: {
+        source_name: 'K-Startup & MSS Korea Innovation Model (Modeled Expansion)',
+        source_type: 'SYNTHETIC_MODEL',
+        data_period: '2026-Q1',
+        geographic_scope: 'Province (Seoul Capital Area, South Korea)',
+        last_updated: '2026-09-22',
+        verification_status: 'DEMO',
+        disclaimer: 'Expansion Region — illustrative modeling data, not active operational deployment'
+      },
       createdAt: '2026-01-01T00:00:00Z',
       updatedAt: '2026-09-22T00:00:00Z'
     },
@@ -2542,7 +2769,17 @@ print(f"Alex Readiness: {alex.get_readiness_score()}%")`,
           benefits: 'Living subsidies, rapid patent acceleration, and direct supply-chain prototyping labs.',
           portalUrl: 'https://stic.sz.gov.cn',
           targetAudience: 'Young software and hardware engineers under 35',
-          eligibility: 'University graduate in STEM discipline'
+          eligibility: 'University graduate in STEM discipline',
+          metadata: {
+            source_name: 'Shenzhen Municipal Science & Tech Commission',
+            source_url: 'https://stic.sz.gov.cn',
+            source_type: 'GOVERNMENT_PORTAL',
+            data_period: '2026',
+            geographic_scope: 'Shenzhen & Greater Bay Area',
+            last_updated: '2026-09-22',
+            verification_status: 'VERIFIED_EXTERNAL',
+            disclaimer: 'Official municipal science commission scheme portal'
+          }
         }
       ],
       migrationCorridors: [
@@ -2555,9 +2792,27 @@ print(f"Alex Readiness: {alex.get_readiness_score()}%")`,
           averageSalaryMultiplier: 2.1,
           readinessGapAverage: 14,
           topRequiredBridgeSkills: ['Multi-Region Cloud Compliance', 'Global Payment Gateways'],
-          description: 'Asia-Pacific regional headquarters expansion pipeline.'
+          description: 'Asia-Pacific regional headquarters expansion pipeline.',
+          metadata: {
+            source_name: 'Skill2Hire Mobility Benchmark Model',
+            source_type: 'SYNTHETIC_MODEL',
+            data_period: '2026-Q1',
+            geographic_scope: 'Shenzhen ➔ Singapore',
+            last_updated: '2026-09-22',
+            verification_status: 'DEMO',
+            disclaimer: 'Illustrative data — not official statistics'
+          }
         }
       ],
+      metadata: {
+        source_name: 'Shenzhen Science & Technology Commission Model (Modeled Expansion)',
+        source_type: 'SYNTHETIC_MODEL',
+        data_period: '2026-Q1',
+        geographic_scope: 'Province (Guangdong / GBA, China)',
+        last_updated: '2026-09-22',
+        verification_status: 'DEMO',
+        disclaimer: 'Expansion Region — illustrative modeling data, not active operational deployment'
+      },
       createdAt: '2026-01-01T00:00:00Z',
       updatedAt: '2026-09-22T00:00:00Z'
     }
@@ -2601,9 +2856,18 @@ print(f"Alex Readiness: {alex.get_readiness_score()}%")`,
         averageStartingSalaryMonthly: '₹55,000 - ₹85,000',
         retentionRate6Months: 91
       },
-      dataSource: 'Tamil Nadu Skill Development Corporation (TNSDC) & SaaS Industry Forum 2026',
+      dataSource: 'Tamil Nadu SaaS Industry Forum Model',
       dataPeriod: '2026-Q1',
-      verificationStatus: 'official_verified',
+      verificationStatus: 'modeled',
+      metadata: {
+        source_name: 'Tamil Nadu SaaS Industry Forum Model',
+        source_type: 'DEMO',
+        data_period: '2026-Q1',
+        geographic_scope: 'District (Chennai)',
+        last_updated: '2026-09-22',
+        verification_status: 'DEMO',
+        disclaimer: 'Illustrative data — not official statistics'
+      },
       createdAt: '2026-01-15T00:00:00Z',
       updatedAt: '2026-09-22T00:00:00Z'
     },
@@ -2644,9 +2908,18 @@ print(f"Alex Readiness: {alex.get_readiness_score()}%")`,
         averageStartingSalaryMonthly: '₹60,000 - ₹95,000',
         retentionRate6Months: 89
       },
-      dataSource: 'TASK (Telangana Academy for Skill and Knowledge) 2026',
+      dataSource: 'TASK Innovation Model',
       dataPeriod: '2026-Q1',
-      verificationStatus: 'official_verified',
+      verificationStatus: 'modeled',
+      metadata: {
+        source_name: 'TASK Innovation Model',
+        source_type: 'DEMO',
+        data_period: '2026-Q1',
+        geographic_scope: 'District (Hyderabad)',
+        last_updated: '2026-09-22',
+        verification_status: 'DEMO',
+        disclaimer: 'Illustrative data — not official statistics'
+      },
       createdAt: '2026-01-15T00:00:00Z',
       updatedAt: '2026-09-22T00:00:00Z'
     },
@@ -2687,9 +2960,18 @@ print(f"Alex Readiness: {alex.get_readiness_score()}%")`,
         averageStartingSalaryMonthly: '₹52,000 - ₹80,000',
         retentionRate6Months: 87
       },
-      dataSource: 'Maharashtra State Skill Development Society (MSSDS) 2026',
+      dataSource: 'Maharashtra BFSI Telemetry Model',
       dataPeriod: '2026-Q1',
-      verificationStatus: 'official_verified',
+      verificationStatus: 'modeled',
+      metadata: {
+        source_name: 'Maharashtra BFSI Telemetry Model',
+        source_type: 'DEMO',
+        data_period: '2026-Q1',
+        geographic_scope: 'District (Mumbai)',
+        last_updated: '2026-09-22',
+        verification_status: 'DEMO',
+        disclaimer: 'Illustrative data — not official statistics'
+      },
       createdAt: '2026-01-15T00:00:00Z',
       updatedAt: '2026-09-22T00:00:00Z'
     },
@@ -2730,9 +3012,18 @@ print(f"Alex Readiness: {alex.get_readiness_score()}%")`,
         averageStartingSalaryMonthly: '₩4,200,000 - ₩6,500,000',
         retentionRate6Months: 94
       },
-      dataSource: 'K-Startup & Ministry of SMEs and Startups (MSS) Korea 2026',
+      dataSource: 'Pangyo AI & Robotics Innovation Model',
       dataPeriod: '2026-Q1',
-      verificationStatus: 'official_verified',
+      verificationStatus: 'modeled',
+      metadata: {
+        source_name: 'Pangyo AI & Robotics Innovation Model',
+        source_type: 'DEMO',
+        data_period: '2026-Q1',
+        geographic_scope: 'District (Pangyo Techno Valley)',
+        last_updated: '2026-09-22',
+        verification_status: 'DEMO',
+        disclaimer: 'Illustrative data — not official statistics'
+      },
       createdAt: '2026-01-15T00:00:00Z',
       updatedAt: '2026-09-22T00:00:00Z'
     },
@@ -2773,9 +3064,18 @@ print(f"Alex Readiness: {alex.get_readiness_score()}%")`,
         averageStartingSalaryMonthly: '¥18,000 - ¥28,000',
         retentionRate6Months: 90
       },
-      dataSource: 'Shenzhen Science & Technology Commission 2026',
+      dataSource: 'Shenzhen Hardware Silicon Valley Model',
       dataPeriod: '2026-Q1',
-      verificationStatus: 'official_verified',
+      verificationStatus: 'modeled',
+      metadata: {
+        source_name: 'Shenzhen Hardware Silicon Valley Model',
+        source_type: 'DEMO',
+        data_period: '2026-Q1',
+        geographic_scope: 'District (Shenzhen Nanshan)',
+        last_updated: '2026-09-22',
+        verification_status: 'DEMO',
+        disclaimer: 'Illustrative data — not official statistics'
+      },
       createdAt: '2026-01-15T00:00:00Z',
       updatedAt: '2026-09-22T00:00:00Z'
     },
@@ -2816,9 +3116,18 @@ print(f"Alex Readiness: {alex.get_readiness_score()}%")`,
         averageStartingSalaryMonthly: '₹32,000 - ₹48,000',
         retentionRate6Months: 84
       },
-      dataSource: 'Bihar Skill Development Mission (BSDM) & Beltron Tech Panel 2026',
+      dataSource: 'Bihar Skill Development Mission & Beltron Tech Panel Telemetry Model',
       dataPeriod: '2026-Q1',
-      verificationStatus: 'official_verified',
+      verificationStatus: 'modeled',
+      metadata: {
+        source_name: 'Skill2Hire Bihar Telemetry Model',
+        source_type: 'DEMO',
+        data_period: '2026-Q1',
+        geographic_scope: 'District (Patna, Bihar)',
+        last_updated: '2026-09-22',
+        verification_status: 'DEMO',
+        disclaimer: 'Illustrative data — not official statistics'
+      },
       createdAt: '2026-01-15T00:00:00Z',
       updatedAt: '2026-09-22T00:00:00Z'
     },
@@ -2858,9 +3167,18 @@ print(f"Alex Readiness: {alex.get_readiness_score()}%")`,
         averageStartingSalaryMonthly: '₹28,000 - ₹44,000',
         retentionRate6Months: 81
       },
-      dataSource: 'Department of Industries - Govt of Bihar Telemetry',
+      dataSource: 'Bihar Industries Department Telemetry Model',
       dataPeriod: '2026-Q1',
-      verificationStatus: 'official_verified',
+      verificationStatus: 'modeled',
+      metadata: {
+        source_name: 'Skill2Hire Bihar Telemetry Model',
+        source_type: 'DEMO',
+        data_period: '2026-Q1',
+        geographic_scope: 'District (Patna, Bihar)',
+        last_updated: '2026-09-22',
+        verification_status: 'DEMO',
+        disclaimer: 'Illustrative data — not official statistics'
+      },
       createdAt: '2026-01-15T00:00:00Z',
       updatedAt: '2026-09-22T00:00:00Z'
     },
@@ -2900,9 +3218,18 @@ print(f"Alex Readiness: {alex.get_readiness_score()}%")`,
         averageStartingSalaryMonthly: '₹26,000 - ₹38,000',
         retentionRate6Months: 89
       },
-      dataSource: 'National Skill Development Corporation (NSDC) Bihar Chapter',
+      dataSource: 'NSDC Bihar Chapter Telemetry Model',
       dataPeriod: '2026-Q1',
-      verificationStatus: 'official_verified',
+      verificationStatus: 'modeled',
+      metadata: {
+        source_name: 'Skill2Hire Bihar Telemetry Model',
+        source_type: 'DEMO',
+        data_period: '2026-Q1',
+        geographic_scope: 'District (Patna, Bihar)',
+        last_updated: '2026-09-22',
+        verification_status: 'DEMO',
+        disclaimer: 'Illustrative data — not official statistics'
+      },
       createdAt: '2026-01-15T00:00:00Z',
       updatedAt: '2026-09-22T00:00:00Z'
     },
@@ -2944,9 +3271,18 @@ print(f"Alex Readiness: {alex.get_readiness_score()}%")`,
         averageStartingSalaryMonthly: '₹22,000 - ₹34,000',
         retentionRate6Months: 80
       },
-      dataSource: 'Muzaffarpur Chamber of Commerce & BSDM',
+      dataSource: 'Muzaffarpur Chamber of Commerce Telemetry Model',
       dataPeriod: '2026-Q1',
-      verificationStatus: 'official_verified',
+      verificationStatus: 'modeled',
+      metadata: {
+        source_name: 'Skill2Hire Bihar Telemetry Model',
+        source_type: 'DEMO',
+        data_period: '2026-Q1',
+        geographic_scope: 'District (Muzaffarpur, Bihar)',
+        last_updated: '2026-09-22',
+        verification_status: 'DEMO',
+        disclaimer: 'Illustrative data — not official statistics'
+      },
       createdAt: '2026-01-15T00:00:00Z',
       updatedAt: '2026-09-22T00:00:00Z'
     },
@@ -2986,9 +3322,18 @@ print(f"Alex Readiness: {alex.get_readiness_score()}%")`,
         averageStartingSalaryMonthly: '₹24,000 - ₹36,000',
         retentionRate6Months: 77
       },
-      dataSource: 'Bihar Agriculture Modernization Telemetry',
+      dataSource: 'Bihar Agriculture Modernization Telemetry Model',
       dataPeriod: '2026-Q1',
-      verificationStatus: 'official_verified',
+      verificationStatus: 'modeled',
+      metadata: {
+        source_name: 'Skill2Hire Bihar Telemetry Model',
+        source_type: 'DEMO',
+        data_period: '2026-Q1',
+        geographic_scope: 'District (Muzaffarpur, Bihar)',
+        last_updated: '2026-09-22',
+        verification_status: 'DEMO',
+        disclaimer: 'Illustrative data — not official statistics'
+      },
       createdAt: '2026-01-15T00:00:00Z',
       updatedAt: '2026-09-22T00:00:00Z'
     },
@@ -3030,9 +3375,18 @@ print(f"Alex Readiness: {alex.get_readiness_score()}%")`,
         averageStartingSalaryMonthly: '₹25,000 - ₹38,000',
         retentionRate6Months: 86
       },
-      dataSource: 'Bihar Renewable Energy Development Agency (BREDA)',
+      dataSource: 'BREDA Renewable Telemetry Model',
       dataPeriod: '2026-Q1',
-      verificationStatus: 'official_verified',
+      verificationStatus: 'modeled',
+      metadata: {
+        source_name: 'Skill2Hire Bihar Telemetry Model',
+        source_type: 'DEMO',
+        data_period: '2026-Q1',
+        geographic_scope: 'District (Gaya, Bihar)',
+        last_updated: '2026-09-22',
+        verification_status: 'DEMO',
+        disclaimer: 'Illustrative data — not official statistics'
+      },
       createdAt: '2026-01-15T00:00:00Z',
       updatedAt: '2026-09-22T00:00:00Z'
     },
@@ -3074,9 +3428,18 @@ print(f"Alex Readiness: {alex.get_readiness_score()}%")`,
         averageStartingSalaryMonthly: '₹26,000 - ₹40,000',
         retentionRate6Months: 82
       },
-      dataSource: 'IIIT Bhagalpur Placement & Regional MSME Survey',
+      dataSource: 'IIIT Bhagalpur Placement Telemetry Model',
       dataPeriod: '2026-Q1',
-      verificationStatus: 'official_verified',
+      verificationStatus: 'modeled',
+      metadata: {
+        source_name: 'Skill2Hire Bihar Telemetry Model',
+        source_type: 'DEMO',
+        data_period: '2026-Q1',
+        geographic_scope: 'District (Bhagalpur, Bihar)',
+        last_updated: '2026-09-22',
+        verification_status: 'DEMO',
+        disclaimer: 'Illustrative data — not official statistics'
+      },
       createdAt: '2026-01-15T00:00:00Z',
       updatedAt: '2026-09-22T00:00:00Z'
     },
@@ -3118,9 +3481,18 @@ print(f"Alex Readiness: {alex.get_readiness_score()}%")`,
         averageStartingSalaryMonthly: '₹24,000 - ₹38,000',
         retentionRate6Months: 79
       },
-      dataSource: 'Darbhanga District Skill Committee 2026',
+      dataSource: 'Darbhanga District Skill Telemetry Model',
       dataPeriod: '2026-Q1',
-      verificationStatus: 'official_verified',
+      verificationStatus: 'modeled',
+      metadata: {
+        source_name: 'Skill2Hire Bihar Telemetry Model',
+        source_type: 'DEMO',
+        data_period: '2026-Q1',
+        geographic_scope: 'District (Darbhanga, Bihar)',
+        last_updated: '2026-09-22',
+        verification_status: 'DEMO',
+        disclaimer: 'Illustrative data — not official statistics'
+      },
       createdAt: '2026-01-15T00:00:00Z',
       updatedAt: '2026-09-22T00:00:00Z'
     }

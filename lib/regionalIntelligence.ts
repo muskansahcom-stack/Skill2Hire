@@ -4,7 +4,8 @@ import {
   DistrictSkillGapAnalysis,
   MigrationPathwayAnalysis,
   RegionalPublicScheme,
-  SkillLevel
+  SkillLevel,
+  DataSourceMetadata
 } from './types';
 
 /**
@@ -220,7 +221,16 @@ export function calculateDistrictSkillGap(
     totalSupplyPool,
     criticalDeficitSkills: criticalDeficitSkills.sort((a, b) => b.demandIndex - a.demandIndex),
     localTrainingPartners: Array.from(trainingPartnersSet),
-    governmentInitiativeTieIns: Array.from(governmentSchemesSet)
+    governmentInitiativeTieIns: Array.from(governmentSchemesSet),
+    metadata: {
+      source_name: 'Skill2Hire Regional Telemetry & Industry Demand Model',
+      source_type: 'SYNTHETIC_MODEL',
+      data_period: '2026-Q1',
+      geographic_scope: `District (${districtName})`,
+      last_updated: '2026-09-22',
+      verification_status: 'CALCULATED',
+      disclaimer: 'Illustrative gap index derived from synthetic regional telemetry — not official statistics'
+    }
   };
 }
 
@@ -281,7 +291,16 @@ export function calculateMigrationPathway(
     currentReadinessScore,
     destinationReadinessScore,
     transitionGapPercentage,
-    bridgeCompetenciesNeeded
+    bridgeCompetenciesNeeded,
+    metadata: {
+      source_name: 'Skill2Hire Career Mobility Benchmark Model',
+      source_type: 'SYNTHETIC_MODEL',
+      data_period: '2026-Q1',
+      geographic_scope: `${district.name} ➔ ${corridor?.destinationCity || 'Destination'}`,
+      last_updated: '2026-09-22',
+      verification_status: 'CALCULATED',
+      disclaimer: 'Illustrative career mobility benchmarks based on regional salary delta model'
+    }
   };
 }
 

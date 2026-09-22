@@ -831,6 +831,11 @@ export interface Country {
   continent: string;
 }
 
+export type RegionDeploymentStatus =
+  | 'ACTIVE_FLAGSHIP' // India: Bihar - Flagship Regional Implementation
+  | 'EXPANSION_DEMO'  // Tamil Nadu, Telangana, Maharashtra, Korea, China - Expansion Region (Demo Data)
+  | 'PLANNED';        // Karnataka, California - Planned Roadmap
+
 export interface Region {
   id: string; // e.g. 'in-bihar', 'in-karnataka', 'us-ca', 'sg-central'
   countryId: string;
@@ -839,6 +844,8 @@ export interface Region {
   type: 'state' | 'province' | 'region' | 'territory';
   isActive: boolean;
   hasRegionalIntelligence: boolean;
+  deploymentStatus?: RegionDeploymentStatus;
+  metadata?: DataSourceMetadata;
 }
 
 export interface City {
@@ -901,6 +908,36 @@ export interface EmploymentOutcome {
 }
 
 // ==========================================
+// REGIONAL INTELLIGENCE CREDIBILITY & METADATA
+// ==========================================
+
+export type VerificationStatusType =
+  | 'VERIFIED_EXTERNAL' // Direct from verified external agency / official gov portal
+  | 'PLATFORM_DATA'     // Live platform telemetry from registered users/employers
+  | 'CALCULATED'        // Algorithmic calculation derived from platform formulas
+  | 'DEMO'              // Illustrative mock/demo data for modeling and prototyping
+  | 'UNVERIFIED';       // Third-party submitted or estimated without official verification
+
+export type SourceType =
+  | 'GOVERNMENT_PORTAL'
+  | 'INDUSTRY_BODY'
+  | 'ACADEMIC_SURVEY'
+  | 'PLATFORM_TELEMETRY'
+  | 'SYNTHETIC_MODEL'
+  | 'DEMO';
+
+export interface DataSourceMetadata {
+  source_name: string;
+  source_url?: string;
+  source_type: SourceType;
+  data_period: string; // e.g. '2026-Q1'
+  geographic_scope: string; // e.g. 'District (Patna, Bihar)', 'State (Bihar)'
+  last_updated: string; // ISO date '2026-09-22'
+  verification_status: VerificationStatusType;
+  disclaimer?: string; // e.g. 'Illustrative data — not official statistics'
+}
+
+// ==========================================
 // REGIONAL INTELLIGENCE LAYER ARCHITECTURE
 // ==========================================
 
@@ -912,6 +949,7 @@ export interface RegionalDistrict {
   keyIndustries: string[];
   itParksOrSezCount: number;
   leadTrainingHub?: string;
+  metadata?: DataSourceMetadata;
 }
 
 export interface RegionalPublicScheme {
@@ -924,6 +962,7 @@ export interface RegionalPublicScheme {
   portalUrl: string;
   targetAudience: string;
   eligibility: string;
+  metadata?: DataSourceMetadata;
 }
 
 export interface RegionalMigrationCorridor {
@@ -936,6 +975,7 @@ export interface RegionalMigrationCorridor {
   readinessGapAverage: number; // e.g. 24%
   topRequiredBridgeSkills: string[];
   description: string;
+  metadata?: DataSourceMetadata;
 }
 
 export interface RegionalProfile {
@@ -950,6 +990,7 @@ export interface RegionalProfile {
   districts: RegionalDistrict[];
   publicSchemes: RegionalPublicScheme[];
   migrationCorridors: RegionalMigrationCorridor[];
+  metadata?: DataSourceMetadata;
   createdAt: string;
   updatedAt: string;
 }
@@ -1001,6 +1042,7 @@ export interface RegionalIntelligenceRecord {
   dataSource: string;
   dataPeriod: string;
   verificationStatus: 'official_verified' | 'provisional' | 'modeled';
+  metadata?: DataSourceMetadata;
   createdAt: string;
   updatedAt: string;
 }
@@ -1022,6 +1064,7 @@ export interface DistrictSkillGapAnalysis {
   }[];
   localTrainingPartners: string[];
   governmentInitiativeTieIns: string[];
+  metadata?: DataSourceMetadata;
 }
 
 export interface MigrationPathwayAnalysis {
@@ -1043,5 +1086,6 @@ export interface MigrationPathwayAnalysis {
     requiredLevel: SkillLevel;
     courseRecommendation: string;
   }[];
+  metadata?: DataSourceMetadata;
 }
 

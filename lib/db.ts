@@ -167,6 +167,42 @@ export function getDb(): DatabaseSchema {
         shouldWriteBack = true;
       }
 
+      // Sync regional deployment statuses & credibility metadata from seed defaults
+      if (parsed.regions && seedDefaults.regions) {
+        parsed.regions.forEach((reg: any) => {
+          const seedReg = (seedDefaults.regions as any[]).find((sr: any) => sr.id === reg.id);
+          if (seedReg && (!reg.deploymentStatus || reg.deploymentStatus !== seedReg.deploymentStatus)) {
+            reg.deploymentStatus = seedReg.deploymentStatus;
+            reg.metadata = seedReg.metadata;
+            shouldWriteBack = true;
+          }
+        });
+      }
+
+      if (parsed.regional_profiles && seedDefaults.regional_profiles) {
+        parsed.regional_profiles.forEach((prof: any) => {
+          const seedProf = (seedDefaults.regional_profiles as any[]).find((sp: any) => sp.id === prof.id);
+          if (seedProf) {
+            prof.metadata = seedProf.metadata;
+            prof.publicSchemes = seedProf.publicSchemes;
+            prof.migrationCorridors = seedProf.migrationCorridors;
+            shouldWriteBack = true;
+          }
+        });
+      }
+
+      if (parsed.regional_intelligence && seedDefaults.regional_intelligence) {
+        parsed.regional_intelligence.forEach((rec: any) => {
+          const seedRec = (seedDefaults.regional_intelligence as any[]).find((sr: any) => sr.id === rec.id);
+          if (seedRec && (!rec.metadata || rec.verificationStatus !== seedRec.verificationStatus)) {
+            rec.metadata = seedRec.metadata;
+            rec.verificationStatus = seedRec.verificationStatus;
+            rec.dataSource = seedRec.dataSource;
+            shouldWriteBack = true;
+          }
+        });
+      }
+
       // Upgrade old broken Git thumbnail if it exists in local DB
       if (parsed.courses) {
         const gitCourse = parsed.courses.find((c: any) => c.id === 'crs_git');
@@ -1945,10 +1981,18 @@ export const db = {
     sourceDistrictId: string,
     destinationCity: string,
     targetRole: string,
-    candidateSkills: any[] = []
+    candidateSkills: any[] = [],
+    regionId?: string
   ): MigrationPathwayAnalysis => {
     const { calculateMigrationPathway } = require('./regionalIntelligence');
-    const profile = (getDb().regional_profiles || []).find(p => p.regionId === 'in-bihar') || (getDb().regional_profiles || [])[0];
+    const profiles = getDb().regional_profiles || [];
+    let profile = regionId ? profiles.find(p => p.regionId === regionId) : undefined;
+    if (!profile) {
+      profile = profiles.find(p => p.districts.some(d => d.id === sourceDistrictId));
+    }
+    if (!profile) {
+      profile = profiles.find(p => p.regionId === 'in-bihar') || profiles[0];
+    }
     return calculateMigrationPathway(sourceDistrictId, destinationCity, targetRole, profile, candidateSkills);
   }
 };

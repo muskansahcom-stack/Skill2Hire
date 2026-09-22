@@ -132,15 +132,27 @@ function RegionalIntelligenceContent() {
         <div className="relative z-10 space-y-6">
           {/* Top badges */}
           <div className="flex flex-wrap items-center justify-between gap-3">
-            <div className="flex items-center gap-2">
+            <div className="flex flex-wrap items-center gap-2">
               <span className="px-3 py-1 rounded-full bg-primary-500/20 text-cyan-300 text-xs font-black uppercase tracking-wider border border-primary-500/30 flex items-center gap-1.5">
                 <Globe className="w-3.5 h-3.5" />
                 Global Architecture
               </span>
-              <span className="px-3 py-1 rounded-full bg-amber-500/20 text-amber-300 text-xs font-black uppercase tracking-wider border border-amber-500/30 flex items-center gap-1.5">
-                <span>{profile?.countryId === 'kr' ? '🇰🇷' : profile?.countryId === 'cn' ? '🇨🇳' : '🇮🇳'}</span>
-                Active: {profile?.regionName || 'Bihar'}
-              </span>
+              
+              {selectedRegion === 'in-bihar' || profile?.deploymentStatus === 'ACTIVE_FLAGSHIP' ? (
+                <span className="px-3 py-1 rounded-full bg-amber-500/20 text-amber-300 text-xs font-black uppercase tracking-wider border border-amber-500/30 flex items-center gap-1.5 shadow-sm">
+                  <span>🇮🇳</span>
+                  <span>Active Flagship: Bihar</span>
+                </span>
+              ) : profile?.deploymentStatus === 'EXPANSION_DEMO' ? (
+                <span className="px-3 py-1 rounded-full bg-indigo-500/20 text-indigo-300 text-xs font-black uppercase tracking-wider border border-indigo-500/30 flex items-center gap-1.5">
+                  <span>{profile?.countryId === 'kr' ? '🇰🇷' : profile?.countryId === 'cn' ? '🇨🇳' : '🇮🇳'}</span>
+                  <span>Expansion Region • Demo Data ({profile?.regionName})</span>
+                </span>
+              ) : (
+                <span className="px-3 py-1 rounded-full bg-slate-700 text-slate-300 text-xs font-black uppercase tracking-wider border border-slate-600 flex items-center gap-1.5">
+                  <span>Global Hub</span>
+                </span>
+              )}
             </div>
 
             {/* Dialect Switcher Pill */}
@@ -175,11 +187,15 @@ function RegionalIntelligenceContent() {
             </div>
           </div>
 
-          {/* Heading */}
-          <div className="space-y-2 max-w-3xl">
+          {/* Heading with Core Positioning Statement */}
+          <div className="space-y-3 max-w-4xl">
             <h1 className="text-3xl sm:text-4xl lg:text-5xl font-black tracking-tight leading-tight">
               {t('regionalPortal')}
             </h1>
+            <p className="text-amber-300/95 text-xs sm:text-sm font-bold tracking-wide flex items-center gap-2 bg-amber-500/10 border border-amber-500/20 px-3 py-1.5 rounded-xl w-fit">
+              <ShieldCheck className="w-4 h-4 shrink-0 text-amber-400" />
+              <span>Global skills-to-employment architecture with Bihar as the flagship regional implementation.</span>
+            </p>
             <p className="text-slate-300 text-sm sm:text-base font-medium leading-relaxed">
               Decoupled regional intelligence engine powering localized demand-supply balancing, state public schemes, and cross-state & international career migration corridors.
             </p>
@@ -199,7 +215,7 @@ function RegionalIntelligenceContent() {
               }`}
             >
               <span>🇮🇳</span>
-              <span>Bihar (Flagship Hub)</span>
+              <span>Bihar (Active Flagship)</span>
             </button>
 
             <button
@@ -211,7 +227,7 @@ function RegionalIntelligenceContent() {
               }`}
             >
               <span>🇮🇳</span>
-              <span>Tamil Nadu (SaaS Hub)</span>
+              <span>Tamil Nadu (Demo Hub)</span>
             </button>
 
             <button
@@ -223,7 +239,7 @@ function RegionalIntelligenceContent() {
               }`}
             >
               <span>🇮🇳</span>
-              <span>Telangana (Cyberabad)</span>
+              <span>Telangana (Demo Hub)</span>
             </button>
 
             <button
@@ -235,7 +251,7 @@ function RegionalIntelligenceContent() {
               }`}
             >
               <span>🇮🇳</span>
-              <span>Maharashtra (Mumbai/Pune)</span>
+              <span>Maharashtra (Demo Hub)</span>
             </button>
 
             <button
@@ -247,7 +263,7 @@ function RegionalIntelligenceContent() {
               }`}
             >
               <span>🇰🇷</span>
-              <span>South Korea (Pangyo Valley)</span>
+              <span>South Korea (Demo Hub)</span>
             </button>
 
             <button
@@ -259,7 +275,7 @@ function RegionalIntelligenceContent() {
               }`}
             >
               <span>🇨🇳</span>
-              <span>China (Shenzhen SV)</span>
+              <span>China (Demo Hub)</span>
             </button>
 
             <button
@@ -271,7 +287,7 @@ function RegionalIntelligenceContent() {
               }`}
             >
               <span>🇮🇳</span>
-              <span>Karnataka (Bengaluru)</span>
+              <span>Karnataka (Planned)</span>
             </button>
 
             <button
@@ -283,7 +299,7 @@ function RegionalIntelligenceContent() {
               }`}
             >
               <span>🇺🇸</span>
-              <span>USA (California)</span>
+              <span>USA California (Planned)</span>
             </button>
 
             <button
@@ -299,35 +315,57 @@ function RegionalIntelligenceContent() {
             </button>
           </div>
 
-          {/* Quick Metrics Bar */}
+          {/* Quick Metrics Bar with Provenance Indicators */}
           <div className="grid grid-cols-2 sm:grid-cols-4 gap-4 pt-4 border-t border-slate-800/80">
             <div className="p-3.5 rounded-2xl bg-white/5 border border-white/10 backdrop-blur">
               <span className="text-[10px] font-bold text-slate-400 uppercase tracking-wider block">
                 Economic Districts
               </span>
-              <div className="text-2xl font-black text-cyan-300 mt-1">8 Core Hubs</div>
-              <span className="text-[11px] text-slate-400">Patna, Muzaffarpur, Gaya...</span>
+              <div className="text-2xl font-black text-cyan-300 mt-1">
+                {districts.length > 0 ? `${districts.length} Hubs` : '8 Global Hubs'}
+              </div>
+              <span className="text-[11px] text-slate-400 truncate block">
+                {districts.slice(0, 3).map((d: any) => d.name).join(', ') || 'Patna, Muzaffarpur, Gaya...'}
+              </span>
             </div>
             <div className="p-3.5 rounded-2xl bg-white/5 border border-white/10 backdrop-blur">
               <span className="text-[10px] font-bold text-slate-400 uppercase tracking-wider block">
                 Career Corridors
               </span>
-              <div className="text-2xl font-black text-amber-400 mt-1">4 Active Routes</div>
-              <span className="text-[11px] text-slate-400">Up to 2.8x wage multiplier</span>
+              <div className="text-2xl font-black text-amber-400 mt-1">
+                {corridors.length > 0 ? `${corridors.length} Active Routes` : '4 Active Routes'}
+              </div>
+              <span className="text-[11px] text-slate-400">Up to 2.8x modeled salary delta</span>
             </div>
             <div className="p-3.5 rounded-2xl bg-white/5 border border-white/10 backdrop-blur">
-              <span className="text-[10px] font-bold text-slate-400 uppercase tracking-wider block">
-                Public Schemes
+              <div className="flex items-center justify-between">
+                <span className="text-[10px] font-bold text-slate-400 uppercase tracking-wider block">
+                  Public Schemes
+                </span>
+                <span className="text-[9px] px-1.5 py-0.5 bg-emerald-500/20 text-emerald-300 rounded font-bold border border-emerald-400/30">
+                  VERIFIED
+                </span>
+              </div>
+              <div className="text-2xl font-black text-emerald-400 mt-1">
+                {schemes.length > 0 ? `${schemes.length} State Missions` : '4 State Missions'}
+              </div>
+              <span className="text-[11px] text-slate-400 truncate block">
+                {profile?.primaryGovernmentPartner || 'BSDM, KYP, Startup Bihar'}
               </span>
-              <div className="text-2xl font-black text-emerald-400 mt-1">4 State Missions</div>
-              <span className="text-[11px] text-slate-400">BSDM, KYP, Startup, Udyami</span>
             </div>
             <div className="p-3.5 rounded-2xl bg-white/5 border border-white/10 backdrop-blur">
-              <span className="text-[10px] font-bold text-slate-400 uppercase tracking-wider block">
-                Mapped Capacity
-              </span>
-              <div className="text-2xl font-black text-indigo-300 mt-1">9,600+ Seats</div>
-              <span className="text-[11px] text-slate-400">Across accredited centers</span>
+              <div className="flex items-center justify-between">
+                <span className="text-[10px] font-bold text-slate-400 uppercase tracking-wider block">
+                  Mapped Capacity
+                </span>
+                <span className="text-[9px] px-1.5 py-0.5 bg-amber-500/20 text-amber-300 rounded font-bold border border-amber-400/30">
+                  DEMO DATA
+                </span>
+              </div>
+              <div className="text-2xl font-black text-indigo-300 mt-1">
+                {districts.reduce((acc: number, d: any) => acc + (d.trainingInstitutionsCount || 4) * 300, 0).toLocaleString() || '9,600'}+ Seats
+              </div>
+              <span className="text-[11px] text-slate-400">Modeled across accredited centers</span>
             </div>
           </div>
         </div>
@@ -462,12 +500,18 @@ function RegionalIntelligenceContent() {
               <div className="p-6 rounded-3xl bg-white border border-slate-200 shadow-sm space-y-4">
                 <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4">
                   <div className="space-y-1">
-                    <div className="flex items-center gap-2">
+                    <div className="flex flex-wrap items-center gap-2">
                       <h2 className="text-2xl font-black text-slate-900">
                         {districtData.districtName} Skill Demand & Supply Index
                       </h2>
-                      <span className="px-2.5 py-0.5 rounded-full bg-emerald-50 text-emerald-700 font-bold text-xs border border-emerald-200">
-                        BSDM Certified Region
+                      <span className={`px-2.5 py-0.5 rounded-full font-bold text-xs border ${
+                        profile?.regionId === 'in-bihar'
+                          ? 'bg-emerald-50 text-emerald-700 border-emerald-200'
+                          : 'bg-indigo-50 text-indigo-700 border-indigo-200'
+                      }`}>
+                        {profile?.regionId === 'in-bihar'
+                          ? 'BSDM Certified Region'
+                          : profile?.primaryGovernmentPartner || 'Accredited Regional Hub'}
                       </span>
                     </div>
                     <p className="text-xs text-slate-500 font-medium">
@@ -483,8 +527,11 @@ function RegionalIntelligenceContent() {
                     <div className="text-3xl font-black text-amber-950">
                       {districtData.gapIndex} <span className="text-sm font-medium text-amber-700">/ 100</span>
                     </div>
-                    <span className="text-[10px] font-bold text-amber-800">
+                    <span className="text-[10px] font-bold text-amber-800 block">
                       {districtData.gapIndex > 70 ? 'High Deficit — Bootcamps Required' : 'Moderate Balance'}
+                    </span>
+                    <span className="mt-1 inline-block text-[9px] px-2 py-0.5 rounded-full bg-amber-200 text-amber-950 font-black tracking-wide uppercase">
+                      Calculated Model Index
                     </span>
                   </div>
                 </div>
@@ -537,6 +584,25 @@ function RegionalIntelligenceContent() {
                     <span className="text-[10px] text-slate-500 font-medium">
                       Avg {districtData.employmentOutcomes?.avgStartingSalary || '₹28,000/mo'}
                     </span>
+                  </div>
+                </div>
+
+                {/* Data Provenance & Telemetry Metadata Banner */}
+                <div className="p-3.5 rounded-2xl bg-amber-500/5 border border-amber-200/70 flex flex-wrap items-center justify-between gap-3 text-xs">
+                  <div className="flex flex-wrap items-center gap-2">
+                    <span className="px-2 py-0.5 rounded-md bg-amber-100 text-amber-900 font-black text-[10px] uppercase border border-amber-300">
+                      {districtData.metadata?.verification_status === 'VERIFIED_EXTERNAL' ? 'VERIFIED EXTERNAL' : 'DEMO DATA'}
+                    </span>
+                    <span className="text-slate-600 font-medium">
+                      {districtData.metadata?.disclaimer || 'Illustrative data — not official statistics. Telemetry simulated for regional capacity modeling.'}
+                    </span>
+                  </div>
+                  <div className="flex flex-wrap items-center gap-2 text-[11px] text-slate-500 font-semibold">
+                    <span>Source: {districtData.metadata?.source_name || 'Skill2Hire Regional Telemetry Model'}</span>
+                    <span>•</span>
+                    <span>Period: {districtData.metadata?.data_period || '2026-Q1'}</span>
+                    <span>•</span>
+                    <span className="text-emerald-700 font-bold">Status: {districtData.metadata?.verification_status || 'CALCULATED'}</span>
                   </div>
                 </div>
               </div>
@@ -628,7 +694,7 @@ function RegionalIntelligenceContent() {
                       >
                         <span className="font-bold text-slate-800">{inst}</span>
                         <span className="text-[10px] px-2 py-0.5 rounded-md bg-indigo-50 text-indigo-700 font-bold border border-indigo-200">
-                          BSDM Affiliated
+                          {profile?.regionId === 'in-bihar' ? 'BSDM Affiliated' : 'State Accredited'}
                         </span>
                       </div>
                     ))}
@@ -670,13 +736,21 @@ function RegionalIntelligenceContent() {
       {/* TAB 2: CAREER MIGRATION CORRIDORS & WAGE MULTIPLIERS */}
       {activeTab === 'migration' && (
         <div className="space-y-6">
-          <div className="p-6 rounded-3xl bg-gradient-to-r from-amber-500/10 via-indigo-500/10 to-transparent border border-amber-200/80 space-y-2">
-            <h3 className="text-xl font-black text-slate-900">
-              Employment Corridors & Wage Multiplier Analytics
-            </h3>
+          <div className="p-6 rounded-3xl bg-gradient-to-r from-amber-500/10 via-indigo-500/10 to-transparent border border-amber-200/80 space-y-3">
+            <div className="flex flex-wrap items-center justify-between gap-2">
+              <h3 className="text-xl font-black text-slate-900">
+                Employment Corridors & Wage Multiplier Analytics
+              </h3>
+              <span className="px-2.5 py-1 rounded-full bg-amber-100 text-amber-900 border border-amber-300 font-black text-[10px] uppercase tracking-wider">
+                DEMO BENCHMARK DATA
+              </span>
+            </div>
             <p className="text-xs text-slate-600 max-w-3xl font-medium leading-relaxed">
               Skill2Hire models pathways from emerging districts in Bihar to tier-1 technology hubs (Bengaluru, Noida, Pune). Candidates bridge localized readiness gaps using Skill2Hire Universal Compiler and AI Interview Coach to unlock up to <strong>2.8x starting salary multiples</strong>.
             </p>
+            <div className="p-2.5 rounded-xl bg-amber-500/10 border border-amber-300/80 text-[11px] text-amber-950 font-medium">
+              <strong>Credibility Notice:</strong> Illustrative career mobility pathways and wage multipliers based on regional salary delta model — not guaranteed income figures.
+            </div>
           </div>
 
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
@@ -699,6 +773,11 @@ function RegionalIntelligenceContent() {
                   </div>
 
                   <div className="p-3 rounded-2xl bg-amber-500/10 border border-amber-300 text-right shrink-0">
+                    <div className="flex items-center justify-end gap-1 mb-0.5">
+                      <span className="text-[9px] px-1.5 py-0.2 rounded bg-amber-200 text-amber-900 font-extrabold uppercase">
+                        DEMO
+                      </span>
+                    </div>
                     <span className="text-[10px] font-black uppercase text-amber-900 block">
                       Wage Multiplier
                     </span>
@@ -772,6 +851,11 @@ function RegionalIntelligenceContent() {
                 </div>
 
                 <div className="p-3 rounded-2xl bg-emerald-100 border border-emerald-300 text-right shrink-0">
+                  <div className="flex items-center justify-end gap-1 mb-0.5">
+                    <span className="text-[9px] px-1.5 py-0.2 rounded bg-emerald-200 text-emerald-900 font-extrabold uppercase">
+                      DEMO BENCHMARK
+                    </span>
+                  </div>
                   <span className="text-[10px] font-black uppercase text-emerald-900 block">
                     1-Year Retention
                   </span>
@@ -785,7 +869,7 @@ function RegionalIntelligenceContent() {
 
               <div className="pt-3 border-t border-emerald-200/60 flex items-center justify-between">
                 <span className="text-xs text-emerald-800 font-bold">
-                  Zero Living Cost Overhead
+                  Zero Living Cost Overhead • Modeled Benchmark
                 </span>
                 <Link
                   href="/jobs?location=Patna"
@@ -804,14 +888,20 @@ function RegionalIntelligenceContent() {
       {activeTab === 'schemes' && (
         <div className="space-y-6">
           <div className="p-6 rounded-3xl bg-slate-900 text-white space-y-2">
-            <span className="text-[10px] font-black uppercase tracking-wider text-amber-400">
-              Government Alignment & Subsidies
-            </span>
+            <div className="flex flex-wrap items-center justify-between gap-2">
+              <span className="text-[10px] font-black uppercase tracking-wider text-amber-400">
+                Government Alignment & Subsidies
+              </span>
+              <span className="px-2.5 py-0.5 rounded-full bg-emerald-500/20 text-emerald-300 font-extrabold text-[10px] uppercase border border-emerald-400/30 flex items-center gap-1">
+                <ShieldCheck className="w-3 h-3 text-emerald-400" />
+                VERIFIED EXTERNAL GOVERNMENT SCHEMES
+              </span>
+            </div>
             <h3 className="text-xl font-black">
               Integrated State Employment & Skilling Missions
             </h3>
             <p className="text-xs text-slate-300 max-w-2xl font-medium leading-relaxed">
-              Skill2Hire integrates with official state skill missions to verify credentials, subsidize candidate training, and connect certified beneficiaries directly with technology employers.
+              Skill2Hire integrates with official state skill missions to verify credentials, subsidize candidate training, and connect certified beneficiaries directly with technology employers. All listed portals are official government websites.
             </p>
           </div>
 
@@ -829,8 +919,9 @@ function RegionalIntelligenceContent() {
                       </span>
                       <h4 className="text-lg font-black text-slate-900 mt-0.5">{s.name}</h4>
                     </div>
-                    <span className="px-2.5 py-1 rounded-xl bg-primary-50 text-primary-700 font-bold text-xs border border-primary-200 shrink-0">
-                      Active Scheme
+                    <span className="px-2.5 py-1 rounded-xl bg-emerald-50 text-emerald-700 font-bold text-xs border border-emerald-200 shrink-0 flex items-center gap-1">
+                      <CheckCircle2 className="w-3 h-3 text-emerald-600" />
+                      Official Scheme
                     </span>
                   </div>
 
@@ -851,15 +942,20 @@ function RegionalIntelligenceContent() {
                 </div>
 
                 <div className="pt-3 border-t border-slate-100 flex items-center justify-between gap-4">
-                  <Link
-                    href={s.portalUrl}
-                    target="_blank"
-                    rel="noreferrer"
-                    className="text-xs font-bold text-slate-600 hover:text-slate-900 flex items-center gap-1"
-                  >
-                    <span>Official Portal</span>
-                    <ExternalLink className="w-3.5 h-3.5" />
-                  </Link>
+                  <div className="flex items-center gap-2">
+                    <Link
+                      href={s.portalUrl}
+                      target="_blank"
+                      rel="noreferrer"
+                      className="text-xs font-bold text-primary-600 hover:text-primary-800 flex items-center gap-1"
+                    >
+                      <span>Official Portal</span>
+                      <ExternalLink className="w-3.5 h-3.5" />
+                    </Link>
+                    <span className="text-[10px] text-emerald-700 bg-emerald-50 px-2 py-0.5 rounded font-bold border border-emerald-200">
+                      Verified External
+                    </span>
+                  </div>
 
                   <Link
                     href="/student/become-ready"

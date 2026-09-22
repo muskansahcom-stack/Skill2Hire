@@ -271,114 +271,115 @@ export default function TopHeader({
                 <span className="text-sm leading-none">🇮🇳</span>
                 <span className="hidden md:inline font-extrabold text-amber-950">Bihar</span>
                 <span className="text-[10px] px-1.5 py-0.5 rounded-md bg-amber-200 text-amber-900 uppercase font-black tracking-wider hidden sm:inline">
-                  Flagship Hub
+                  Active Flagship
                 </span>
               </>
             ) : selectedRegion === 'in-tamilnadu' ? (
               <>
                 <span className="text-sm leading-none">🇮🇳</span>
                 <span className="hidden md:inline font-extrabold text-slate-900">Tamil Nadu</span>
-                <span className="text-[10px] px-1.5 py-0.5 rounded-md bg-indigo-100 text-indigo-900 font-black hidden sm:inline">
-                  SaaS Hub
+                <span className="text-[10px] px-1.5 py-0.5 rounded-md bg-indigo-100 text-indigo-900 font-bold hidden sm:inline">
+                  Expansion • Demo
                 </span>
               </>
             ) : selectedRegion === 'in-telangana' ? (
               <>
                 <span className="text-sm leading-none">🇮🇳</span>
                 <span className="hidden md:inline font-extrabold text-slate-900">Telangana</span>
-                <span className="text-[10px] px-1.5 py-0.5 rounded-md bg-cyan-100 text-cyan-900 font-black hidden sm:inline">
-                  Cyberabad
+                <span className="text-[10px] px-1.5 py-0.5 rounded-md bg-cyan-100 text-cyan-900 font-bold hidden sm:inline">
+                  Expansion • Demo
                 </span>
               </>
             ) : selectedRegion === 'in-maharashtra' ? (
               <>
                 <span className="text-sm leading-none">🇮🇳</span>
                 <span className="hidden md:inline font-extrabold text-slate-900">Maharashtra</span>
-                <span className="text-[10px] px-1.5 py-0.5 rounded-md bg-rose-100 text-rose-900 font-black hidden sm:inline">
-                  Mumbai/Pune
+                <span className="text-[10px] px-1.5 py-0.5 rounded-md bg-rose-100 text-rose-900 font-bold hidden sm:inline">
+                  Expansion • Demo
                 </span>
               </>
             ) : selectedRegion === 'kr-seoul' ? (
               <>
                 <span className="text-sm leading-none">🇰🇷</span>
                 <span className="hidden md:inline font-extrabold text-slate-900">South Korea</span>
-                <span className="text-[10px] px-1.5 py-0.5 rounded-md bg-blue-100 text-blue-900 font-black hidden sm:inline">
-                  Pangyo
+                <span className="text-[10px] px-1.5 py-0.5 rounded-md bg-blue-100 text-blue-900 font-bold hidden sm:inline">
+                  Expansion • Demo
                 </span>
               </>
             ) : selectedRegion === 'cn-guangdong' ? (
               <>
                 <span className="text-sm leading-none">🇨🇳</span>
                 <span className="hidden md:inline font-extrabold text-slate-900">China</span>
-                <span className="text-[10px] px-1.5 py-0.5 rounded-md bg-red-100 text-red-900 font-black hidden sm:inline">
-                  Shenzhen
+                <span className="text-[10px] px-1.5 py-0.5 rounded-md bg-red-100 text-red-900 font-bold hidden sm:inline">
+                  Expansion • Demo
                 </span>
               </>
             ) : selectedRegion === 'global' ? (
               <>
                 <Globe className="w-3.5 h-3.5 text-blue-600" />
-                <span className="hidden md:inline text-blue-900 font-extrabold">Global View</span>
+                <span className="hidden md:inline text-blue-900 font-extrabold">Global Architecture</span>
               </>
             ) : (
               <>
                 <MapPin className="w-3.5 h-3.5 text-slate-600" />
                 <span className="hidden md:inline capitalize">{selectedRegion.replace('in-', '').replace('us-', '')}</span>
+                <span className="text-[10px] px-1.5 py-0.5 rounded-md bg-slate-200 text-slate-700 font-bold hidden sm:inline">Planned</span>
               </>
             )}
             <ChevronDown className="w-3 h-3 opacity-60 ml-0.5" />
           </button>
 
           {isRegionOpen && (
-            <div className="absolute right-0 top-full mt-2 w-88 bg-white rounded-3xl border border-slate-200 shadow-2xl p-3 z-50 space-y-2 max-h-[85vh] overflow-y-auto">
-              <div className="px-2 pt-1 pb-1 border-b border-slate-100 flex items-center justify-between">
-                <div>
-                  <span className="text-[10px] font-black uppercase tracking-wider text-slate-400 block">
-                    Operating Geographic Scope
-                  </span>
-                  <span className="text-xs font-bold text-slate-800">Global & Multi-State Architecture</span>
-                </div>
+            <div className="absolute right-0 top-full mt-2 w-92 bg-white rounded-3xl border border-slate-200 shadow-2xl p-3 z-50 space-y-2.5 max-h-[85vh] overflow-y-auto">
+              <div className="px-2 pt-1 pb-1.5 border-b border-slate-100">
+                <span className="text-[10px] font-black uppercase tracking-wider text-slate-400 block">
+                  Operating Geographic Scope
+                </span>
+                <span className="text-xs font-black text-slate-900 block mt-0.5">
+                  Global Architecture with Bihar Flagship
+                </span>
+                <p className="text-[10px] text-slate-500 mt-0.5">
+                  Bihar is the live flagship implementation. Other regions display modeled expansion demo data.
+                </p>
               </div>
 
-              {/* Regional Options */}
+              {/* 1. ACTIVE REGIONAL IMPLEMENTATION */}
               <div className="space-y-1">
-                <button
-                  onClick={() => { setRegion('global'); setIsRegionOpen(false); }}
-                  className={`w-full flex items-center justify-between p-2 rounded-xl text-left text-xs transition-colors ${
-                    selectedRegion === 'global'
-                      ? 'bg-blue-50 text-blue-950 font-extrabold border border-blue-200'
-                      : 'hover:bg-slate-50 text-slate-700'
-                  }`}
-                >
-                  <div className="flex items-center gap-2">
-                    <span className="text-base">🌐</span>
-                    <div>
-                      <div className="font-bold">Global View (All Ecosystems)</div>
-                      <div className="text-[10px] text-slate-400">Multi-country aggregate telemetry</div>
-                    </div>
-                  </div>
-                  {selectedRegion === 'global' && <Check className="w-3.5 h-3.5 text-blue-600" />}
-                </button>
-
+                <span className="text-[10px] font-black uppercase tracking-wider text-amber-900 px-2 block">
+                  Active Regional Implementation
+                </span>
                 <button
                   onClick={() => { setRegion('in-bihar'); setIsRegionOpen(false); }}
-                  className={`w-full flex items-center justify-between p-2 rounded-xl text-left text-xs transition-colors ${
+                  className={`w-full flex items-center justify-between p-2.5 rounded-2xl text-left text-xs transition-colors ${
                     selectedRegion === 'in-bihar'
-                      ? 'bg-amber-50 text-amber-950 font-extrabold border border-amber-200'
-                      : 'hover:bg-slate-50 text-slate-700'
+                      ? 'bg-amber-50 text-amber-950 font-extrabold border border-amber-300 shadow-sm'
+                      : 'hover:bg-slate-50 text-slate-700 border border-transparent'
                   }`}
                 >
-                  <div className="flex items-center gap-2">
-                    <span className="text-base">🇮🇳</span>
+                  <div className="flex items-center gap-2.5">
+                    <span className="text-lg">🇮🇳</span>
                     <div>
                       <div className="font-bold flex items-center gap-1.5">
                         <span>India: Bihar</span>
-                        <span className="text-[9px] px-1 rounded bg-amber-200 text-amber-900 font-black">Flagship Hub</span>
+                        <span className="text-[9px] px-1.5 py-0.5 rounded-md bg-amber-200 text-amber-950 font-black">ACTIVE FLAGSHIP</span>
                       </div>
-                      <div className="text-[10px] text-slate-400">8 Economic Districts • BSDM • 4 Corridors</div>
+                      <div className="text-[10px] text-slate-500">8 Economic Districts • Verified BSDM/KYP Missions • 4 Corridors</div>
                     </div>
                   </div>
-                  {selectedRegion === 'in-bihar' && <Check className="w-3.5 h-3.5 text-amber-600" />}
+                  {selectedRegion === 'in-bihar' && <Check className="w-4 h-4 text-amber-700 shrink-0" />}
                 </button>
+              </div>
+
+              {/* 2. EXPANSION REGIONS (DEMO DATA) */}
+              <div className="space-y-1 pt-1 border-t border-slate-100">
+                <div className="flex items-center justify-between px-2">
+                  <span className="text-[10px] font-black uppercase tracking-wider text-slate-400">
+                    Expansion Regions (Modeled)
+                  </span>
+                  <span className="text-[9px] px-1.5 py-0.2 rounded bg-slate-100 text-slate-600 font-bold uppercase">
+                    Demo Data
+                  </span>
+                </div>
 
                 <button
                   onClick={() => { setRegion('in-tamilnadu'); setIsRegionOpen(false); }}
@@ -394,11 +395,12 @@ export default function TopHeader({
                       <div className="font-bold flex items-center gap-1.5">
                         <span>India: Tamil Nadu</span>
                         <span className="text-[9px] px-1 rounded bg-indigo-100 text-indigo-800 font-bold">தமிழ்</span>
+                        <span className="text-[9px] px-1 rounded bg-slate-100 text-slate-600 font-medium">DEMO</span>
                       </div>
                       <div className="text-[10px] text-slate-400">Chennai SaaS Corridor • Coimbatore Engineering</div>
                     </div>
                   </div>
-                  {selectedRegion === 'in-tamilnadu' && <Check className="w-3.5 h-3.5 text-indigo-600" />}
+                  {selectedRegion === 'in-tamilnadu' && <Check className="w-3.5 h-3.5 text-indigo-600 shrink-0" />}
                 </button>
 
                 <button
@@ -415,11 +417,12 @@ export default function TopHeader({
                       <div className="font-bold flex items-center gap-1.5">
                         <span>India: Telangana</span>
                         <span className="text-[9px] px-1 rounded bg-cyan-100 text-cyan-800 font-bold">తెలుగు</span>
+                        <span className="text-[9px] px-1 rounded bg-slate-100 text-slate-600 font-medium">DEMO</span>
                       </div>
                       <div className="text-[10px] text-slate-400">Cyberabad AI & Cloud • T-Hub Innovation</div>
                     </div>
                   </div>
-                  {selectedRegion === 'in-telangana' && <Check className="w-3.5 h-3.5 text-cyan-600" />}
+                  {selectedRegion === 'in-telangana' && <Check className="w-3.5 h-3.5 text-cyan-600 shrink-0" />}
                 </button>
 
                 <button
@@ -436,11 +439,12 @@ export default function TopHeader({
                       <div className="font-bold flex items-center gap-1.5">
                         <span>India: Maharashtra</span>
                         <span className="text-[9px] px-1 rounded bg-rose-100 text-rose-800 font-bold">मराठी</span>
+                        <span className="text-[9px] px-1 rounded bg-slate-100 text-slate-600 font-medium">DEMO</span>
                       </div>
                       <div className="text-[10px] text-slate-400">Mumbai FinTech • Pune Automotive IT</div>
                     </div>
                   </div>
-                  {selectedRegion === 'in-maharashtra' && <Check className="w-3.5 h-3.5 text-rose-600" />}
+                  {selectedRegion === 'in-maharashtra' && <Check className="w-3.5 h-3.5 text-rose-600 shrink-0" />}
                 </button>
 
                 <button
@@ -457,11 +461,12 @@ export default function TopHeader({
                       <div className="font-bold flex items-center gap-1.5">
                         <span>South Korea: Seoul Capital</span>
                         <span className="text-[9px] px-1 rounded bg-blue-100 text-blue-800 font-bold">한국어</span>
+                        <span className="text-[9px] px-1 rounded bg-slate-100 text-slate-600 font-medium">DEMO</span>
                       </div>
                       <div className="text-[10px] text-slate-400">Pangyo Techno Valley • AI & Robotics</div>
                     </div>
                   </div>
-                  {selectedRegion === 'kr-seoul' && <Check className="w-3.5 h-3.5 text-blue-600" />}
+                  {selectedRegion === 'kr-seoul' && <Check className="w-3.5 h-3.5 text-blue-600 shrink-0" />}
                 </button>
 
                 <button
@@ -478,11 +483,37 @@ export default function TopHeader({
                       <div className="font-bold flex items-center gap-1.5">
                         <span>China: Greater Bay Area</span>
                         <span className="text-[9px] px-1 rounded bg-red-100 text-red-800 font-bold">中文</span>
+                        <span className="text-[9px] px-1 rounded bg-slate-100 text-slate-600 font-medium">DEMO</span>
                       </div>
                       <div className="text-[10px] text-slate-400">Shenzhen Nanshan • Hardware Silicon Valley</div>
                     </div>
                   </div>
-                  {selectedRegion === 'cn-guangdong' && <Check className="w-3.5 h-3.5 text-red-600" />}
+                  {selectedRegion === 'cn-guangdong' && <Check className="w-3.5 h-3.5 text-red-600 shrink-0" />}
+                </button>
+              </div>
+
+              {/* 3. GLOBAL ARCHITECTURE & ROADMAP */}
+              <div className="space-y-1 pt-1 border-t border-slate-100">
+                <span className="text-[10px] font-black uppercase tracking-wider text-slate-400 px-2 block">
+                  Global Architecture & Roadmap
+                </span>
+
+                <button
+                  onClick={() => { setRegion('global'); setIsRegionOpen(false); }}
+                  className={`w-full flex items-center justify-between p-2 rounded-xl text-left text-xs transition-colors ${
+                    selectedRegion === 'global'
+                      ? 'bg-blue-50 text-blue-950 font-extrabold border border-blue-200'
+                      : 'hover:bg-slate-50 text-slate-700'
+                  }`}
+                >
+                  <div className="flex items-center gap-2">
+                    <span className="text-base">🌐</span>
+                    <div>
+                      <div className="font-bold">Global View (All Ecosystems)</div>
+                      <div className="text-[10px] text-slate-400">Decoupled multi-country architecture</div>
+                    </div>
+                  </div>
+                  {selectedRegion === 'global' && <Check className="w-3.5 h-3.5 text-blue-600 shrink-0" />}
                 </button>
 
                 <button
@@ -496,11 +527,14 @@ export default function TopHeader({
                   <div className="flex items-center gap-2">
                     <span className="text-base">🇮🇳</span>
                     <div>
-                      <div className="font-bold">India: Karnataka</div>
+                      <div className="font-bold flex items-center gap-1.5">
+                        <span>India: Karnataka</span>
+                        <span className="text-[9px] px-1 rounded bg-slate-200 text-slate-700 font-bold">PLANNED</span>
+                      </div>
                       <div className="text-[10px] text-slate-400">Bengaluru Destination Hub</div>
                     </div>
                   </div>
-                  {selectedRegion === 'in-karnataka' && <Check className="w-3.5 h-3.5 text-primary-600" />}
+                  {selectedRegion === 'in-karnataka' && <Check className="w-3.5 h-3.5 text-primary-600 shrink-0" />}
                 </button>
 
                 <button
@@ -514,11 +548,14 @@ export default function TopHeader({
                   <div className="flex items-center gap-2">
                     <span className="text-base">🇺🇸</span>
                     <div>
-                      <div className="font-bold">USA: California</div>
+                      <div className="font-bold flex items-center gap-1.5">
+                        <span>USA: California</span>
+                        <span className="text-[9px] px-1 rounded bg-slate-200 text-slate-700 font-bold">PLANNED</span>
+                      </div>
                       <div className="text-[10px] text-slate-400">Silicon Valley & Bay Area</div>
                     </div>
                   </div>
-                  {selectedRegion === 'us-ca' && <Check className="w-3.5 h-3.5 text-primary-600" />}
+                  {selectedRegion === 'us-ca' && <Check className="w-3.5 h-3.5 text-primary-600 shrink-0" />}
                 </button>
               </div>
 

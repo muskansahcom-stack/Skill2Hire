@@ -8,6 +8,20 @@ export async function GET(request: Request) {
     const regionId = searchParams.get('regionId') || 'in-bihar';
     const studentId = searchParams.get('studentId') || undefined;
 
+    if (regionId === 'global') {
+      const allProfiles = db.getRegionalProfiles();
+      const allSchemes = allProfiles.flatMap(p => p.publicSchemes);
+      return NextResponse.json({
+        success: true,
+        regionId: 'global',
+        regionName: 'Global View',
+        totalSchemes: allSchemes.length,
+        matchedSchemes: allSchemes,
+        allSchemes,
+        schemes: allSchemes
+      });
+    }
+
     const profile = db.getRegionalProfile(regionId);
     if (!profile) {
       return NextResponse.json(
@@ -30,7 +44,8 @@ export async function GET(request: Request) {
       regionName: profile.regionName,
       totalSchemes: profile.publicSchemes.length,
       matchedSchemes: matched,
-      allSchemes: profile.publicSchemes
+      allSchemes: profile.publicSchemes,
+      schemes: matched
     });
   } catch (error: any) {
     return NextResponse.json(
