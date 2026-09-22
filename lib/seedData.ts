@@ -1,5 +1,11 @@
 import { DatabaseSchema } from './db';
-import { User, Student, College, Company, Job, JobSkillRequirement, Skill, Course, CourseModule, Lesson, Assessment, Question, CollegeCurriculum, CareerPath, PlacementDrive, Notification, Project, Certificate } from './types';
+import {
+  User, Student, College, Company, Job, JobSkillRequirement, Skill, Course, CourseModule,
+  Lesson, Assessment, Question, CollegeCurriculum, CareerPath, PlacementDrive, Notification,
+  Project, Certificate,
+  Country, Region, City, Industry, SkillCategoryEntity, JobRole, EmploymentOutcome,
+  RegionalProfile, RegionalIntelligenceRecord
+} from './types';
 
 export function generateInitialDatabase(): DatabaseSchema {
   const users: User[] = [
@@ -2017,6 +2023,651 @@ print(f"Alex Readiness: {alex.get_readiness_score()}%")`,
     }
   ];
 
+  // ----------------------------------------------------
+  // GLOBAL-FIRST GEOGRAPHY ENTITIES
+  // ----------------------------------------------------
+  const countries: Country[] = [
+    { id: 'in', code: 'IND', name: 'India', currency: 'INR', currencySymbol: '₹', flagEmoji: '🇮🇳', continent: 'Asia' },
+    { id: 'us', code: 'USA', name: 'United States', currency: 'USD', currencySymbol: '$', flagEmoji: '🇺🇸', continent: 'North America' },
+    { id: 'sg', code: 'SGP', name: 'Singapore', currency: 'SGD', currencySymbol: 'S$', flagEmoji: '🇸🇬', continent: 'Asia' },
+    { id: 'de', code: 'DEU', name: 'Germany', currency: 'EUR', currencySymbol: '€', flagEmoji: '🇩🇪', continent: 'Europe' },
+    { id: 'gb', code: 'GBR', name: 'United Kingdom', currency: 'GBP', currencySymbol: '£', flagEmoji: '🇬🇧', continent: 'Europe' }
+  ];
+
+  const regions: Region[] = [
+    { id: 'in-bihar', countryId: 'in', name: 'Bihar', code: 'BR', type: 'state', isActive: true, hasRegionalIntelligence: true },
+    { id: 'in-karnataka', countryId: 'in', name: 'Karnataka', code: 'KA', type: 'state', isActive: true, hasRegionalIntelligence: true },
+    { id: 'in-maharashtra', countryId: 'in', name: 'Maharashtra', code: 'MH', type: 'state', isActive: true, hasRegionalIntelligence: false },
+    { id: 'in-delhi', countryId: 'in', name: 'Delhi NCR', code: 'DL', type: 'territory', isActive: true, hasRegionalIntelligence: false },
+    { id: 'us-ca', countryId: 'us', name: 'California', code: 'CA', type: 'state', isActive: true, hasRegionalIntelligence: false },
+    { id: 'sg-central', countryId: 'sg', name: 'Central Singapore', code: 'SG-01', type: 'region', isActive: true, hasRegionalIntelligence: false }
+  ];
+
+  const cities: City[] = [
+    // Bihar Administrative Districts & Economic Hubs
+    { id: 'in-br-patna', countryId: 'in', regionId: 'in-bihar', name: 'Patna', isDistrict: true, districtCode: 'PAT', tier: 'tier2', populationEstimated: 2480000, primaryEconomicFocus: ['IT & Software Services', 'Public Sector & BELTRON', 'Financial Services', 'Startups'] },
+    { id: 'in-br-muzaffarpur', countryId: 'in', regionId: 'in-bihar', name: 'Muzaffarpur', isDistrict: true, districtCode: 'MUZ', tier: 'tier2', populationEstimated: 950000, primaryEconomicFocus: ['Agro-Processing & Food Tech', 'Logistics & Warehousing', 'Regional Commerce'] },
+    { id: 'in-br-gaya', countryId: 'in', regionId: 'in-bihar', name: 'Gaya', isDistrict: true, districtCode: 'GAY', tier: 'tier2', populationEstimated: 850000, primaryEconomicFocus: ['Renewable & Solar Energy', 'Tourism Tech', 'Logistics Corridor'] },
+    { id: 'in-br-bhagalpur', countryId: 'in', regionId: 'in-bihar', name: 'Bhagalpur', isDistrict: true, districtCode: 'BHA', tier: 'tier3', populationEstimated: 750000, primaryEconomicFocus: ['Smart Silk & Textiles', 'Embedded Systems', 'Regional Software Services'] },
+    { id: 'in-br-darbhanga', countryId: 'in', regionId: 'in-bihar', name: 'Darbhanga', isDistrict: true, districtCode: 'DAR', tier: 'tier3', populationEstimated: 680000, primaryEconomicFocus: ['Software Engineering', 'Aviation Logistics', 'Healthcare Informatics'] },
+    { id: 'in-br-nalanda', countryId: 'in', regionId: 'in-bihar', name: 'Nalanda (Rajgir)', isDistrict: true, districtCode: 'NAL', tier: 'tier3', populationEstimated: 520000, primaryEconomicFocus: ['Higher Education & Research', 'Electronics Manufacturing Clusters', 'Eco-Tourism'] },
+    { id: 'in-br-begusarai', countryId: 'in', regionId: 'in-bihar', name: 'Begusarai', isDistrict: true, districtCode: 'BEG', tier: 'tier3', populationEstimated: 610000, primaryEconomicFocus: ['Industrial Automation', 'Petrochemical Processing', 'Power Engineering'] },
+    { id: 'in-br-purnia', countryId: 'in', regionId: 'in-bihar', name: 'Purnia', isDistrict: true, districtCode: 'PUR', tier: 'tier3', populationEstimated: 540000, primaryEconomicFocus: ['Agri-Logistics & Jute Tech', 'Rural Financial Tech', 'Cross-Border Trade Services'] },
+
+    // National Destination Tech Hubs
+    { id: 'in-ka-bengaluru', countryId: 'in', regionId: 'in-karnataka', name: 'Bengaluru', isDistrict: true, districtCode: 'BLR', tier: 'tier1', populationEstimated: 12000000, primaryEconomicFocus: ['Cloud & Enterprise Software', 'AI & Machine Learning', 'Global Capability Centers (GCC)'] },
+    { id: 'in-dl-noida', countryId: 'in', regionId: 'in-delhi', name: 'Noida / Delhi-NCR', isDistrict: true, districtCode: 'NOI', tier: 'tier1', populationEstimated: 8500000, primaryEconomicFocus: ['FinTech', 'E-Commerce Platforms', 'IT Services'] },
+    { id: 'in-mh-pune', countryId: 'in', regionId: 'in-maharashtra', name: 'Pune', isDistrict: true, districtCode: 'PUN', tier: 'tier1', populationEstimated: 7200000, primaryEconomicFocus: ['Automotive IT & Embedded', 'Enterprise Java', 'Cloud Infrastructure'] },
+
+    // Global Hubs
+    { id: 'us-ca-sf', countryId: 'us', regionId: 'us-ca', name: 'San Francisco', isDistrict: false, tier: 'tier1', populationEstimated: 870000, primaryEconomicFocus: ['Artificial Intelligence', 'Venture Capital', 'Cloud Architecture'] },
+    { id: 'sg-central-sg', countryId: 'sg', regionId: 'sg-central', name: 'Singapore', isDistrict: false, tier: 'tier1', populationEstimated: 5900000, primaryEconomicFocus: ['Global FinTech', 'BioTech', 'Southeast Asian Tech Hub'] }
+  ];
+
+  // ----------------------------------------------------
+  // GLOBAL INDUSTRY & JOB ROLE TAXONOMY
+  // ----------------------------------------------------
+  const industries: Industry[] = [
+    { id: 'it_software', code: 'IT-SW', name: 'Information Technology & Software', description: 'Web, cloud, enterprise systems, mobile applications, and software testing services.', globalGrowthRate: 15.8, icon: 'Laptop' },
+    { id: 'agro_tech', code: 'AGRO', name: 'Agro-Tech & Sustainable Food Processing', description: 'Precision agriculture, automated cold-chains, crop monitoring systems, and food processing lines.', globalGrowthRate: 12.4, icon: 'Sprout' },
+    { id: 'logistics', code: 'LOG', name: 'Logistics & Supply Chain Intelligence', description: 'Automated warehouse management, fleet telemetry, express parcel networks, and inventory routing.', globalGrowthRate: 18.2, icon: 'Truck' },
+    { id: 'renewable_energy', code: 'RE-SOL', name: 'Renewable & Solar Energy', description: 'Photovoltaic microgrid engineering, battery storage telemetry, and rural solar installation.', globalGrowthRate: 24.5, icon: 'Sun' },
+    { id: 'healthcare', code: 'HLTH', name: 'Healthcare & Paramedical Technology', description: 'Hospital management systems, diagnostic devices, electronic health records, and clinical services.', globalGrowthRate: 16.1, icon: 'HeartPulse' },
+    { id: 'fintech', code: 'FIN', name: 'Financial Services & Digital Payments', description: 'Core banking systems, UPI micro-payment rails, digital micro-lending, and risk analytics.', globalGrowthRate: 19.4, icon: 'CreditCard' }
+  ];
+
+  const skill_categories: SkillCategoryEntity[] = [
+    { id: 'cat_prog', name: 'Programming Languages', description: 'Core computational syntax, typing, and standard libraries.' },
+    { id: 'cat_web', name: 'Web Architecture & Frameworks', description: 'Modern client-server frameworks, Next.js, APIs, and responsive design.' },
+    { id: 'cat_data', name: 'Databases & Big Data', description: 'Relational SQL engines, NoSQL stores, indexing, and data pipelines.' },
+    { id: 'cat_cloud', name: 'Cloud & Infrastructure', description: 'Containerization, Kubernetes, CI/CD, and hyperscaler primitives.' },
+    { id: 'cat_ai', name: 'AI & Data Science', description: 'Statistical modeling, NLP, computer vision, and neural network engineering.' },
+    { id: 'cat_domain', name: 'Domain Operations & Logistics', description: 'SCM workflows, agro-telemetry, and industrial automation standards.' }
+  ];
+
+  const job_roles: JobRole[] = [
+    {
+      id: 'jr-fullstack-dev',
+      title: 'Full Stack Web Developer',
+      industryId: 'it_software',
+      category: 'Software Engineering',
+      description: 'Designs and builds modern full-stack web applications with React, Next.js, Node.js, and relational databases.',
+      careerLevel: 'Entry',
+      standardRequiredSkills: [
+        { skillId: 'sk_react', skillName: 'React', minLevel: 'Intermediate', isRequired: true },
+        { skillId: 'sk_js', skillName: 'JavaScript', minLevel: 'Intermediate', isRequired: true },
+        { skillId: 'sk_sql', skillName: 'SQL', minLevel: 'Intermediate', isRequired: true },
+        { skillId: 'sk_dsa', skillName: 'DSA', minLevel: 'Beginner', isRequired: false }
+      ],
+      standardSalaryBandGlobal: { minUsd: 12000, maxUsd: 65000 }
+    },
+    {
+      id: 'jr-data-analyst',
+      title: 'Data Analyst & BI Specialist',
+      industryId: 'it_software',
+      category: 'Data Analytics',
+      description: 'Translates raw organizational telemetry into executive dashboards, predictive signals, and automated reports.',
+      careerLevel: 'Entry',
+      standardRequiredSkills: [
+        { skillId: 'sk_sql', skillName: 'SQL', minLevel: 'Intermediate', isRequired: true },
+        { skillId: 'sk_python', skillName: 'Python', minLevel: 'Intermediate', isRequired: true }
+      ],
+      standardSalaryBandGlobal: { minUsd: 10000, maxUsd: 55000 }
+    },
+    {
+      id: 'jr-cloud-devops',
+      title: 'Cloud & DevOps Associate',
+      industryId: 'it_software',
+      category: 'Infrastructure',
+      description: 'Maintains deployment pipelines, Docker container runtimes, Kubernetes clusters, and cloud infrastructure security.',
+      careerLevel: 'Entry',
+      standardRequiredSkills: [
+        { skillId: 'sk_python', skillName: 'Python', minLevel: 'Intermediate', isRequired: true },
+        { skillId: 'sk_sql', skillName: 'SQL', minLevel: 'Beginner', isRequired: false }
+      ],
+      standardSalaryBandGlobal: { minUsd: 14000, maxUsd: 75000 }
+    },
+    {
+      id: 'jr-agritech-specialist',
+      title: 'AgriTech Automation Specialist',
+      industryId: 'agro_tech',
+      category: 'Agricultural Tech',
+      description: 'Operates automated sensor networks, soil nutrient diagnostics, and inventory management for food processing chains.',
+      careerLevel: 'Entry',
+      standardRequiredSkills: [
+        { skillId: 'sk_python', skillName: 'Python', minLevel: 'Beginner', isRequired: true },
+        { skillId: 'sk_sql', skillName: 'SQL', minLevel: 'Beginner', isRequired: true }
+      ],
+      standardSalaryBandGlobal: { minUsd: 6000, maxUsd: 28000 }
+    },
+    {
+      id: 'jr-logistics-coordinator',
+      title: 'Fleet & Supply Chain Coordinator',
+      industryId: 'logistics',
+      category: 'Operations',
+      description: 'Manages multi-district transport routing, warehouse sorting workflows, and live consignment GPS tracking.',
+      careerLevel: 'Entry',
+      standardRequiredSkills: [
+        { skillId: 'sk_sql', skillName: 'SQL', minLevel: 'Beginner', isRequired: true }
+      ],
+      standardSalaryBandGlobal: { minUsd: 5500, maxUsd: 24000 }
+    }
+  ];
+
+  // ----------------------------------------------------
+  // REGIONAL INTELLIGENCE FRAMEWORK: BIHAR IMPLEMENTATION
+  // ----------------------------------------------------
+  const regional_profiles: RegionalProfile[] = [
+    {
+      id: 'reg-prof-bihar',
+      countryId: 'in',
+      regionId: 'in-bihar',
+      regionName: 'Bihar',
+      tagline: "India's Emerging Human Capital & Tech Frontier",
+      overview: "Bihar is transitioning into a high-potential digital workforce hub. Backed by the Bihar Skill Development Mission (BSDM), STPI Patna IT parks, and an expanding network of Kushal Yuva Program (KYP) centers across all 38 districts, the state connects over 500,000 graduates annually to local MSMEs, state electronics initiatives (BELTRON), and national tier-1 tech migration corridors.",
+      primaryLanguage: 'hi',
+      supportedLanguages: [
+        { code: 'en', label: 'English', nativeLabel: 'English' },
+        { code: 'hi', label: 'Hindi', nativeLabel: 'हिन्दी' },
+        { code: 'bho', label: 'Bhojpuri', nativeLabel: 'भोजपुरी' },
+        { code: 'mai', label: 'Maithili', nativeLabel: 'मैथिली' }
+      ],
+      districts: [
+        { id: 'in-br-patna', name: 'Patna', tier: 'tier2', economicHub: 'IT/ITeS, BELTRON & Software Technology Parks', keyIndustries: ['IT & Software Services', 'Public Sector IT', 'Financial Tech', 'Startups'], itParksOrSezCount: 3, leadTrainingHub: 'STPI Patna / C-DAC / NIT Patna' },
+        { id: 'in-br-muzaffarpur', name: 'Muzaffarpur', tier: 'tier2', economicHub: 'North Bihar Logistics & Agro-Tech Corridors', keyIndustries: ['Agro-Processing & Food Tech', 'Cold-Chain Logistics', 'E-Commerce Dispatch'], itParksOrSezCount: 1, leadTrainingHub: 'MIT Muzaffarpur' },
+        { id: 'in-br-gaya', name: 'Gaya', tier: 'tier2', economicHub: 'Renewable Energy & Services Gateway', keyIndustries: ['Solar Microgrid Engineering', 'Tourism Tech', 'Logistics'], itParksOrSezCount: 1, leadTrainingHub: 'Gaya College of Engineering' },
+        { id: 'in-br-bhagalpur', name: 'Bhagalpur', tier: 'tier3', economicHub: 'Silk Cluster, Embedded Systems & Regional IT', keyIndustries: ['Smart Textiles', 'Embedded IoT', 'Regional IT Services'], itParksOrSezCount: 1, leadTrainingHub: 'BCE Bhagalpur / IIIT Bhagalpur' },
+        { id: 'in-br-darbhanga', name: 'Darbhanga', tier: 'tier3', economicHub: 'Aviation Logistics & Mithila Software Corridor', keyIndustries: ['Software Engineering', 'Airport Logistics', 'Health Informatics'], itParksOrSezCount: 1, leadTrainingHub: 'Darbhanga College of Engineering' },
+        { id: 'in-br-nalanda', name: 'Nalanda (Rajgir)', tier: 'tier3', economicHub: 'Education, Electronics & Tourism Hub', keyIndustries: ['Higher Education', 'Electronics Assembly', 'Eco-Tourism'], itParksOrSezCount: 1, leadTrainingHub: 'Nalanda College of Engineering' },
+        { id: 'in-br-begusarai', name: 'Begusarai', tier: 'tier3', economicHub: 'Industrial Automation & Petrochemical Processing', keyIndustries: ['Industrial Automation', 'Petrochemical Processing', 'Power Tech'], itParksOrSezCount: 0, leadTrainingHub: 'Government Polytechnic Begusarai' },
+        { id: 'in-br-purnia', name: 'Purnia', tier: 'tier3', economicHub: 'Northeast Bihar Agri-Logistics & Digital Services', keyIndustries: ['Agri-Logistics', 'Rural Fintech', 'Cross-Border Supply Chain'], itParksOrSezCount: 0, leadTrainingHub: 'Government Engineering College Purnia' }
+      ],
+      publicSchemes: [
+        {
+          id: 'scheme_bsdm',
+          name: 'Bihar Skill Development Mission (BSDM)',
+          code: 'BSDM',
+          authority: 'Labour Resources Dept, Govt. of Bihar',
+          description: 'Official state mission providing accredited NSQF-aligned modular training across 20+ priority economic sectors with government certification.',
+          benefits: 'Free government-funded skill verification, ₹1,000 monthly stipend during training, and direct campus placement drives.',
+          portalUrl: 'https://skillmissionbihar.org',
+          targetAudience: 'Youth aged 15-28 seeking industry qualification',
+          eligibility: 'Resident of Bihar, minimum 10th or 12th standard pass'
+        },
+        {
+          id: 'scheme_kyp',
+          name: 'Kushal Yuva Program (KYP)',
+          code: 'KYP',
+          authority: 'Bihar Skill Development Mission',
+          description: 'Comprehensive 240-hour foundational training curriculum covering IT Literacy (MS Office, Google Workspace, internet security), English language communication, and soft skills.',
+          benefits: 'Guaranteed 240 hours certified digital training, verified KYP Skill Badge on Skill2Hire, and preferential interview scheduling.',
+          portalUrl: 'https://skillmissionbihar.org/kushal-yuva-program',
+          targetAudience: 'Undergraduates & first-time job seekers',
+          eligibility: 'Aged 15-28, minimum 10th pass under Mukhyamantri Nishchay Swayam Sahayata Bhatta Yojana'
+        },
+        {
+          id: 'scheme_startup_bihar',
+          name: 'Bihar Startup Policy 2022/2026',
+          code: 'STARTUP_POLICY',
+          authority: 'Department of Industries, Govt. of Bihar',
+          description: 'Incubation, seed grant support, and co-working facilities for technology innovators and entrepreneurs launching ventures in Bihar.',
+          benefits: 'Up to ₹10 Lakhs 10-year interest-free seed grant, free co-working at STPI Patna incubation facility, and investor matching.',
+          portalUrl: 'https://startup.bihar.gov.in',
+          targetAudience: 'Engineering graduates, student founders, and tech innovators',
+          eligibility: 'Registered entity with innovative tech product based in Bihar'
+        },
+        {
+          id: 'scheme_udyami_yojana',
+          name: 'Mukhyamantri Yuva Udyami Yojana',
+          code: 'UDYAMI_YOJANA',
+          authority: 'Industries Department, Bihar',
+          description: 'Flagship enterprise creation initiative empowering educated youth to set up micro-enterprises, software service agencies, or small manufacturing units.',
+          benefits: '₹10 Lakhs total capital support: ₹5 Lakh grant subsidy + ₹5 Lakh low-interest loan (1% interest for young men, 0% for women/SC/ST).',
+          portalUrl: 'https://udyami.bihar.gov.in',
+          targetAudience: 'Youth aged 18-50 establishing regional commercial ventures',
+          eligibility: '10+2, Intermediate, ITI, Polytechnic diploma or degree holder'
+        }
+      ],
+      migrationCorridors: [
+        {
+          id: 'corr-pat-blr',
+          sourceRegion: 'Bihar (Patna)',
+          destinationRegion: 'Karnataka',
+          destinationCity: 'Bengaluru',
+          popularRoles: ['Full Stack Web Developer', 'Backend Microservices Engineer', 'Cloud Infrastructure Associate'],
+          averageSalaryMultiplier: 2.8,
+          readinessGapAverage: 22,
+          topRequiredBridgeSkills: ['System Design & Microservices', 'Docker & Containerization', 'Cloud (AWS/GCP) Architecture'],
+          description: 'Primary high-mobility tech migration corridor. High demand for React, Python, and Java developers transitioning from regional colleges into Bengaluru software teams and MNC GCCs.'
+        },
+        {
+          id: 'corr-pat-noida',
+          sourceRegion: 'Bihar (Patna)',
+          destinationRegion: 'Delhi-NCR',
+          destinationCity: 'Noida / Gurgaon',
+          popularRoles: ['Full Stack Web Developer', 'Data Analyst', 'FinTech QA Engineer'],
+          averageSalaryMultiplier: 2.2,
+          readinessGapAverage: 18,
+          topRequiredBridgeSkills: ['Next.js App Router', 'RESTful API Security', 'SQL Complex Query Optimization'],
+          description: 'Largest northern migration corridor. High absorption into FinTech startups, enterprise SaaS companies, and digital marketing tech agencies in NCR.'
+        },
+        {
+          id: 'corr-pat-pune',
+          sourceRegion: 'Bihar (Patna)',
+          destinationRegion: 'Maharashtra',
+          destinationCity: 'Pune',
+          popularRoles: ['Java Enterprise Developer', 'Automotive IT Engineer', 'DevOps Associate'],
+          averageSalaryMultiplier: 2.1,
+          readinessGapAverage: 20,
+          topRequiredBridgeSkills: ['Spring Boot & JVM Concurrency', 'Linux Shell Automation', 'CI/CD Pipelines'],
+          description: 'Key industrial and product engineering corridor with strong placement ties to manufacturing IT and telecom engineering firms.'
+        },
+        {
+          id: 'corr-pat-local',
+          sourceRegion: 'Bihar (Districts)',
+          destinationRegion: 'Bihar',
+          destinationCity: 'Patna Hub',
+          popularRoles: ['BELTRON IT Executive', 'Regional Software Developer', 'Healthcare Systems Admin'],
+          averageSalaryMultiplier: 1.4,
+          readinessGapAverage: 12,
+          topRequiredBridgeSkills: ['SQL Database Management', 'Web Fundamentals (HTML/CSS/JS)', 'Cybersecurity Hygiene'],
+          description: 'In-state economic retention pathway providing sustainable local employment with low cost of living, Beltron government digitizations, and STPI incubation ventures.'
+        }
+      ],
+      createdAt: '2026-01-01T00:00:00Z',
+      updatedAt: '2026-09-22T00:00:00Z'
+    }
+  ];
+
+  const regional_intelligence: RegionalIntelligenceRecord[] = [
+    // PATNA DISTRICT
+    {
+      id: 'reg_int_pat_react',
+      countryId: 'in',
+      regionId: 'in-bihar',
+      cityOrDistrictId: 'in-br-patna',
+      districtName: 'Patna',
+      industryId: 'it_software',
+      industryName: 'Information Technology & Software',
+      jobRoleId: 'jr-fullstack-dev',
+      jobRoleTitle: 'Full Stack Web Developer',
+      skillId: 'sk_react',
+      skillName: 'React',
+      demand: {
+        index: 88,
+        activeVacancies: 340,
+        yoyGrowthRate: 31,
+        urgency: 'Critical',
+        topLocalEmployers: ['STPI Incubated Startups', 'BELTRON IT Partners', 'Patna Smart City SPV', 'TechNova Solutions']
+      },
+      supply: {
+        registeredTalentCount: 620,
+        placementReadyCount: 195,
+        inTrainingCount: 280,
+        readinessAverage: 62
+      },
+      trainingCapacity: {
+        activeTrainingCentersCount: 14,
+        annualSeatCapacity: 750,
+        topTrainingInstitutions: ['C-DAC Patna', 'NIT Patna Extension', 'BSDM Digital Hub Patna'],
+        bsdmCertifiedCenters: 6
+      },
+      employmentOutcomes: {
+        historicalPlacementRate: 78,
+        averageStartingSalaryMonthly: '₹32,000 - ₹48,000',
+        retentionRate6Months: 84
+      },
+      dataSource: 'Bihar Skill Development Mission (BSDM) & Beltron Tech Panel 2026',
+      dataPeriod: '2026-Q1',
+      verificationStatus: 'official_verified',
+      createdAt: '2026-01-15T00:00:00Z',
+      updatedAt: '2026-09-22T00:00:00Z'
+    },
+    {
+      id: 'reg_int_pat_python',
+      countryId: 'in',
+      regionId: 'in-bihar',
+      cityOrDistrictId: 'in-br-patna',
+      districtName: 'Patna',
+      industryId: 'it_software',
+      industryName: 'Information Technology & Software',
+      jobRoleId: 'jr-data-analyst',
+      jobRoleTitle: 'Data Analyst & BI Specialist',
+      skillId: 'sk_python',
+      skillName: 'Python',
+      demand: {
+        index: 82,
+        activeVacancies: 260,
+        yoyGrowthRate: 28,
+        urgency: 'High',
+        topLocalEmployers: ['DataSphere Analytics', 'Bihar e-Governance Council', 'State Health Society Bihar']
+      },
+      supply: {
+        registeredTalentCount: 510,
+        placementReadyCount: 160,
+        inTrainingCount: 220,
+        readinessAverage: 58
+      },
+      trainingCapacity: {
+        activeTrainingCentersCount: 11,
+        annualSeatCapacity: 600,
+        topTrainingInstitutions: ['Aryabhatta Knowledge University', 'C-DAC Patna', 'BSDM IT Center'],
+        bsdmCertifiedCenters: 4
+      },
+      employmentOutcomes: {
+        historicalPlacementRate: 72,
+        averageStartingSalaryMonthly: '₹28,000 - ₹44,000',
+        retentionRate6Months: 81
+      },
+      dataSource: 'Department of Industries - Govt of Bihar Telemetry',
+      dataPeriod: '2026-Q1',
+      verificationStatus: 'official_verified',
+      createdAt: '2026-01-15T00:00:00Z',
+      updatedAt: '2026-09-22T00:00:00Z'
+    },
+    {
+      id: 'reg_int_pat_sql',
+      countryId: 'in',
+      regionId: 'in-bihar',
+      cityOrDistrictId: 'in-br-patna',
+      districtName: 'Patna',
+      industryId: 'it_software',
+      industryName: 'Information Technology & Software',
+      jobRoleId: 'jr-data-analyst',
+      jobRoleTitle: 'Data Analyst & BI Specialist',
+      skillId: 'sk_sql',
+      skillName: 'SQL',
+      demand: {
+        index: 91,
+        activeVacancies: 410,
+        yoyGrowthRate: 24,
+        urgency: 'Critical',
+        topLocalEmployers: ['BELTRON Bihar', 'Bihar State Financial Corp', 'FinEdge Regional Hub']
+      },
+      supply: {
+        registeredTalentCount: 780,
+        placementReadyCount: 310,
+        inTrainingCount: 340,
+        readinessAverage: 67
+      },
+      trainingCapacity: {
+        activeTrainingCentersCount: 18,
+        annualSeatCapacity: 920,
+        topTrainingInstitutions: ['Patna Science College IT Wing', 'KYP Central Patna', 'NIELIT Patna'],
+        bsdmCertifiedCenters: 8
+      },
+      employmentOutcomes: {
+        historicalPlacementRate: 82,
+        averageStartingSalaryMonthly: '₹26,000 - ₹38,000',
+        retentionRate6Months: 89
+      },
+      dataSource: 'National Skill Development Corporation (NSDC) Bihar Chapter',
+      dataPeriod: '2026-Q1',
+      verificationStatus: 'official_verified',
+      createdAt: '2026-01-15T00:00:00Z',
+      updatedAt: '2026-09-22T00:00:00Z'
+    },
+
+    // MUZAFFARPUR DISTRICT
+    {
+      id: 'reg_int_muz_sql',
+      countryId: 'in',
+      regionId: 'in-bihar',
+      cityOrDistrictId: 'in-br-muzaffarpur',
+      districtName: 'Muzaffarpur',
+      industryId: 'logistics',
+      industryName: 'Logistics & Supply Chain Intelligence',
+      jobRoleId: 'jr-logistics-coordinator',
+      jobRoleTitle: 'Fleet & Supply Chain Coordinator',
+      skillId: 'sk_sql',
+      skillName: 'SQL',
+      demand: {
+        index: 76,
+        activeVacancies: 180,
+        yoyGrowthRate: 26,
+        urgency: 'High',
+        topLocalEmployers: ['North Bihar Agri-Logistics', 'Kanti Logistics Hub', 'Express Parcel North Corridors']
+      },
+      supply: {
+        registeredTalentCount: 290,
+        placementReadyCount: 85,
+        inTrainingCount: 140,
+        readinessAverage: 51
+      },
+      trainingCapacity: {
+        activeTrainingCentersCount: 7,
+        annualSeatCapacity: 380,
+        topTrainingInstitutions: ['MIT Muzaffarpur Logistics Cell', 'KYP Muzaffarpur Central', 'Govt Polytechnic Muzaffarpur'],
+        bsdmCertifiedCenters: 3
+      },
+      employmentOutcomes: {
+        historicalPlacementRate: 69,
+        averageStartingSalaryMonthly: '₹22,000 - ₹34,000',
+        retentionRate6Months: 80
+      },
+      dataSource: 'Muzaffarpur Chamber of Commerce & BSDM',
+      dataPeriod: '2026-Q1',
+      verificationStatus: 'official_verified',
+      createdAt: '2026-01-15T00:00:00Z',
+      updatedAt: '2026-09-22T00:00:00Z'
+    },
+    {
+      id: 'reg_int_muz_python',
+      countryId: 'in',
+      regionId: 'in-bihar',
+      cityOrDistrictId: 'in-br-muzaffarpur',
+      districtName: 'Muzaffarpur',
+      industryId: 'agro_tech',
+      industryName: 'Agro-Tech & Sustainable Food Processing',
+      jobRoleId: 'jr-agritech-specialist',
+      jobRoleTitle: 'AgriTech Automation Specialist',
+      skillId: 'sk_python',
+      skillName: 'Python',
+      demand: {
+        index: 71,
+        activeVacancies: 130,
+        yoyGrowthRate: 34,
+        urgency: 'High',
+        topLocalEmployers: ['Muzaffarpur Litchi Agro Processing', 'Tirhut Agri Consortium', 'Rural Smart Farm Services']
+      },
+      supply: {
+        registeredTalentCount: 210,
+        placementReadyCount: 60,
+        inTrainingCount: 95,
+        readinessAverage: 48
+      },
+      trainingCapacity: {
+        activeTrainingCentersCount: 5,
+        annualSeatCapacity: 260,
+        topTrainingInstitutions: ['MIT Muzaffarpur', 'Rajendra Prasad Central Agricultural University Extension'],
+        bsdmCertifiedCenters: 2
+      },
+      employmentOutcomes: {
+        historicalPlacementRate: 64,
+        averageStartingSalaryMonthly: '₹24,000 - ₹36,000',
+        retentionRate6Months: 77
+      },
+      dataSource: 'Bihar Agriculture Modernization Telemetry',
+      dataPeriod: '2026-Q1',
+      verificationStatus: 'official_verified',
+      createdAt: '2026-01-15T00:00:00Z',
+      updatedAt: '2026-09-22T00:00:00Z'
+    },
+
+    // GAYA DISTRICT
+    {
+      id: 'reg_int_gaya_python',
+      countryId: 'in',
+      regionId: 'in-bihar',
+      cityOrDistrictId: 'in-br-gaya',
+      districtName: 'Gaya',
+      industryId: 'renewable_energy',
+      industryName: 'Renewable & Solar Energy',
+      jobRoleId: 'jr-data-analyst',
+      jobRoleTitle: 'Data Analyst & BI Specialist',
+      skillId: 'sk_python',
+      skillName: 'Python',
+      demand: {
+        index: 79,
+        activeVacancies: 155,
+        yoyGrowthRate: 38,
+        urgency: 'High',
+        topLocalEmployers: ['BREDA (Bihar Renewable Energy Dev Agency)', 'Gaya Solar Park Operators', 'GreenGrid Solutions']
+      },
+      supply: {
+        registeredTalentCount: 240,
+        placementReadyCount: 75,
+        inTrainingCount: 110,
+        readinessAverage: 54
+      },
+      trainingCapacity: {
+        activeTrainingCentersCount: 6,
+        annualSeatCapacity: 320,
+        topTrainingInstitutions: ['Gaya College of Engineering', 'Govt ITI Gaya', 'BSDM Solar Center'],
+        bsdmCertifiedCenters: 3
+      },
+      employmentOutcomes: {
+        historicalPlacementRate: 74,
+        averageStartingSalaryMonthly: '₹25,000 - ₹38,000',
+        retentionRate6Months: 86
+      },
+      dataSource: 'Bihar Renewable Energy Development Agency (BREDA)',
+      dataPeriod: '2026-Q1',
+      verificationStatus: 'official_verified',
+      createdAt: '2026-01-15T00:00:00Z',
+      updatedAt: '2026-09-22T00:00:00Z'
+    },
+
+    // BHAGALPUR DISTRICT
+    {
+      id: 'reg_int_bha_cpp',
+      countryId: 'in',
+      regionId: 'in-bihar',
+      cityOrDistrictId: 'in-br-bhagalpur',
+      districtName: 'Bhagalpur',
+      industryId: 'it_software',
+      industryName: 'Information Technology & Software',
+      jobRoleId: 'jr-fullstack-dev',
+      jobRoleTitle: 'Full Stack Web Developer',
+      skillId: 'sk_cpp',
+      skillName: 'C++',
+      demand: {
+        index: 73,
+        activeVacancies: 125,
+        yoyGrowthRate: 19,
+        urgency: 'Medium',
+        topLocalEmployers: ['Silk City Embedded Systems', 'IIIT Bhagalpur Incubatees', 'Regional Telecom Services']
+      },
+      supply: {
+        registeredTalentCount: 260,
+        placementReadyCount: 90,
+        inTrainingCount: 115,
+        readinessAverage: 57
+      },
+      trainingCapacity: {
+        activeTrainingCentersCount: 6,
+        annualSeatCapacity: 340,
+        topTrainingInstitutions: ['BCE Bhagalpur', 'IIIT Bhagalpur', 'Govt Polytechnic Bhagalpur'],
+        bsdmCertifiedCenters: 2
+      },
+      employmentOutcomes: {
+        historicalPlacementRate: 71,
+        averageStartingSalaryMonthly: '₹26,000 - ₹40,000',
+        retentionRate6Months: 82
+      },
+      dataSource: 'IIIT Bhagalpur Placement & Regional MSME Survey',
+      dataPeriod: '2026-Q1',
+      verificationStatus: 'official_verified',
+      createdAt: '2026-01-15T00:00:00Z',
+      updatedAt: '2026-09-22T00:00:00Z'
+    },
+
+    // DARBHANGA DISTRICT
+    {
+      id: 'reg_int_dar_react',
+      countryId: 'in',
+      regionId: 'in-bihar',
+      cityOrDistrictId: 'in-br-darbhanga',
+      districtName: 'Darbhanga',
+      industryId: 'it_software',
+      industryName: 'Information Technology & Software',
+      jobRoleId: 'jr-fullstack-dev',
+      jobRoleTitle: 'Full Stack Web Developer',
+      skillId: 'sk_react',
+      skillName: 'React',
+      demand: {
+        index: 77,
+        activeVacancies: 165,
+        yoyGrowthRate: 29,
+        urgency: 'High',
+        topLocalEmployers: ['Mithila Tech Solutions', 'Darbhanga Airport Logistics Hub', 'Regional IT Services']
+      },
+      supply: {
+        registeredTalentCount: 275,
+        placementReadyCount: 88,
+        inTrainingCount: 130,
+        readinessAverage: 53
+      },
+      trainingCapacity: {
+        activeTrainingCentersCount: 6,
+        annualSeatCapacity: 330,
+        topTrainingInstitutions: ['Darbhanga College of Engineering', 'LN Mithila University Computer Dept', 'KYP Darbhanga'],
+        bsdmCertifiedCenters: 3
+      },
+      employmentOutcomes: {
+        historicalPlacementRate: 68,
+        averageStartingSalaryMonthly: '₹24,000 - ₹38,000',
+        retentionRate6Months: 79
+      },
+      dataSource: 'Darbhanga District Skill Committee 2026',
+      dataPeriod: '2026-Q1',
+      verificationStatus: 'official_verified',
+      createdAt: '2026-01-15T00:00:00Z',
+      updatedAt: '2026-09-22T00:00:00Z'
+    }
+  ];
+
+  const employment_outcomes: EmploymentOutcome[] = [
+    {
+      id: 'emp_out_1',
+      candidateId: 'u_student_1',
+      candidateName: 'Alex Rivera',
+      employerId: 'u_comp_1',
+      employerName: 'TechNova Solutions',
+      jobId: 'job_1',
+      roleTitle: 'Full Stack Web Developer',
+      industryId: 'it_software',
+      countryId: 'in',
+      regionId: 'in-bihar',
+      cityOrDistrictId: 'in-br-patna',
+      placementType: 'Local',
+      startingSalaryAnnual: 480000,
+      currency: 'INR',
+      hiredDate: '2026-01-20T00:00:00Z',
+      retentionMonths: 8,
+      verificationStatus: 'verified'
+    },
+    {
+      id: 'emp_out_2',
+      candidateId: 'u_student_2',
+      candidateName: 'Priya Sharma',
+      employerId: 'u_comp_3',
+      employerName: 'DataSphere Analytics',
+      jobId: 'job_3',
+      roleTitle: 'Data Analyst & BI Specialist',
+      industryId: 'it_software',
+      countryId: 'in',
+      regionId: 'in-bihar',
+      cityOrDistrictId: 'in-br-patna',
+      placementType: 'Domestic Migration',
+      startingSalaryAnnual: 750000,
+      currency: 'INR',
+      hiredDate: '2026-02-14T00:00:00Z',
+      retentionMonths: 7,
+      verificationStatus: 'verified'
+    }
+  ];
+
   return {
     users,
     students,
@@ -2052,6 +2703,19 @@ print(f"Alex Readiness: {alex.get_readiness_score()}%")`,
     project_recommendations,
     cohort_groups,
     academic_reports: [],
-    otps: []
+    otps: [],
+
+    // Global Geography & Taxonomy
+    countries,
+    regions,
+    cities,
+    industries,
+    skill_categories,
+    job_roles,
+    employment_outcomes,
+
+    // Regional Intelligence Framework
+    regional_profiles,
+    regional_intelligence
   };
 }

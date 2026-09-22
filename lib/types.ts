@@ -101,6 +101,12 @@ export interface Student {
   graduationYear: number;
   cgpa: number;
   location: string;
+  countryId?: string;
+  regionId?: string;
+  cityId?: string;
+  districtId?: string;
+  willingToRelocate?: boolean;
+  preferredMigrationDestinations?: string[];
   bio?: string;
   resumeUrl?: string;
   resumeText?: string;
@@ -116,6 +122,12 @@ export interface College {
   email: string;
   phone: string;
   location: string;
+  countryId?: string;
+  regionId?: string;
+  cityId?: string;
+  districtId?: string;
+  providerType?: 'university' | 'engineering_college' | 'vocational_center' | 'polytechnic' | 'skill_mission';
+  accreditedBy?: string[];
   website: string;
   establishedYear: number;
   totalStudents: number;
@@ -129,7 +141,13 @@ export interface Company {
   userId: string;
   name: string;
   industry: string;
+  industryId?: string;
   location: string;
+  countryId?: string;
+  regionId?: string;
+  cityId?: string;
+  isLocalMsme?: boolean;
+  isMnc?: boolean;
   website: string;
   phone?: string;
   size: string;
@@ -137,6 +155,12 @@ export interface Company {
   logo?: string;
   verified: boolean;
 }
+
+// Global Entity Aliases for Universal Reusability
+export type Candidate = Student;
+export type TrainingProvider = College;
+export type Employer = Company;
+export type Competency = VerifiedSkill;
 
 export type SkillLevel = 'Beginner' | 'Intermediate' | 'Advanced' | 'Expert';
 export type SkillDemandLevel = 'Low' | 'Medium' | 'High' | 'Very High';
@@ -791,5 +815,233 @@ export interface CurriculumGapResult {
   gapStatus: 'Critical Gap' | 'Moderate Gap' | 'Aligned' | 'Curriculum Leading';
   recommendation: string;
   suggestedAction: string;
+}
+
+// ==========================================
+// GLOBAL-FIRST GEOGRAPHY & TAXONOMY ENTITIES
+// ==========================================
+
+export interface Country {
+  id: string; // e.g. 'in', 'us', 'sg', 'de', 'gb'
+  code: string; // ISO-3 'IND', 'USA', etc.
+  name: string;
+  currency: string;
+  currencySymbol: string;
+  flagEmoji: string;
+  continent: string;
+}
+
+export interface Region {
+  id: string; // e.g. 'in-bihar', 'in-karnataka', 'us-ca', 'sg-central'
+  countryId: string;
+  name: string;
+  code: string; // 'BR', 'KA', 'CA', etc.
+  type: 'state' | 'province' | 'region' | 'territory';
+  isActive: boolean;
+  hasRegionalIntelligence: boolean;
+}
+
+export interface City {
+  id: string; // e.g. 'in-br-patna', 'in-br-muzaffarpur', 'in-ka-bengaluru'
+  countryId: string;
+  regionId: string;
+  name: string;
+  isDistrict: boolean;
+  districtCode?: string;
+  tier: 'tier1' | 'tier2' | 'tier3' | 'rural';
+  populationEstimated?: number;
+  primaryEconomicFocus?: string[];
+}
+
+export interface Industry {
+  id: string; // e.g. 'it_software', 'agro_tech', 'logistics', 'renewable_energy', 'healthcare', 'fintech'
+  code: string;
+  name: string;
+  description: string;
+  globalGrowthRate: number; // percentage, e.g. 15.4
+  icon?: string;
+}
+
+export interface SkillCategoryEntity {
+  id: string;
+  name: string;
+  description: string;
+  icon?: string;
+}
+
+export interface JobRole {
+  id: string; // e.g. 'jr-fullstack-dev', 'jr-data-analyst'
+  title: string;
+  industryId: string;
+  category: string;
+  description: string;
+  careerLevel: 'Entry' | 'Mid' | 'Senior' | 'Lead';
+  standardRequiredSkills: { skillId: string; skillName: string; minLevel: SkillLevel; isRequired: boolean }[];
+  standardSalaryBandGlobal: { minUsd: number; maxUsd: number };
+}
+
+export interface EmploymentOutcome {
+  id: string;
+  candidateId: string;
+  candidateName: string;
+  employerId: string;
+  employerName: string;
+  jobId: string;
+  roleTitle: string;
+  industryId: string;
+  countryId: string;
+  regionId: string;
+  cityOrDistrictId: string;
+  placementType: 'Local' | 'Domestic Migration' | 'International Migration' | 'Remote';
+  startingSalaryAnnual: number;
+  currency: string;
+  hiredDate: string;
+  retentionMonths?: number;
+  verificationStatus: 'verified' | 'pending' | 'modeled';
+}
+
+// ==========================================
+// REGIONAL INTELLIGENCE LAYER ARCHITECTURE
+// ==========================================
+
+export interface RegionalDistrict {
+  id: string;
+  name: string;
+  tier: 'tier1' | 'tier2' | 'tier3' | 'rural';
+  economicHub: string;
+  keyIndustries: string[];
+  itParksOrSezCount: number;
+  leadTrainingHub?: string;
+}
+
+export interface RegionalPublicScheme {
+  id: string;
+  name: string;
+  code: string; // e.g. 'BSDM', 'KYP'
+  authority: string; // e.g. 'Bihar Skill Development Mission'
+  description: string;
+  benefits: string;
+  portalUrl: string;
+  targetAudience: string;
+  eligibility: string;
+}
+
+export interface RegionalMigrationCorridor {
+  id: string;
+  sourceRegion: string;
+  destinationRegion: string;
+  destinationCity: string;
+  popularRoles: string[];
+  averageSalaryMultiplier: number; // e.g. 2.8x
+  readinessGapAverage: number; // e.g. 24%
+  topRequiredBridgeSkills: string[];
+  description: string;
+}
+
+export interface RegionalProfile {
+  id: string; // e.g. 'reg-prof-bihar'
+  countryId: string; // 'in'
+  regionId: string; // 'in-bihar'
+  regionName: string; // 'Bihar'
+  tagline: string;
+  overview: string;
+  primaryLanguage: string;
+  supportedLanguages: { code: string; label: string; nativeLabel: string }[];
+  districts: RegionalDistrict[];
+  publicSchemes: RegionalPublicScheme[];
+  migrationCorridors: RegionalMigrationCorridor[];
+  createdAt: string;
+  updatedAt: string;
+}
+
+export interface RegionalIntelligenceDemand {
+  index: number; // 0 - 100
+  activeVacancies: number;
+  yoyGrowthRate: number; // e.g. +22%
+  urgency: 'Critical' | 'High' | 'Medium' | 'Emerging';
+  topLocalEmployers: string[];
+}
+
+export interface RegionalIntelligenceSupply {
+  registeredTalentCount: number;
+  placementReadyCount: number;
+  inTrainingCount: number;
+  readinessAverage: number; // 0 - 100
+}
+
+export interface RegionalIntelligenceTrainingCapacity {
+  activeTrainingCentersCount: number;
+  annualSeatCapacity: number;
+  topTrainingInstitutions: string[];
+  bsdmCertifiedCenters?: number;
+}
+
+export interface RegionalIntelligenceEmploymentOutcomes {
+  historicalPlacementRate: number; // e.g. 74%
+  averageStartingSalaryMonthly: string; // e.g. '₹28,000 - ₹42,000'
+  retentionRate6Months: number; // percentage
+}
+
+export interface RegionalIntelligenceRecord {
+  id: string;
+  countryId: string;
+  regionId: string;
+  cityOrDistrictId: string;
+  districtName: string;
+  industryId: string;
+  industryName: string;
+  jobRoleId: string;
+  jobRoleTitle: string;
+  skillId: string;
+  skillName: string;
+  demand: RegionalIntelligenceDemand;
+  supply: RegionalIntelligenceSupply;
+  trainingCapacity: RegionalIntelligenceTrainingCapacity;
+  employmentOutcomes: RegionalIntelligenceEmploymentOutcomes;
+  dataSource: string;
+  dataPeriod: string;
+  verificationStatus: 'official_verified' | 'provisional' | 'modeled';
+  createdAt: string;
+  updatedAt: string;
+}
+
+export interface DistrictSkillGapAnalysis {
+  districtId: string;
+  districtName: string;
+  regionId: string;
+  overallGapIndex: number; // 0 - 100 (higher = worse gap)
+  totalDemandVacancies: number;
+  totalSupplyPool: number;
+  criticalDeficitSkills: {
+    skillName: string;
+    demandIndex: number;
+    supplyCount: number;
+    deficitSeverity: 'Critical Deficit' | 'Moderate Gap' | 'Balanced';
+    localTrainingSeatCapacity: number;
+    recommendedAction: string;
+  }[];
+  localTrainingPartners: string[];
+  governmentInitiativeTieIns: string[];
+}
+
+export interface MigrationPathwayAnalysis {
+  sourceDistrictId: string;
+  sourceDistrictName: string;
+  destinationRegionId: string;
+  destinationRegionName: string;
+  destinationCity: string;
+  targetRole: string;
+  localBaselineSalaryMonthly: string;
+  destinationExpectedSalaryMonthly: string;
+  salaryMultiplier: number;
+  currentReadinessScore: number;
+  destinationReadinessScore: number;
+  transitionGapPercentage: number;
+  bridgeCompetenciesNeeded: {
+    skillName: string;
+    currentLevel: SkillLevel | 'Unverified';
+    requiredLevel: SkillLevel;
+    courseRecommendation: string;
+  }[];
 }
 

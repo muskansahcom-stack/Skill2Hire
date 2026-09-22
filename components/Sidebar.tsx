@@ -8,6 +8,7 @@ import Skill2HireLogo from '@/components/Skill2HireLogo';
 import {
   ShieldCheck,
   LayoutDashboard,
+  Globe,
   Briefcase,
   Zap,
   BookOpen,
@@ -78,6 +79,7 @@ export default function Sidebar({
           title: 'MAIN',
           items: [
             { href: '/student/dashboard', label: 'Dashboard', icon: LayoutDashboard },
+            { href: '/regional', label: 'Regional Intelligence', icon: Globe, badge: 'Global/BR', badgeColor: 'bg-indigo-600' },
             { href: '/jobs', label: 'Jobs', icon: Briefcase, badge: '25+' },
             { href: '/learn', label: 'Learn', icon: BookOpen, badge: 'Skill Hub', badgeColor: 'bg-emerald-600' },
             { href: '/student/become-ready', label: 'Become Job Ready', icon: Zap, badge: 'AI', badgeColor: 'bg-amber-500' },
@@ -121,6 +123,7 @@ export default function Sidebar({
           title: 'MAIN',
           items: [
             { href: '/college/dashboard', label: 'Dashboard', icon: LayoutDashboard },
+            { href: '/regional', label: 'Regional Intelligence', icon: Globe, badge: 'District Data', badgeColor: 'bg-indigo-600' },
             { href: '/college/industry-demand', label: 'Industry Demand', icon: Compass },
             { href: '/college/skill-heatmap', label: 'Skill Heatmap', icon: Flame, badge: 'Live' },
             { href: '/college/curriculum-gap', label: 'Curriculum Gap', icon: Sparkles },
@@ -167,6 +170,7 @@ export default function Sidebar({
           title: 'MAIN',
           items: [
             { href: '/recruiter/dashboard', label: 'Dashboard', icon: LayoutDashboard },
+            { href: '/regional', label: 'Regional Intelligence', icon: Globe, badge: 'Supply Pools', badgeColor: 'bg-indigo-600' },
             { href: '/recruiter/jobs/new', label: 'Create Job', icon: PlusCircle, badge: 'AI' },
             { href: '/jobs', label: 'My Jobs', icon: Briefcase },
           ]
@@ -213,6 +217,7 @@ export default function Sidebar({
           title: 'MANAGEMENT',
           items: [
             { href: '/admin/dashboard', label: 'Dashboard', icon: LayoutDashboard },
+            { href: '/regional', label: 'Regional Intelligence', icon: Globe, badge: 'Multi-Region', badgeColor: 'bg-indigo-600' },
             { href: '/college/students', label: 'Students', icon: Users },
             { href: '/college/dashboard', label: 'Colleges', icon: GraduationCap },
             { href: '/recruiter/dashboard', label: 'Companies', icon: Building2 },

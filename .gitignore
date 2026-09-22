@@ -6,4 +6,6 @@ node_modules/
 *.tsbuildinfo
 *.log
 .vercel
+.netlify
+deno.lock
 portfolio/

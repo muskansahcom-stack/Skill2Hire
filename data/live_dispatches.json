@@ -1,5 +1,16 @@
 [
   {
+    "id": "<b719c1a1-4963-d414-01a5-5b1b3699af24@gmail.com>",
+    "channel": "EMAIL",
+    "destination": "9925008052@klu.ac.in",
+    "subject": "Your Skill2Hire Verification Code: 246100",
+    "otpCode": "246100",
+    "message": "Hello SAALIMIN N 2025-IT, your one-time verification code is 246100. Valid for 5 minutes.",
+    "provider": "Gmail",
+    "status": "DELIVERED",
+    "timestamp": "2026-09-06T08:17:54.584Z"
+  },
+  {
     "id": "<efca12eb-713a-b4d1-ef21-ffbf720f48ce@gmail.com>",
     "channel": "EMAIL",
     "destination": "saalimin21@gmail.com",

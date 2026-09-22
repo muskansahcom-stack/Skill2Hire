@@ -21,10 +21,14 @@ import {
   ArrowRight,
   ShieldCheck,
   Zap,
-  BookOpen
+  BookOpen,
+  Globe,
+  MapPin,
+  Check
 } from 'lucide-react';
 import { UserRole } from '@/lib/types';
 import SecuritySettingsModal from '@/components/SecuritySettingsModal';
+import { useRegion } from '@/context/RegionContext';
 
 interface TopHeaderProps {
   isCollapsed: boolean;
@@ -61,9 +65,21 @@ export default function TopHeader({
   const [isPersonaOpen, setIsPersonaOpen] = useState(false);
   const [isSecurityOpen, setIsSecurityOpen] = useState(false);
 
+  // Region State
+  const {
+    selectedRegion,
+    setRegion,
+    regions,
+    selectedLanguage,
+    setLanguage,
+    isBiharActive
+  } = useRegion();
+  const [isRegionOpen, setIsRegionOpen] = useState(false);
+
   const searchRef = useRef<HTMLDivElement>(null);
   const notifRef = useRef<HTMLDivElement>(null);
   const personaRef = useRef<HTMLDivElement>(null);
+  const regionRef = useRef<HTMLDivElement>(null);
 
   // Fetch notifications
   useEffect(() => {
@@ -86,6 +102,9 @@ export default function TopHeader({
       }
       if (personaRef.current && !personaRef.current.contains(e.target as Node)) {
         setIsPersonaOpen(false);
+      }
+      if (regionRef.current && !regionRef.current.contains(e.target as Node)) {
+        setIsRegionOpen(false);
       }
     };
     document.addEventListener('mousedown', handleClickOutside);
@@ -129,6 +148,12 @@ export default function TopHeader({
       { title: 'Skill-First Candidate Search', category: 'Recruiter', link: '/recruiter/skill-search', role: 'company' },
       { title: 'Campus Talent Funnel', category: 'Recruiter', link: '/recruiter/campus-pipeline', role: 'company' },
       { title: 'Candidate Applications', category: 'Recruiter', link: '/recruiter/applications', role: 'company' },
+
+      // Regional Intelligence & Global Framework
+      { title: 'Regional Skills Intelligence Portal', category: 'Regional', link: '/regional', role: 'all' },
+      { title: 'Bihar District Skill Gap Analytics', category: 'Regional', link: '/regional?tab=districts', role: 'all' },
+      { title: 'Career & Wage Migration Corridors', category: 'Regional', link: '/regional?tab=migration', role: 'all' },
+      { title: 'Government Schemes (BSDM, KYP, Udyami)', category: 'Regional', link: '/regional?tab=schemes', role: 'all' },
     ];
 
     const filtered = searchableItems.filter(item =>
@@ -226,8 +251,187 @@ export default function TopHeader({
         )}
       </div>
 
-      {/* RIGHT CONTROLS: Notifications, Persona Switcher */}
+      {/* RIGHT CONTROLS: Regional Switcher, Notifications, Persona Switcher */}
       <div className="flex items-center gap-2 sm:gap-3">
+        {/* Global / Regional Context Selector */}
+        <div ref={regionRef} className="relative">
+          <button
+            onClick={() => setIsRegionOpen(!isRegionOpen)}
+            className={`flex items-center gap-1.5 px-2.5 sm:px-3 py-1.5 rounded-2xl border transition-all text-xs font-bold ${
+              isBiharActive
+                ? 'bg-amber-500/10 border-amber-300 text-amber-900 hover:bg-amber-500/20'
+                : selectedRegion === 'global'
+                ? 'bg-blue-50 border-blue-200 text-blue-800 hover:bg-blue-100'
+                : 'bg-slate-100 border-slate-200 text-slate-800 hover:bg-slate-200'
+            }`}
+            title="Switch Operating Geographic Context"
+          >
+            {isBiharActive ? (
+              <>
+                <span className="text-sm leading-none">🇮🇳</span>
+                <span className="hidden md:inline font-extrabold text-amber-950">Bihar</span>
+                <span className="text-[10px] px-1.5 py-0.5 rounded-md bg-amber-200 text-amber-900 uppercase font-black tracking-wider hidden sm:inline">
+                  Active Hub
+                </span>
+              </>
+            ) : selectedRegion === 'global' ? (
+              <>
+                <Globe className="w-3.5 h-3.5 text-blue-600" />
+                <span className="hidden md:inline text-blue-900 font-extrabold">Global View</span>
+              </>
+            ) : (
+              <>
+                <MapPin className="w-3.5 h-3.5 text-slate-600" />
+                <span className="hidden md:inline capitalize">{selectedRegion.replace('in-', '').replace('us-', '')}</span>
+              </>
+            )}
+            <ChevronDown className="w-3 h-3 opacity-60 ml-0.5" />
+          </button>
+
+          {isRegionOpen && (
+            <div className="absolute right-0 top-full mt-2 w-80 bg-white rounded-3xl border border-slate-200 shadow-2xl p-3 z-50 space-y-2">
+              <div className="px-2 pt-1 pb-1 border-b border-slate-100 flex items-center justify-between">
+                <div>
+                  <span className="text-[10px] font-black uppercase tracking-wider text-slate-400 block">
+                    Operating Geographic Scope
+                  </span>
+                  <span className="text-xs font-bold text-slate-800">Global-First Multi-Region Architecture</span>
+                </div>
+              </div>
+
+              {/* Regional Options */}
+              <div className="space-y-1">
+                <button
+                  onClick={() => { setRegion('global'); setIsRegionOpen(false); }}
+                  className={`w-full flex items-center justify-between p-2 rounded-xl text-left text-xs transition-colors ${
+                    selectedRegion === 'global'
+                      ? 'bg-blue-50 text-blue-950 font-extrabold border border-blue-200'
+                      : 'hover:bg-slate-50 text-slate-700'
+                  }`}
+                >
+                  <div className="flex items-center gap-2">
+                    <span className="text-base">🌐</span>
+                    <div>
+                      <div className="font-bold">Global View (All Ecosystems)</div>
+                      <div className="text-[10px] text-slate-400">Multi-country aggregate view</div>
+                    </div>
+                  </div>
+                  {selectedRegion === 'global' && <Check className="w-3.5 h-3.5 text-blue-600" />}
+                </button>
+
+                <button
+                  onClick={() => { setRegion('in-bihar'); setIsRegionOpen(false); }}
+                  className={`w-full flex items-center justify-between p-2 rounded-xl text-left text-xs transition-colors ${
+                    selectedRegion === 'in-bihar'
+                      ? 'bg-amber-50 text-amber-950 font-extrabold border border-amber-200'
+                      : 'hover:bg-slate-50 text-slate-700'
+                  }`}
+                >
+                  <div className="flex items-center gap-2">
+                    <span className="text-base">🇮🇳</span>
+                    <div>
+                      <div className="font-bold flex items-center gap-1.5">
+                        <span>India: Bihar</span>
+                        <span className="text-[9px] px-1 rounded bg-amber-200 text-amber-900 font-black">Flagship Hub</span>
+                      </div>
+                      <div className="text-[10px] text-slate-400">8 Economic Districts • BSDM • 4 Corridors</div>
+                    </div>
+                  </div>
+                  {selectedRegion === 'in-bihar' && <Check className="w-3.5 h-3.5 text-amber-600" />}
+                </button>
+
+                <button
+                  onClick={() => { setRegion('in-karnataka'); setIsRegionOpen(false); }}
+                  className={`w-full flex items-center justify-between p-2 rounded-xl text-left text-xs transition-colors ${
+                    selectedRegion === 'in-karnataka'
+                      ? 'bg-slate-100 text-slate-900 font-extrabold'
+                      : 'hover:bg-slate-50 text-slate-700'
+                  }`}
+                >
+                  <div className="flex items-center gap-2">
+                    <span className="text-base">🇮🇳</span>
+                    <div>
+                      <div className="font-bold">India: Karnataka</div>
+                      <div className="text-[10px] text-slate-400">Bengaluru Destination Hub</div>
+                    </div>
+                  </div>
+                  {selectedRegion === 'in-karnataka' && <Check className="w-3.5 h-3.5 text-primary-600" />}
+                </button>
+
+                <button
+                  onClick={() => { setRegion('in-maharashtra'); setIsRegionOpen(false); }}
+                  className={`w-full flex items-center justify-between p-2 rounded-xl text-left text-xs transition-colors ${
+                    selectedRegion === 'in-maharashtra'
+                      ? 'bg-slate-100 text-slate-900 font-extrabold'
+                      : 'hover:bg-slate-50 text-slate-700'
+                  }`}
+                >
+                  <div className="flex items-center gap-2">
+                    <span className="text-base">🇮🇳</span>
+                    <div>
+                      <div className="font-bold">India: Maharashtra</div>
+                      <div className="text-[10px] text-slate-400">Pune / Mumbai Tech Corridors</div>
+                    </div>
+                  </div>
+                  {selectedRegion === 'in-maharashtra' && <Check className="w-3.5 h-3.5 text-primary-600" />}
+                </button>
+
+                <button
+                  onClick={() => { setRegion('us-ca'); setIsRegionOpen(false); }}
+                  className={`w-full flex items-center justify-between p-2 rounded-xl text-left text-xs transition-colors ${
+                    selectedRegion === 'us-ca'
+                      ? 'bg-slate-100 text-slate-900 font-extrabold'
+                      : 'hover:bg-slate-50 text-slate-700'
+                  }`}
+                >
+                  <div className="flex items-center gap-2">
+                    <span className="text-base">🇺🇸</span>
+                    <div>
+                      <div className="font-bold">USA: California</div>
+                      <div className="text-[10px] text-slate-400">Silicon Valley & Bay Area</div>
+                    </div>
+                  </div>
+                  {selectedRegion === 'us-ca' && <Check className="w-3.5 h-3.5 text-primary-600" />}
+                </button>
+              </div>
+
+              {/* Vernacular Language Switcher */}
+              <div className="pt-2 border-t border-slate-100">
+                <span className="text-[10px] font-bold uppercase tracking-wider text-slate-400 px-2 block mb-1">
+                  Regional Dialect / Language
+                </span>
+                <div className="grid grid-cols-3 gap-1 px-1">
+                  {(['en', 'hi', 'bho'] as const).map((l) => (
+                    <button
+                      key={l}
+                      onClick={() => setLanguage(l)}
+                      className={`py-1 px-2 rounded-lg text-center text-xs font-bold transition-all ${
+                        selectedLanguage === l
+                          ? 'bg-slate-900 text-white'
+                          : 'bg-slate-100 text-slate-600 hover:bg-slate-200'
+                      }`}
+                    >
+                      {l === 'en' ? 'English' : l === 'hi' ? 'हिन्दी' : 'भोजपुरी'}
+                    </button>
+                  ))}
+                </div>
+              </div>
+
+              {/* Portal Quick Access Link */}
+              <div className="pt-2 border-t border-slate-100">
+                <Link
+                  href="/regional"
+                  onClick={() => setIsRegionOpen(false)}
+                  className="w-full py-2 px-3 rounded-xl bg-gradient-to-r from-amber-500 to-indigo-600 text-white font-extrabold text-xs flex items-center justify-between hover:opacity-95 transition-opacity shadow-sm"
+                >
+                  <span>Regional Intelligence Portal</span>
+                  <ArrowRight className="w-3.5 h-3.5" />
+                </Link>
+              </div>
+            </div>
+          )}
+        </div>
+
         {/* Notifications Popover */}
         <div ref={notifRef} className="relative">
           <button

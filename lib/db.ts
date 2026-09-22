@@ -9,7 +9,9 @@ import {
   Project, CareerPath, PlacementDrive,
   CodingProblem, CodingAttempt, InterviewQuestion, InterviewAnswerEvaluation,
   ResumeMatchAnalysis, CompanyDemandSignal, ProjectRecommendationItem, StudentCohortGroup,
-  StudentAcademicReport, OtpRecord
+  StudentAcademicReport, OtpRecord,
+  Country, Region, City, Industry, SkillCategoryEntity, JobRole, EmploymentOutcome,
+  RegionalProfile, RegionalIntelligenceRecord, DistrictSkillGapAnalysis, MigrationPathwayAnalysis
 } from './types';
 
 export interface DatabaseSchema {
@@ -50,6 +52,19 @@ export interface DatabaseSchema {
   cohort_groups: StudentCohortGroup[];
   academic_reports: StudentAcademicReport[];
   otps: OtpRecord[];
+
+  // Global Geography & Taxonomy
+  countries: Country[];
+  regions: Region[];
+  cities: City[];
+  industries: Industry[];
+  skill_categories: SkillCategoryEntity[];
+  job_roles: JobRole[];
+  employment_outcomes: EmploymentOutcome[];
+
+  // Regional Intelligence Framework
+  regional_profiles: RegionalProfile[];
+  regional_intelligence: RegionalIntelligenceRecord[];
 }
 
 const DATA_DIR = path.join(process.cwd(), 'data');
@@ -113,6 +128,42 @@ export function getDb(): DatabaseSchema {
       }
       if (!parsed.cohort_groups) {
         parsed.cohort_groups = seedDefaults.cohort_groups || [];
+        shouldWriteBack = true;
+      }
+      if (!parsed.countries || parsed.countries.length === 0) {
+        parsed.countries = seedDefaults.countries || [];
+        shouldWriteBack = true;
+      }
+      if (!parsed.regions || parsed.regions.length === 0) {
+        parsed.regions = seedDefaults.regions || [];
+        shouldWriteBack = true;
+      }
+      if (!parsed.cities || parsed.cities.length === 0) {
+        parsed.cities = seedDefaults.cities || [];
+        shouldWriteBack = true;
+      }
+      if (!parsed.industries || parsed.industries.length === 0) {
+        parsed.industries = seedDefaults.industries || [];
+        shouldWriteBack = true;
+      }
+      if (!parsed.skill_categories || parsed.skill_categories.length === 0) {
+        parsed.skill_categories = seedDefaults.skill_categories || [];
+        shouldWriteBack = true;
+      }
+      if (!parsed.job_roles || parsed.job_roles.length === 0) {
+        parsed.job_roles = seedDefaults.job_roles || [];
+        shouldWriteBack = true;
+      }
+      if (!parsed.employment_outcomes) {
+        parsed.employment_outcomes = seedDefaults.employment_outcomes || [];
+        shouldWriteBack = true;
+      }
+      if (!parsed.regional_profiles || parsed.regional_profiles.length === 0) {
+        parsed.regional_profiles = seedDefaults.regional_profiles || [];
+        shouldWriteBack = true;
+      }
+      if (!parsed.regional_intelligence || parsed.regional_intelligence.length === 0) {
+        parsed.regional_intelligence = seedDefaults.regional_intelligence || [];
         shouldWriteBack = true;
       }
 
@@ -1824,6 +1875,81 @@ export const db = {
 
     saveDb(data);
     return { success: true, application: newApp, message: 'Application submitted successfully!' };
+  },
+
+  // ----------------------------------------------------
+  // GLOBAL-FIRST GEOGRAPHY & TAXONOMY METHODS
+  // ----------------------------------------------------
+  getCountries: (): Country[] => {
+    return getDb().countries || [];
+  },
+  getRegions: (countryId?: string): Region[] => {
+    const all = getDb().regions || [];
+    return countryId ? all.filter(r => r.countryId === countryId) : all;
+  },
+  getRegionById: (regionId: string): Region | undefined => {
+    return (getDb().regions || []).find(r => r.id === regionId);
+  },
+  getCities: (regionId?: string): City[] => {
+    const all = getDb().cities || [];
+    return regionId ? all.filter(c => c.regionId === regionId) : all;
+  },
+  getCityById: (cityId: string): City | undefined => {
+    return (getDb().cities || []).find(c => c.id === cityId);
+  },
+  getIndustries: (): Industry[] => {
+    return getDb().industries || [];
+  },
+  getJobRoles: (industryId?: string): JobRole[] => {
+    const all = getDb().job_roles || [];
+    return industryId ? all.filter(j => j.industryId === industryId) : all;
+  },
+  getEmploymentOutcomes: (filter?: { candidateId?: string; regionId?: string }): EmploymentOutcome[] => {
+    let all = getDb().employment_outcomes || [];
+    if (filter?.candidateId) all = all.filter(o => o.candidateId === filter.candidateId);
+    if (filter?.regionId) all = all.filter(o => o.regionId === filter.regionId);
+    return all;
+  },
+
+  // ----------------------------------------------------
+  // REGIONAL INTELLIGENCE LAYER METHODS
+  // ----------------------------------------------------
+  getRegionalProfiles: (): RegionalProfile[] => {
+    return getDb().regional_profiles || [];
+  },
+  getRegionalProfile: (regionId: string): RegionalProfile | undefined => {
+    return (getDb().regional_profiles || []).find(p => p.regionId === regionId || p.id === regionId);
+  },
+  getRegionalIntelligence: (filter?: {
+    regionId?: string;
+    cityOrDistrictId?: string;
+    industryId?: string;
+    skillId?: string;
+  }): RegionalIntelligenceRecord[] => {
+    let all = getDb().regional_intelligence || [];
+    if (filter?.regionId) all = all.filter(r => r.regionId === filter.regionId);
+    if (filter?.cityOrDistrictId) all = all.filter(r => r.cityOrDistrictId === filter.cityOrDistrictId);
+    if (filter?.industryId) all = all.filter(r => r.industryId === filter.industryId);
+    if (filter?.skillId) all = all.filter(r => r.skillId === filter.skillId);
+    return all;
+  },
+  getDistrictIntelligence: (districtId: string): RegionalIntelligenceRecord[] => {
+    return (getDb().regional_intelligence || []).filter(r => r.cityOrDistrictId === districtId);
+  },
+  getDistrictSkillGap: (districtId: string): DistrictSkillGapAnalysis => {
+    const { calculateDistrictSkillGap } = require('./regionalIntelligence');
+    const records = getDb().regional_intelligence || [];
+    return calculateDistrictSkillGap(districtId, records);
+  },
+  getMigrationPathway: (
+    sourceDistrictId: string,
+    destinationCity: string,
+    targetRole: string,
+    candidateSkills: any[] = []
+  ): MigrationPathwayAnalysis => {
+    const { calculateMigrationPathway } = require('./regionalIntelligence');
+    const profile = (getDb().regional_profiles || []).find(p => p.regionId === 'in-bihar') || (getDb().regional_profiles || [])[0];
+    return calculateMigrationPathway(sourceDistrictId, destinationCity, targetRole, profile, candidateSkills);
   }
 };
 

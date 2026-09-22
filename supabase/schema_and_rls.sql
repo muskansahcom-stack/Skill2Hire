@@ -141,7 +141,126 @@ CREATE TABLE IF NOT EXISTS public.assessments (
     "createdAt" TIMESTAMPTZ DEFAULT NOW()
 );
 
--- STEP 2: FORCE ENABLE ROW LEVEL SECURITY (RLS) ON ALL 10 TABLES
+-- GLOBAL GEOGRAPHY & TAXONOMY TABLES
+CREATE TABLE IF NOT EXISTS public.countries (
+    id TEXT PRIMARY KEY,
+    code TEXT NOT NULL,
+    name TEXT NOT NULL,
+    currency TEXT NOT NULL,
+    "currencySymbol" TEXT NOT NULL,
+    "flagEmoji" TEXT NOT NULL,
+    continent TEXT NOT NULL,
+    "createdAt" TIMESTAMPTZ DEFAULT NOW()
+);
+
+CREATE TABLE IF NOT EXISTS public.regions (
+    id TEXT PRIMARY KEY,
+    "countryId" TEXT REFERENCES public.countries(id),
+    name TEXT NOT NULL,
+    code TEXT NOT NULL,
+    type TEXT NOT NULL,
+    "isActive" BOOLEAN DEFAULT true,
+    "hasRegionalIntelligence" BOOLEAN DEFAULT false,
+    "createdAt" TIMESTAMPTZ DEFAULT NOW()
+);
+
+CREATE TABLE IF NOT EXISTS public.cities (
+    id TEXT PRIMARY KEY,
+    "countryId" TEXT REFERENCES public.countries(id),
+    "regionId" TEXT REFERENCES public.regions(id),
+    name TEXT NOT NULL,
+    "isDistrict" BOOLEAN DEFAULT false,
+    "districtCode" TEXT,
+    tier TEXT DEFAULT 'tier2',
+    "populationEstimated" INT,
+    "primaryEconomicFocus" TEXT[],
+    "createdAt" TIMESTAMPTZ DEFAULT NOW()
+);
+
+CREATE TABLE IF NOT EXISTS public.industries (
+    id TEXT PRIMARY KEY,
+    code TEXT NOT NULL,
+    name TEXT NOT NULL,
+    description TEXT,
+    "globalGrowthRate" NUMERIC(4,1),
+    icon TEXT,
+    "createdAt" TIMESTAMPTZ DEFAULT NOW()
+);
+
+CREATE TABLE IF NOT EXISTS public.job_roles (
+    id TEXT PRIMARY KEY,
+    title TEXT NOT NULL,
+    "industryId" TEXT REFERENCES public.industries(id),
+    category TEXT NOT NULL,
+    description TEXT,
+    "careerLevel" TEXT DEFAULT 'Entry',
+    "standardRequiredSkills" JSONB,
+    "standardSalaryBandGlobal" JSONB,
+    "createdAt" TIMESTAMPTZ DEFAULT NOW()
+);
+
+CREATE TABLE IF NOT EXISTS public.employment_outcomes (
+    id TEXT PRIMARY KEY,
+    "candidateId" TEXT,
+    "candidateName" TEXT,
+    "employerId" TEXT,
+    "employerName" TEXT,
+    "jobId" TEXT,
+    "roleTitle" TEXT,
+    "industryId" TEXT,
+    "countryId" TEXT,
+    "regionId" TEXT,
+    "cityOrDistrictId" TEXT,
+    "placementType" TEXT,
+    "startingSalaryAnnual" NUMERIC,
+    currency TEXT DEFAULT 'INR',
+    "hiredDate" TIMESTAMPTZ,
+    "retentionMonths" INT,
+    "verificationStatus" TEXT DEFAULT 'verified',
+    "createdAt" TIMESTAMPTZ DEFAULT NOW()
+);
+
+-- REGIONAL INTELLIGENCE FRAMEWORK TABLES
+CREATE TABLE IF NOT EXISTS public.regional_profiles (
+    id TEXT PRIMARY KEY,
+    "countryId" TEXT,
+    "regionId" TEXT,
+    "regionName" TEXT NOT NULL,
+    tagline TEXT,
+    overview TEXT,
+    "primaryLanguage" TEXT DEFAULT 'en',
+    "supportedLanguages" JSONB,
+    districts JSONB,
+    "publicSchemes" JSONB,
+    "migrationCorridors" JSONB,
+    "createdAt" TIMESTAMPTZ DEFAULT NOW(),
+    "updatedAt" TIMESTAMPTZ DEFAULT NOW()
+);
+
+CREATE TABLE IF NOT EXISTS public.regional_intelligence (
+    id TEXT PRIMARY KEY,
+    "countryId" TEXT,
+    "regionId" TEXT,
+    "cityOrDistrictId" TEXT,
+    "districtName" TEXT,
+    "industryId" TEXT,
+    "industryName" TEXT,
+    "jobRoleId" TEXT,
+    "jobRoleTitle" TEXT,
+    "skillId" TEXT,
+    "skillName" TEXT,
+    demand JSONB,
+    supply JSONB,
+    "trainingCapacity" JSONB,
+    "employmentOutcomes" JSONB,
+    "dataSource" TEXT,
+    "dataPeriod" TEXT,
+    "verificationStatus" TEXT DEFAULT 'official_verified',
+    "createdAt" TIMESTAMPTZ DEFAULT NOW(),
+    "updatedAt" TIMESTAMPTZ DEFAULT NOW()
+);
+
+-- STEP 2: FORCE ENABLE ROW LEVEL SECURITY (RLS) ON ALL TABLES
 ALTER TABLE public.users ENABLE ROW LEVEL SECURITY;
 ALTER TABLE public.students ENABLE ROW LEVEL SECURITY;
 ALTER TABLE public.colleges ENABLE ROW LEVEL SECURITY;
@@ -152,6 +271,14 @@ ALTER TABLE public.otps ENABLE ROW LEVEL SECURITY;
 ALTER TABLE public.skills ENABLE ROW LEVEL SECURITY;
 ALTER TABLE public.courses ENABLE ROW LEVEL SECURITY;
 ALTER TABLE public.assessments ENABLE ROW LEVEL SECURITY;
+ALTER TABLE public.countries ENABLE ROW LEVEL SECURITY;
+ALTER TABLE public.regions ENABLE ROW LEVEL SECURITY;
+ALTER TABLE public.cities ENABLE ROW LEVEL SECURITY;
+ALTER TABLE public.industries ENABLE ROW LEVEL SECURITY;
+ALTER TABLE public.job_roles ENABLE ROW LEVEL SECURITY;
+ALTER TABLE public.employment_outcomes ENABLE ROW LEVEL SECURITY;
+ALTER TABLE public.regional_profiles ENABLE ROW LEVEL SECURITY;
+ALTER TABLE public.regional_intelligence ENABLE ROW LEVEL SECURITY;
 
 -- STEP 3: DROP ALL OLD POLICIES
 DO $$
@@ -174,3 +301,11 @@ CREATE POLICY "Allow all on otps" ON public.otps FOR ALL USING (true) WITH CHECK
 CREATE POLICY "Allow all on skills" ON public.skills FOR ALL USING (true) WITH CHECK (true);
 CREATE POLICY "Allow all on courses" ON public.courses FOR ALL USING (true) WITH CHECK (true);
 CREATE POLICY "Allow all on assessments" ON public.assessments FOR ALL USING (true) WITH CHECK (true);
+CREATE POLICY "Allow all on countries" ON public.countries FOR ALL USING (true) WITH CHECK (true);
+CREATE POLICY "Allow all on regions" ON public.regions FOR ALL USING (true) WITH CHECK (true);
+CREATE POLICY "Allow all on cities" ON public.cities FOR ALL USING (true) WITH CHECK (true);
+CREATE POLICY "Allow all on industries" ON public.industries FOR ALL USING (true) WITH CHECK (true);
+CREATE POLICY "Allow all on job_roles" ON public.job_roles FOR ALL USING (true) WITH CHECK (true);
+CREATE POLICY "Allow all on employment_outcomes" ON public.employment_outcomes FOR ALL USING (true) WITH CHECK (true);
+CREATE POLICY "Allow all on regional_profiles" ON public.regional_profiles FOR ALL USING (true) WITH CHECK (true);
+CREATE POLICY "Allow all on regional_intelligence" ON public.regional_intelligence FOR ALL USING (true) WITH CHECK (true);

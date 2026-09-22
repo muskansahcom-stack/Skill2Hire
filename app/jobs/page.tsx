@@ -18,14 +18,17 @@ import {
   Building2,
   Calendar,
   Layers,
-  GraduationCap
+  GraduationCap,
+  Globe
 } from 'lucide-react';
 import { useAuth } from '@/context/AuthContext';
+import { useRegion } from '@/context/RegionContext';
 
 function JobsSearchContent() {
   const searchParams = useSearchParams();
   const router = useRouter();
   const { profile } = useAuth();
+  const { isBiharActive, selectedRegion } = useRegion();
   const studentId = profile?.id || 'std_1';
 
   const initialQuery = searchParams.get('q') || searchParams.get('role') || '';
@@ -257,7 +260,10 @@ function JobsSearchContent() {
                   className="w-full text-xs font-semibold rounded-xl border border-slate-200 bg-slate-50 p-2.5 focus:border-primary-500 focus:outline-none"
                 >
                   <option value="All">All Locations</option>
-                  <option value="Bangalore">Bangalore</option>
+                  <option value="Patna">Patna (Bihar Local Hub)</option>
+                  <option value="Bangalore">Bangalore (Tech Corridor)</option>
+                  <option value="Noida">Noida / Delhi-NCR Corridor</option>
+                  <option value="Pune">Pune Tech Hub</option>
                   <option value="San Francisco">San Francisco, CA</option>
                   <option value="Palo Alto">Palo Alto, CA</option>
                   <option value="New York">New York, NY</option>
@@ -296,6 +302,25 @@ function JobsSearchContent() {
                 </select>
               </div>
             </div>
+
+            {/* Regional Scope Notice Banner */}
+            {isBiharActive && (
+              <div className="p-4 rounded-2xl bg-gradient-to-r from-amber-500/10 via-amber-500/5 to-transparent border border-amber-300 flex flex-col sm:flex-row sm:items-center justify-between gap-3 text-xs">
+                <div className="flex items-center gap-2 font-bold text-amber-950">
+                  <span className="text-lg">🇮🇳</span>
+                  <span>
+                    Operating in <strong>Bihar Regional Intelligence Scope</strong>: Local opportunities & 2.8x migration corridors prioritized.
+                  </span>
+                </div>
+                <Link
+                  href="/regional"
+                  className="font-extrabold text-amber-900 hover:text-amber-950 underline flex items-center gap-1 shrink-0"
+                >
+                  <span>Explore District Analytics & BSDM Schemes</span>
+                  <ArrowRight className="w-3.5 h-3.5" />
+                </Link>
+              </div>
+            )}
 
             {/* Loading */}
             {loading && (
@@ -371,6 +396,22 @@ function JobsSearchContent() {
                               </span>
                               <span>•</span>
                               <span className="font-bold text-slate-900">{job.salary}</span>
+                              {job.location && (job.location.toLowerCase().includes('patna') || job.location.toLowerCase().includes('bihar')) && (
+                                <>
+                                  <span>•</span>
+                                  <span className="px-2 py-0.5 rounded-md bg-amber-100 text-amber-900 border border-amber-300 font-extrabold text-[10px] flex items-center gap-1">
+                                    <span>🌾</span> Bihar Local Opportunity
+                                  </span>
+                                </>
+                              )}
+                              {isBiharActive && job.location && (job.location.toLowerCase().includes('bangalore') || job.location.toLowerCase().includes('noida') || job.location.toLowerCase().includes('pune')) && (
+                                <>
+                                  <span>•</span>
+                                  <span className="px-2 py-0.5 rounded-md bg-indigo-50 text-indigo-900 border border-indigo-200 font-extrabold text-[10px] flex items-center gap-1">
+                                    <span>🚀</span> Corridor (2.8x Boost)
+                                  </span>
+                                </>
+                              )}
                             </div>
                           </div>
                         </div>
