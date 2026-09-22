@@ -4,7 +4,7 @@ import {
   Lesson, Assessment, Question, CollegeCurriculum, CareerPath, PlacementDrive, Notification,
   Project, Certificate,
   Country, Region, City, Industry, SkillCategoryEntity, JobRole, EmploymentOutcome,
-  RegionalProfile, RegionalIntelligenceRecord
+  RegionalProfile, RegionalIntelligenceRecord, SkillRelationship
 } from './types';
 
 export function generateInitialDatabase(): DatabaseSchema {
@@ -352,48 +352,440 @@ export function generateInitialDatabase(): DatabaseSchema {
 
   const skills: Skill[] = [
     // Programming
-    { id: 'sk_python', name: 'Python', category: 'Programming', description: 'General-purpose, interpreted, high-level programming language for scripting, backend, data science, and AI.', industryDemandPercent: 88, demandLevel: 'Very High' },
-    { id: 'sk_cpp', name: 'C++', category: 'Programming', description: 'High-performance compiled language used for systems programming, game development, and competitive programming.', industryDemandPercent: 65, demandLevel: 'High' },
-    { id: 'sk_java', name: 'Java', category: 'Programming', description: 'Enterprise-grade object-oriented language for large-scale microservices, Android, and distributed systems.', industryDemandPercent: 72, demandLevel: 'High' },
-    { id: 'sk_javascript', name: 'JavaScript', category: 'Programming', description: 'Core programming language of the web, powering frontend UI and Node.js backend services.', industryDemandPercent: 82, demandLevel: 'Very High' },
-    { id: 'sk_typescript', name: 'TypeScript', category: 'Programming', description: 'Strongly typed superset of JavaScript that enhances code quality and maintainability in large apps.', industryDemandPercent: 78, demandLevel: 'Very High' },
-    { id: 'sk_c', name: 'C', category: 'Programming', description: 'Foundational procedural language for hardware interfaces, OS kernels, and embedded devices.', industryDemandPercent: 42, demandLevel: 'Medium' },
-    { id: 'sk_go', name: 'Go', category: 'Programming', description: 'Concurrent, simple language designed by Google for cloud infrastructure and high-throughput backend services.', industryDemandPercent: 58, demandLevel: 'High' },
+    {
+      id: 'sk_python',
+      name: 'Python',
+      category: 'Programming',
+      subcategory: 'Backend & Data Scripting',
+      description: 'General-purpose, interpreted, high-level programming language for scripting, backend, data science, and AI.',
+      difficulty: 'Intermediate',
+      parent_skill_id: null,
+      related_skills: ['sk_javascript', 'sk_cpp', 'sk_java'],
+      prerequisite_skills: ['sk_oop'],
+      complementary_skills: ['sk_sql', 'sk_pandas', 'sk_dsa', 'sk_docker'],
+      status: 'active',
+      industryDemandPercent: 88,
+      demandLevel: 'Very High'
+    },
+    {
+      id: 'sk_cpp',
+      name: 'C++',
+      category: 'Programming',
+      subcategory: 'Systems & High-Performance',
+      description: 'High-performance compiled language used for systems programming, game development, and competitive programming.',
+      difficulty: 'Advanced',
+      parent_skill_id: 'sk_c',
+      related_skills: ['sk_c', 'sk_java'],
+      prerequisite_skills: ['sk_c', 'sk_oop'],
+      complementary_skills: ['sk_dsa', 'sk_linux', 'sk_system_design'],
+      status: 'active',
+      industryDemandPercent: 65,
+      demandLevel: 'High'
+    },
+    {
+      id: 'sk_java',
+      name: 'Java',
+      category: 'Programming',
+      subcategory: 'Enterprise & Distributed Systems',
+      description: 'Enterprise-grade object-oriented language for large-scale microservices, Android, and distributed systems.',
+      difficulty: 'Intermediate',
+      parent_skill_id: null,
+      related_skills: ['sk_cpp', 'sk_python', 'sk_typescript'],
+      prerequisite_skills: ['sk_oop'],
+      complementary_skills: ['sk_sql', 'sk_dsa', 'sk_docker', 'sk_system_design'],
+      status: 'active',
+      industryDemandPercent: 72,
+      demandLevel: 'High'
+    },
+    {
+      id: 'sk_javascript',
+      name: 'JavaScript',
+      category: 'Programming',
+      subcategory: 'Web Scripting & Runtimes',
+      description: 'Core programming language of the web, powering frontend UI and Node.js backend services.',
+      difficulty: 'Beginner',
+      parent_skill_id: null,
+      related_skills: ['sk_typescript', 'sk_python'],
+      prerequisite_skills: ['sk_html_css'],
+      complementary_skills: ['sk_react', 'sk_nodejs', 'sk_rest_api'],
+      status: 'active',
+      industryDemandPercent: 82,
+      demandLevel: 'Very High'
+    },
+    {
+      id: 'sk_typescript',
+      name: 'TypeScript',
+      category: 'Programming',
+      subcategory: 'Typed Web Architecture',
+      description: 'Strongly typed superset of JavaScript that enhances code quality and maintainability in large apps.',
+      difficulty: 'Intermediate',
+      parent_skill_id: 'sk_javascript',
+      related_skills: ['sk_javascript', 'sk_java'],
+      prerequisite_skills: ['sk_javascript', 'sk_oop'],
+      complementary_skills: ['sk_react', 'sk_nodejs'],
+      status: 'active',
+      industryDemandPercent: 78,
+      demandLevel: 'Very High'
+    },
+    {
+      id: 'sk_c',
+      name: 'C',
+      category: 'Programming',
+      subcategory: 'Systems & Hardware',
+      description: 'Foundational procedural language for hardware interfaces, OS kernels, and embedded devices.',
+      difficulty: 'Intermediate',
+      parent_skill_id: null,
+      related_skills: ['sk_cpp', 'sk_linux'],
+      prerequisite_skills: [],
+      complementary_skills: ['sk_linux', 'sk_dsa'],
+      status: 'active',
+      industryDemandPercent: 42,
+      demandLevel: 'Medium'
+    },
+    {
+      id: 'sk_go',
+      name: 'Go',
+      category: 'Programming',
+      subcategory: 'Cloud Infrastructure Services',
+      description: 'Concurrent, simple language designed by Google for cloud infrastructure and high-throughput backend services.',
+      difficulty: 'Intermediate',
+      parent_skill_id: null,
+      related_skills: ['sk_python', 'sk_cpp'],
+      prerequisite_skills: ['sk_oop'],
+      complementary_skills: ['sk_docker', 'sk_kubernetes', 'sk_aws'],
+      status: 'active',
+      industryDemandPercent: 58,
+      demandLevel: 'High'
+    },
     
     // Data Structures
-    { id: 'sk_dsa', name: 'DSA', category: 'Data Structures', description: 'Data Structures & Algorithms: Arrays, Linked Lists, Trees, Graphs, Sorting, Dynamic Programming, and Big-O.', industryDemandPercent: 92, demandLevel: 'Very High' },
+    {
+      id: 'sk_dsa',
+      name: 'DSA',
+      category: 'Data Structures',
+      subcategory: 'Algorithms & Computational Complexity',
+      description: 'Data Structures & Algorithms: Arrays, Linked Lists, Trees, Graphs, Sorting, Dynamic Programming, and Big-O.',
+      difficulty: 'Advanced',
+      parent_skill_id: null,
+      related_skills: ['sk_aptitude', 'sk_system_design'],
+      prerequisite_skills: ['sk_python', 'sk_cpp', 'sk_java'],
+      complementary_skills: ['sk_system_design', 'sk_sql'],
+      status: 'active',
+      industryDemandPercent: 92,
+      demandLevel: 'Very High'
+    },
     
     // Databases
-    { id: 'sk_sql', name: 'SQL', category: 'Databases', description: 'Structured Query Language for relational database management, joins, aggregations, indexing, and transactions.', industryDemandPercent: 84, demandLevel: 'Very High' },
-    { id: 'sk_mongodb', name: 'MongoDB', category: 'Databases', description: 'Document-oriented NoSQL database for flexible schemas, high scalability, and JSON-based storage.', industryDemandPercent: 54, demandLevel: 'High' },
-    { id: 'sk_postgresql', name: 'PostgreSQL', category: 'Databases', description: 'Advanced open-source relational database with powerful JSON querying, indexing, and reliability.', industryDemandPercent: 68, demandLevel: 'High' },
-    { id: 'sk_redis', name: 'Redis', category: 'Databases', description: 'In-memory key-value data store used for low-latency caching, pub/sub, and session management.', industryDemandPercent: 48, demandLevel: 'High' },
+    {
+      id: 'sk_sql',
+      name: 'SQL',
+      category: 'Databases',
+      subcategory: 'Relational Querying & Schema Design',
+      description: 'Structured Query Language for relational database management, joins, aggregations, indexing, and transactions.',
+      difficulty: 'Beginner',
+      parent_skill_id: null,
+      related_skills: ['sk_postgresql', 'sk_mongodb'],
+      prerequisite_skills: [],
+      complementary_skills: ['sk_python', 'sk_postgresql', 'sk_pandas'],
+      status: 'active',
+      industryDemandPercent: 84,
+      demandLevel: 'Very High'
+    },
+    {
+      id: 'sk_mongodb',
+      name: 'MongoDB',
+      category: 'Databases',
+      subcategory: 'Document & NoSQL Stores',
+      description: 'Document-oriented NoSQL database for flexible schemas, high scalability, and JSON-based storage.',
+      difficulty: 'Intermediate',
+      parent_skill_id: null,
+      related_skills: ['sk_redis', 'sk_sql'],
+      prerequisite_skills: ['sk_javascript'],
+      complementary_skills: ['sk_nodejs', 'sk_react'],
+      status: 'active',
+      industryDemandPercent: 54,
+      demandLevel: 'High'
+    },
+    {
+      id: 'sk_postgresql',
+      name: 'PostgreSQL',
+      category: 'Databases',
+      subcategory: 'Advanced Relational & JSON Indexing',
+      description: 'Advanced open-source relational database with powerful JSON querying, indexing, and reliability.',
+      difficulty: 'Intermediate',
+      parent_skill_id: 'sk_sql',
+      related_skills: ['sk_sql', 'sk_mongodb'],
+      prerequisite_skills: ['sk_sql'],
+      complementary_skills: ['sk_python', 'sk_nodejs', 'sk_redis'],
+      status: 'active',
+      industryDemandPercent: 68,
+      demandLevel: 'High'
+    },
+    {
+      id: 'sk_redis',
+      name: 'Redis',
+      category: 'Databases',
+      subcategory: 'In-Memory Cache & Pub/Sub',
+      description: 'In-memory key-value data store used for low-latency caching, pub/sub, and session management.',
+      difficulty: 'Intermediate',
+      parent_skill_id: null,
+      related_skills: ['sk_sql', 'sk_mongodb'],
+      prerequisite_skills: ['sk_sql'],
+      complementary_skills: ['sk_nodejs', 'sk_python', 'sk_system_design'],
+      status: 'active',
+      industryDemandPercent: 48,
+      demandLevel: 'High'
+    },
 
     // Web Development
-    { id: 'sk_react', name: 'React', category: 'Web Development', description: 'Declarative component-based UI library for modern web applications.', industryDemandPercent: 80, demandLevel: 'Very High' },
-    { id: 'sk_nodejs', name: 'Node.js', category: 'Web Development', description: 'JavaScript runtime built on Chrome V8 engine for scalable asynchronous network applications.', industryDemandPercent: 74, demandLevel: 'High' },
-    { id: 'sk_html_css', name: 'HTML/CSS', category: 'Web Development', description: 'Standard markup and styling foundational technologies for structuring and presenting web interfaces.', industryDemandPercent: 70, demandLevel: 'High' },
-    { id: 'sk_rest_api', name: 'REST APIs', category: 'Web Development', description: 'Architectural style for designing networked applications and scalable HTTP endpoints.', industryDemandPercent: 85, demandLevel: 'Very High' },
+    {
+      id: 'sk_react',
+      name: 'React',
+      category: 'Web Development',
+      subcategory: 'Frontend Component Architecture',
+      description: 'Declarative component-based UI library for modern web applications.',
+      difficulty: 'Intermediate',
+      parent_skill_id: 'sk_javascript',
+      related_skills: ['sk_javascript', 'sk_typescript', 'sk_html_css'],
+      prerequisite_skills: ['sk_javascript', 'sk_html_css'],
+      complementary_skills: ['sk_typescript', 'sk_rest_api', 'sk_nodejs'],
+      status: 'active',
+      industryDemandPercent: 80,
+      demandLevel: 'Very High'
+    },
+    {
+      id: 'sk_nodejs',
+      name: 'Node.js',
+      category: 'Web Development',
+      subcategory: 'Asynchronous Backend Runtimes',
+      description: 'JavaScript runtime built on Chrome V8 engine for scalable asynchronous network applications.',
+      difficulty: 'Intermediate',
+      parent_skill_id: 'sk_javascript',
+      related_skills: ['sk_python', 'sk_go'],
+      prerequisite_skills: ['sk_javascript'],
+      complementary_skills: ['sk_rest_api', 'sk_sql', 'sk_mongodb', 'sk_docker'],
+      status: 'active',
+      industryDemandPercent: 74,
+      demandLevel: 'High'
+    },
+    {
+      id: 'sk_html_css',
+      name: 'HTML/CSS',
+      category: 'Web Development',
+      subcategory: 'Semantic Markup & Responsive Styling',
+      description: 'Standard markup and styling foundational technologies for structuring and presenting web interfaces.',
+      difficulty: 'Beginner',
+      parent_skill_id: null,
+      related_skills: ['sk_react'],
+      prerequisite_skills: [],
+      complementary_skills: ['sk_javascript', 'sk_react'],
+      status: 'active',
+      industryDemandPercent: 70,
+      demandLevel: 'High'
+    },
+    {
+      id: 'sk_rest_api',
+      name: 'REST APIs',
+      category: 'Web Development',
+      subcategory: 'HTTP Protocol & Microservice Interfaces',
+      description: 'Architectural style for designing networked applications and scalable HTTP endpoints.',
+      difficulty: 'Beginner',
+      parent_skill_id: null,
+      related_skills: ['sk_nodejs', 'sk_python'],
+      prerequisite_skills: [],
+      complementary_skills: ['sk_react', 'sk_sql', 'sk_docker'],
+      status: 'active',
+      industryDemandPercent: 85,
+      demandLevel: 'Very High'
+    },
 
     // AI/ML
-    { id: 'sk_aiml', name: 'AI/ML', category: 'AI/ML', description: 'Machine Learning, Deep Learning neural networks, NLP, Computer Vision, and Predictive Modeling.', industryDemandPercent: 76, demandLevel: 'Very High' },
-    { id: 'sk_pytorch', name: 'PyTorch', category: 'AI/ML', description: 'Open-source deep learning framework based on Torch, widely used for computer vision and NLP research.', industryDemandPercent: 60, demandLevel: 'High' },
-    { id: 'sk_pandas', name: 'Pandas & NumPy', category: 'AI/ML', description: 'Python data manipulation and numerical computation libraries for analytics and feature engineering.', industryDemandPercent: 66, demandLevel: 'High' },
+    {
+      id: 'sk_aiml',
+      name: 'AI/ML',
+      category: 'AI/ML',
+      subcategory: 'Machine Learning & Neural Foundations',
+      description: 'Machine Learning, Deep Learning neural networks, NLP, Computer Vision, and Predictive Modeling.',
+      difficulty: 'Advanced',
+      parent_skill_id: null,
+      related_skills: ['sk_pytorch', 'sk_pandas'],
+      prerequisite_skills: ['sk_python', 'sk_dsa'],
+      complementary_skills: ['sk_pandas', 'sk_pytorch', 'sk_sql'],
+      status: 'active',
+      industryDemandPercent: 76,
+      demandLevel: 'Very High'
+    },
+    {
+      id: 'sk_pytorch',
+      name: 'PyTorch',
+      category: 'AI/ML',
+      subcategory: 'Deep Learning & Tensor Modeling',
+      description: 'Open-source deep learning framework based on Torch, widely used for computer vision and NLP research.',
+      difficulty: 'Advanced',
+      parent_skill_id: 'sk_aiml',
+      related_skills: ['sk_aiml', 'sk_pandas'],
+      prerequisite_skills: ['sk_python', 'sk_aiml'],
+      complementary_skills: ['sk_pandas', 'sk_docker', 'sk_aws'],
+      status: 'active',
+      industryDemandPercent: 60,
+      demandLevel: 'High'
+    },
+    {
+      id: 'sk_pandas',
+      name: 'Pandas & NumPy',
+      category: 'AI/ML',
+      subcategory: 'Data Wrangling & Vectorized Computation',
+      description: 'Python data manipulation and numerical computation libraries for analytics and feature engineering.',
+      difficulty: 'Intermediate',
+      parent_skill_id: 'sk_python',
+      related_skills: ['sk_sql', 'sk_aiml'],
+      prerequisite_skills: ['sk_python'],
+      complementary_skills: ['sk_sql', 'sk_aiml'],
+      status: 'active',
+      industryDemandPercent: 66,
+      demandLevel: 'High'
+    },
 
     // Cloud & DevOps
-    { id: 'sk_aws', name: 'AWS', category: 'Cloud', description: 'Amazon Web Services: EC2, S3, Lambda, RDS, IAM, and foundational cloud architecture.', industryDemandPercent: 75, demandLevel: 'Very High' },
-    { id: 'sk_docker', name: 'Docker', category: 'DevOps', description: 'Containerization platform to package applications and dependencies into standardized containers.', industryDemandPercent: 71, demandLevel: 'High' },
-    { id: 'sk_kubernetes', name: 'Kubernetes', category: 'DevOps', description: 'Production-grade container orchestration system for automating deployment, scaling, and management.', industryDemandPercent: 52, demandLevel: 'High' },
-    { id: 'sk_cicd', name: 'CI/CD Pipelines', category: 'DevOps', description: 'Continuous Integration and Continuous Delivery automation using GitHub Actions and Jenkins.', industryDemandPercent: 62, demandLevel: 'High' },
+    {
+      id: 'sk_aws',
+      name: 'AWS',
+      category: 'Cloud',
+      subcategory: 'Hyperscaler Cloud Primitives',
+      description: 'Amazon Web Services: EC2, S3, Lambda, RDS, IAM, and foundational cloud architecture.',
+      difficulty: 'Intermediate',
+      parent_skill_id: null,
+      related_skills: ['sk_docker', 'sk_kubernetes'],
+      prerequisite_skills: ['sk_linux'],
+      complementary_skills: ['sk_docker', 'sk_cicd', 'sk_sql'],
+      status: 'active',
+      industryDemandPercent: 75,
+      demandLevel: 'Very High'
+    },
+    {
+      id: 'sk_docker',
+      name: 'Docker',
+      category: 'DevOps',
+      subcategory: 'Containerization & Isolation',
+      description: 'Containerization platform to package applications and dependencies into standardized containers.',
+      difficulty: 'Intermediate',
+      parent_skill_id: null,
+      related_skills: ['sk_kubernetes', 'sk_cicd'],
+      prerequisite_skills: ['sk_linux'],
+      complementary_skills: ['sk_kubernetes', 'sk_aws', 'sk_cicd'],
+      status: 'active',
+      industryDemandPercent: 71,
+      demandLevel: 'High'
+    },
+    {
+      id: 'sk_kubernetes',
+      name: 'Kubernetes',
+      category: 'DevOps',
+      subcategory: 'Container Orchestration & Resiliency',
+      description: 'Production-grade container orchestration system for automating deployment, scaling, and management.',
+      difficulty: 'Advanced',
+      parent_skill_id: 'sk_docker',
+      related_skills: ['sk_docker', 'sk_aws'],
+      prerequisite_skills: ['sk_docker', 'sk_linux'],
+      complementary_skills: ['sk_aws', 'sk_cicd', 'sk_system_design'],
+      status: 'active',
+      industryDemandPercent: 52,
+      demandLevel: 'High'
+    },
+    {
+      id: 'sk_cicd',
+      name: 'CI/CD Pipelines',
+      category: 'DevOps',
+      subcategory: 'Automated Build, Test & Deploy',
+      description: 'Continuous Integration and Continuous Delivery automation using GitHub Actions and Jenkins.',
+      difficulty: 'Intermediate',
+      parent_skill_id: null,
+      related_skills: ['sk_git', 'sk_docker'],
+      prerequisite_skills: ['sk_git'],
+      complementary_skills: ['sk_docker', 'sk_aws', 'sk_kubernetes'],
+      status: 'active',
+      industryDemandPercent: 62,
+      demandLevel: 'High'
+    },
     
     // Tools
-    { id: 'sk_git', name: 'Git', category: 'Tools', description: 'Distributed version control system for tracking changes, branching, pull requests, and collaborative codebases.', industryDemandPercent: 89, demandLevel: 'Very High' },
-    { id: 'sk_linux', name: 'Linux CLI', category: 'Tools', description: 'Command-line interface proficiency, shell scripting, file permissions, and process management.', industryDemandPercent: 67, demandLevel: 'High' },
+    {
+      id: 'sk_git',
+      name: 'Git',
+      category: 'Tools',
+      subcategory: 'Distributed Version Control',
+      description: 'Distributed version control system for tracking changes, branching, pull requests, and collaborative codebases.',
+      difficulty: 'Beginner',
+      parent_skill_id: null,
+      related_skills: ['sk_linux', 'sk_cicd'],
+      prerequisite_skills: [],
+      complementary_skills: ['sk_cicd', 'sk_python', 'sk_javascript'],
+      status: 'active',
+      industryDemandPercent: 89,
+      demandLevel: 'Very High'
+    },
+    {
+      id: 'sk_linux',
+      name: 'Linux CLI',
+      category: 'Tools',
+      subcategory: 'POSIX Shell & System Administration',
+      description: 'Command-line interface proficiency, shell scripting, file permissions, and process management.',
+      difficulty: 'Beginner',
+      parent_skill_id: null,
+      related_skills: ['sk_git', 'sk_docker'],
+      prerequisite_skills: [],
+      complementary_skills: ['sk_docker', 'sk_aws', 'sk_c'],
+      status: 'active',
+      industryDemandPercent: 67,
+      demandLevel: 'High'
+    },
 
     // Soft Skills & Concepts
-    { id: 'sk_oop', name: 'OOP', category: 'Programming', description: 'Object-Oriented Programming principles: Encapsulation, Inheritance, Polymorphism, and Abstraction.', industryDemandPercent: 83, demandLevel: 'Very High' },
-    { id: 'sk_system_design', name: 'System Design', category: 'Programming', description: 'Architecture of high-scale systems, load balancing, caching, database sharding, and resilience.', industryDemandPercent: 64, demandLevel: 'High' },
-    { id: 'sk_aptitude', name: 'Aptitude & Problem Solving', category: 'Soft Skills', description: 'Quantitative reasoning, logical puzzles, data interpretation, and analytical thinking.', industryDemandPercent: 79, demandLevel: 'Very High' }
+    {
+      id: 'sk_oop',
+      name: 'OOP',
+      category: 'Programming',
+      subcategory: 'Object-Oriented Paradigm & Design Patterns',
+      description: 'Object-Oriented Programming principles: Encapsulation, Inheritance, Polymorphism, and Abstraction.',
+      difficulty: 'Beginner',
+      parent_skill_id: null,
+      related_skills: ['sk_system_design', 'sk_dsa'],
+      prerequisite_skills: [],
+      complementary_skills: ['sk_java', 'sk_python', 'sk_cpp'],
+      status: 'active',
+      industryDemandPercent: 83,
+      demandLevel: 'Very High'
+    },
+    {
+      id: 'sk_system_design',
+      name: 'System Design',
+      category: 'Programming',
+      subcategory: 'Distributed Scalability & High Availability',
+      description: 'Architecture of high-scale systems, load balancing, caching, database sharding, and resilience.',
+      difficulty: 'Advanced',
+      parent_skill_id: null,
+      related_skills: ['sk_dsa', 'sk_kubernetes', 'sk_redis'],
+      prerequisite_skills: ['sk_oop', 'sk_dsa', 'sk_sql'],
+      complementary_skills: ['sk_redis', 'sk_aws', 'sk_kubernetes'],
+      status: 'active',
+      industryDemandPercent: 64,
+      demandLevel: 'High'
+    },
+    {
+      id: 'sk_aptitude',
+      name: 'Aptitude & Problem Solving',
+      category: 'Soft Skills',
+      subcategory: 'Quantitative Analysis & Critical Reasoning',
+      description: 'Quantitative reasoning, logical puzzles, data interpretation, and analytical thinking.',
+      difficulty: 'Beginner',
+      parent_skill_id: null,
+      related_skills: ['sk_dsa'],
+      prerequisite_skills: [],
+      complementary_skills: ['sk_dsa', 'sk_python'],
+      status: 'active',
+      industryDemandPercent: 79,
+      demandLevel: 'Very High'
+    }
   ];
 
   // Advanced Intelligence Seed Data
@@ -2112,14 +2504,25 @@ print(f"Alex Readiness: {alex.get_readiness_score()}%")`,
   const job_roles: JobRole[] = [
     {
       id: 'jr-fullstack-dev',
+      role_id: 'jr-fullstack-dev',
       title: 'Full Stack Web Developer',
+      industry: 'Information Technology & Software',
       industryId: 'it_software',
       category: 'Software Engineering',
       description: 'Designs and builds modern full-stack web applications with React, Next.js, Node.js, and relational databases.',
+      career_level: 'Entry',
       careerLevel: 'Entry',
+      required_skills: ['sk_react', 'sk_javascript', 'sk_sql'],
+      preferred_skills: ['sk_dsa', 'sk_docker', 'sk_rest_api', 'sk_typescript'],
+      proficiency_requirements: [
+        { skillId: 'sk_react', skillName: 'React', minLevel: 'Intermediate', isRequired: true },
+        { skillId: 'sk_javascript', skillName: 'JavaScript', minLevel: 'Intermediate', isRequired: true },
+        { skillId: 'sk_sql', skillName: 'SQL', minLevel: 'Intermediate', isRequired: true },
+        { skillId: 'sk_dsa', skillName: 'DSA', minLevel: 'Beginner', isRequired: false }
+      ],
       standardRequiredSkills: [
         { skillId: 'sk_react', skillName: 'React', minLevel: 'Intermediate', isRequired: true },
-        { skillId: 'sk_js', skillName: 'JavaScript', minLevel: 'Intermediate', isRequired: true },
+        { skillId: 'sk_javascript', skillName: 'JavaScript', minLevel: 'Intermediate', isRequired: true },
         { skillId: 'sk_sql', skillName: 'SQL', minLevel: 'Intermediate', isRequired: true },
         { skillId: 'sk_dsa', skillName: 'DSA', minLevel: 'Beginner', isRequired: false }
       ],
@@ -2127,11 +2530,21 @@ print(f"Alex Readiness: {alex.get_readiness_score()}%")`,
     },
     {
       id: 'jr-data-analyst',
+      role_id: 'jr-data-analyst',
       title: 'Data Analyst & BI Specialist',
+      industry: 'Information Technology & Software',
       industryId: 'it_software',
       category: 'Data Analytics',
       description: 'Translates raw organizational telemetry into executive dashboards, predictive signals, and automated reports.',
+      career_level: 'Entry',
       careerLevel: 'Entry',
+      required_skills: ['sk_sql', 'sk_python'],
+      preferred_skills: ['sk_pandas', 'sk_aptitude', 'sk_aiml'],
+      proficiency_requirements: [
+        { skillId: 'sk_sql', skillName: 'SQL', minLevel: 'Intermediate', isRequired: true },
+        { skillId: 'sk_python', skillName: 'Python', minLevel: 'Intermediate', isRequired: true },
+        { skillId: 'sk_pandas', skillName: 'Pandas & NumPy', minLevel: 'Intermediate', isRequired: false }
+      ],
       standardRequiredSkills: [
         { skillId: 'sk_sql', skillName: 'SQL', minLevel: 'Intermediate', isRequired: true },
         { skillId: 'sk_python', skillName: 'Python', minLevel: 'Intermediate', isRequired: true }
@@ -2140,11 +2553,22 @@ print(f"Alex Readiness: {alex.get_readiness_score()}%")`,
     },
     {
       id: 'jr-cloud-devops',
+      role_id: 'jr-cloud-devops',
       title: 'Cloud & DevOps Associate',
+      industry: 'Information Technology & Software',
       industryId: 'it_software',
       category: 'Infrastructure',
       description: 'Maintains deployment pipelines, Docker container runtimes, Kubernetes clusters, and cloud infrastructure security.',
+      career_level: 'Entry',
       careerLevel: 'Entry',
+      required_skills: ['sk_docker', 'sk_linux', 'sk_git'],
+      preferred_skills: ['sk_aws', 'sk_kubernetes', 'sk_cicd', 'sk_python'],
+      proficiency_requirements: [
+        { skillId: 'sk_docker', skillName: 'Docker', minLevel: 'Intermediate', isRequired: true },
+        { skillId: 'sk_linux', skillName: 'Linux CLI', minLevel: 'Intermediate', isRequired: true },
+        { skillId: 'sk_git', skillName: 'Git', minLevel: 'Intermediate', isRequired: true },
+        { skillId: 'sk_aws', skillName: 'AWS', minLevel: 'Beginner', isRequired: false }
+      ],
       standardRequiredSkills: [
         { skillId: 'sk_python', skillName: 'Python', minLevel: 'Intermediate', isRequired: true },
         { skillId: 'sk_sql', skillName: 'SQL', minLevel: 'Beginner', isRequired: false }
@@ -2152,12 +2576,45 @@ print(f"Alex Readiness: {alex.get_readiness_score()}%")`,
       standardSalaryBandGlobal: { minUsd: 14000, maxUsd: 75000 }
     },
     {
+      id: 'jr-aiml-engineer',
+      role_id: 'jr-aiml-engineer',
+      title: 'AI & Machine Learning Engineer',
+      industry: 'Information Technology & Software',
+      industryId: 'it_software',
+      category: 'Artificial Intelligence',
+      description: 'Builds predictive machine learning models, fine-tunes neural architectures, and deploys inference APIs.',
+      career_level: 'Entry',
+      careerLevel: 'Entry',
+      required_skills: ['sk_python', 'sk_aiml', 'sk_pandas'],
+      preferred_skills: ['sk_pytorch', 'sk_sql', 'sk_docker'],
+      proficiency_requirements: [
+        { skillId: 'sk_python', skillName: 'Python', minLevel: 'Intermediate', isRequired: true },
+        { skillId: 'sk_aiml', skillName: 'AI/ML', minLevel: 'Intermediate', isRequired: true },
+        { skillId: 'sk_pandas', skillName: 'Pandas & NumPy', minLevel: 'Intermediate', isRequired: true },
+        { skillId: 'sk_pytorch', skillName: 'PyTorch', minLevel: 'Beginner', isRequired: false }
+      ],
+      standardRequiredSkills: [
+        { skillId: 'sk_python', skillName: 'Python', minLevel: 'Intermediate', isRequired: true },
+        { skillId: 'sk_aiml', skillName: 'AI/ML', minLevel: 'Intermediate', isRequired: true }
+      ],
+      standardSalaryBandGlobal: { minUsd: 15000, maxUsd: 80000 }
+    },
+    {
       id: 'jr-agritech-specialist',
+      role_id: 'jr-agritech-specialist',
       title: 'AgriTech Automation Specialist',
+      industry: 'Agro-Tech & Sustainable Food Processing',
       industryId: 'agro_tech',
       category: 'Agricultural Tech',
       description: 'Operates automated sensor networks, soil nutrient diagnostics, and inventory management for food processing chains.',
+      career_level: 'Entry',
       careerLevel: 'Entry',
+      required_skills: ['sk_python', 'sk_sql'],
+      preferred_skills: ['sk_linux', 'sk_rest_api'],
+      proficiency_requirements: [
+        { skillId: 'sk_python', skillName: 'Python', minLevel: 'Beginner', isRequired: true },
+        { skillId: 'sk_sql', skillName: 'SQL', minLevel: 'Beginner', isRequired: true }
+      ],
       standardRequiredSkills: [
         { skillId: 'sk_python', skillName: 'Python', minLevel: 'Beginner', isRequired: true },
         { skillId: 'sk_sql', skillName: 'SQL', minLevel: 'Beginner', isRequired: true }
@@ -2166,16 +2623,65 @@ print(f"Alex Readiness: {alex.get_readiness_score()}%")`,
     },
     {
       id: 'jr-logistics-coordinator',
+      role_id: 'jr-logistics-coordinator',
       title: 'Fleet & Supply Chain Coordinator',
+      industry: 'Logistics & Supply Chain Intelligence',
       industryId: 'logistics',
       category: 'Operations',
       description: 'Manages multi-district transport routing, warehouse sorting workflows, and live consignment GPS tracking.',
+      career_level: 'Entry',
       careerLevel: 'Entry',
+      required_skills: ['sk_sql', 'sk_aptitude'],
+      preferred_skills: ['sk_python'],
+      proficiency_requirements: [
+        { skillId: 'sk_sql', skillName: 'SQL', minLevel: 'Beginner', isRequired: true },
+        { skillId: 'sk_aptitude', skillName: 'Aptitude & Problem Solving', minLevel: 'Intermediate', isRequired: true }
+      ],
       standardRequiredSkills: [
         { skillId: 'sk_sql', skillName: 'SQL', minLevel: 'Beginner', isRequired: true }
       ],
       standardSalaryBandGlobal: { minUsd: 5500, maxUsd: 24000 }
     }
+  ];
+
+  // ----------------------------------------------------
+  // GLOBAL SKILL GRAPH RELATIONSHIPS
+  // ----------------------------------------------------
+  const skill_relationships: SkillRelationship[] = [
+    // Python relationships
+    { id: 'rel_py_oop', sourceSkillId: 'sk_python', targetSkillId: 'sk_oop', relationshipType: 'PREREQUISITE_FOR', description: 'OOP principles underpin scalable Python codebases.' },
+    { id: 'rel_py_dsa', sourceSkillId: 'sk_python', targetSkillId: 'sk_dsa', relationshipType: 'COMPLEMENTARY_TO', description: 'Python is a primary implementation language for algorithmic data structures.' },
+    { id: 'rel_py_sql', sourceSkillId: 'sk_python', targetSkillId: 'sk_sql', relationshipType: 'COMPLEMENTARY_TO', description: 'Python + SQL forms the backbone of data engineering and backend services.' },
+    { id: 'rel_py_pandas', sourceSkillId: 'sk_python', targetSkillId: 'sk_pandas', relationshipType: 'PARENT_OF', description: 'Pandas & NumPy are built natively in the Python data ecosystem.' },
+    { id: 'rel_py_aiml', sourceSkillId: 'sk_python', targetSkillId: 'sk_aiml', relationshipType: 'PARENT_OF', description: 'Python is the premier runtime for AI and machine learning model training.' },
+    { id: 'rel_py_js', sourceSkillId: 'sk_python', targetSkillId: 'sk_javascript', relationshipType: 'RELATED_TO', description: 'High-level dynamic languages frequently paired in full-stack web engineering.' },
+
+    // JavaScript & Web relationships
+    { id: 'rel_js_html', sourceSkillId: 'sk_javascript', targetSkillId: 'sk_html_css', relationshipType: 'PREREQUISITE_FOR', description: 'HTML/CSS DOM comprehension is essential before dynamic scripting.' },
+    { id: 'rel_js_react', sourceSkillId: 'sk_javascript', targetSkillId: 'sk_react', relationshipType: 'PARENT_OF', description: 'React is a declarative component abstraction over core JavaScript.' },
+    { id: 'rel_js_node', sourceSkillId: 'sk_javascript', targetSkillId: 'sk_nodejs', relationshipType: 'PARENT_OF', description: 'Node.js brings the JavaScript V8 engine to asynchronous server-side execution.' },
+    { id: 'rel_js_ts', sourceSkillId: 'sk_javascript', targetSkillId: 'sk_typescript', relationshipType: 'RELATED_TO', description: 'TypeScript is a strongly typed static superset of JavaScript.' },
+    { id: 'rel_react_rest', sourceSkillId: 'sk_react', targetSkillId: 'sk_rest_api', relationshipType: 'COMPLEMENTARY_TO', description: 'React interfaces consume REST APIs for asynchronous data fetching.' },
+
+    // C / C++ / Systems
+    { id: 'rel_c_cpp', sourceSkillId: 'sk_c', targetSkillId: 'sk_cpp', relationshipType: 'PARENT_OF', description: 'C++ is an object-oriented superset extending foundational C primitives.' },
+    { id: 'rel_cpp_dsa', sourceSkillId: 'sk_cpp', targetSkillId: 'sk_dsa', relationshipType: 'COMPLEMENTARY_TO', description: 'C++ STL provides ultra-fast standard templates for competitive programming.' },
+    { id: 'rel_cpp_linux', sourceSkillId: 'sk_cpp', targetSkillId: 'sk_linux', relationshipType: 'COMPLEMENTARY_TO', description: 'High-performance C++ systems execute natively in POSIX Linux environments.' },
+
+    // Data & Databases
+    { id: 'rel_sql_pg', sourceSkillId: 'sk_sql', targetSkillId: 'sk_postgresql', relationshipType: 'PARENT_OF', description: 'PostgreSQL provides enterprise-grade ACID compliant relational SQL.' },
+    { id: 'rel_sql_mongo', sourceSkillId: 'sk_sql', targetSkillId: 'sk_mongodb', relationshipType: 'RELATED_TO', description: 'Relational structured tables contrasted with flexible document NoSQL.' },
+    { id: 'rel_sql_redis', sourceSkillId: 'sk_sql', targetSkillId: 'sk_redis', relationshipType: 'COMPLEMENTARY_TO', description: 'Relational persistence paired with Redis in-memory cache layers.' },
+
+    // Cloud & DevOps
+    { id: 'rel_linux_docker', sourceSkillId: 'sk_linux', targetSkillId: 'sk_docker', relationshipType: 'PREREQUISITE_FOR', description: 'Linux cgroups and namespaces are the foundation of containerization.' },
+    { id: 'rel_docker_k8s', sourceSkillId: 'sk_docker', targetSkillId: 'sk_kubernetes', relationshipType: 'PARENT_OF', description: 'Docker container images are scheduled and orchestrated by Kubernetes.' },
+    { id: 'rel_docker_aws', sourceSkillId: 'sk_docker', targetSkillId: 'sk_aws', relationshipType: 'COMPLEMENTARY_TO', description: 'Dockerized microservices deploy across AWS ECS and EKS clusters.' },
+    { id: 'rel_git_cicd', sourceSkillId: 'sk_git', targetSkillId: 'sk_cicd', relationshipType: 'PREREQUISITE_FOR', description: 'Git version control commits trigger automated CI/CD pipeline builds.' },
+
+    // AI & Advanced
+    { id: 'rel_aiml_pytorch', sourceSkillId: 'sk_aiml', targetSkillId: 'sk_pytorch', relationshipType: 'PARENT_OF', description: 'PyTorch is the leading deep learning framework for tensor calculations.' },
+    { id: 'rel_dsa_sysdesign', sourceSkillId: 'sk_dsa', targetSkillId: 'sk_system_design', relationshipType: 'PREREQUISITE_FOR', description: 'Algorithmic efficiency knowledge informs distributed architecture scalability.' }
   ];
 
   // ----------------------------------------------------
@@ -3583,6 +4089,7 @@ print(f"Alex Readiness: {alex.get_readiness_score()}%")`,
     industries,
     skill_categories,
     job_roles,
+    skill_relationships,
     employment_outcomes,
 
     // Regional Intelligence Framework

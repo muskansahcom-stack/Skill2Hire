@@ -75,16 +75,26 @@ export default function LearnHubPage() {
         
         {/* Header Hero */}
         <div className="bg-gradient-to-r from-slate-900 via-primary-950 to-indigo-950 rounded-3xl p-6 sm:p-10 text-white shadow-xl space-y-6">
-          <div className="space-y-2 max-w-2xl">
-            <span className="px-3.5 py-1 rounded-full bg-emerald-500/20 text-emerald-300 text-xs font-bold uppercase tracking-wider border border-emerald-500/30 inline-block">
-              Skill2Hire Skill & Video Academy
-            </span>
-            <h1 className="text-2xl sm:text-4xl font-black tracking-tight">
-              Master In-Demand Placement Skills
-            </h1>
-            <p className="text-xs sm:text-sm text-slate-300">
-              Interactive video lessons, code execution sandboxes, cheatsheets, and verified skill certifications designed to bridge campus-to-corporate gaps.
-            </p>
+          <div className="flex flex-col md:flex-row md:items-center justify-between gap-4">
+            <div className="space-y-2 max-w-2xl">
+              <span className="px-3.5 py-1 rounded-full bg-emerald-500/20 text-emerald-300 text-xs font-bold uppercase tracking-wider border border-emerald-500/30 inline-block">
+                Skill2Hire Skill & Video Academy
+              </span>
+              <h1 className="text-2xl sm:text-4xl font-black tracking-tight">
+                Master In-Demand Placement Skills
+              </h1>
+              <p className="text-xs sm:text-sm text-slate-300">
+                Interactive video lessons, code execution sandboxes, cheatsheets, and verified skill certifications designed to bridge campus-to-corporate gaps.
+              </p>
+            </div>
+            <Link
+              href="/skills/graph"
+              className="self-start md:self-auto px-4 py-2.5 rounded-2xl bg-indigo-600/80 hover:bg-indigo-600 border border-indigo-400/50 text-white font-bold text-xs flex items-center gap-2 shadow-lg hover:shadow-indigo-500/30 transition-all"
+            >
+              <Sparkles className="w-4 h-4 text-amber-300" />
+              <span>Explore Global Skill Graph (360°)</span>
+              <ArrowRight className="w-3.5 h-3.5" />
+            </Link>
           </div>
 
           {/* Search Input */}
@@ -183,13 +193,20 @@ export default function LearnHubPage() {
                   </div>
                 </div>
 
-                <div className="pt-3 border-t border-slate-100 flex items-center justify-between">
+                <div className="pt-3 border-t border-slate-100 flex items-center gap-2">
                   <Link
                     href={`/learn/${encodeURIComponent(sk.name)}`}
-                    className="w-full py-2.5 px-4 rounded-xl font-bold text-xs bg-slate-900 group-hover:bg-emerald-600 text-white flex items-center justify-center gap-1.5 transition-colors shadow-sm"
+                    className="flex-1 py-2.5 px-3 rounded-xl font-bold text-xs bg-slate-900 group-hover:bg-emerald-600 text-white flex items-center justify-center gap-1.5 transition-colors shadow-sm"
                   >
-                    <span>Explore {sk.name} Ecosystem</span>
+                    <span>Lessons</span>
                     <ArrowRight className="w-3.5 h-3.5" />
+                  </Link>
+                  <Link
+                    href={`/skills/graph?focus=${encodeURIComponent(sk.name)}`}
+                    className="p-2.5 rounded-xl border border-slate-200 bg-slate-50 hover:bg-indigo-50 hover:border-indigo-200 text-slate-600 hover:text-indigo-700 transition-colors"
+                    title={`Inspect ${sk.name} in Global Skill Graph`}
+                  >
+                    <Sparkles className="w-4 h-4" />
                   </Link>
                 </div>
               </div>

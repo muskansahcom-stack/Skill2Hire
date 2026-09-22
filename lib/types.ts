@@ -168,10 +168,17 @@ export type SkillDemandLevel = 'Low' | 'Medium' | 'High' | 'Very High';
 export interface Skill {
   id: string;
   name: string;
-  category: 'Programming' | 'Data Structures' | 'Databases' | 'Web Development' | 'AI/ML' | 'Cloud' | 'DevOps' | 'Cybersecurity' | 'Tools' | 'Soft Skills';
+  category: 'Programming' | 'Data Structures' | 'Databases' | 'Web Development' | 'AI/ML' | 'Cloud' | 'DevOps' | 'Cybersecurity' | 'Tools' | 'Soft Skills' | string;
+  subcategory?: string;
   description: string;
-  industryDemandPercent: number;
-  demandLevel: SkillDemandLevel;
+  difficulty?: 'Beginner' | 'Intermediate' | 'Advanced';
+  parent_skill_id?: string | null;
+  related_skills?: string[];
+  prerequisite_skills?: string[];
+  complementary_skills?: string[];
+  status?: 'active' | 'deprecated' | 'emerging';
+  industryDemandPercent?: number;
+  demandLevel?: SkillDemandLevel;
   icon?: string;
 }
 
@@ -878,13 +885,19 @@ export interface SkillCategoryEntity {
 
 export interface JobRole {
   id: string; // e.g. 'jr-fullstack-dev', 'jr-data-analyst'
+  role_id?: string; // alias for role_id
   title: string;
+  industry?: string;
   industryId: string;
   category: string;
   description: string;
+  career_level?: 'Entry' | 'Mid' | 'Senior' | 'Lead';
   careerLevel: 'Entry' | 'Mid' | 'Senior' | 'Lead';
+  required_skills?: string[]; // array of skill IDs
+  preferred_skills?: string[]; // array of preferred skill IDs
+  proficiency_requirements?: { skillId: string; skillName?: string; minLevel: SkillLevel; isRequired: boolean }[];
   standardRequiredSkills: { skillId: string; skillName: string; minLevel: SkillLevel; isRequired: boolean }[];
-  standardSalaryBandGlobal: { minUsd: number; maxUsd: number };
+  standardSalaryBandGlobal?: { minUsd: number; maxUsd: number };
 }
 
 export interface EmploymentOutcome {
@@ -1089,3 +1102,79 @@ export interface MigrationPathwayAnalysis {
   metadata?: DataSourceMetadata;
 }
 
+// ==========================================
+// GLOBAL SKILL GRAPH TYPES & RELATIONSHIPS
+// ==========================================
+
+export type SkillRelationshipType =
+  | 'PARENT_OF'
+  | 'CHILD_OF'
+  | 'PREREQUISITE_FOR'
+  | 'DEPENDS_ON'
+  | 'RELATED_TO'
+  | 'COMPLEMENTARY_TO';
+
+export interface SkillRelationship {
+  id: string;
+  sourceSkillId: string;
+  targetSkillId: string;
+  relationshipType: SkillRelationshipType;
+  strength?: number; // 0.0 to 1.0
+  description?: string;
+}
+
+export interface SkillGraphNode {
+  id: string;
+  label: string;
+  type: 'skill' | 'job_role' | 'career' | 'industry' | 'course' | 'assessment' | 'project';
+  category?: string;
+  subcategory?: string;
+  difficulty?: string;
+  status?: string;
+  connectionsCount?: number;
+  data?: any;
+}
+
+export interface SkillGraphEdge {
+  id: string;
+  source: string;
+  target: string;
+  relationship: string;
+  label?: string;
+}
+
+export interface SkillGraphData {
+  nodes: SkillGraphNode[];
+  edges: SkillGraphEdge[];
+  categories: string[];
+  summary: {
+    totalSkills: number;
+    totalJobRoles: number;
+    totalCareers: number;
+    totalCourses: number;
+    totalAssessments: number;
+    totalProjects: number;
+    totalRelationships: number;
+  };
+}
+
+export interface Skill360Response {
+  skill: Skill;
+  parentSkill: Skill | null;
+  childSkills: Skill[];
+  prerequisiteSkills: Skill[];
+  relatedSkills: Skill[];
+  complementarySkills: Skill[];
+  relatedJobs: (Job & { companyName: string })[];
+  relatedJobRoles: JobRole[];
+  requiredCareers: CareerPath[];
+  courses: Course[];
+  assessments: Assessment[];
+  projects: Project[];
+  competencyStats: {
+    verifiedCandidatesCount: number;
+    averageScore: number;
+    topLevel: SkillLevel;
+  };
+  employmentOutcomes: EmploymentOutcome[];
+}

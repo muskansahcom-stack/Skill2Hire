@@ -91,6 +91,7 @@ export default function Sidebar({
             { href: '/courses', label: 'Courses', icon: Layers },
             { href: '/student/become-ready', label: 'My Learning', icon: BookOpen },
             { href: '/student/skills', label: 'Skills', icon: Award },
+            { href: '/skills/graph', label: 'Global Skill Graph', icon: Sparkles, badge: '360°', badgeColor: 'bg-indigo-600' },
             { href: '/student/academic-report', label: 'Skill Passport', icon: ShieldCheck, badge: 'Verified', badgeColor: 'bg-indigo-600' },
             { href: '/assessments/asm_python', label: 'Assessments', icon: FileCheck2 },
             { href: '/student/coding-practice', label: 'Coding Practice', icon: Code2 },
@@ -124,6 +125,7 @@ export default function Sidebar({
           items: [
             { href: '/college/dashboard', label: 'Dashboard', icon: LayoutDashboard },
             { href: '/regional', label: 'Regional Intelligence', icon: Globe, badge: 'District Data', badgeColor: 'bg-indigo-600' },
+            { href: '/skills/graph', label: 'Global Skill Graph', icon: Sparkles, badge: 'Taxonomy', badgeColor: 'bg-indigo-600' },
             { href: '/college/industry-demand', label: 'Industry Demand', icon: Compass },
             { href: '/college/skill-heatmap', label: 'Skill Heatmap', icon: Flame, badge: 'Live' },
             { href: '/college/curriculum-gap', label: 'Curriculum Gap', icon: Sparkles },
@@ -179,6 +181,7 @@ export default function Sidebar({
           title: 'TALENT',
           items: [
             { href: '/recruiter/skill-search', label: 'Talent Intelligence', icon: Cpu, badge: 'Direct' },
+            { href: '/skills/graph', label: 'Global Skill Graph', icon: Sparkles, badge: 'Taxonomy', badgeColor: 'bg-indigo-600' },
             { href: '/recruiter/skill-search', label: 'Skill Search', icon: Search },
             { href: '/recruiter/candidates', label: 'Candidates', icon: Users },
             { href: '/recruiter/applications', label: 'Shortlisted', icon: CheckCircle2 },
@@ -218,6 +221,7 @@ export default function Sidebar({
           items: [
             { href: '/admin/dashboard', label: 'Dashboard', icon: LayoutDashboard },
             { href: '/regional', label: 'Regional Intelligence', icon: Globe, badge: 'Multi-Region', badgeColor: 'bg-indigo-600' },
+            { href: '/skills/graph', label: 'Global Skill Graph', icon: Sparkles, badge: 'Taxonomy', badgeColor: 'bg-indigo-600' },
             { href: '/college/students', label: 'Students', icon: Users },
             { href: '/college/dashboard', label: 'Colleges', icon: GraduationCap },
             { href: '/recruiter/dashboard', label: 'Companies', icon: Building2 },

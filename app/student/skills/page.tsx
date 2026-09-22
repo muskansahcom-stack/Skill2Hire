@@ -113,6 +113,14 @@ export default function StudentSkillsPage() {
             </div>
 
             <div className="flex flex-wrap items-center gap-3">
+              <Link
+                href="/skills/graph"
+                className="px-4 py-2.5 rounded-xl bg-indigo-500/30 hover:bg-indigo-500/50 border border-indigo-400/40 text-xs font-bold text-white flex items-center gap-1.5 transition-colors"
+              >
+                <Sparkles className="w-4 h-4 text-indigo-300" />
+                <span>Global Skill Graph</span>
+              </Link>
+
               <button
                 onClick={() => setModalOpen(true)}
                 className="px-4 py-2.5 rounded-xl bg-white/10 hover:bg-white/20 border border-white/20 text-xs font-bold text-white flex items-center gap-1.5 transition-colors"
@@ -213,7 +221,14 @@ export default function StudentSkillsPage() {
                   </div>
 
                   <div className="pt-3 border-t border-emerald-100 flex items-center justify-between text-[11px]">
-                    <span className="font-mono text-slate-400">{vs.certificateId || 'CERT-VERIFIED'}</span>
+                    <Link
+                      href={`/skills/graph?focus=${encodeURIComponent(vs.skillName)}`}
+                      className="font-bold text-indigo-700 hover:text-indigo-900 flex items-center gap-1"
+                      title="Inspect 360° Relationships"
+                    >
+                      <Sparkles className="w-3 h-3 text-indigo-500" />
+                      <span>Skill Graph →</span>
+                    </Link>
                     <Link href={`/verify/${vs.certificateId || 'CERT-SQL-8821'}`} className="font-bold text-primary-600 hover:underline flex items-center gap-1">
                       <span>Certificate</span>
                       <ExternalLink className="w-3 h-3" />
@@ -269,6 +284,15 @@ export default function StudentSkillsPage() {
                   </div>
 
                   <div className="flex items-center gap-2">
+                    <Link
+                      href={`/skills/graph?focus=${encodeURIComponent(s.skillName)}`}
+                      className="px-3 py-1.5 rounded-xl text-xs font-bold text-indigo-700 bg-indigo-50 hover:bg-indigo-100 border border-indigo-200 transition-colors flex items-center gap-1"
+                      title="Inspect in Global Skill Graph"
+                    >
+                      <Sparkles className="w-3.5 h-3.5 text-indigo-600" />
+                      <span className="hidden sm:inline">Skill Graph</span>
+                    </Link>
+
                     {isVer ? (
                       <span className="text-xs font-semibold text-emerald-600 flex items-center gap-1">
                         <CheckCircle2 className="w-4 h-4" /> Verified

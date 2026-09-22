@@ -11,8 +11,10 @@ import {
   ResumeMatchAnalysis, CompanyDemandSignal, ProjectRecommendationItem, StudentCohortGroup,
   StudentAcademicReport, OtpRecord,
   Country, Region, City, Industry, SkillCategoryEntity, JobRole, EmploymentOutcome,
-  RegionalProfile, RegionalIntelligenceRecord, DistrictSkillGapAnalysis, MigrationPathwayAnalysis
+  RegionalProfile, RegionalIntelligenceRecord, DistrictSkillGapAnalysis, MigrationPathwayAnalysis,
+  SkillRelationship, SkillGraphData, Skill360Response
 } from './types';
+import { buildSkill360Context, buildGlobalSkillGraphData } from './skillGraph';
 
 export interface DatabaseSchema {
   users: User[];
@@ -60,6 +62,7 @@ export interface DatabaseSchema {
   industries: Industry[];
   skill_categories: SkillCategoryEntity[];
   job_roles: JobRole[];
+  skill_relationships?: SkillRelationship[];
   employment_outcomes: EmploymentOutcome[];
 
   // Regional Intelligence Framework
@@ -201,6 +204,51 @@ export function getDb(): DatabaseSchema {
             shouldWriteBack = true;
           }
         });
+      }
+
+      // Sync Skill Graph Taxonomy & Relationships
+      if (parsed.skills && seedDefaults.skills) {
+        parsed.skills.forEach((sk: any) => {
+          const seedSk = (seedDefaults.skills as any[]).find((s: any) => s.id === sk.id);
+          if (seedSk) {
+            if (!sk.subcategory || sk.subcategory !== seedSk.subcategory || !sk.difficulty || !sk.status) {
+              sk.subcategory = seedSk.subcategory;
+              sk.difficulty = seedSk.difficulty;
+              sk.parent_skill_id = seedSk.parent_skill_id;
+              sk.related_skills = seedSk.related_skills;
+              sk.prerequisite_skills = seedSk.prerequisite_skills;
+              sk.complementary_skills = seedSk.complementary_skills;
+              sk.status = seedSk.status;
+              shouldWriteBack = true;
+            }
+          }
+        });
+      }
+
+      if (parsed.job_roles && seedDefaults.job_roles) {
+        parsed.job_roles.forEach((jr: any) => {
+          const seedJr = (seedDefaults.job_roles as any[]).find((r: any) => r.id === jr.id);
+          if (seedJr) {
+            if (!jr.role_id || !jr.required_skills) {
+              jr.role_id = seedJr.role_id || jr.id;
+              jr.industry = seedJr.industry;
+              jr.career_level = seedJr.career_level || jr.careerLevel;
+              jr.required_skills = seedJr.required_skills;
+              jr.preferred_skills = seedJr.preferred_skills;
+              jr.proficiency_requirements = seedJr.proficiency_requirements;
+              shouldWriteBack = true;
+            }
+          }
+        });
+        if (seedDefaults.job_roles.length > parsed.job_roles.length) {
+          parsed.job_roles = seedDefaults.job_roles;
+          shouldWriteBack = true;
+        }
+      }
+
+      if (!parsed.skill_relationships || (seedDefaults.skill_relationships && seedDefaults.skill_relationships.length > (parsed.skill_relationships?.length || 0))) {
+        parsed.skill_relationships = seedDefaults.skill_relationships || [];
+        shouldWriteBack = true;
       }
 
       // Upgrade old broken Git thumbnail if it exists in local DB
@@ -719,10 +767,14 @@ export const db = {
     return null;
   },
 
-  // SKILLS
+  // SKILLS & GLOBAL SKILL GRAPH
   getSkills: () => getDb().skills,
   getSkillById: (id: string) => getDb().skills.find(s => s.id === id),
   getSkillByName: (name: string) => getDb().skills.find(s => s.name.toLowerCase() === name.toLowerCase()),
+  getSkillRelationships: () => getDb().skill_relationships || [],
+  getSkill360: (skillIdOrName: string) => buildSkill360Context(skillIdOrName, getDb()),
+  getSkillGraph: () => buildGlobalSkillGraphData(getDb()),
+  getJobRoleById: (id: string) => (getDb().job_roles || []).find(r => r.id === id || r.role_id === id),
   
   // STUDENT SKILLS & VERIFIED SKILLS
   getStudentSkills: (studentId: string) => {

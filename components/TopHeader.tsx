@@ -154,6 +154,8 @@ export default function TopHeader({
       { title: 'Bihar District Skill Gap Analytics', category: 'Regional', link: '/regional?tab=districts', role: 'all' },
       { title: 'Career & Wage Migration Corridors', category: 'Regional', link: '/regional?tab=migration', role: 'all' },
       { title: 'Government Schemes (BSDM, KYP, Udyami)', category: 'Regional', link: '/regional?tab=schemes', role: 'all' },
+      { title: 'Global Skill Graph (360° Relationships)', category: 'Skills', link: '/skills/graph', role: 'all' },
+      { title: 'Python Skill Graph Ecosystem', category: 'Skills', link: '/skills/graph?skill=sk_python', role: 'all' },
     ];
 
     const filtered = searchableItems.filter(item =>
@@ -251,8 +253,18 @@ export default function TopHeader({
         )}
       </div>
 
-      {/* RIGHT CONTROLS: Regional Switcher, Notifications, Persona Switcher */}
+      {/* RIGHT CONTROLS: Skill Graph, Regional Switcher, Notifications, Persona Switcher */}
       <div className="flex items-center gap-2 sm:gap-3">
+        {/* Global Skill Graph Quick Access */}
+        <Link
+          href="/skills/graph"
+          className="flex items-center gap-1.5 px-2.5 sm:px-3 py-1.5 rounded-2xl border border-indigo-200 bg-indigo-50/80 hover:bg-indigo-100 text-indigo-900 transition-all text-xs font-bold"
+          title="Global Skill Graph: 360° Relationships"
+        >
+          <Sparkles className="w-3.5 h-3.5 text-indigo-600" />
+          <span className="hidden md:inline font-extrabold">Skill Graph</span>
+        </Link>
+
         {/* Global / Regional Context Selector */}
         <div ref={regionRef} className="relative">
           <button
