@@ -4,13 +4,15 @@ import React, { createContext, useContext, useState, useEffect } from 'react';
 import { Country, Region, RegionalProfile } from '@/lib/types';
 import { REGIONAL_DICTIONARIES } from '@/lib/regionalIntelligence';
 
+export type SupportedLanguage = 'en' | 'hi' | 'bho' | 'ta' | 'te' | 'mr' | 'ko' | 'zh';
+
 interface RegionContextType {
-  selectedRegion: string; // 'global' | 'in-bihar' | 'in-karnataka' | etc.
+  selectedRegion: string; // 'global' | 'in-bihar' | 'in-tamilnadu' | 'in-telangana' | 'in-maharashtra' | 'kr-seoul' | etc.
   selectedDistrict: string | null;
-  selectedLanguage: 'en' | 'hi' | 'bho';
+  selectedLanguage: SupportedLanguage;
   setRegion: (regionId: string) => void;
   setDistrict: (districtId: string | null) => void;
-  setLanguage: (lang: 'en' | 'hi' | 'bho') => void;
+  setLanguage: (lang: SupportedLanguage) => void;
   countries: Country[];
   regions: Region[];
   currentProfile: RegionalProfile | null;
@@ -23,7 +25,7 @@ const RegionContext = createContext<RegionContextType | undefined>(undefined);
 export function RegionProvider({ children }: { children: React.ReactNode }) {
   const [selectedRegion, setSelectedRegionState] = useState<string>('in-bihar');
   const [selectedDistrict, setSelectedDistrict] = useState<string | null>('in-br-patna');
-  const [selectedLanguage, setSelectedLanguageState] = useState<'en' | 'hi' | 'bho'>('en');
+  const [selectedLanguage, setSelectedLanguageState] = useState<SupportedLanguage>('en');
   const [countries, setCountries] = useState<Country[]>([]);
   const [regions, setRegions] = useState<Region[]>([]);
   const [currentProfile, setCurrentProfile] = useState<RegionalProfile | null>(null);
@@ -33,11 +35,13 @@ export function RegionProvider({ children }: { children: React.ReactNode }) {
     if (typeof window !== 'undefined') {
       const savedRegion = localStorage.getItem('skill2hire_region');
       const savedDistrict = localStorage.getItem('skill2hire_district');
-      const savedLang = localStorage.getItem('skill2hire_lang') as 'en' | 'hi' | 'bho';
+      const savedLang = localStorage.getItem('skill2hire_lang') as SupportedLanguage;
       
       if (savedRegion) setSelectedRegionState(savedRegion);
       if (savedDistrict !== null) setSelectedDistrict(savedDistrict);
-      if (savedLang && ['en', 'hi', 'bho'].includes(savedLang)) setSelectedLanguageState(savedLang);
+      if (savedLang && ['en', 'hi', 'bho', 'ta', 'te', 'mr', 'ko', 'zh'].includes(savedLang)) {
+        setSelectedLanguageState(savedLang);
+      }
     }
   }, []);
 
@@ -67,9 +71,27 @@ export function RegionProvider({ children }: { children: React.ReactNode }) {
     if (typeof window !== 'undefined') {
       localStorage.setItem('skill2hire_region', regionId);
     }
-    // If switching to Bihar, set default district to Patna
+    
+    // Set default district and recommended language per region
     if (regionId === 'in-bihar') {
       setSelectedDistrict('in-br-patna');
+    } else if (regionId === 'in-tamilnadu') {
+      setSelectedDistrict('in-tn-chennai');
+      setLanguage('ta');
+    } else if (regionId === 'in-telangana') {
+      setSelectedDistrict('in-ts-hyderabad');
+      setLanguage('te');
+    } else if (regionId === 'in-maharashtra') {
+      setSelectedDistrict('in-mh-pune');
+      setLanguage('mr');
+    } else if (regionId === 'kr-seoul') {
+      setSelectedDistrict('kr-seoul-pangyo');
+      setLanguage('ko');
+    } else if (regionId === 'cn-guangdong') {
+      setSelectedDistrict('cn-gd-shenzhen');
+      setLanguage('zh');
+    } else if (regionId === 'in-karnataka') {
+      setSelectedDistrict('in-ka-bengaluru');
     } else {
       setSelectedDistrict(null);
     }
@@ -83,7 +105,7 @@ export function RegionProvider({ children }: { children: React.ReactNode }) {
     }
   };
 
-  const setLanguage = (lang: 'en' | 'hi' | 'bho') => {
+  const setLanguage = (lang: SupportedLanguage) => {
     setSelectedLanguageState(lang);
     if (typeof window !== 'undefined') {
       localStorage.setItem('skill2hire_lang', lang);

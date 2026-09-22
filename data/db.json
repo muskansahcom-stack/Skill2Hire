@@ -6931,6 +6931,24 @@
       "continent": "Asia"
     },
     {
+      "id": "kr",
+      "code": "KOR",
+      "name": "South Korea",
+      "currency": "KRW",
+      "currencySymbol": "₩",
+      "flagEmoji": "🇰🇷",
+      "continent": "Asia"
+    },
+    {
+      "id": "cn",
+      "code": "CHN",
+      "name": "China",
+      "currency": "CNY",
+      "currencySymbol": "¥",
+      "flagEmoji": "🇨🇳",
+      "continent": "Asia"
+    },
+    {
       "id": "de",
       "code": "DEU",
       "name": "Germany",
@@ -6960,10 +6978,19 @@
       "hasRegionalIntelligence": true
     },
     {
-      "id": "in-karnataka",
+      "id": "in-tamilnadu",
       "countryId": "in",
-      "name": "Karnataka",
-      "code": "KA",
+      "name": "Tamil Nadu",
+      "code": "TN",
+      "type": "state",
+      "isActive": true,
+      "hasRegionalIntelligence": true
+    },
+    {
+      "id": "in-telangana",
+      "countryId": "in",
+      "name": "Telangana",
+      "code": "TS",
       "type": "state",
       "isActive": true,
       "hasRegionalIntelligence": true
@@ -6975,7 +7002,34 @@
       "code": "MH",
       "type": "state",
       "isActive": true,
-      "hasRegionalIntelligence": false
+      "hasRegionalIntelligence": true
+    },
+    {
+      "id": "in-karnataka",
+      "countryId": "in",
+      "name": "Karnataka",
+      "code": "KA",
+      "type": "state",
+      "isActive": true,
+      "hasRegionalIntelligence": true
+    },
+    {
+      "id": "kr-seoul",
+      "countryId": "kr",
+      "name": "Seoul Capital Area (Pangyo)",
+      "code": "KR-11",
+      "type": "province",
+      "isActive": true,
+      "hasRegionalIntelligence": true
+    },
+    {
+      "id": "cn-guangdong",
+      "countryId": "cn",
+      "name": "Greater Bay Area (Shenzhen)",
+      "code": "CN-GD",
+      "type": "province",
+      "isActive": true,
+      "hasRegionalIntelligence": true
     },
     {
       "id": "in-delhi",
@@ -7128,6 +7182,96 @@
       ]
     },
     {
+      "id": "in-tn-chennai",
+      "countryId": "in",
+      "regionId": "in-tamilnadu",
+      "name": "Chennai (OMR / Guindy)",
+      "isDistrict": true,
+      "districtCode": "CHE",
+      "tier": "tier1",
+      "populationEstimated": 11200000,
+      "primaryEconomicFocus": [
+        "SaaS & Cloud Software",
+        "Automotive Technology",
+        "Electronic Hardware Clusters"
+      ]
+    },
+    {
+      "id": "in-tn-coimbatore",
+      "countryId": "in",
+      "regionId": "in-tamilnadu",
+      "name": "Coimbatore",
+      "isDistrict": true,
+      "districtCode": "CJB",
+      "tier": "tier2",
+      "populationEstimated": 2900000,
+      "primaryEconomicFocus": [
+        "Engineering R&D",
+        "Textile Automation & IoT",
+        "Tier-2 Tech Hub"
+      ]
+    },
+    {
+      "id": "in-ts-hyderabad",
+      "countryId": "in",
+      "regionId": "in-telangana",
+      "name": "Hyderabad (Cyberabad)",
+      "isDistrict": true,
+      "districtCode": "HYD",
+      "tier": "tier1",
+      "populationEstimated": 10500000,
+      "primaryEconomicFocus": [
+        "Enterprise IT & Cloud",
+        "Life Sciences & BioTech",
+        "Semiconductor & VLSI Design"
+      ]
+    },
+    {
+      "id": "in-ts-warangal",
+      "countryId": "in",
+      "regionId": "in-telangana",
+      "name": "Warangal",
+      "isDistrict": true,
+      "districtCode": "WGL",
+      "tier": "tier2",
+      "populationEstimated": 1100000,
+      "primaryEconomicFocus": [
+        "Tier-2 IT Centers",
+        "Agro-Tech Supply",
+        "Higher Education"
+      ]
+    },
+    {
+      "id": "in-mh-mumbai",
+      "countryId": "in",
+      "regionId": "in-maharashtra",
+      "name": "Mumbai (BKC & Navi Mumbai)",
+      "isDistrict": true,
+      "districtCode": "MUM",
+      "tier": "tier1",
+      "populationEstimated": 21000000,
+      "primaryEconomicFocus": [
+        "BFSI & FinTech",
+        "Data Centers & Cloud Ops",
+        "Media & Creative Tech"
+      ]
+    },
+    {
+      "id": "in-mh-pune",
+      "countryId": "in",
+      "regionId": "in-maharashtra",
+      "name": "Pune (Hinjawadi)",
+      "isDistrict": true,
+      "districtCode": "PUN",
+      "tier": "tier1",
+      "populationEstimated": 7200000,
+      "primaryEconomicFocus": [
+        "Automotive IT & Embedded",
+        "Enterprise Java",
+        "Cloud Infrastructure"
+      ]
+    },
+    {
       "id": "in-ka-bengaluru",
       "countryId": "in",
       "regionId": "in-karnataka",
@@ -7158,18 +7302,48 @@
       ]
     },
     {
-      "id": "in-mh-pune",
-      "countryId": "in",
-      "regionId": "in-maharashtra",
-      "name": "Pune",
+      "id": "kr-seoul-pangyo",
+      "countryId": "kr",
+      "regionId": "kr-seoul",
+      "name": "Pangyo Techno Valley",
       "isDistrict": true,
-      "districtCode": "PUN",
+      "districtCode": "PGY",
       "tier": "tier1",
-      "populationEstimated": 7200000,
+      "populationEstimated": 1200000,
       "primaryEconomicFocus": [
-        "Automotive IT & Embedded",
-        "Enterprise Java",
-        "Cloud Infrastructure"
+        "Gaming & Metaverse",
+        "AI Accelerators & Robotics",
+        "Autonomous Mobility"
+      ]
+    },
+    {
+      "id": "kr-seoul-gangnam",
+      "countryId": "kr",
+      "regionId": "kr-seoul",
+      "name": "Gangnam Tech Corridor",
+      "isDistrict": true,
+      "districtCode": "GNM",
+      "tier": "tier1",
+      "populationEstimated": 560000,
+      "primaryEconomicFocus": [
+        "FinTech",
+        "E-Commerce Platforms",
+        "Global Startups"
+      ]
+    },
+    {
+      "id": "cn-gd-shenzhen",
+      "countryId": "cn",
+      "regionId": "cn-guangdong",
+      "name": "Shenzhen (Nanshan)",
+      "isDistrict": true,
+      "districtCode": "SZX",
+      "tier": "tier1",
+      "populationEstimated": 17600000,
+      "primaryEconomicFocus": [
+        "Hardware Silicon Valley",
+        "Drone & Robotics Automation",
+        "AI Foundation Models"
       ]
     },
     {
@@ -7725,9 +7899,732 @@
       ],
       "createdAt": "2026-01-01T00:00:00Z",
       "updatedAt": "2026-09-22T00:00:00Z"
+    },
+    {
+      "id": "reg-prof-tamilnadu",
+      "countryId": "in",
+      "regionId": "in-tamilnadu",
+      "regionName": "Tamil Nadu",
+      "tagline": "India's SaaS Capital & Advanced Industrial Powerhouse",
+      "overview": "Tamil Nadu drives India's deepest SaaS cluster along Chennai's Old Mahabalipuram Road (OMR), alongside thriving engineering R&D hubs in Coimbatore. Backed by the state's flagship Naan Mudhalvan Skilling Initiative and Tamil Nadu Startup Policy (TANSIM), the state produces over 300,000 engineering and polytechnic graduates annually.",
+      "primaryLanguage": "ta",
+      "supportedLanguages": [
+        {
+          "code": "en",
+          "label": "English",
+          "nativeLabel": "English"
+        },
+        {
+          "code": "ta",
+          "label": "Tamil",
+          "nativeLabel": "தமிழ்"
+        },
+        {
+          "code": "hi",
+          "label": "Hindi",
+          "nativeLabel": "हिन्दी"
+        }
+      ],
+      "districts": [
+        {
+          "id": "in-tn-chennai",
+          "name": "Chennai (OMR / Guindy)",
+          "tier": "tier1",
+          "economicHub": "SaaS, FinTech & EV Mobility",
+          "keyIndustries": [
+            "Enterprise SaaS",
+            "Automotive Software",
+            "Cloud Computing",
+            "FinTech"
+          ],
+          "itParksOrSezCount": 8,
+          "leadTrainingHub": "Anna University / IIT Madras Research Park"
+        },
+        {
+          "id": "in-tn-coimbatore",
+          "name": "Coimbatore",
+          "tier": "tier2",
+          "economicHub": "Industrial IoT & Precision Engineering",
+          "keyIndustries": [
+            "Embedded IoT",
+            "Textile Automation",
+            "Automotive R&D"
+          ],
+          "itParksOrSezCount": 3,
+          "leadTrainingHub": "PSG College of Technology"
+        }
+      ],
+      "publicSchemes": [
+        {
+          "id": "scheme_naan_mudhalvan",
+          "name": "Naan Mudhalvan Skilling Scheme",
+          "code": "NAAN_MUDHALVAN",
+          "authority": "Tamil Nadu Skill Development Corporation (TNSDC)",
+          "description": "State flagship skilling platform providing dynamic tech curriculum, AI labs, and high-impact placement training for college students.",
+          "benefits": "Zero-cost certification in Cloud, Data Science, and VLSI, direct access to 500+ hiring partners.",
+          "portalUrl": "https://naanmudhalvan.tn.gov.in",
+          "targetAudience": "Engineering and arts/science college students",
+          "eligibility": "Enrolled in accredited Tamil Nadu higher education institution"
+        },
+        {
+          "id": "scheme_tansim",
+          "name": "Tamil Nadu Startup Policy (StartupTN)",
+          "code": "STARTUP_TN",
+          "authority": "TANSIM, Govt. of Tamil Nadu",
+          "description": "Vibrant startup acceleration network supporting SaaS, DeepTech, and Social Impact innovations.",
+          "benefits": "₹10 Lakhs TANSEED seed grant, subsidized co-working at regional hubs, mentoring by unicorn founders.",
+          "portalUrl": "https://startuptn.in",
+          "targetAudience": "Student and early-stage entrepreneurs in Tamil Nadu",
+          "eligibility": "Registered DPIIT startup headquartered in Tamil Nadu"
+        }
+      ],
+      "migrationCorridors": [
+        {
+          "id": "corr-tn-sgp",
+          "sourceRegion": "Tamil Nadu (Chennai)",
+          "destinationRegion": "Singapore",
+          "destinationCity": "Singapore Hub",
+          "popularRoles": [
+            "Cloud Architect",
+            "DevOps Specialist",
+            "FinTech Full Stack Developer"
+          ],
+          "averageSalaryMultiplier": 2.6,
+          "readinessGapAverage": 15,
+          "topRequiredBridgeSkills": [
+            "Kubernetes Multi-Cluster",
+            "International FinTech Compliance",
+            "High-Concurrency Golang"
+          ],
+          "description": "Major international ASEAN tech corridor with deep bilateral workforce and fintech ties."
+        },
+        {
+          "id": "corr-tn-blr",
+          "sourceRegion": "Tamil Nadu (Coimbatore/Chennai)",
+          "destinationRegion": "Karnataka",
+          "destinationCity": "Bengaluru",
+          "popularRoles": [
+            "AI/ML Engineer",
+            "Backend Go/Java Developer"
+          ],
+          "averageSalaryMultiplier": 1.5,
+          "readinessGapAverage": 10,
+          "topRequiredBridgeSkills": [
+            "Distributed Caching",
+            "Vector Databases",
+            "gRPC Services"
+          ],
+          "description": "Seamless cross-state corridor connecting Chennai SaaS talent with Bengaluru venture-funded product unicorns."
+        }
+      ],
+      "createdAt": "2026-01-01T00:00:00Z",
+      "updatedAt": "2026-09-22T00:00:00Z"
+    },
+    {
+      "id": "reg-prof-telangana",
+      "countryId": "in",
+      "regionId": "in-telangana",
+      "regionName": "Telangana",
+      "tagline": "Cyberabad Global Technology & DeepTech Innovation Hub",
+      "overview": "Telangana is a global technology powerhouse anchored by Hyderabad's HITEC City, Financial District, and Genome Valley. Supported by the Telangana Academy for Skill and Knowledge (TASK) and world-renowned innovation catalyst T-Hub, the state leads India in cloud hyperscaler investments, AI centers, and semiconductor chip design.",
+      "primaryLanguage": "te",
+      "supportedLanguages": [
+        {
+          "code": "en",
+          "label": "English",
+          "nativeLabel": "English"
+        },
+        {
+          "code": "te",
+          "label": "Telugu",
+          "nativeLabel": "తెలుగు"
+        },
+        {
+          "code": "hi",
+          "label": "Hindi",
+          "nativeLabel": "हिन्दी"
+        }
+      ],
+      "districts": [
+        {
+          "id": "in-ts-hyderabad",
+          "name": "Hyderabad (Cyberabad)",
+          "tier": "tier1",
+          "economicHub": "Enterprise IT, Cloud, BioTech & AI R&D",
+          "keyIndustries": [
+            "Enterprise Software",
+            "AI & Machine Learning",
+            "Semiconductor VLSI",
+            "BioTech"
+          ],
+          "itParksOrSezCount": 12,
+          "leadTrainingHub": "IIIT Hyderabad / T-Hub / TASK"
+        },
+        {
+          "id": "in-ts-warangal",
+          "name": "Warangal",
+          "tier": "tier2",
+          "economicHub": "Tier-2 IT Hub & Engineering Cluster",
+          "keyIndustries": [
+            "IT Services",
+            "Electronics Manufacturing",
+            "Agro-Tech"
+          ],
+          "itParksOrSezCount": 2,
+          "leadTrainingHub": "NIT Warangal"
+        }
+      ],
+      "publicSchemes": [
+        {
+          "id": "scheme_task",
+          "name": "Telangana Academy for Skill and Knowledge (TASK)",
+          "code": "TASK",
+          "authority": "IT E&C Dept, Govt. of Telangana",
+          "description": "Pioneering non-profit skilling body bridging industry and academia with verified global tech certifications.",
+          "benefits": "Subsidized Microsoft/AWS certifications, direct pre-placement mock interviews, and campus recruitment drives.",
+          "portalUrl": "https://task.telangana.gov.in",
+          "targetAudience": "Graduating students from engineering and degree colleges",
+          "eligibility": "Student in TASK registered college in Telangana"
+        },
+        {
+          "id": "scheme_thub",
+          "name": "T-Hub Innovation Platform",
+          "code": "THUB",
+          "authority": "T-Hub & Govt. of Telangana",
+          "description": "The world's largest startup incubator facility providing cutting-edge testing sandboxes and scaling capital.",
+          "benefits": "Full incubation, venture capital access, mentorship from global corporate innovators.",
+          "portalUrl": "https://t-hub.co",
+          "targetAudience": "Student innovators and tech founders",
+          "eligibility": "Early-stage tech startup"
+        }
+      ],
+      "migrationCorridors": [
+        {
+          "id": "corr-ts-us",
+          "sourceRegion": "Telangana (Hyderabad)",
+          "destinationRegion": "California",
+          "destinationCity": "San Francisco / Silicon Valley",
+          "popularRoles": [
+            "Principal Distributed Systems Engineer",
+            "AI Research Scientist",
+            "Cloud Architect"
+          ],
+          "averageSalaryMultiplier": 3.8,
+          "readinessGapAverage": 18,
+          "topRequiredBridgeSkills": [
+            "LLM Fine-Tuning & Quantization",
+            "Distributed ML Training",
+            "Cloud Native Security"
+          ],
+          "description": "Premier trans-pacific tech talent migration corridor connecting Hyderabad deep-tech alumni with Silicon Valley tech giants."
+        }
+      ],
+      "createdAt": "2026-01-01T00:00:00Z",
+      "updatedAt": "2026-09-22T00:00:00Z"
+    },
+    {
+      "id": "reg-prof-maharashtra",
+      "countryId": "in",
+      "regionId": "in-maharashtra",
+      "regionName": "Maharashtra",
+      "tagline": "India's Financial Engine & Enterprise Tech Corridor",
+      "overview": "Maharashtra integrates the nation's premier financial capital Mumbai (BFSI, FinTech, MediaTech) with Pune's engineering powerhouse (Automotive Software, Embedded IoT, Enterprise Java). Supported by the Maharashtra State Skill Development Society (MSSDS).",
+      "primaryLanguage": "mr",
+      "supportedLanguages": [
+        {
+          "code": "en",
+          "label": "English",
+          "nativeLabel": "English"
+        },
+        {
+          "code": "mr",
+          "label": "Marathi",
+          "nativeLabel": "मराठी"
+        },
+        {
+          "code": "hi",
+          "label": "Hindi",
+          "nativeLabel": "हिन्दी"
+        }
+      ],
+      "districts": [
+        {
+          "id": "in-mh-mumbai",
+          "name": "Mumbai (BKC & Navi Mumbai)",
+          "tier": "tier1",
+          "economicHub": "BFSI, FinTech & Hyperscale Data Centers",
+          "keyIndustries": [
+            "Banking Software",
+            "FinTech & Payments",
+            "Cloud Data Centers"
+          ],
+          "itParksOrSezCount": 9,
+          "leadTrainingHub": "IIT Bombay / VJTI Mumbai"
+        },
+        {
+          "id": "in-mh-pune",
+          "name": "Pune (Hinjawadi)",
+          "tier": "tier1",
+          "economicHub": "Automotive IT & Enterprise Software",
+          "keyIndustries": [
+            "Automotive Software",
+            "Enterprise Java & Cloud",
+            "DevOps"
+          ],
+          "itParksOrSezCount": 7,
+          "leadTrainingHub": "COEP Tech University"
+        }
+      ],
+      "publicSchemes": [
+        {
+          "id": "scheme_mssds",
+          "name": "Maharashtra State Skill Development Society (MSSDS)",
+          "code": "MSSDS",
+          "authority": "Skill Development & Entrepreneurship Dept, Maharashtra",
+          "description": "Statewide modular skilling and apprentice programs customized to financial and manufacturing tech needs.",
+          "benefits": "Certified apprenticeships, industry-sponsored stipends, and placement assurance.",
+          "portalUrl": "https://mssds.gov.in",
+          "targetAudience": "Youth aged 18-35 across all 36 districts",
+          "eligibility": "Domicile of Maharashtra, 10th/12th/Diploma/Degree"
+        }
+      ],
+      "migrationCorridors": [
+        {
+          "id": "corr-mh-uk",
+          "sourceRegion": "Maharashtra (Mumbai)",
+          "destinationRegion": "United Kingdom",
+          "destinationCity": "London Hub",
+          "popularRoles": [
+            "Quantitative Developer",
+            "FinTech Security Architect",
+            "Trading Systems Engineer"
+          ],
+          "averageSalaryMultiplier": 3.2,
+          "readinessGapAverage": 16,
+          "topRequiredBridgeSkills": [
+            "Algorithmic Trading Systems",
+            "Low-Latency C++",
+            "Open Banking APIs"
+          ],
+          "description": "Global financial technology corridor connecting Mumbai financial software engineers with London City firms."
+        }
+      ],
+      "createdAt": "2026-01-01T00:00:00Z",
+      "updatedAt": "2026-09-22T00:00:00Z"
+    },
+    {
+      "id": "reg-prof-korea",
+      "countryId": "kr",
+      "regionId": "kr-seoul",
+      "regionName": "Seoul Capital Area (Pangyo)",
+      "tagline": "Pangyo Techno Valley & Global AI/Robotics Frontier",
+      "overview": "South Korea's premier innovation ecosystem, Pangyo Techno Valley and Gangnam corridor host global gaming leaders, AI accelerator labs, and semiconductor giants. Backed by government initiatives such as TIPS Korea and the K-Startup Grand Challenge.",
+      "primaryLanguage": "ko",
+      "supportedLanguages": [
+        {
+          "code": "ko",
+          "label": "Korean",
+          "nativeLabel": "한국어"
+        },
+        {
+          "code": "en",
+          "label": "English",
+          "nativeLabel": "English"
+        }
+      ],
+      "districts": [
+        {
+          "id": "kr-seoul-pangyo",
+          "name": "Pangyo Techno Valley",
+          "tier": "tier1",
+          "economicHub": "Gaming, AI Hardware & Autonomous Robotics",
+          "keyIndustries": [
+            "AI Accelerators",
+            "Gaming & Metaverse",
+            "Robotics Systems"
+          ],
+          "itParksOrSezCount": 5,
+          "leadTrainingHub": "Seoul National University / KAIST Pangyo"
+        },
+        {
+          "id": "kr-seoul-gangnam",
+          "name": "Gangnam Tech Corridor",
+          "tier": "tier1",
+          "economicHub": "FinTech, Consumer Tech & Unicorn Startups",
+          "keyIndustries": [
+            "FinTech",
+            "E-Commerce Platforms",
+            "Venture Tech"
+          ],
+          "itParksOrSezCount": 4,
+          "leadTrainingHub": "Korea University Tech Innovation"
+        }
+      ],
+      "publicSchemes": [
+        {
+          "id": "scheme_k_startup",
+          "name": "K-Startup Grand Challenge & TIPS Korea",
+          "code": "K_STARTUP",
+          "authority": "Ministry of SMEs and Startups (MSS), South Korea",
+          "description": "World-renowned startup incubation and R&D acceleration scheme with government matched funding.",
+          "benefits": "Up to $100,000 grant funding, office space in Pangyo, and global team visa fast-track.",
+          "portalUrl": "https://k-startupgc.org",
+          "targetAudience": "Global tech founders, developers, and engineers",
+          "eligibility": "High-tech AI, hardware, or software venture"
+        }
+      ],
+      "migrationCorridors": [
+        {
+          "id": "corr-kr-us",
+          "sourceRegion": "South Korea (Seoul/Pangyo)",
+          "destinationRegion": "California",
+          "destinationCity": "Silicon Valley",
+          "popularRoles": [
+            "AI Research Engineer",
+            "Semiconductor Architecture Specialist",
+            "Gaming Engine Lead"
+          ],
+          "averageSalaryMultiplier": 1.8,
+          "readinessGapAverage": 12,
+          "topRequiredBridgeSkills": [
+            "Bilingual Technical Leadership",
+            "Distributed GPU Cluster Ops",
+            "CUDA Kernel Optimization"
+          ],
+          "description": "High-value hardware-software talent pipeline connecting Pangyo labs with US tech titans."
+        }
+      ],
+      "createdAt": "2026-01-01T00:00:00Z",
+      "updatedAt": "2026-09-22T00:00:00Z"
+    },
+    {
+      "id": "reg-prof-china",
+      "countryId": "cn",
+      "regionId": "cn-guangdong",
+      "regionName": "Greater Bay Area (Shenzhen)",
+      "tagline": "Global Hardware Silicon Valley & AI Robotics Hub",
+      "overview": "The Greater Bay Area and Shenzhen Nanshan Science Park represent the world's most agile electronics, drone robotics, and AI manufacturing corridor connecting international talent.",
+      "primaryLanguage": "zh",
+      "supportedLanguages": [
+        {
+          "code": "zh",
+          "label": "Chinese",
+          "nativeLabel": "中文"
+        },
+        {
+          "code": "en",
+          "label": "English",
+          "nativeLabel": "English"
+        }
+      ],
+      "districts": [
+        {
+          "id": "cn-gd-shenzhen",
+          "name": "Shenzhen (Nanshan)",
+          "tier": "tier1",
+          "economicHub": "Hardware Silicon Valley, Robotics & AI Models",
+          "keyIndustries": [
+            "Robotics & Drones",
+            "Hardware Prototyping",
+            "AI Edge Devices"
+          ],
+          "itParksOrSezCount": 14,
+          "leadTrainingHub": "Shenzhen University / Tsinghua SIGS"
+        }
+      ],
+      "publicSchemes": [
+        {
+          "id": "scheme_gba_youth",
+          "name": "Greater Bay Area Youth Tech & Innovation Scheme",
+          "code": "GBA_YOUTH",
+          "authority": "Shenzhen Municipal Science & Tech Commission",
+          "description": "Special talent incentives, housing subsidies, and venture incubation for young software and hardware engineers.",
+          "benefits": "Living subsidies, rapid patent acceleration, and direct supply-chain prototyping labs.",
+          "portalUrl": "https://stic.sz.gov.cn",
+          "targetAudience": "Young software and hardware engineers under 35",
+          "eligibility": "University graduate in STEM discipline"
+        }
+      ],
+      "migrationCorridors": [
+        {
+          "id": "corr-cn-sgp",
+          "sourceRegion": "China (Shenzhen)",
+          "destinationRegion": "Singapore",
+          "destinationCity": "Singapore Hub",
+          "popularRoles": [
+            "Cross-Border E-Commerce Architect",
+            "Hardware-Software IoT Lead"
+          ],
+          "averageSalaryMultiplier": 2.1,
+          "readinessGapAverage": 14,
+          "topRequiredBridgeSkills": [
+            "Multi-Region Cloud Compliance",
+            "Global Payment Gateways"
+          ],
+          "description": "Asia-Pacific regional headquarters expansion pipeline."
+        }
+      ],
+      "createdAt": "2026-01-01T00:00:00Z",
+      "updatedAt": "2026-09-22T00:00:00Z"
     }
   ],
   "regional_intelligence": [
+    {
+      "id": "reg_int_tn_react",
+      "countryId": "in",
+      "regionId": "in-tamilnadu",
+      "cityOrDistrictId": "in-tn-chennai",
+      "districtName": "Chennai (OMR / Guindy)",
+      "industryId": "it_software",
+      "industryName": "Enterprise SaaS & Cloud",
+      "jobRoleId": "jr-fullstack-dev",
+      "jobRoleTitle": "Full Stack Web Developer",
+      "skillId": "sk_react",
+      "skillName": "React",
+      "demand": {
+        "index": 94,
+        "activeVacancies": 1850,
+        "yoyGrowthRate": 34,
+        "urgency": "Critical",
+        "topLocalEmployers": [
+          "Freshworks Hub",
+          "Zoho Corp",
+          "Chargebee",
+          "Kissflow",
+          "Cognizant"
+        ]
+      },
+      "supply": {
+        "registeredTalentCount": 3200,
+        "placementReadyCount": 1450,
+        "inTrainingCount": 1800,
+        "readinessAverage": 76
+      },
+      "trainingCapacity": {
+        "activeTrainingCentersCount": 32,
+        "annualSeatCapacity": 4500,
+        "topTrainingInstitutions": [
+          "Anna University",
+          "IIT Madras Research Park",
+          "Naan Mudhalvan Centers"
+        ],
+        "bsdmCertifiedCenters": 12
+      },
+      "employmentOutcomes": {
+        "historicalPlacementRate": 88,
+        "averageStartingSalaryMonthly": "₹55,000 - ₹85,000",
+        "retentionRate6Months": 91
+      },
+      "dataSource": "Tamil Nadu Skill Development Corporation (TNSDC) & SaaS Industry Forum 2026",
+      "dataPeriod": "2026-Q1",
+      "verificationStatus": "official_verified",
+      "createdAt": "2026-01-15T00:00:00Z",
+      "updatedAt": "2026-09-22T00:00:00Z"
+    },
+    {
+      "id": "reg_int_ts_python",
+      "countryId": "in",
+      "regionId": "in-telangana",
+      "cityOrDistrictId": "in-ts-hyderabad",
+      "districtName": "Hyderabad (Cyberabad)",
+      "industryId": "it_software",
+      "industryName": "Enterprise IT, Cloud & AI",
+      "jobRoleId": "jr-data-analyst",
+      "jobRoleTitle": "Data Analyst & BI Specialist",
+      "skillId": "sk_python",
+      "skillName": "Python",
+      "demand": {
+        "index": 96,
+        "activeVacancies": 2100,
+        "yoyGrowthRate": 38,
+        "urgency": "Critical",
+        "topLocalEmployers": [
+          "Microsoft IDC",
+          "Google Hyderabad",
+          "T-Hub Startups",
+          "Novartis Informatics"
+        ]
+      },
+      "supply": {
+        "registeredTalentCount": 3800,
+        "placementReadyCount": 1620,
+        "inTrainingCount": 2200,
+        "readinessAverage": 74
+      },
+      "trainingCapacity": {
+        "activeTrainingCentersCount": 36,
+        "annualSeatCapacity": 5200,
+        "topTrainingInstitutions": [
+          "IIIT Hyderabad",
+          "TASK Centers",
+          "JNTU Hyderabad"
+        ],
+        "bsdmCertifiedCenters": 14
+      },
+      "employmentOutcomes": {
+        "historicalPlacementRate": 90,
+        "averageStartingSalaryMonthly": "₹60,000 - ₹95,000",
+        "retentionRate6Months": 89
+      },
+      "dataSource": "TASK (Telangana Academy for Skill and Knowledge) 2026",
+      "dataPeriod": "2026-Q1",
+      "verificationStatus": "official_verified",
+      "createdAt": "2026-01-15T00:00:00Z",
+      "updatedAt": "2026-09-22T00:00:00Z"
+    },
+    {
+      "id": "reg_int_mh_sql",
+      "countryId": "in",
+      "regionId": "in-maharashtra",
+      "cityOrDistrictId": "in-mh-mumbai",
+      "districtName": "Mumbai (BKC & Navi Mumbai)",
+      "industryId": "fintech",
+      "industryName": "BFSI & Digital Payments",
+      "jobRoleId": "jr-fullstack-dev",
+      "jobRoleTitle": "Full Stack Web Developer",
+      "skillId": "sk_sql",
+      "skillName": "SQL",
+      "demand": {
+        "index": 91,
+        "activeVacancies": 1650,
+        "yoyGrowthRate": 29,
+        "urgency": "High",
+        "topLocalEmployers": [
+          "HDFC Digital Hub",
+          "NSE Tech",
+          "PayU India",
+          "Jio Financial Services"
+        ]
+      },
+      "supply": {
+        "registeredTalentCount": 2900,
+        "placementReadyCount": 1300,
+        "inTrainingCount": 1600,
+        "readinessAverage": 71
+      },
+      "trainingCapacity": {
+        "activeTrainingCentersCount": 28,
+        "annualSeatCapacity": 3800,
+        "topTrainingInstitutions": [
+          "IIT Bombay",
+          "VJTI Mumbai",
+          "MSSDS FinTech Academy"
+        ],
+        "bsdmCertifiedCenters": 10
+      },
+      "employmentOutcomes": {
+        "historicalPlacementRate": 86,
+        "averageStartingSalaryMonthly": "₹52,000 - ₹80,000",
+        "retentionRate6Months": 87
+      },
+      "dataSource": "Maharashtra State Skill Development Society (MSSDS) 2026",
+      "dataPeriod": "2026-Q1",
+      "verificationStatus": "official_verified",
+      "createdAt": "2026-01-15T00:00:00Z",
+      "updatedAt": "2026-09-22T00:00:00Z"
+    },
+    {
+      "id": "reg_int_kr_python",
+      "countryId": "kr",
+      "regionId": "kr-seoul",
+      "cityOrDistrictId": "kr-seoul-pangyo",
+      "districtName": "Pangyo Techno Valley",
+      "industryId": "it_software",
+      "industryName": "AI Accelerators & Robotics",
+      "jobRoleId": "jr-cloud-devops",
+      "jobRoleTitle": "Cloud & DevOps Associate",
+      "skillId": "sk_python",
+      "skillName": "Python",
+      "demand": {
+        "index": 95,
+        "activeVacancies": 920,
+        "yoyGrowthRate": 42,
+        "urgency": "Critical",
+        "topLocalEmployers": [
+          "Kakao Corp",
+          "Naver Cloud",
+          "Krafton",
+          "NCSOFT AI Labs"
+        ]
+      },
+      "supply": {
+        "registeredTalentCount": 1400,
+        "placementReadyCount": 780,
+        "inTrainingCount": 820,
+        "readinessAverage": 82
+      },
+      "trainingCapacity": {
+        "activeTrainingCentersCount": 18,
+        "annualSeatCapacity": 2100,
+        "topTrainingInstitutions": [
+          "Seoul National University",
+          "KAIST AI Institute",
+          "Pangyo AI Academy"
+        ],
+        "bsdmCertifiedCenters": 6
+      },
+      "employmentOutcomes": {
+        "historicalPlacementRate": 93,
+        "averageStartingSalaryMonthly": "₩4,200,000 - ₩6,500,000",
+        "retentionRate6Months": 94
+      },
+      "dataSource": "K-Startup & Ministry of SMEs and Startups (MSS) Korea 2026",
+      "dataPeriod": "2026-Q1",
+      "verificationStatus": "official_verified",
+      "createdAt": "2026-01-15T00:00:00Z",
+      "updatedAt": "2026-09-22T00:00:00Z"
+    },
+    {
+      "id": "reg_int_cn_embedded",
+      "countryId": "cn",
+      "regionId": "cn-guangdong",
+      "cityOrDistrictId": "cn-gd-shenzhen",
+      "districtName": "Shenzhen (Nanshan)",
+      "industryId": "it_software",
+      "industryName": "Hardware Silicon Valley & IoT",
+      "jobRoleId": "jr-fullstack-dev",
+      "jobRoleTitle": "Full Stack Web Developer",
+      "skillId": "sk_js",
+      "skillName": "JavaScript",
+      "demand": {
+        "index": 97,
+        "activeVacancies": 2400,
+        "yoyGrowthRate": 45,
+        "urgency": "Critical",
+        "topLocalEmployers": [
+          "Tencent Holdings",
+          "DJI Robotics",
+          "BYD Electronics",
+          "Huawei Tech"
+        ]
+      },
+      "supply": {
+        "registeredTalentCount": 4100,
+        "placementReadyCount": 1950,
+        "inTrainingCount": 2600,
+        "readinessAverage": 80
+      },
+      "trainingCapacity": {
+        "activeTrainingCentersCount": 40,
+        "annualSeatCapacity": 6000,
+        "topTrainingInstitutions": [
+          "Shenzhen University",
+          "Tsinghua SIGS",
+          "Nanshan Science Academy"
+        ],
+        "bsdmCertifiedCenters": 15
+      },
+      "employmentOutcomes": {
+        "historicalPlacementRate": 91,
+        "averageStartingSalaryMonthly": "¥18,000 - ¥28,000",
+        "retentionRate6Months": 90
+      },
+      "dataSource": "Shenzhen Science & Technology Commission 2026",
+      "dataPeriod": "2026-Q1",
+      "verificationStatus": "official_verified",
+      "createdAt": "2026-01-15T00:00:00Z",
+      "updatedAt": "2026-09-22T00:00:00Z"
+    },
     {
       "id": "reg_int_pat_react",
       "countryId": "in",

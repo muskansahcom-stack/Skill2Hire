@@ -130,15 +130,15 @@ export function getDb(): DatabaseSchema {
         parsed.cohort_groups = seedDefaults.cohort_groups || [];
         shouldWriteBack = true;
       }
-      if (!parsed.countries || parsed.countries.length === 0) {
+      if (!parsed.countries || (seedDefaults.countries && seedDefaults.countries.length > parsed.countries.length)) {
         parsed.countries = seedDefaults.countries || [];
         shouldWriteBack = true;
       }
-      if (!parsed.regions || parsed.regions.length === 0) {
+      if (!parsed.regions || (seedDefaults.regions && seedDefaults.regions.length > parsed.regions.length)) {
         parsed.regions = seedDefaults.regions || [];
         shouldWriteBack = true;
       }
-      if (!parsed.cities || parsed.cities.length === 0) {
+      if (!parsed.cities || (seedDefaults.cities && seedDefaults.cities.length > parsed.cities.length)) {
         parsed.cities = seedDefaults.cities || [];
         shouldWriteBack = true;
       }
@@ -158,11 +158,11 @@ export function getDb(): DatabaseSchema {
         parsed.employment_outcomes = seedDefaults.employment_outcomes || [];
         shouldWriteBack = true;
       }
-      if (!parsed.regional_profiles || parsed.regional_profiles.length === 0) {
+      if (!parsed.regional_profiles || (seedDefaults.regional_profiles && seedDefaults.regional_profiles.length > parsed.regional_profiles.length)) {
         parsed.regional_profiles = seedDefaults.regional_profiles || [];
         shouldWriteBack = true;
       }
-      if (!parsed.regional_intelligence || parsed.regional_intelligence.length === 0) {
+      if (!parsed.regional_intelligence || (seedDefaults.regional_intelligence && seedDefaults.regional_intelligence.length > parsed.regional_intelligence.length)) {
         parsed.regional_intelligence = seedDefaults.regional_intelligence || [];
         shouldWriteBack = true;
       }

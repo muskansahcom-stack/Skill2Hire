@@ -114,8 +114,11 @@ function RegionalIntelligenceContent() {
     loadDistrict();
   }, [activeDistrictId]);
 
-  // Fallback profile if currentProfile not yet loaded
-  const profile = currentProfile || (allProfiles.length > 0 ? allProfiles[0] : null);
+  // Fallback profile matching active region
+  const profile =
+    allProfiles.find((p: any) => p.regionId === selectedRegion) ||
+    currentProfile ||
+    (allProfiles.length > 0 ? allProfiles[0] : null);
   const districts = profile?.districts || [];
 
   return (
@@ -135,28 +138,38 @@ function RegionalIntelligenceContent() {
                 Global Architecture
               </span>
               <span className="px-3 py-1 rounded-full bg-amber-500/20 text-amber-300 text-xs font-black uppercase tracking-wider border border-amber-500/30 flex items-center gap-1.5">
-                <span>🇮🇳</span>
-                Flagship: Bihar Implementation
+                <span>{profile?.countryId === 'kr' ? '🇰🇷' : profile?.countryId === 'cn' ? '🇨🇳' : '🇮🇳'}</span>
+                Active: {profile?.regionName || 'Bihar'}
               </span>
             </div>
 
             {/* Dialect Switcher Pill */}
-            <div className="flex items-center gap-1 bg-slate-800/80 backdrop-blur p-1 rounded-2xl border border-slate-700 text-xs">
+            <div className="flex flex-wrap items-center gap-1 bg-slate-800/80 backdrop-blur p-1 rounded-2xl border border-slate-700 text-xs">
               <span className="text-slate-400 px-2 font-bold flex items-center gap-1 text-[11px]">
                 <Languages className="w-3.5 h-3.5" />
                 Language:
               </span>
-              {(['en', 'hi', 'bho'] as const).map((l) => (
+              {([
+                { code: 'en', label: 'English' },
+                { code: 'hi', label: 'हिन्दी' },
+                { code: 'ta', label: 'தமிழ்' },
+                { code: 'te', label: 'తెలుగు' },
+                { code: 'mr', label: 'मराठी' },
+                { code: 'ko', label: '한국어' },
+                { code: 'zh', label: '中文' },
+                { code: 'bho', label: 'भोजपुरी' },
+              ] as const).map((l) => (
                 <button
-                  key={l}
-                  onClick={() => setLanguage(l)}
-                  className={`px-2.5 py-1 rounded-xl font-bold transition-all text-xs ${
-                    selectedLanguage === l
+                  key={l.code}
+                  onClick={() => setLanguage(l.code)}
+                  className={`px-2 py-1 rounded-xl font-bold transition-all text-xs ${
+                    selectedLanguage === l.code
                       ? 'bg-amber-500 text-slate-950 font-black shadow-sm'
                       : 'text-slate-300 hover:text-white hover:bg-slate-700/60'
                   }`}
+                  title={l.label}
                 >
-                  {l === 'en' ? 'English' : l === 'hi' ? 'हिन्दी' : 'भोजपुरी'}
+                  {l.label}
                 </button>
               ))}
             </div>
@@ -168,7 +181,7 @@ function RegionalIntelligenceContent() {
               {t('regionalPortal')}
             </h1>
             <p className="text-slate-300 text-sm sm:text-base font-medium leading-relaxed">
-              Decoupled regional intelligence engine powering localized demand-supply balancing, BSDM/KYP public scheme integration, and cross-state career migration corridors.
+              Decoupled regional intelligence engine powering localized demand-supply balancing, state public schemes, and cross-state & international career migration corridors.
             </p>
           </div>
 
@@ -179,58 +192,103 @@ function RegionalIntelligenceContent() {
             </span>
             <button
               onClick={() => setRegion('in-bihar')}
-              className={`px-3.5 py-1.5 rounded-xl text-xs font-extrabold flex items-center gap-2 transition-all ${
+              className={`px-3 py-1.5 rounded-xl text-xs font-extrabold flex items-center gap-1.5 transition-all ${
                 selectedRegion === 'in-bihar'
                   ? 'bg-gradient-to-r from-amber-500 to-amber-600 text-slate-950 shadow-lg shadow-amber-500/20'
                   : 'bg-slate-800/80 text-slate-300 hover:bg-slate-700'
               }`}
             >
               <span>🇮🇳</span>
-              <span>India: Bihar (Deep Implementation)</span>
-              <span className="text-[10px] px-1.5 py-0.2 rounded-md bg-amber-950/40 text-amber-950 font-black">
-                8 Districts
-              </span>
+              <span>Bihar (Flagship Hub)</span>
+            </button>
+
+            <button
+              onClick={() => setRegion('in-tamilnadu')}
+              className={`px-3 py-1.5 rounded-xl text-xs font-extrabold flex items-center gap-1.5 transition-all ${
+                selectedRegion === 'in-tamilnadu'
+                  ? 'bg-indigo-600 text-white shadow-lg'
+                  : 'bg-slate-800/80 text-slate-300 hover:bg-slate-700'
+              }`}
+            >
+              <span>🇮🇳</span>
+              <span>Tamil Nadu (SaaS Hub)</span>
+            </button>
+
+            <button
+              onClick={() => setRegion('in-telangana')}
+              className={`px-3 py-1.5 rounded-xl text-xs font-extrabold flex items-center gap-1.5 transition-all ${
+                selectedRegion === 'in-telangana'
+                  ? 'bg-cyan-600 text-white shadow-lg'
+                  : 'bg-slate-800/80 text-slate-300 hover:bg-slate-700'
+              }`}
+            >
+              <span>🇮🇳</span>
+              <span>Telangana (Cyberabad)</span>
+            </button>
+
+            <button
+              onClick={() => setRegion('in-maharashtra')}
+              className={`px-3 py-1.5 rounded-xl text-xs font-extrabold flex items-center gap-1.5 transition-all ${
+                selectedRegion === 'in-maharashtra'
+                  ? 'bg-rose-600 text-white shadow-lg'
+                  : 'bg-slate-800/80 text-slate-300 hover:bg-slate-700'
+              }`}
+            >
+              <span>🇮🇳</span>
+              <span>Maharashtra (Mumbai/Pune)</span>
+            </button>
+
+            <button
+              onClick={() => setRegion('kr-seoul')}
+              className={`px-3 py-1.5 rounded-xl text-xs font-extrabold flex items-center gap-1.5 transition-all ${
+                selectedRegion === 'kr-seoul'
+                  ? 'bg-blue-600 text-white shadow-lg'
+                  : 'bg-slate-800/80 text-slate-300 hover:bg-slate-700'
+              }`}
+            >
+              <span>🇰🇷</span>
+              <span>South Korea (Pangyo Valley)</span>
+            </button>
+
+            <button
+              onClick={() => setRegion('cn-guangdong')}
+              className={`px-3 py-1.5 rounded-xl text-xs font-extrabold flex items-center gap-1.5 transition-all ${
+                selectedRegion === 'cn-guangdong'
+                  ? 'bg-red-600 text-white shadow-lg'
+                  : 'bg-slate-800/80 text-slate-300 hover:bg-slate-700'
+              }`}
+            >
+              <span>🇨🇳</span>
+              <span>China (Shenzhen SV)</span>
             </button>
 
             <button
               onClick={() => setRegion('in-karnataka')}
-              className={`px-3.5 py-1.5 rounded-xl text-xs font-extrabold flex items-center gap-2 transition-all ${
+              className={`px-3 py-1.5 rounded-xl text-xs font-extrabold flex items-center gap-1.5 transition-all ${
                 selectedRegion === 'in-karnataka'
                   ? 'bg-primary-500 text-white shadow-lg'
                   : 'bg-slate-800/80 text-slate-300 hover:bg-slate-700'
               }`}
             >
               <span>🇮🇳</span>
-              <span>India: Karnataka (Bengaluru Corridor)</span>
-            </button>
-
-            <button
-              onClick={() => setRegion('in-maharashtra')}
-              className={`px-3.5 py-1.5 rounded-xl text-xs font-extrabold flex items-center gap-2 transition-all ${
-                selectedRegion === 'in-maharashtra'
-                  ? 'bg-primary-500 text-white shadow-lg'
-                  : 'bg-slate-800/80 text-slate-300 hover:bg-slate-700'
-              }`}
-            >
-              <span>🇮🇳</span>
-              <span>India: Maharashtra (Pune)</span>
+              <span>Karnataka (Bengaluru)</span>
             </button>
 
             <button
               onClick={() => setRegion('us-ca')}
-              className={`px-3.5 py-1.5 rounded-xl text-xs font-extrabold flex items-center gap-2 transition-all ${
+              className={`px-3 py-1.5 rounded-xl text-xs font-extrabold flex items-center gap-1.5 transition-all ${
                 selectedRegion === 'us-ca'
                   ? 'bg-primary-500 text-white shadow-lg'
                   : 'bg-slate-800/80 text-slate-300 hover:bg-slate-700'
               }`}
             >
               <span>🇺🇸</span>
-              <span>USA: California</span>
+              <span>USA (California)</span>
             </button>
 
             <button
               onClick={() => setRegion('global')}
-              className={`px-3.5 py-1.5 rounded-xl text-xs font-extrabold flex items-center gap-2 transition-all ${
+              className={`px-3 py-1.5 rounded-xl text-xs font-extrabold flex items-center gap-1.5 transition-all ${
                 selectedRegion === 'global'
                   ? 'bg-blue-600 text-white shadow-lg'
                   : 'bg-slate-800/80 text-slate-300 hover:bg-slate-700'
@@ -822,20 +880,20 @@ function RegionalIntelligenceContent() {
         <div className="space-y-6">
           <div className="p-6 rounded-3xl bg-purple-500/10 border border-purple-200 space-y-2">
             <span className="text-[10px] font-black uppercase tracking-wider text-purple-900">
-              Inclusivity & Vernacular Localization
+              Global & Multi-State Vernacular Localization Engine
             </span>
             <h3 className="text-xl font-black text-slate-900">
-              Grassroots Accessibility Engine (हिन्दी एवं भोजपुरी शब्दावली)
+              Grassroots & International Accessibility Engine
             </h3>
             <p className="text-xs text-slate-700 max-w-3xl font-medium leading-relaxed">
-              Bridging the digital divide for students in rural and semi-urban districts by delivering native-language mappings for modern software engineering concepts and hiring terminology.
+              Bridging the digital divide across diverse states and international tech frontiers by delivering verified native-language mappings in <strong>Tamil, Telugu, Marathi, Korean, Chinese, Hindi, and Bhojpuri</strong> for modern software engineering concepts and employment terminology.
             </p>
           </div>
 
           <div className="p-6 rounded-3xl bg-white border border-slate-200 shadow-sm space-y-4">
             <div className="flex items-center justify-between border-b border-slate-100 pb-3">
               <span className="font-extrabold text-sm text-slate-900">
-                Core Platform Lexicon Comparison
+                Cross-Regional Technical Lexicon (8 Languages Supported)
               </span>
               <div className="text-xs text-slate-500 font-medium">
                 Active Locale: <strong className="text-purple-700 uppercase">{selectedLanguage}</strong>
@@ -846,22 +904,42 @@ function RegionalIntelligenceContent() {
               <table className="w-full text-xs text-left">
                 <thead>
                   <tr className="border-b border-slate-200 text-slate-400 font-black uppercase tracking-wider">
-                    <th className="py-2.5 px-3">Standard Term (English)</th>
-                    <th className="py-2.5 px-3">हिन्दी (Hindi)</th>
-                    <th className="py-2.5 px-3">भोजपुरी / मैथिली (Bhojpuri/Maithili)</th>
+                    <th className="py-2.5 px-3 min-w-[140px]">English</th>
+                    <th className="py-2.5 px-3 min-w-[150px]">தமிழ் (Tamil)</th>
+                    <th className="py-2.5 px-3 min-w-[150px]">తెలుగు (Telugu)</th>
+                    <th className="py-2.5 px-3 min-w-[150px]">मराठी (Marathi)</th>
+                    <th className="py-2.5 px-3 min-w-[150px]">한국어 (Korean)</th>
+                    <th className="py-2.5 px-3 min-w-[150px]">中文 (Chinese)</th>
+                    <th className="py-2.5 px-3 min-w-[150px]">हिन्दी (Hindi)</th>
+                    <th className="py-2.5 px-3 min-w-[140px]">भोजपुरी</th>
                   </tr>
                 </thead>
                 <tbody className="divide-y divide-slate-100">
                   {Object.keys(REGIONAL_DICTIONARIES.en).map((key) => (
                     <tr key={key} className="hover:bg-slate-50/80 transition-colors">
-                      <td className="py-2.5 px-3 font-bold text-slate-800">
+                      <td className="py-2.5 px-3 font-bold text-slate-900">
                         {REGIONAL_DICTIONARIES.en[key]}
                       </td>
-                      <td className="py-2.5 px-3 text-slate-700 font-medium">
-                        {REGIONAL_DICTIONARIES.hi[key] || '—'}
+                      <td className="py-2.5 px-3 text-indigo-700 font-bold">
+                        {REGIONAL_DICTIONARIES.ta?.[key] || '—'}
                       </td>
-                      <td className="py-2.5 px-3 text-purple-800 font-bold">
-                        {REGIONAL_DICTIONARIES.bho[key] || '—'}
+                      <td className="py-2.5 px-3 text-cyan-700 font-bold">
+                        {REGIONAL_DICTIONARIES.te?.[key] || '—'}
+                      </td>
+                      <td className="py-2.5 px-3 text-rose-700 font-bold">
+                        {REGIONAL_DICTIONARIES.mr?.[key] || '—'}
+                      </td>
+                      <td className="py-2.5 px-3 text-blue-700 font-bold">
+                        {REGIONAL_DICTIONARIES.ko?.[key] || '—'}
+                      </td>
+                      <td className="py-2.5 px-3 text-red-700 font-bold">
+                        {REGIONAL_DICTIONARIES.zh?.[key] || '—'}
+                      </td>
+                      <td className="py-2.5 px-3 text-slate-700 font-medium">
+                        {REGIONAL_DICTIONARIES.hi?.[key] || '—'}
+                      </td>
+                      <td className="py-2.5 px-3 text-purple-700 font-medium">
+                        {REGIONAL_DICTIONARIES.bho?.[key] || '—'}
                       </td>
                     </tr>
                   ))}
