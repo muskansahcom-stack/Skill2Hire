@@ -15,8 +15,11 @@ import {
   FileCheck,
   BookOpen,
   Share2,
-  Check
+  Check,
+  Target
 } from 'lucide-react';
+import ExplainableSkillGapCard from '@/components/ExplainableSkillGapCard';
+import { ExplainableSkillGapReport } from '@/lib/types';
 
 export default function StudentSkillsPage() {
   const { profile, refreshProfile } = useAuth();
@@ -27,6 +30,11 @@ export default function StudentSkillsPage() {
   const [verifiedSkills, setVerifiedSkills] = useState<any[]>([]);
   const [certificates, setCertificates] = useState<any[]>([]);
   const [loading, setLoading] = useState(true);
+
+  // Phase 3: Explainable Skill Gap State
+  const [targetRole, setTargetRole] = useState('Full Stack Web Developer');
+  const [gapReport, setGapReport] = useState<ExplainableSkillGapReport | null>(null);
+  const [loadingGap, setLoadingGap] = useState(false);
 
   // Add Skill Modal State
   const [modalOpen, setModalOpen] = useState(false);
@@ -56,6 +64,23 @@ export default function StudentSkillsPage() {
   useEffect(() => {
     loadSkills();
   }, [studentId]);
+
+  const loadGapReport = async (roleName: string) => {
+    setLoadingGap(true);
+    try {
+      const res = await fetch(`/api/skill-gap?studentId=${studentId}&roleTitle=${encodeURIComponent(roleName)}`);
+      const data = await res.json();
+      if (data.report) setGapReport(data.report);
+    } catch (e) {
+      console.error(e);
+    } finally {
+      setLoadingGap(false);
+    }
+  };
+
+  useEffect(() => {
+    loadGapReport(targetRole);
+  }, [studentId, targetRole]);
 
   const handleAddSkill = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -240,7 +265,43 @@ export default function StudentSkillsPage() {
           )}
         </div>
 
-        {/* 2. ALL PORTFOLIO SKILLS (SELF-DECLARED & PENDING VERIFICATION) */}
+        {/* 2. EXPLAINABLE SKILL GAP ENGINE (PHASE 3) */}
+        <div className="space-y-4">
+          <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3">
+            <div>
+              <h2 className="text-xl font-black text-slate-900 flex items-center gap-2">
+                <Target className="w-5 h-5 text-indigo-600" />
+                <span>Target Role Benchmark & Explainable Skill Gap Analysis</span>
+              </h2>
+              <p className="text-xs text-slate-500 mt-0.5">
+                Benchmark candidate verified passport credentials against target industry job roles to inspect granular MATCHED, PARTIAL, MISSING, and UNASSESSED status.
+              </p>
+            </div>
+          </div>
+
+          <ExplainableSkillGapCard
+            report={gapReport}
+            isLoading={loadingGap}
+            targetSelector={
+              <div className="flex items-center gap-2">
+                <span className="text-[11px] font-bold text-slate-300">Target Role:</span>
+                <select
+                  value={targetRole}
+                  onChange={(e) => setTargetRole(e.target.value)}
+                  className="px-3 py-1.5 rounded-xl bg-white text-slate-900 font-bold text-xs border border-indigo-300 focus:outline-none focus:ring-2 focus:ring-indigo-400"
+                >
+                  <option value="Full Stack Web Developer">Full Stack Web Developer</option>
+                  <option value="Data Analyst & BI Specialist">Data Analyst & BI Specialist</option>
+                  <option value="Cloud & DevOps Associate">Cloud & DevOps Associate</option>
+                  <option value="AI & Machine Learning Engineer">AI & Machine Learning Engineer</option>
+                  <option value="AgriTech Automation Specialist">AgriTech Automation Specialist</option>
+                </select>
+              </div>
+            }
+          />
+        </div>
+
+        {/* 3. ALL PORTFOLIO SKILLS (SELF-DECLARED & PENDING VERIFICATION) */}
         <div className="bg-white rounded-2xl p-6 sm:p-8 border border-slate-200 shadow-sm space-y-6">
           <div className="flex items-center justify-between">
             <div>

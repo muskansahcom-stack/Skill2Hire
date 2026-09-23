@@ -201,6 +201,7 @@ export interface Job {
   responsibilities: string[];
   requirements: string[];
   requiredSkills: JobSkillRequirement[];
+  preferredSkills?: (string | JobSkillRequirement)[];
   location: string;
   workMode: 'Remote' | 'On-site' | 'Hybrid';
   salary: string;
@@ -1178,3 +1179,90 @@ export interface Skill360Response {
   };
   employmentOutcomes: EmploymentOutcome[];
 }
+
+// ----------------------------------------------------
+// EXPLAINABLE SKILL GAP ENGINE (PHASE 3)
+// ----------------------------------------------------
+
+export type SkillGapStatus = 'MATCHED' | 'PARTIAL' | 'MISSING' | 'UNASSESSED';
+
+export type SkillEvidenceType = 'VERIFIED_ASSESSMENT' | 'PROJECT_EVIDENCE' | 'SELF_DECLARED' | 'NONE';
+
+export interface SkillGapEvidence {
+  type: SkillEvidenceType;
+  summary: string;
+  assessmentId?: string;
+  assessmentScore?: number;
+  certificateId?: string;
+  projectTitle?: string;
+  declaredLevel?: SkillLevel;
+}
+
+export interface SkillGapExplanation {
+  whyRequired: string;
+  currentLevelDetail: string;
+  requiredLevelDetail: string;
+  recommendedCourse: {
+    id: string;
+    title: string;
+    duration: string;
+    url: string;
+  };
+  recommendedAssessment: {
+    id: string;
+    title: string;
+    questionsCount: number;
+    url: string;
+  };
+  recommendedProject: {
+    title: string;
+    description: string;
+    technologies: string[];
+  };
+}
+
+export interface SkillGapItem {
+  skillId: string;
+  skillName: string;
+  category: string;
+  isRequired: boolean;
+  requiredLevel: SkillLevel;
+  currentLevel: SkillLevel | 'None';
+  levelDelta: number; // 0: satisfied, -1: 1 level below, etc.
+  gapDescription: string;
+  status: SkillGapStatus;
+  evidence: SkillGapEvidence;
+  explanation: SkillGapExplanation;
+}
+
+export interface SkillGapAction {
+  step: number;
+  skillName: string;
+  actionType: 'LEARN' | 'ASSESS' | 'BUILD_PROJECT';
+  title: string;
+  url: string;
+  impact: string;
+  duration?: string;
+}
+
+export interface ExplainableSkillGapReport {
+  candidateId: string;
+  candidateName: string;
+  targetType: 'JOB_ROLE' | 'JOB';
+  targetId: string;
+  targetTitle: string;
+  targetCompany?: string;
+  overallMatchScore: number;
+  matchScoreExplanation: string;
+  isEligible: boolean;
+  stats: {
+    totalSkills: number;
+    matched: number;
+    partial: number;
+    missing: number;
+    unassessed: number;
+  };
+  skills: SkillGapItem[];
+  priorityActions: SkillGapAction[];
+}
+

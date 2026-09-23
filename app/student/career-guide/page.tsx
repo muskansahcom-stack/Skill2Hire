@@ -15,8 +15,11 @@ import {
   Check,
   ListTodo,
   Terminal,
-  Zap
+  Zap,
+  Target
 } from 'lucide-react';
+import ExplainableSkillGapCard from '@/components/ExplainableSkillGapCard';
+import { ExplainableSkillGapReport } from '@/lib/types';
 
 const SKILL_DETAILS_MAP: Record<string, {
   category: string;
@@ -114,15 +117,24 @@ export default function CareerGuidePage() {
 
   const [searchQuery, setSearchQuery] = useState('Data Analyst');
   const [careerResult, setCareerResult] = useState<any>(null);
+  const [gapReport, setGapReport] = useState<ExplainableSkillGapReport | null>(null);
   const [loading, setLoading] = useState(true);
 
   const fetchCareerData = async (query: string) => {
     setLoading(true);
     try {
-      const res = await fetch(`/api/students/${studentId}/recommendations?query=${encodeURIComponent(query)}`);
-      const data = await res.json();
-      if (data.recommendation) {
-        setCareerResult(data.recommendation);
+      const [resRec, resGap] = await Promise.all([
+        fetch(`/api/students/${studentId}/recommendations?query=${encodeURIComponent(query)}`),
+        fetch(`/api/skill-gap?studentId=${studentId}&roleTitle=${encodeURIComponent(query)}`)
+      ]);
+      const dataRec = await resRec.json();
+      const dataGap = await resGap.json();
+
+      if (dataRec.recommendation) {
+        setCareerResult(dataRec.recommendation);
+      }
+      if (dataGap.report) {
+        setGapReport(dataGap.report);
       }
     } catch (e) {
       console.error(e);
@@ -239,6 +251,17 @@ export default function CareerGuidePage() {
                 ))}
               </div>
             </div>
+
+            {/* Explainable Skill Gap Diagnostic for Target Career */}
+            {gapReport && (
+              <div className="space-y-4">
+                <ExplainableSkillGapCard
+                  report={gapReport}
+                  isLoading={loading}
+                  showRoadmap={false}
+                />
+              </div>
+            )}
 
             {/* 2. Structured Role Progression Roadmap (Step-by-step) */}
             <div className="space-y-6">

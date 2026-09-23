@@ -12,9 +12,10 @@ import {
   StudentAcademicReport, OtpRecord,
   Country, Region, City, Industry, SkillCategoryEntity, JobRole, EmploymentOutcome,
   RegionalProfile, RegionalIntelligenceRecord, DistrictSkillGapAnalysis, MigrationPathwayAnalysis,
-  SkillRelationship, SkillGraphData, Skill360Response
+  SkillRelationship, SkillGraphData, Skill360Response, ExplainableSkillGapReport, SkillLevel
 } from './types';
 import { buildSkill360Context, buildGlobalSkillGraphData } from './skillGraph';
+import { calculateExplainableSkillGap } from './skillGapEngine';
 
 export interface DatabaseSchema {
   users: User[];
@@ -775,6 +776,79 @@ export const db = {
   getSkill360: (skillIdOrName: string) => buildSkill360Context(skillIdOrName, getDb()),
   getSkillGraph: () => buildGlobalSkillGraphData(getDb()),
   getJobRoleById: (id: string) => (getDb().job_roles || []).find(r => r.id === id || r.role_id === id),
+  getSkillGapReport: (studentId: string, targetRef: { jobId?: string; roleId?: string; roleTitle?: string }): ExplainableSkillGapReport => {
+    const data = getDb();
+    const student = data.students.find(s => s.id === studentId) || data.students[0];
+    const verifiedSkills = data.verified_skills.filter(v => v.studentId === student.id);
+    const studentSkills = data.student_skills.filter(s => s.studentId === student.id);
+    const assessmentResults = data.assessment_results.filter(a => a.studentId === student.id);
+    const projects = data.projects.filter(p => p.studentId === student.id);
+
+    // Resolve Target
+    let targetObj: {
+      type: 'JOB_ROLE' | 'JOB';
+      id: string;
+      title: string;
+      companyName?: string;
+      requiredSkills: Array<{ name: string; level: SkillLevel }>;
+      preferredSkills: Array<{ name: string; level: SkillLevel }>;
+    };
+
+    if (targetRef.jobId) {
+      const job = data.jobs.find(j => j.id === targetRef.jobId) || data.jobs[0];
+      targetObj = {
+        type: 'JOB',
+        id: job.id,
+        title: job.title,
+        companyName: job.companyName,
+        requiredSkills: (job.requiredSkills || []).map(r => ({ name: r.skillName, level: r.minLevel })),
+        preferredSkills: ((job.preferredSkills || []) as any[]).map((p: any) => ({
+          name: typeof p === 'string' ? p : (p.skillName || p.name || 'Technical Skill'),
+          level: 'Beginner' as SkillLevel
+        }))
+      };
+    } else {
+      let role = (data.job_roles || []).find(r => r.id === targetRef.roleId || r.role_id === targetRef.roleId);
+      if (!role && targetRef.roleTitle) {
+        role = (data.job_roles || []).find(r => r.title.toLowerCase().includes(targetRef.roleTitle!.toLowerCase()));
+      }
+      if (!role) {
+        role = (data.job_roles || [])[0];
+      }
+
+      const profReqs: Record<string, SkillLevel> = {};
+      if (Array.isArray(role?.proficiency_requirements)) {
+        role.proficiency_requirements.forEach((pr: any) => {
+          if (pr.skillName) profReqs[pr.skillName] = pr.minLevel;
+        });
+      } else if (role?.proficiency_requirements && typeof role.proficiency_requirements === 'object') {
+        Object.assign(profReqs, role.proficiency_requirements);
+      }
+
+      const reqSkills: string[] = (role?.required_skills || (role as any)?.requiredSkills || ['Python', 'SQL', 'React', 'DSA']) as string[];
+      const prefSkills: string[] = (role?.preferred_skills || (role as any)?.preferredSkills || ['Docker', 'AWS']) as string[];
+
+      targetObj = {
+        type: 'JOB_ROLE',
+        id: role?.id || role?.role_id || 'role_fs_dev',
+        title: role?.title || targetRef.roleTitle || 'Full Stack Web Developer',
+        requiredSkills: reqSkills.map((name: string) => ({
+          name,
+          level: profReqs[name] || 'Intermediate'
+        })),
+        preferredSkills: prefSkills.map((name: string) => ({
+          name,
+          level: 'Beginner' as SkillLevel
+        }))
+      };
+    }
+
+    return calculateExplainableSkillGap(
+      { student, verifiedSkills, studentSkills, assessmentResults, projects },
+      targetObj,
+      data
+    );
+  },
   
   // STUDENT SKILLS & VERIFIED SKILLS
   getStudentSkills: (studentId: string) => {

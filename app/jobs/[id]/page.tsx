@@ -23,9 +23,12 @@ import {
   Send,
   AlertCircle,
   FileCheck,
-  Users
+  Users,
+  Target
 } from 'lucide-react';
 import ReadinessGauge from '@/components/ReadinessGauge';
+import ExplainableSkillGapCard from '@/components/ExplainableSkillGapCard';
+import { ExplainableSkillGapReport } from '@/lib/types';
 
 export default function JobDetailPage() {
   const params = useParams();
@@ -36,6 +39,7 @@ export default function JobDetailPage() {
 
   const [jobData, setJobData] = useState<any>(null);
   const [matchAnalysis, setMatchAnalysis] = useState<any>(null);
+  const [gapReport, setGapReport] = useState<ExplainableSkillGapReport | null>(null);
   const [existingApplication, setExistingApplication] = useState<any>(null);
   const [loading, setLoading] = useState(true);
   const [applying, setApplying] = useState(false);
@@ -45,15 +49,26 @@ export default function JobDetailPage() {
     async function loadJobDetails() {
       setLoading(true);
       try {
-        const res = await fetch(`/api/jobs/${jobId}?studentId=${studentId}`);
-        const data = await res.json();
+        const [jobRes, gapRes] = await Promise.all([
+          fetch(`/api/jobs/${jobId}?studentId=${studentId}`),
+          fetch(`/api/skill-gap?studentId=${studentId}&jobId=${jobId}`)
+        ]);
+
+        const data = await jobRes.json();
         if (data.job) {
           setJobData(data.job);
           setMatchAnalysis(data.matchAnalysis);
           setExistingApplication(data.existingApplication);
         }
+
+        if (gapRes.ok) {
+          const gapData = await gapRes.json();
+          if (gapData.report) {
+            setGapReport(gapData.report);
+          }
+        }
       } catch (err) {
-        console.error('Error fetching job details:', err);
+        console.error('Error fetching job details or skill gap report:', err);
       } finally {
         setLoading(false);
       }
@@ -106,8 +121,11 @@ export default function JobDetailPage() {
     );
   }
 
-  const isEligible = matchAnalysis?.isEligible;
-  const matchScore = matchAnalysis?.matchScore || 65;
+  const overallMatchScore = gapReport ? gapReport.overallMatchScore : (matchAnalysis?.matchScore || 65);
+  const isEligible = gapReport ? gapReport.isEligible : matchAnalysis?.isEligible;
+  const missingCount = gapReport
+    ? (gapReport.stats.missing + gapReport.stats.partial + gapReport.stats.unassessed)
+    : (matchAnalysis?.missingSkillsCount || 2);
   const skillsAnalysis = matchAnalysis?.skillsAnalysis || [];
   const readinessSteps = matchAnalysis?.readinessSteps || [];
 
@@ -166,7 +184,7 @@ export default function JobDetailPage() {
           {/* Quick Match Indicator */}
           <div className="bg-slate-800/80 p-5 rounded-3xl border border-slate-700/80 text-center sm:text-right shrink-0 space-y-1">
             <div className="text-[10px] font-bold uppercase text-slate-400">Skill Match Score</div>
-            <div className="text-3xl font-black text-cyan-300">{matchScore}%</div>
+            <div className="text-3xl font-black text-cyan-300">{overallMatchScore}%</div>
             <div>
               {isEligible ? (
                 <span className="px-2 py-0.5 rounded-md bg-emerald-500/20 text-emerald-300 text-[11px] font-bold inline-flex items-center gap-1">
@@ -282,9 +300,15 @@ export default function JobDetailPage() {
             </div>
 
             {/* ========================================================================= */}
-            {/* 🛠️ 3. HOW TO BECOME ELIGIBLE (Preparation Roadmap)                        */}
+            {/* 🛠️ 3. EXPLAINABLE SKILL GAP & PREPARATION ROADMAP                         */}
             {/* ========================================================================= */}
-            {!isEligible && readinessSteps.length > 0 && (
+            {gapReport ? (
+              <ExplainableSkillGapCard
+                report={gapReport}
+                isLoading={loading}
+                showRoadmap={true}
+              />
+            ) : (!isEligible && readinessSteps.length > 0) ? (
               <div className="p-6 sm:p-8 rounded-3xl bg-gradient-to-br from-amber-50 to-orange-50/40 border border-amber-200 shadow-sm space-y-6">
                 <div className="flex items-center gap-3">
                   <div className="w-10 h-10 rounded-2xl bg-amber-500 text-white flex items-center justify-center font-bold text-lg shadow-md shadow-amber-500/20">
@@ -352,7 +376,7 @@ export default function JobDetailPage() {
                   </Link>
                 </div>
               </div>
-            )}
+            ) : null}
 
           </div>
 
@@ -366,60 +390,139 @@ export default function JobDetailPage() {
               <div className="text-center space-y-2">
                 <h3 className="font-black text-base text-slate-900">Your Job Readiness</h3>
                 <div className="flex justify-center py-2">
-                  <ReadinessGauge score={matchScore} size="lg" title="Match Score" />
+                  <ReadinessGauge score={overallMatchScore} size="lg" title="Match Score" />
                 </div>
+                {gapReport && (
+                  <p className="text-[11px] text-slate-500 font-medium px-2 leading-relaxed">
+                    {gapReport.matchScoreExplanation}
+                  </p>
+                )}
               </div>
 
               {/* Skills Checklist (Section 6) */}
               <div className="space-y-3 pt-2 border-t border-slate-100">
-                <h4 className="text-xs font-black uppercase tracking-wider text-slate-400">Required Skills Breakdown:</h4>
+                <div className="flex items-center justify-between">
+                  <h4 className="text-xs font-black uppercase tracking-wider text-slate-400">Required Skills Breakdown:</h4>
+                  {gapReport && (
+                    <span className="text-[10px] font-bold text-slate-500">
+                      {gapReport.stats.matched}/{gapReport.stats.totalSkills} Verified
+                    </span>
+                  )}
+                </div>
 
                 <div className="space-y-2.5">
-                  {skillsAnalysis.map((sk: any) => {
-                    const isVerified = sk.status === 'VERIFIED';
-                    const isLevelGap = sk.status === 'LEVEL_GAP';
-                    const isMissing = sk.status === 'MISSING';
+                  {gapReport ? (
+                    gapReport.skills.map((sk) => {
+                      const isMatched = sk.status === 'MATCHED';
+                      const isPartial = sk.status === 'PARTIAL';
+                      const isUnassessed = sk.status === 'UNASSESSED';
 
-                    return (
-                      <div
-                        key={sk.skillName}
-                        className={`p-3 rounded-2xl border text-xs flex items-center justify-between ${
-                          isVerified
-                            ? 'bg-emerald-50/60 border-emerald-200 text-emerald-950'
-                            : isLevelGap
-                            ? 'bg-amber-50/60 border-amber-200 text-amber-950'
-                            : 'bg-rose-50/60 border-rose-200 text-rose-950'
-                        }`}
-                      >
-                        <div className="space-y-0.5">
-                          <div className="font-black text-xs text-slate-900 flex items-center gap-1">
-                            <span>{sk.skillName}</span>
-                            <span className="text-[10px] text-slate-500 font-normal">({sk.requiredLevel})</span>
+                      const borderClass = isMatched
+                        ? 'bg-emerald-50/70 border-emerald-200 text-emerald-950'
+                        : isPartial
+                        ? 'bg-amber-50/70 border-amber-200 text-amber-950'
+                        : isUnassessed
+                        ? 'bg-sky-50/70 border-sky-200 text-sky-950'
+                        : 'bg-rose-50/70 border-rose-200 text-rose-950';
+
+                      const badgeClass = isMatched
+                        ? 'bg-emerald-100 text-emerald-800 border-emerald-300'
+                        : isPartial
+                        ? 'bg-amber-100 text-amber-800 border-amber-300'
+                        : isUnassessed
+                        ? 'bg-sky-100 text-sky-800 border-sky-300'
+                        : 'bg-rose-100 text-rose-800 border-rose-300';
+
+                      return (
+                        <div
+                          key={sk.skillId}
+                          className={`p-3 rounded-2xl border text-xs flex items-center justify-between transition-all ${borderClass}`}
+                        >
+                          <div className="space-y-1">
+                            <div className="font-black text-xs text-slate-900 flex items-center gap-1.5">
+                              <span>{sk.skillName}</span>
+                              <span className="text-[10px] text-slate-500 font-normal">
+                                (Req: {sk.requiredLevel})
+                              </span>
+                            </div>
+                            <div className="text-[10px] flex items-center gap-1.5 flex-wrap">
+                              <span className={`px-2 py-0.5 rounded-full font-black text-[9px] border ${badgeClass}`}>
+                                {sk.status}
+                              </span>
+                              <span className="text-slate-600 font-medium">
+                                Level: <strong className="font-bold text-slate-900">{sk.currentLevel}</strong>
+                              </span>
+                              {sk.evidence.assessmentScore !== undefined && (
+                                <span className="text-slate-500 text-[9px]">
+                                  • {sk.evidence.assessmentScore}%
+                                </span>
+                              )}
+                            </div>
                           </div>
-                          <div className="text-[10px]">
-                            {isVerified ? (
-                              <span className="text-emerald-700 font-bold">Your Level: {sk.studentLevel} ✓</span>
-                            ) : isLevelGap ? (
-                              <span className="text-amber-700 font-bold">Your Level: {sk.studentLevel} ⚠</span>
-                            ) : (
-                              <span className="text-rose-700 font-bold">Not Verified ❌</span>
+
+                          <div className="shrink-0 pl-2">
+                            {!isMatched && (
+                              <Link
+                                href={sk.explanation.recommendedAssessment?.url
+                                  ? sk.explanation.recommendedAssessment.url
+                                  : sk.explanation.recommendedCourse?.url
+                                  ? sk.explanation.recommendedCourse.url
+                                  : `/student/career-guide`}
+                                className="px-2.5 py-1 rounded-lg bg-slate-900 text-white font-bold text-[10px] hover:bg-primary-600 transition-colors inline-block"
+                              >
+                                {isUnassessed ? 'Verify' : 'Learn'}
+                              </Link>
                             )}
                           </div>
                         </div>
+                      );
+                    })
+                  ) : (
+                    skillsAnalysis.map((sk: any) => {
+                      const isVerified = sk.status === 'VERIFIED';
+                      const isLevelGap = sk.status === 'LEVEL_GAP';
 
-                        <div>
-                          {!isVerified && (
-                            <Link
-                              href={`/learn/${encodeURIComponent(sk.skillName)}`}
-                              className="px-2.5 py-1 rounded-lg bg-slate-900 text-white font-bold text-[10px] hover:bg-primary-600 transition-colors inline-block"
-                            >
-                              Learn
-                            </Link>
-                          )}
+                      return (
+                        <div
+                          key={sk.skillName}
+                          className={`p-3 rounded-2xl border text-xs flex items-center justify-between ${
+                            isVerified
+                              ? 'bg-emerald-50/60 border-emerald-200 text-emerald-950'
+                              : isLevelGap
+                              ? 'bg-amber-50/60 border-amber-200 text-amber-950'
+                              : 'bg-rose-50/60 border-rose-200 text-rose-950'
+                          }`}
+                        >
+                          <div className="space-y-0.5">
+                            <div className="font-black text-xs text-slate-900 flex items-center gap-1">
+                              <span>{sk.skillName}</span>
+                              <span className="text-[10px] text-slate-500 font-normal">({sk.requiredLevel})</span>
+                            </div>
+                            <div className="text-[10px]">
+                              {isVerified ? (
+                                <span className="text-emerald-700 font-bold">Your Level: {sk.studentLevel} ✓</span>
+                              ) : isLevelGap ? (
+                                <span className="text-amber-700 font-bold">Your Level: {sk.studentLevel} ⚠</span>
+                              ) : (
+                                <span className="text-rose-700 font-bold">Not Verified ❌</span>
+                              )}
+                            </div>
+                          </div>
+
+                          <div>
+                            {!isVerified && (
+                              <Link
+                                href={`/learn/${encodeURIComponent(sk.skillName)}`}
+                                className="px-2.5 py-1 rounded-lg bg-slate-900 text-white font-bold text-[10px] hover:bg-primary-600 transition-colors inline-block"
+                              >
+                                Learn
+                              </Link>
+                            )}
+                          </div>
                         </div>
-                      </div>
-                    );
-                  })}
+                      );
+                    })
+                  )}
                 </div>
               </div>
 
@@ -445,7 +548,7 @@ export default function JobDetailPage() {
                       disabled
                       className="w-full py-3.5 px-6 rounded-2xl bg-slate-200 text-slate-500 font-black text-sm flex items-center justify-center gap-2 cursor-not-allowed"
                     >
-                      <span>NOT YET ELIGIBLE (Need {matchAnalysis?.missingSkillsCount || 2} Skills)</span>
+                      <span>NOT YET ELIGIBLE (Need {missingCount} Skills)</span>
                     </button>
                     <p className="text-[11px] text-slate-500 text-center">
                       Complete preparation steps on the left to verify your skills and unlock the Apply button.
