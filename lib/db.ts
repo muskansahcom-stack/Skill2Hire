@@ -12,10 +12,12 @@ import {
   StudentAcademicReport, OtpRecord,
   Country, Region, City, Industry, SkillCategoryEntity, JobRole, EmploymentOutcome,
   RegionalProfile, RegionalIntelligenceRecord, DistrictSkillGapAnalysis, MigrationPathwayAnalysis,
-  SkillRelationship, SkillGraphData, Skill360Response, ExplainableSkillGapReport, SkillLevel
+  SkillRelationship, SkillGraphData, Skill360Response, ExplainableSkillGapReport, SkillLevel,
+  SkillDemandFilter, SkillDemandAggregateReport, SkillDemandFilterOptions
 } from './types';
 import { buildSkill360Context, buildGlobalSkillGraphData } from './skillGraph';
 import { calculateExplainableSkillGap } from './skillGapEngine';
+import { calculateSkillDemand, extractSkillDemandFilterOptions } from './skillDemandEngine';
 
 export interface DatabaseSchema {
   users: User[];
@@ -250,6 +252,43 @@ export function getDb(): DatabaseSchema {
       if (!parsed.skill_relationships || (seedDefaults.skill_relationships && seedDefaults.skill_relationships.length > (parsed.skill_relationships?.length || 0))) {
         parsed.skill_relationships = seedDefaults.skill_relationships || [];
         shouldWriteBack = true;
+      }
+
+      // Sync Phase 4 skills (e.g. sk_excel, sk_powerbi)
+      if (seedDefaults.skills && parsed.skills) {
+        seedDefaults.skills.forEach((s: any) => {
+          if (!parsed.skills.some((ps: any) => ps.id === s.id)) {
+            parsed.skills.push(s);
+            shouldWriteBack = true;
+          }
+        });
+      }
+
+      // Sync Phase 4 Jobs (enrich geographic fields & add Bihar and national corridor jobs)
+      if (seedDefaults.jobs && parsed.jobs) {
+        seedDefaults.jobs.forEach((seedJob: Job) => {
+          const existingIdx = parsed.jobs.findIndex((j: any) => j.id === seedJob.id);
+          if (existingIdx !== -1) {
+            const ej = parsed.jobs[existingIdx];
+            if (!ej.country || !ej.region || !ej.city || !ej.industry || !ej.preferredSkills) {
+              ej.country = ej.country || seedJob.country;
+              ej.region = ej.region || seedJob.region;
+              ej.city = ej.city || seedJob.city;
+              ej.industry = ej.industry || seedJob.industry;
+              ej.roleId = ej.roleId || seedJob.roleId;
+              ej.roleTitle = ej.roleTitle || seedJob.roleTitle;
+              ej.experienceLevel = ej.experienceLevel || seedJob.experienceLevel;
+              ej.educationRequirement = ej.educationRequirement || seedJob.educationRequirement;
+              if (!ej.preferredSkills || ej.preferredSkills.length === 0) {
+                ej.preferredSkills = seedJob.preferredSkills || [];
+              }
+              shouldWriteBack = true;
+            }
+          } else {
+            parsed.jobs.push(seedJob);
+            shouldWriteBack = true;
+          }
+        });
       }
 
       // Upgrade old broken Git thumbnail if it exists in local DB
@@ -848,6 +887,14 @@ export const db = {
       targetObj,
       data
     );
+  },
+
+  // GLOBAL EMPLOYER SKILL DEMAND ENGINE (PHASE 4)
+  getSkillDemandReport: (filter?: SkillDemandFilter): SkillDemandAggregateReport => {
+    return calculateSkillDemand(getDb().jobs, filter);
+  },
+  getSkillDemandFilterOptions: (): SkillDemandFilterOptions => {
+    return extractSkillDemandFilterOptions(getDb().jobs);
   },
   
   // STUDENT SKILLS & VERIFIED SKILLS

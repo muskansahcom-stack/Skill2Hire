@@ -981,7 +981,31 @@
       "openings": 8,
       "deadline": "2026-09-30",
       "status": "published",
-      "createdAt": "2026-02-10T08:00:00Z"
+      "createdAt": "2026-02-10T08:00:00Z",
+      "country": "United States",
+      "region": "California",
+      "city": "San Francisco",
+      "industry": "Information Technology",
+      "roleId": "jr-backend-eng",
+      "roleTitle": "Software Developer",
+      "experienceLevel": "Fresher (0-1 yrs)",
+      "educationRequirement": "B.S. / B.Tech Computer Science / IT",
+      "preferredSkills": [
+        {
+          "skillId": "sk_cpp",
+          "skillName": "C++",
+          "minLevel": "Intermediate",
+          "isRequired": false,
+          "weight": 1
+        },
+        {
+          "skillId": "sk_aws",
+          "skillName": "AWS",
+          "minLevel": "Beginner",
+          "isRequired": false,
+          "weight": 0.8
+        }
+      ]
     },
     {
       "id": "job_2",
@@ -1041,7 +1065,31 @@
       "openings": 5,
       "deadline": "2026-10-15",
       "status": "published",
-      "createdAt": "2026-02-12T09:30:00Z"
+      "createdAt": "2026-02-12T09:30:00Z",
+      "country": "United States",
+      "region": "New York",
+      "city": "New York",
+      "industry": "Data & Analytics",
+      "roleId": "jr-data-analyst",
+      "roleTitle": "Data Analyst & BI Specialist",
+      "experienceLevel": "Junior (1-2 yrs)",
+      "educationRequirement": "B.S. / B.Tech / M.S. in Computer Science / Data Science / Math",
+      "preferredSkills": [
+        {
+          "skillId": "sk_excel",
+          "skillName": "Excel",
+          "minLevel": "Advanced",
+          "isRequired": false,
+          "weight": 1
+        },
+        {
+          "skillId": "sk_powerbi",
+          "skillName": "Power BI",
+          "minLevel": "Intermediate",
+          "isRequired": false,
+          "weight": 0.9
+        }
+      ]
     },
     {
       "id": "job_3",
@@ -1100,7 +1148,24 @@
       "openings": 6,
       "deadline": "2026-11-01",
       "status": "published",
-      "createdAt": "2026-02-14T11:15:00Z"
+      "createdAt": "2026-02-14T11:15:00Z",
+      "country": "United States",
+      "region": "California",
+      "city": "Palo Alto",
+      "industry": "Information Technology",
+      "roleId": "jr-devops-eng",
+      "roleTitle": "DevOps & Cloud Engineer",
+      "experienceLevel": "Fresher (0-1 yrs)",
+      "educationRequirement": "B.S. / B.Tech Computer Science or related",
+      "preferredSkills": [
+        {
+          "skillId": "sk_python",
+          "skillName": "Python",
+          "minLevel": "Beginner",
+          "isRequired": false,
+          "weight": 0.8
+        }
+      ]
     },
     {
       "id": "job_4",
@@ -1152,7 +1217,24 @@
       "openings": 4,
       "deadline": "2026-10-30",
       "status": "published",
-      "createdAt": "2026-02-15T14:00:00Z"
+      "createdAt": "2026-02-15T14:00:00Z",
+      "country": "United States",
+      "region": "Massachusetts",
+      "city": "Boston",
+      "industry": "FinTech",
+      "roleId": "jr-backend-eng",
+      "roleTitle": "Quantitative Software Engineer",
+      "experienceLevel": "Junior (1-3 yrs)",
+      "educationRequirement": "B.S. / B.Tech / M.S. Computer Science / Math / EE",
+      "preferredSkills": [
+        {
+          "skillId": "sk_python",
+          "skillName": "Python",
+          "minLevel": "Intermediate",
+          "isRequired": false,
+          "weight": 1
+        }
+      ]
     },
     {
       "id": "job_5",
@@ -1211,7 +1293,24 @@
       "openings": 7,
       "deadline": "2026-11-15",
       "status": "published",
-      "createdAt": "2026-02-16T16:00:00Z"
+      "createdAt": "2026-02-16T16:00:00Z",
+      "country": "United States",
+      "region": "California",
+      "city": "Palo Alto",
+      "industry": "Information Technology",
+      "roleId": "jr-frontend-dev",
+      "roleTitle": "Frontend & Full Stack Developer",
+      "experienceLevel": "Junior (1-3 yrs)",
+      "educationRequirement": "B.S. / B.Tech Computer Science / IT",
+      "preferredSkills": [
+        {
+          "skillId": "sk_git",
+          "skillName": "Git",
+          "minLevel": "Intermediate",
+          "isRequired": false,
+          "weight": 0.8
+        }
+      ]
     },
     {
       "id": "job_6",
@@ -1271,7 +1370,24 @@
       "openings": 3,
       "deadline": "2026-11-30",
       "status": "published",
-      "createdAt": "2026-02-17T10:00:00Z"
+      "createdAt": "2026-02-17T10:00:00Z",
+      "country": "United States",
+      "region": "Illinois",
+      "city": "Chicago",
+      "industry": "Information Technology",
+      "roleId": "jr-data-analyst",
+      "roleTitle": "Junior Big Data Engineer",
+      "experienceLevel": "Junior (1-3 yrs)",
+      "educationRequirement": "B.Tech / B.E. / B.S. in Computer Science or related",
+      "preferredSkills": [
+        {
+          "skillId": "sk_git",
+          "skillName": "Git",
+          "minLevel": "Beginner",
+          "isRequired": false,
+          "weight": 0.8
+        }
+      ]
     },
     {
       "id": "job_7",
@@ -1331,7 +1447,24 @@
       "openings": 4,
       "deadline": "2026-11-30",
       "status": "published",
-      "createdAt": "2026-02-18T10:00:00Z"
+      "createdAt": "2026-02-18T10:00:00Z",
+      "country": "United States",
+      "region": "District of Columbia",
+      "city": "Washington",
+      "industry": "Information Technology",
+      "roleId": "jr-backend-eng",
+      "roleTitle": "Associate Security Analyst",
+      "experienceLevel": "Junior (1-3 yrs)",
+      "educationRequirement": "B.Tech / B.E. / B.S. in Computer Science or related",
+      "preferredSkills": [
+        {
+          "skillId": "sk_git",
+          "skillName": "Git",
+          "minLevel": "Beginner",
+          "isRequired": false,
+          "weight": 0.8
+        }
+      ]
     },
     {
       "id": "job_8",
@@ -1391,7 +1524,24 @@
       "openings": 5,
       "deadline": "2026-11-30",
       "status": "published",
-      "createdAt": "2026-02-19T10:00:00Z"
+      "createdAt": "2026-02-19T10:00:00Z",
+      "country": "United States",
+      "region": "California",
+      "city": "San Diego",
+      "industry": "Healthcare IT",
+      "roleId": "jr-frontend-dev",
+      "roleTitle": "HealthTech Software Intern",
+      "experienceLevel": "Junior (1-3 yrs)",
+      "educationRequirement": "B.Tech / B.E. / B.S. in Computer Science or related",
+      "preferredSkills": [
+        {
+          "skillId": "sk_git",
+          "skillName": "Git",
+          "minLevel": "Beginner",
+          "isRequired": false,
+          "weight": 0.8
+        }
+      ]
     },
     {
       "id": "job_9",
@@ -1451,7 +1601,24 @@
       "openings": 6,
       "deadline": "2026-11-30",
       "status": "published",
-      "createdAt": "2026-02-20T10:00:00Z"
+      "createdAt": "2026-02-20T10:00:00Z",
+      "country": "United States",
+      "region": "California",
+      "city": "Los Angeles",
+      "industry": "Information Technology",
+      "roleId": "jr-frontend-dev",
+      "roleTitle": "Frontend Engineer (React)",
+      "experienceLevel": "Junior (1-3 yrs)",
+      "educationRequirement": "B.Tech / B.E. / B.S. in Computer Science or related",
+      "preferredSkills": [
+        {
+          "skillId": "sk_git",
+          "skillName": "Git",
+          "minLevel": "Beginner",
+          "isRequired": false,
+          "weight": 0.8
+        }
+      ]
     },
     {
       "id": "job_10",
@@ -1511,7 +1678,24 @@
       "openings": 7,
       "deadline": "2026-11-30",
       "status": "published",
-      "createdAt": "2026-02-21T10:00:00Z"
+      "createdAt": "2026-02-21T10:00:00Z",
+      "country": "United States",
+      "region": "Georgia",
+      "city": "Atlanta",
+      "industry": "Information Technology",
+      "roleId": "jr-backend-eng",
+      "roleTitle": "IoT & Backend Developer",
+      "experienceLevel": "Junior (1-3 yrs)",
+      "educationRequirement": "B.Tech / B.E. / B.S. in Computer Science or related",
+      "preferredSkills": [
+        {
+          "skillId": "sk_git",
+          "skillName": "Git",
+          "minLevel": "Beginner",
+          "isRequired": false,
+          "weight": 0.8
+        }
+      ]
     },
     {
       "id": "job_11",
@@ -1571,7 +1755,24 @@
       "openings": 3,
       "deadline": "2026-11-30",
       "status": "published",
-      "createdAt": "2026-02-22T10:00:00Z"
+      "createdAt": "2026-02-22T10:00:00Z",
+      "country": "United States",
+      "region": "California",
+      "city": "San Francisco",
+      "industry": "Information Technology",
+      "roleId": "jr-devops-eng",
+      "roleTitle": "Cloud Backend Engineer",
+      "experienceLevel": "Junior (1-3 yrs)",
+      "educationRequirement": "B.Tech / B.E. / B.S. in Computer Science or related",
+      "preferredSkills": [
+        {
+          "skillId": "sk_git",
+          "skillName": "Git",
+          "minLevel": "Beginner",
+          "isRequired": false,
+          "weight": 0.8
+        }
+      ]
     },
     {
       "id": "job_12",
@@ -1631,7 +1832,24 @@
       "openings": 4,
       "deadline": "2026-11-30",
       "status": "published",
-      "createdAt": "2026-02-23T10:00:00Z"
+      "createdAt": "2026-02-23T10:00:00Z",
+      "country": "United States",
+      "region": "New York",
+      "city": "New York",
+      "industry": "Data & Analytics",
+      "roleId": "jr-data-analyst",
+      "roleTitle": "Machine Learning Research Engineer",
+      "experienceLevel": "Junior (1-3 yrs)",
+      "educationRequirement": "B.Tech / B.E. / B.S. in Computer Science or related",
+      "preferredSkills": [
+        {
+          "skillId": "sk_git",
+          "skillName": "Git",
+          "minLevel": "Beginner",
+          "isRequired": false,
+          "weight": 0.8
+        }
+      ]
     },
     {
       "id": "job_13",
@@ -1691,7 +1909,24 @@
       "openings": 5,
       "deadline": "2026-11-30",
       "status": "published",
-      "createdAt": "2026-02-24T10:00:00Z"
+      "createdAt": "2026-02-24T10:00:00Z",
+      "country": "United States",
+      "region": "Illinois",
+      "city": "Chicago",
+      "industry": "Information Technology",
+      "roleId": "jr-backend-eng",
+      "roleTitle": "Database Administrator Associate",
+      "experienceLevel": "Junior (1-3 yrs)",
+      "educationRequirement": "B.Tech / B.E. / B.S. in Computer Science or related",
+      "preferredSkills": [
+        {
+          "skillId": "sk_git",
+          "skillName": "Git",
+          "minLevel": "Beginner",
+          "isRequired": false,
+          "weight": 0.8
+        }
+      ]
     },
     {
       "id": "job_14",
@@ -1751,7 +1986,24 @@
       "openings": 6,
       "deadline": "2026-11-30",
       "status": "published",
-      "createdAt": "2026-02-25T10:00:00Z"
+      "createdAt": "2026-02-25T10:00:00Z",
+      "country": "United States",
+      "region": "Washington",
+      "city": "Seattle",
+      "industry": "Information Technology",
+      "roleId": "jr-devops-eng",
+      "roleTitle": "Site Reliability Engineer",
+      "experienceLevel": "Junior (1-3 yrs)",
+      "educationRequirement": "B.Tech / B.E. / B.S. in Computer Science or related",
+      "preferredSkills": [
+        {
+          "skillId": "sk_git",
+          "skillName": "Git",
+          "minLevel": "Beginner",
+          "isRequired": false,
+          "weight": 0.8
+        }
+      ]
     },
     {
       "id": "job_15",
@@ -1811,7 +2063,24 @@
       "openings": 7,
       "deadline": "2026-11-30",
       "status": "published",
-      "createdAt": "2026-02-26T10:00:00Z"
+      "createdAt": "2026-02-26T10:00:00Z",
+      "country": "United States",
+      "region": "Massachusetts",
+      "city": "Boston",
+      "industry": "FinTech",
+      "roleId": "jr-backend-eng",
+      "roleTitle": "Fintech Application Developer",
+      "experienceLevel": "Junior (1-3 yrs)",
+      "educationRequirement": "B.Tech / B.E. / B.S. in Computer Science or related",
+      "preferredSkills": [
+        {
+          "skillId": "sk_git",
+          "skillName": "Git",
+          "minLevel": "Beginner",
+          "isRequired": false,
+          "weight": 0.8
+        }
+      ]
     },
     {
       "id": "job_16",
@@ -1871,7 +2140,24 @@
       "openings": 3,
       "deadline": "2026-11-30",
       "status": "published",
-      "createdAt": "2026-02-17T10:00:00Z"
+      "createdAt": "2026-02-17T10:00:00Z",
+      "country": "United States",
+      "region": "California",
+      "city": "Palo Alto",
+      "industry": "Information Technology",
+      "roleId": "jr-data-analyst",
+      "roleTitle": "AI Prompt & Evaluation Engineer",
+      "experienceLevel": "Junior (1-3 yrs)",
+      "educationRequirement": "B.Tech / B.E. / B.S. in Computer Science or related",
+      "preferredSkills": [
+        {
+          "skillId": "sk_git",
+          "skillName": "Git",
+          "minLevel": "Beginner",
+          "isRequired": false,
+          "weight": 0.8
+        }
+      ]
     },
     {
       "id": "job_17",
@@ -1931,7 +2217,24 @@
       "openings": 4,
       "deadline": "2026-11-30",
       "status": "published",
-      "createdAt": "2026-02-18T10:00:00Z"
+      "createdAt": "2026-02-18T10:00:00Z",
+      "country": "United States",
+      "region": "District of Columbia",
+      "city": "Washington",
+      "industry": "Information Technology",
+      "roleId": "jr-backend-eng",
+      "roleTitle": "Application Security Engineer",
+      "experienceLevel": "Junior (1-3 yrs)",
+      "educationRequirement": "B.Tech / B.E. / B.S. in Computer Science or related",
+      "preferredSkills": [
+        {
+          "skillId": "sk_git",
+          "skillName": "Git",
+          "minLevel": "Beginner",
+          "isRequired": false,
+          "weight": 0.8
+        }
+      ]
     },
     {
       "id": "job_18",
@@ -1991,7 +2294,24 @@
       "openings": 5,
       "deadline": "2026-11-30",
       "status": "published",
-      "createdAt": "2026-02-19T10:00:00Z"
+      "createdAt": "2026-02-19T10:00:00Z",
+      "country": "United States",
+      "region": "California",
+      "city": "San Diego",
+      "industry": "Healthcare IT",
+      "roleId": "jr-backend-eng",
+      "roleTitle": "Backend API Developer",
+      "experienceLevel": "Junior (1-3 yrs)",
+      "educationRequirement": "B.Tech / B.E. / B.S. in Computer Science or related",
+      "preferredSkills": [
+        {
+          "skillId": "sk_git",
+          "skillName": "Git",
+          "minLevel": "Beginner",
+          "isRequired": false,
+          "weight": 0.8
+        }
+      ]
     },
     {
       "id": "job_19",
@@ -2051,7 +2371,24 @@
       "openings": 6,
       "deadline": "2026-11-30",
       "status": "published",
-      "createdAt": "2026-02-20T10:00:00Z"
+      "createdAt": "2026-02-20T10:00:00Z",
+      "country": "United States",
+      "region": "California",
+      "city": "Los Angeles",
+      "industry": "Information Technology",
+      "roleId": "jr-frontend-dev",
+      "roleTitle": "Full Stack Web Developer",
+      "experienceLevel": "Junior (1-3 yrs)",
+      "educationRequirement": "B.Tech / B.E. / B.S. in Computer Science or related",
+      "preferredSkills": [
+        {
+          "skillId": "sk_git",
+          "skillName": "Git",
+          "minLevel": "Beginner",
+          "isRequired": false,
+          "weight": 0.8
+        }
+      ]
     },
     {
       "id": "job_20",
@@ -2111,7 +2448,24 @@
       "openings": 7,
       "deadline": "2026-11-30",
       "status": "published",
-      "createdAt": "2026-02-21T10:00:00Z"
+      "createdAt": "2026-02-21T10:00:00Z",
+      "country": "United States",
+      "region": "Georgia",
+      "city": "Atlanta",
+      "industry": "Information Technology",
+      "roleId": "jr-backend-eng",
+      "roleTitle": "Embedded Systems Firmware Intern",
+      "experienceLevel": "Junior (1-3 yrs)",
+      "educationRequirement": "B.Tech / B.E. / B.S. in Computer Science or related",
+      "preferredSkills": [
+        {
+          "skillId": "sk_git",
+          "skillName": "Git",
+          "minLevel": "Beginner",
+          "isRequired": false,
+          "weight": 0.8
+        }
+      ]
     },
     {
       "id": "job_21",
@@ -2171,7 +2525,24 @@
       "openings": 3,
       "deadline": "2026-11-30",
       "status": "published",
-      "createdAt": "2026-02-22T10:00:00Z"
+      "createdAt": "2026-02-22T10:00:00Z",
+      "country": "United States",
+      "region": "California",
+      "city": "San Francisco",
+      "industry": "Information Technology",
+      "roleId": "jr-backend-eng",
+      "roleTitle": "QA Automation & Test Engineer",
+      "experienceLevel": "Junior (1-3 yrs)",
+      "educationRequirement": "B.Tech / B.E. / B.S. in Computer Science or related",
+      "preferredSkills": [
+        {
+          "skillId": "sk_git",
+          "skillName": "Git",
+          "minLevel": "Beginner",
+          "isRequired": false,
+          "weight": 0.8
+        }
+      ]
     },
     {
       "id": "job_22",
@@ -2231,7 +2602,24 @@
       "openings": 4,
       "deadline": "2026-11-30",
       "status": "published",
-      "createdAt": "2026-02-23T10:00:00Z"
+      "createdAt": "2026-02-23T10:00:00Z",
+      "country": "United States",
+      "region": "New York",
+      "city": "New York",
+      "industry": "Data & Analytics",
+      "roleId": "jr-data-analyst",
+      "roleTitle": "NLP Solutions Engineer",
+      "experienceLevel": "Junior (1-3 yrs)",
+      "educationRequirement": "B.Tech / B.E. / B.S. in Computer Science or related",
+      "preferredSkills": [
+        {
+          "skillId": "sk_git",
+          "skillName": "Git",
+          "minLevel": "Beginner",
+          "isRequired": false,
+          "weight": 0.8
+        }
+      ]
     },
     {
       "id": "job_23",
@@ -2284,7 +2672,24 @@
       "openings": 5,
       "deadline": "2026-11-30",
       "status": "published",
-      "createdAt": "2026-02-24T10:00:00Z"
+      "createdAt": "2026-02-24T10:00:00Z",
+      "country": "United States",
+      "region": "Illinois",
+      "city": "Chicago",
+      "industry": "Data & Analytics",
+      "roleId": "jr-data-analyst",
+      "roleTitle": "Business Intelligence Analyst",
+      "experienceLevel": "Junior (1-3 yrs)",
+      "educationRequirement": "B.Tech / B.E. / B.S. in Computer Science or related",
+      "preferredSkills": [
+        {
+          "skillId": "sk_git",
+          "skillName": "Git",
+          "minLevel": "Beginner",
+          "isRequired": false,
+          "weight": 0.8
+        }
+      ]
     },
     {
       "id": "job_24",
@@ -2344,7 +2749,24 @@
       "openings": 6,
       "deadline": "2026-11-30",
       "status": "published",
-      "createdAt": "2026-02-25T10:00:00Z"
+      "createdAt": "2026-02-25T10:00:00Z",
+      "country": "United States",
+      "region": "Washington",
+      "city": "Seattle",
+      "industry": "Information Technology",
+      "roleId": "jr-devops-eng",
+      "roleTitle": "DevSecOps Engineer",
+      "experienceLevel": "Junior (1-3 yrs)",
+      "educationRequirement": "B.Tech / B.E. / B.S. in Computer Science or related",
+      "preferredSkills": [
+        {
+          "skillId": "sk_git",
+          "skillName": "Git",
+          "minLevel": "Beginner",
+          "isRequired": false,
+          "weight": 0.8
+        }
+      ]
     },
     {
       "id": "job_25",
@@ -2404,7 +2826,788 @@
       "openings": 7,
       "deadline": "2026-11-30",
       "status": "published",
-      "createdAt": "2026-02-26T10:00:00Z"
+      "createdAt": "2026-02-26T10:00:00Z",
+      "country": "United States",
+      "region": "Massachusetts",
+      "city": "Boston",
+      "industry": "FinTech",
+      "roleId": "jr-backend-eng",
+      "roleTitle": "Data Pipeline Developer",
+      "experienceLevel": "Junior (1-3 yrs)",
+      "educationRequirement": "B.Tech / B.E. / B.S. in Computer Science or related",
+      "preferredSkills": [
+        {
+          "skillId": "sk_git",
+          "skillName": "Git",
+          "minLevel": "Beginner",
+          "isRequired": false,
+          "weight": 0.8
+        }
+      ]
+    },
+    {
+      "id": "job_br_1",
+      "companyId": "comp_1",
+      "companyName": "TechNova Bihar Innovation Center",
+      "companyLogo": "https://images.unsplash.com/photo-1572021335469-31706a17aaef?w=150&auto=format&fit=crop&q=80",
+      "title": "Junior Data Analyst",
+      "roleId": "jr-data-analyst",
+      "roleTitle": "Junior Data Analyst",
+      "department": "Data & Analytics",
+      "industry": "Data & Analytics",
+      "description": "Analyze state logistics, supply chain records, and public sector datasets from our STPI Patna Innovation Lab.",
+      "responsibilities": [
+        "Write optimized SQL aggregation queries and data transformations.",
+        "Build structured Excel operational dashboards with advanced lookup formulas.",
+        "Develop Python scripts to automate daily data extraction and data hygiene audits."
+      ],
+      "requirements": [
+        "Strong hands-on mastery of SQL, Excel, and Python.",
+        "Minimum CGPA 7.0 / 10.0.",
+        "Degree in Computer Science, BCA, B.Sc or related fields."
+      ],
+      "requiredSkills": [
+        {
+          "skillId": "sk_sql",
+          "skillName": "SQL",
+          "minLevel": "Intermediate",
+          "isRequired": true,
+          "weight": 1.5
+        },
+        {
+          "skillId": "sk_excel",
+          "skillName": "Excel",
+          "minLevel": "Advanced",
+          "isRequired": true,
+          "weight": 1.3
+        },
+        {
+          "skillId": "sk_python",
+          "skillName": "Python",
+          "minLevel": "Intermediate",
+          "isRequired": true,
+          "weight": 1.4
+        }
+      ],
+      "preferredSkills": [
+        {
+          "skillId": "sk_powerbi",
+          "skillName": "Power BI",
+          "minLevel": "Intermediate",
+          "isRequired": false,
+          "weight": 1
+        },
+        {
+          "skillId": "sk_git",
+          "skillName": "Git",
+          "minLevel": "Beginner",
+          "isRequired": false,
+          "weight": 0.8
+        }
+      ],
+      "location": "STPI Patna, Bihar, India",
+      "country": "India",
+      "region": "Bihar",
+      "city": "Patna",
+      "workMode": "Hybrid",
+      "experienceLevel": "Fresher (0-1 yrs)",
+      "educationRequirement": "B.Tech / BCA / B.Sc Computer Science / Math",
+      "salary": "₹6,50,000 - ₹9,00,000 / year",
+      "employmentType": "Full-time",
+      "minCgpa": 7,
+      "graduationYear": 2026,
+      "degree": "B.S. / B.Tech / BCA / B.Sc",
+      "branch": "Computer Science / IT / Math",
+      "openings": 6,
+      "deadline": "2026-11-30",
+      "status": "published",
+      "createdAt": "2026-02-18T10:00:00Z"
+    },
+    {
+      "id": "job_br_2",
+      "companyId": "comp_beltron",
+      "companyName": "BELTRON (Bihar State Electronics Dev Corp)",
+      "companyLogo": "https://images.unsplash.com/photo-1516321318423-f06f85e504b3?w=150&auto=format&fit=crop&q=80",
+      "title": "Junior Web Application Engineer",
+      "roleId": "jr-frontend-dev",
+      "roleTitle": "Frontend Developer",
+      "department": "State Digital Infrastructure",
+      "industry": "GovTech & Public Infrastructure",
+      "description": "Engineer responsive web portals, state citizen services, and public mission dashboards connecting 38 Bihar districts.",
+      "responsibilities": [
+        "Develop accessible web interfaces with React, JavaScript, and modern CSS.",
+        "Integrate state API gateways with secure authentication endpoints.",
+        "Collaborate with STPI Patna engineers using Git code review pipelines."
+      ],
+      "requirements": [
+        "Solid JavaScript fundamentals, React, and Git",
+        "Minimum CGPA 6.8"
+      ],
+      "requiredSkills": [
+        {
+          "skillId": "sk_javascript",
+          "skillName": "JavaScript",
+          "minLevel": "Intermediate",
+          "isRequired": true,
+          "weight": 1.4
+        },
+        {
+          "skillId": "sk_react",
+          "skillName": "React",
+          "minLevel": "Intermediate",
+          "isRequired": true,
+          "weight": 1.4
+        },
+        {
+          "skillId": "sk_git",
+          "skillName": "Git",
+          "minLevel": "Beginner",
+          "isRequired": true,
+          "weight": 1
+        }
+      ],
+      "preferredSkills": [
+        {
+          "skillId": "sk_sql",
+          "skillName": "SQL",
+          "minLevel": "Beginner",
+          "isRequired": false,
+          "weight": 0.8
+        },
+        {
+          "skillId": "sk_typescript",
+          "skillName": "TypeScript",
+          "minLevel": "Beginner",
+          "isRequired": false,
+          "weight": 0.8
+        }
+      ],
+      "location": "Vidyut Bhawan, Bailey Road, Patna, Bihar, India",
+      "country": "India",
+      "region": "Bihar",
+      "city": "Patna",
+      "workMode": "On-site",
+      "experienceLevel": "Fresher (0-1 yrs)",
+      "educationRequirement": "B.Tech / B.E. in CSE / IT / MCA",
+      "salary": "₹5,80,000 - ₹8,20,000 / year",
+      "employmentType": "Full-time",
+      "minCgpa": 6.8,
+      "graduationYear": 2026,
+      "degree": "B.Tech / MCA",
+      "branch": "Computer Science / IT",
+      "openings": 12,
+      "deadline": "2026-11-20",
+      "status": "published",
+      "createdAt": "2026-02-19T09:00:00Z"
+    },
+    {
+      "id": "job_br_3",
+      "companyId": "comp_bihar_health",
+      "companyName": "Bihar Digital Health Mission IT Hub",
+      "companyLogo": "https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?w=150&auto=format&fit=crop&q=80",
+      "title": "Python & Health Data Analytics Engineer",
+      "roleId": "jr-data-analyst",
+      "roleTitle": "Data Analyst & BI Specialist",
+      "department": "Health Informatics",
+      "industry": "Healthcare IT",
+      "description": "Build predictive health telemetry, district patient record pipelines, and hospital capacity monitoring models.",
+      "responsibilities": [
+        "Process district health surveillance data with Python and Pandas.",
+        "Optimize multi-table SQL queries across state health records.",
+        "Deploy data quality validation scripts."
+      ],
+      "requirements": [
+        "Python, SQL, Pandas data wrangling",
+        "CGPA >= 7.0"
+      ],
+      "requiredSkills": [
+        {
+          "skillId": "sk_python",
+          "skillName": "Python",
+          "minLevel": "Intermediate",
+          "isRequired": true,
+          "weight": 1.5
+        },
+        {
+          "skillId": "sk_sql",
+          "skillName": "SQL",
+          "minLevel": "Intermediate",
+          "isRequired": true,
+          "weight": 1.4
+        },
+        {
+          "skillId": "sk_pandas",
+          "skillName": "Pandas & NumPy",
+          "minLevel": "Intermediate",
+          "isRequired": true,
+          "weight": 1.2
+        }
+      ],
+      "preferredSkills": [
+        {
+          "skillId": "sk_aiml",
+          "skillName": "AI/ML",
+          "minLevel": "Beginner",
+          "isRequired": false,
+          "weight": 0.8
+        },
+        {
+          "skillId": "sk_git",
+          "skillName": "Git",
+          "minLevel": "Intermediate",
+          "isRequired": false,
+          "weight": 0.8
+        }
+      ],
+      "location": "Patna, Bihar, India (Hybrid)",
+      "country": "India",
+      "region": "Bihar",
+      "city": "Patna",
+      "workMode": "Hybrid",
+      "experienceLevel": "Junior (1-2 yrs)",
+      "educationRequirement": "B.Tech / B.Sc / MCA in STEM",
+      "salary": "₹7,20,000 - ₹10,50,000 / year",
+      "employmentType": "Full-time",
+      "minCgpa": 7,
+      "graduationYear": 2026,
+      "degree": "B.Tech / MCA / B.Sc",
+      "branch": "Computer Science / BioInformatics / Math",
+      "openings": 4,
+      "deadline": "2026-12-05",
+      "status": "published",
+      "createdAt": "2026-02-20T11:00:00Z"
+    },
+    {
+      "id": "job_br_4",
+      "companyId": "comp_muz_agri",
+      "companyName": "Muzaffarpur Smart AgriTech Systems",
+      "companyLogo": "https://images.unsplash.com/photo-1586771107445-d3ca888129ff?w=150&auto=format&fit=crop&q=80",
+      "title": "IoT & Embedded Systems Engineer",
+      "roleId": "jr-backend-eng",
+      "roleTitle": "Software Developer",
+      "department": "Industrial Automation",
+      "industry": "Information Technology",
+      "description": "Develop soil telemetry sensors, weather monitoring microcontrollers, and agro-logistics tracking systems.",
+      "responsibilities": [
+        "Program microcontroller firmware in C++ and Python.",
+        "Implement low-power communication protocols with cloud gateways.",
+        "Test field sensor telemetry and solve data structure edge cases."
+      ],
+      "requirements": [
+        "C++, Python, core DSA concepts",
+        "CGPA >= 6.8"
+      ],
+      "requiredSkills": [
+        {
+          "skillId": "sk_cpp",
+          "skillName": "C++",
+          "minLevel": "Intermediate",
+          "isRequired": true,
+          "weight": 1.5
+        },
+        {
+          "skillId": "sk_python",
+          "skillName": "Python",
+          "minLevel": "Intermediate",
+          "isRequired": true,
+          "weight": 1.3
+        },
+        {
+          "skillId": "sk_dsa",
+          "skillName": "DSA",
+          "minLevel": "Beginner",
+          "isRequired": true,
+          "weight": 1
+        }
+      ],
+      "preferredSkills": [
+        {
+          "skillId": "sk_aws",
+          "skillName": "AWS",
+          "minLevel": "Beginner",
+          "isRequired": false,
+          "weight": 0.8
+        },
+        {
+          "skillId": "sk_git",
+          "skillName": "Git",
+          "minLevel": "Beginner",
+          "isRequired": false,
+          "weight": 0.8
+        }
+      ],
+      "location": "Muzaffarpur Industrial Growth Center, Bihar, India",
+      "country": "India",
+      "region": "Bihar",
+      "city": "Muzaffarpur",
+      "workMode": "On-site",
+      "experienceLevel": "Fresher (0-1 yrs)",
+      "educationRequirement": "B.Tech in CSE / ECE / Instrumentation",
+      "salary": "₹5,50,000 - ₹7,80,000 / year",
+      "employmentType": "Full-time",
+      "minCgpa": 6.8,
+      "graduationYear": 2026,
+      "degree": "B.Tech",
+      "branch": "CSE / ECE",
+      "openings": 5,
+      "deadline": "2026-11-25",
+      "status": "published",
+      "createdAt": "2026-02-21T08:30:00Z"
+    },
+    {
+      "id": "job_br_5",
+      "companyId": "comp_gaya_clean",
+      "companyName": "Gaya Clean Energy & Grid Analytics",
+      "companyLogo": "https://images.unsplash.com/photo-1473341304170-971dccb5ac1e?w=150&auto=format&fit=crop&q=80",
+      "title": "Junior Systems & Telemetry Analyst",
+      "roleId": "jr-data-analyst",
+      "roleTitle": "Junior Data Analyst",
+      "department": "Smart Grid Telemetry",
+      "industry": "Information Technology",
+      "description": "Monitor solar grid output, track inverter performance, and maintain transmission telemetry analytics.",
+      "responsibilities": [
+        "Query solar power timeseries metrics using SQL and Python.",
+        "Track equipment maintenance schedules with Git versioned workflows.",
+        "Prepare weekly efficiency reports for state power transmission coordinators."
+      ],
+      "requirements": [
+        "SQL, Python scripting, Git",
+        "CGPA >= 6.8"
+      ],
+      "requiredSkills": [
+        {
+          "skillId": "sk_sql",
+          "skillName": "SQL",
+          "minLevel": "Intermediate",
+          "isRequired": true,
+          "weight": 1.5
+        },
+        {
+          "skillId": "sk_python",
+          "skillName": "Python",
+          "minLevel": "Beginner",
+          "isRequired": true,
+          "weight": 1.2
+        },
+        {
+          "skillId": "sk_git",
+          "skillName": "Git",
+          "minLevel": "Beginner",
+          "isRequired": true,
+          "weight": 1
+        }
+      ],
+      "preferredSkills": [
+        {
+          "skillId": "sk_excel",
+          "skillName": "Excel",
+          "minLevel": "Advanced",
+          "isRequired": false,
+          "weight": 1
+        }
+      ],
+      "location": "Gaya IT Incubation Center, Bihar, India",
+      "country": "India",
+      "region": "Bihar",
+      "city": "Gaya",
+      "workMode": "On-site",
+      "experienceLevel": "Fresher (0-1 yrs)",
+      "educationRequirement": "B.Tech / BCA / B.Sc in STEM",
+      "salary": "₹5,20,000 - ₹7,50,000 / year",
+      "employmentType": "Full-time",
+      "minCgpa": 6.8,
+      "graduationYear": 2026,
+      "degree": "B.Tech / BCA",
+      "branch": "CSE / EE / IT",
+      "openings": 3,
+      "deadline": "2026-11-28",
+      "status": "published",
+      "createdAt": "2026-02-22T09:15:00Z"
+    },
+    {
+      "id": "job_26",
+      "companyId": "comp_4",
+      "companyName": "CloudCore India",
+      "title": "Cloud Infrastructure Engineer",
+      "roleId": "jr-devops-eng",
+      "roleTitle": "Cloud Infrastructure Engineer",
+      "department": "Cloud Infrastructure",
+      "industry": "Information Technology",
+      "country": "India",
+      "region": "Karnataka",
+      "city": "Bangalore",
+      "description": "Join CloudCore India to build cutting-edge systems and develop industry-leading solutions in Cloud Infrastructure.",
+      "responsibilities": [
+        "Deliver high quality code and participate in sprint planning.",
+        "Collaborate with cross-functional engineers and stakeholders.",
+        "Maintain test coverage, documentation, and continuous delivery."
+      ],
+      "requirements": [
+        "Strong problem solving and core programming fundamentals",
+        "Minimum CGPA 7.5",
+        "Graduation year 2026"
+      ],
+      "requiredSkills": [
+        {
+          "skillId": "sk_aws",
+          "skillName": "AWS",
+          "minLevel": "Beginner",
+          "isRequired": true,
+          "weight": 1.2
+        },
+        {
+          "skillId": "sk_docker",
+          "skillName": "Docker",
+          "minLevel": "Beginner",
+          "isRequired": true,
+          "weight": 1.2
+        },
+        {
+          "skillId": "sk_linux",
+          "skillName": "Linux CLI",
+          "minLevel": "Beginner",
+          "isRequired": true,
+          "weight": 1.2
+        },
+        {
+          "skillId": "sk_python",
+          "skillName": "Python",
+          "minLevel": "Intermediate",
+          "isRequired": true,
+          "weight": 1.2
+        }
+      ],
+      "preferredSkills": [
+        {
+          "skillId": "sk_git",
+          "skillName": "Git",
+          "minLevel": "Beginner",
+          "isRequired": false,
+          "weight": 0.8
+        }
+      ],
+      "location": "Whitefield, Bangalore, Karnataka, India",
+      "workMode": "Hybrid",
+      "salary": "₹12,00,000 - ₹18,00,000 / year",
+      "employmentType": "Full-time",
+      "experienceLevel": "Junior (1-3 yrs)",
+      "educationRequirement": "B.Tech / B.E. / B.S. in Computer Science or related",
+      "minCgpa": 7.5,
+      "graduationYear": 2026,
+      "degree": "B.S. / B.Tech",
+      "branch": "Computer Science / IT / Related",
+      "openings": 3,
+      "deadline": "2026-11-30",
+      "status": "published",
+      "createdAt": "2026-02-17T10:00:00Z"
+    },
+    {
+      "id": "job_27",
+      "companyId": "comp_5",
+      "companyName": "FinEdge India",
+      "title": "Core Banking Solutions Engineer",
+      "roleId": "jr-backend-eng",
+      "roleTitle": "Core Banking Solutions Engineer",
+      "department": "Core Banking",
+      "industry": "FinTech",
+      "country": "India",
+      "region": "Tamil Nadu",
+      "city": "Chennai",
+      "description": "Join FinEdge India to build cutting-edge systems and develop industry-leading solutions in Core Banking.",
+      "responsibilities": [
+        "Deliver high quality code and participate in sprint planning.",
+        "Collaborate with cross-functional engineers and stakeholders.",
+        "Maintain test coverage, documentation, and continuous delivery."
+      ],
+      "requirements": [
+        "Strong problem solving and core programming fundamentals",
+        "Minimum CGPA 7.6",
+        "Graduation year 2026"
+      ],
+      "requiredSkills": [
+        {
+          "skillId": "sk_java",
+          "skillName": "Java",
+          "minLevel": "Intermediate",
+          "isRequired": true,
+          "weight": 1.2
+        },
+        {
+          "skillId": "sk_sql",
+          "skillName": "SQL",
+          "minLevel": "Intermediate",
+          "isRequired": true,
+          "weight": 1.2
+        },
+        {
+          "skillId": "sk_rest_api",
+          "skillName": "REST APIs",
+          "minLevel": "Beginner",
+          "isRequired": true,
+          "weight": 1.2
+        },
+        {
+          "skillId": "sk_git",
+          "skillName": "Git",
+          "minLevel": "Beginner",
+          "isRequired": true,
+          "weight": 1.2
+        }
+      ],
+      "preferredSkills": [
+        {
+          "skillId": "sk_git",
+          "skillName": "Git",
+          "minLevel": "Beginner",
+          "isRequired": false,
+          "weight": 0.8
+        }
+      ],
+      "location": "OMR Tech Corridor, Chennai, Tamil Nadu, India",
+      "workMode": "Hybrid",
+      "salary": "₹11,00,000 - ₹16,50,000 / year",
+      "employmentType": "Full-time",
+      "experienceLevel": "Junior (1-3 yrs)",
+      "educationRequirement": "B.Tech / B.E. / B.S. in Computer Science or related",
+      "minCgpa": 7.6,
+      "graduationYear": 2026,
+      "degree": "B.S. / B.Tech",
+      "branch": "Computer Science / IT / Related",
+      "openings": 4,
+      "deadline": "2026-11-30",
+      "status": "published",
+      "createdAt": "2026-02-18T10:00:00Z"
+    },
+    {
+      "id": "job_28",
+      "companyId": "comp_9",
+      "companyName": "ByteWave India",
+      "title": "Full Stack React Engineer",
+      "roleId": "jr-frontend-dev",
+      "roleTitle": "Full Stack React Engineer",
+      "department": "Product Engineering",
+      "industry": "Information Technology",
+      "country": "India",
+      "region": "Maharashtra",
+      "city": "Pune",
+      "description": "Join ByteWave India to build cutting-edge systems and develop industry-leading solutions in Product Engineering.",
+      "responsibilities": [
+        "Deliver high quality code and participate in sprint planning.",
+        "Collaborate with cross-functional engineers and stakeholders.",
+        "Maintain test coverage, documentation, and continuous delivery."
+      ],
+      "requirements": [
+        "Strong problem solving and core programming fundamentals",
+        "Minimum CGPA 7.4",
+        "Graduation year 2026"
+      ],
+      "requiredSkills": [
+        {
+          "skillId": "sk_react",
+          "skillName": "React",
+          "minLevel": "Intermediate",
+          "isRequired": true,
+          "weight": 1.2
+        },
+        {
+          "skillId": "sk_typescript",
+          "skillName": "TypeScript",
+          "minLevel": "Beginner",
+          "isRequired": true,
+          "weight": 1.2
+        },
+        {
+          "skillId": "sk_nodejs",
+          "skillName": "Node.js",
+          "minLevel": "Beginner",
+          "isRequired": true,
+          "weight": 1.2
+        },
+        {
+          "skillId": "sk_sql",
+          "skillName": "SQL",
+          "minLevel": "Intermediate",
+          "isRequired": true,
+          "weight": 1.2
+        }
+      ],
+      "preferredSkills": [
+        {
+          "skillId": "sk_git",
+          "skillName": "Git",
+          "minLevel": "Beginner",
+          "isRequired": false,
+          "weight": 0.8
+        }
+      ],
+      "location": "Hinjewadi Phase 2, Pune, Maharashtra, India",
+      "workMode": "Hybrid",
+      "salary": "₹10,50,000 - ₹15,00,000 / year",
+      "employmentType": "Full-time",
+      "experienceLevel": "Junior (1-3 yrs)",
+      "educationRequirement": "B.Tech / B.E. / B.S. in Computer Science or related",
+      "minCgpa": 7.4,
+      "graduationYear": 2026,
+      "degree": "B.S. / B.Tech",
+      "branch": "Computer Science / IT / Related",
+      "openings": 5,
+      "deadline": "2026-11-30",
+      "status": "published",
+      "createdAt": "2026-02-19T10:00:00Z"
+    },
+    {
+      "id": "job_29",
+      "companyId": "comp_3",
+      "companyName": "DataSphere India",
+      "title": "Associate Data Warehouse Engineer",
+      "roleId": "jr-data-analyst",
+      "roleTitle": "Associate Data Warehouse Engineer",
+      "department": "Analytics Systems",
+      "industry": "Data & Analytics",
+      "country": "India",
+      "region": "Telangana",
+      "city": "Hyderabad",
+      "description": "Join DataSphere India to build cutting-edge systems and develop industry-leading solutions in Analytics Systems.",
+      "responsibilities": [
+        "Deliver high quality code and participate in sprint planning.",
+        "Collaborate with cross-functional engineers and stakeholders.",
+        "Maintain test coverage, documentation, and continuous delivery."
+      ],
+      "requirements": [
+        "Strong problem solving and core programming fundamentals",
+        "Minimum CGPA 7.2",
+        "Graduation year 2026"
+      ],
+      "requiredSkills": [
+        {
+          "skillId": "sk_sql",
+          "skillName": "SQL",
+          "minLevel": "Intermediate",
+          "isRequired": true,
+          "weight": 1.2
+        },
+        {
+          "skillId": "sk_python",
+          "skillName": "Python",
+          "minLevel": "Intermediate",
+          "isRequired": true,
+          "weight": 1.2
+        },
+        {
+          "skillId": "sk_pandas",
+          "skillName": "Pandas & NumPy",
+          "minLevel": "Beginner",
+          "isRequired": true,
+          "weight": 1.2
+        },
+        {
+          "skillId": "sk_aws",
+          "skillName": "AWS",
+          "minLevel": "Beginner",
+          "isRequired": true,
+          "weight": 1.2
+        }
+      ],
+      "preferredSkills": [
+        {
+          "skillId": "sk_git",
+          "skillName": "Git",
+          "minLevel": "Beginner",
+          "isRequired": false,
+          "weight": 0.8
+        }
+      ],
+      "location": "HITEC City, Hyderabad, Telangana, India",
+      "workMode": "Hybrid",
+      "salary": "₹10,00,000 - ₹14,50,000 / year",
+      "employmentType": "Full-time",
+      "experienceLevel": "Junior (1-3 yrs)",
+      "educationRequirement": "B.Tech / B.E. / B.S. in Computer Science or related",
+      "minCgpa": 7.2,
+      "graduationYear": 2026,
+      "degree": "B.S. / B.Tech",
+      "branch": "Computer Science / IT / Related",
+      "openings": 6,
+      "deadline": "2026-11-30",
+      "status": "published",
+      "createdAt": "2026-02-20T10:00:00Z"
+    },
+    {
+      "id": "job_30",
+      "companyId": "comp_2",
+      "companyName": "InnoSoft India",
+      "title": "Machine Learning Engineer",
+      "roleId": "jr-data-analyst",
+      "roleTitle": "Machine Learning Engineer",
+      "department": "Applied AI",
+      "industry": "Information Technology",
+      "country": "India",
+      "region": "Haryana",
+      "city": "Gurgaon",
+      "description": "Join InnoSoft India to build cutting-edge systems and develop industry-leading solutions in Applied AI.",
+      "responsibilities": [
+        "Deliver high quality code and participate in sprint planning.",
+        "Collaborate with cross-functional engineers and stakeholders.",
+        "Maintain test coverage, documentation, and continuous delivery."
+      ],
+      "requirements": [
+        "Strong problem solving and core programming fundamentals",
+        "Minimum CGPA 8",
+        "Graduation year 2026"
+      ],
+      "requiredSkills": [
+        {
+          "skillId": "sk_python",
+          "skillName": "Python",
+          "minLevel": "Intermediate",
+          "isRequired": true,
+          "weight": 1.2
+        },
+        {
+          "skillId": "sk_aiml",
+          "skillName": "AI/ML",
+          "minLevel": "Beginner",
+          "isRequired": true,
+          "weight": 1.2
+        },
+        {
+          "skillId": "sk_pytorch",
+          "skillName": "PyTorch",
+          "minLevel": "Beginner",
+          "isRequired": true,
+          "weight": 1.2
+        },
+        {
+          "skillId": "sk_sql",
+          "skillName": "SQL",
+          "minLevel": "Intermediate",
+          "isRequired": true,
+          "weight": 1.2
+        }
+      ],
+      "preferredSkills": [
+        {
+          "skillId": "sk_git",
+          "skillName": "Git",
+          "minLevel": "Beginner",
+          "isRequired": false,
+          "weight": 0.8
+        }
+      ],
+      "location": "Cyber City, Gurgaon, Haryana, India",
+      "workMode": "Hybrid",
+      "salary": "₹13,00,000 - ₹19,00,000 / year",
+      "employmentType": "Full-time",
+      "experienceLevel": "Junior (1-3 yrs)",
+      "educationRequirement": "B.Tech / B.E. / B.S. in Computer Science or related",
+      "minCgpa": 8,
+      "graduationYear": 2026,
+      "degree": "B.S. / B.Tech",
+      "branch": "Computer Science / IT / Related",
+      "openings": 7,
+      "deadline": "2026-11-30",
+      "status": "published",
+      "createdAt": "2026-02-21T10:00:00Z"
     }
   ],
   "skills": [
@@ -3071,6 +4274,54 @@
         "sk_python"
       ],
       "status": "active"
+    },
+    {
+      "id": "sk_excel",
+      "name": "Excel",
+      "category": "Data & Analytics",
+      "subcategory": "Spreadsheet Modeling & Pivot Analysis",
+      "description": "Advanced spreadsheet formulas (XLOOKUP, INDEX/MATCH), pivot tables, data modeling, and business telemetry analysis.",
+      "difficulty": "Intermediate",
+      "parent_skill_id": null,
+      "related_skills": [
+        "sk_sql",
+        "sk_powerbi",
+        "sk_pandas"
+      ],
+      "prerequisite_skills": [],
+      "complementary_skills": [
+        "sk_sql",
+        "sk_powerbi"
+      ],
+      "status": "active",
+      "industryDemandPercent": 84,
+      "demandLevel": "Very High"
+    },
+    {
+      "id": "sk_powerbi",
+      "name": "Power BI",
+      "category": "Data & Analytics",
+      "subcategory": "Business Intelligence & Visual Analytics",
+      "description": "Interactive dashboard engineering, DAX formulas, Power Query ETL pipelines, and executive KPI reporting.",
+      "difficulty": "Intermediate",
+      "parent_skill_id": null,
+      "related_skills": [
+        "sk_excel",
+        "sk_sql",
+        "sk_pandas"
+      ],
+      "prerequisite_skills": [
+        "sk_excel",
+        "sk_sql"
+      ],
+      "complementary_skills": [
+        "sk_sql",
+        "sk_excel",
+        "sk_python"
+      ],
+      "status": "active",
+      "industryDemandPercent": 76,
+      "demandLevel": "High"
     }
   ],
   "student_skills": [

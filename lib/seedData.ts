@@ -645,6 +645,36 @@ export function generateInitialDatabase(): DatabaseSchema {
       industryDemandPercent: 66,
       demandLevel: 'High'
     },
+    {
+      id: 'sk_excel',
+      name: 'Excel',
+      category: 'Data & Analytics',
+      subcategory: 'Spreadsheet Modeling & Pivot Analysis',
+      description: 'Advanced spreadsheet formulas (XLOOKUP, INDEX/MATCH), pivot tables, data modeling, and business telemetry analysis.',
+      difficulty: 'Intermediate',
+      parent_skill_id: null,
+      related_skills: ['sk_sql', 'sk_powerbi', 'sk_pandas'],
+      prerequisite_skills: [],
+      complementary_skills: ['sk_sql', 'sk_powerbi'],
+      status: 'active',
+      industryDemandPercent: 84,
+      demandLevel: 'Very High'
+    },
+    {
+      id: 'sk_powerbi',
+      name: 'Power BI',
+      category: 'Data & Analytics',
+      subcategory: 'Business Intelligence & Visual Analytics',
+      description: 'Interactive dashboard engineering, DAX formulas, Power Query ETL pipelines, and executive KPI reporting.',
+      difficulty: 'Intermediate',
+      parent_skill_id: null,
+      related_skills: ['sk_excel', 'sk_sql', 'sk_pandas'],
+      prerequisite_skills: ['sk_excel', 'sk_sql'],
+      complementary_skills: ['sk_sql', 'sk_excel', 'sk_python'],
+      status: 'active',
+      industryDemandPercent: 76,
+      demandLevel: 'High'
+    },
 
     // Cloud & DevOps
     {
@@ -1154,7 +1184,10 @@ export function generateInitialDatabase(): DatabaseSchema {
       companyName: 'TechNova',
       companyLogo: 'https://images.unsplash.com/photo-1572021335469-31706a17aaef?w=150&auto=format&fit=crop&q=80',
       title: 'Software Developer',
+      roleId: 'jr-backend-eng',
+      roleTitle: 'Software Developer',
       department: 'Core Engineering',
+      industry: 'Information Technology',
       description: 'We are seeking high-caliber entry-level Software Developers to architect distributed cloud services, high-throughput microservices, and reliable backend components.',
       responsibilities: [
         'Design, build, and maintain efficient, reusable, and reliable Python and C++ code.',
@@ -1170,14 +1203,21 @@ export function generateInitialDatabase(): DatabaseSchema {
       ],
       requiredSkills: [
         { skillId: 'sk_python', skillName: 'Python', minLevel: 'Intermediate', isRequired: true, weight: 1.5 },
-        { skillId: 'sk_cpp', skillName: 'C++', minLevel: 'Intermediate', isRequired: false, weight: 1.0 },
         { skillId: 'sk_dsa', skillName: 'DSA', minLevel: 'Intermediate', isRequired: true, weight: 1.5 },
         { skillId: 'sk_sql', skillName: 'SQL', minLevel: 'Beginner', isRequired: true, weight: 1.0 },
-        { skillId: 'sk_git', skillName: 'Git', minLevel: 'Beginner', isRequired: true, weight: 0.8 },
+        { skillId: 'sk_git', skillName: 'Git', minLevel: 'Beginner', isRequired: true, weight: 0.8 }
+      ],
+      preferredSkills: [
+        { skillId: 'sk_cpp', skillName: 'C++', minLevel: 'Intermediate', isRequired: false, weight: 1.0 },
         { skillId: 'sk_aws', skillName: 'AWS', minLevel: 'Beginner', isRequired: false, weight: 0.8 }
       ],
       location: 'San Francisco, CA (Hybrid)',
+      country: 'United States',
+      region: 'California',
+      city: 'San Francisco',
       workMode: 'Hybrid',
+      experienceLevel: 'Fresher (0-1 yrs)',
+      educationRequirement: 'B.S. / B.Tech Computer Science / IT',
       salary: '$95,000 - $125,000 / year',
       employmentType: 'Full-time',
       minCgpa: 7.5,
@@ -1194,7 +1234,10 @@ export function generateInitialDatabase(): DatabaseSchema {
       companyId: 'comp_2',
       companyName: 'InnoSoft',
       title: 'Data Analyst & ML Engineer',
+      roleId: 'jr-data-analyst',
+      roleTitle: 'Data Analyst & BI Specialist',
       department: 'Data Platforms',
+      industry: 'Data & Analytics',
       description: 'Join InnoSoft to build predictive data pipelines, statistical models, and automated business dashboards.',
       responsibilities: [
         'Extract, transform, and analyze large-scale datasets using SQL and Python.',
@@ -1208,8 +1251,17 @@ export function generateInitialDatabase(): DatabaseSchema {
         { skillId: 'sk_aiml', skillName: 'AI/ML', minLevel: 'Intermediate', isRequired: true, weight: 1.2 },
         { skillId: 'sk_pandas', skillName: 'Pandas & NumPy', minLevel: 'Intermediate', isRequired: true, weight: 1.0 }
       ],
+      preferredSkills: [
+        { skillId: 'sk_excel', skillName: 'Excel', minLevel: 'Advanced', isRequired: false, weight: 1.0 },
+        { skillId: 'sk_powerbi', skillName: 'Power BI', minLevel: 'Intermediate', isRequired: false, weight: 0.9 }
+      ],
       location: 'New York, NY',
+      country: 'United States',
+      region: 'New York',
+      city: 'New York',
       workMode: 'On-site',
+      experienceLevel: 'Junior (1-2 yrs)',
+      educationRequirement: 'B.S. / B.Tech / M.S. in Computer Science / Data Science / Math',
       salary: '$90,000 - $115,000 / year',
       employmentType: 'Full-time',
       minCgpa: 7.8,
@@ -1226,7 +1278,10 @@ export function generateInitialDatabase(): DatabaseSchema {
       companyId: 'comp_4',
       companyName: 'CloudCore',
       title: 'Cloud DevOps Associate',
+      roleId: 'jr-devops-eng',
+      roleTitle: 'DevOps & Cloud Engineer',
       department: 'Infrastructure',
+      industry: 'Information Technology',
       description: 'Automate Kubernetes clusters, AWS infrastructure, and CI/CD pipelines for mission-critical services.',
       responsibilities: [
         'Write infrastructure as code and deploy services across AWS regions.',
@@ -1240,8 +1295,16 @@ export function generateInitialDatabase(): DatabaseSchema {
         { skillId: 'sk_linux', skillName: 'Linux CLI', minLevel: 'Intermediate', isRequired: true, weight: 1.0 },
         { skillId: 'sk_git', skillName: 'Git', minLevel: 'Intermediate', isRequired: true, weight: 0.8 }
       ],
-      location: 'Remote',
+      preferredSkills: [
+        { skillId: 'sk_python', skillName: 'Python', minLevel: 'Beginner', isRequired: false, weight: 0.8 }
+      ],
+      location: 'Palo Alto, CA',
+      country: 'United States',
+      region: 'California',
+      city: 'Palo Alto',
       workMode: 'Remote',
+      experienceLevel: 'Fresher (0-1 yrs)',
+      educationRequirement: 'B.S. / B.Tech Computer Science or related',
       salary: '$92,000 - $118,000 / year',
       employmentType: 'Full-time',
       minCgpa: 7.0,
@@ -1258,7 +1321,10 @@ export function generateInitialDatabase(): DatabaseSchema {
       companyId: 'comp_5',
       companyName: 'FinEdge',
       title: 'Quantitative Software Engineer',
+      roleId: 'jr-backend-eng',
+      roleTitle: 'Quantitative Software Engineer',
       department: 'Trading Algorithms',
+      industry: 'FinTech',
       description: 'Develop low-latency C++ trading systems, financial modeling tools, and high-speed data pipelines.',
       responsibilities: [
         'Implement ultra-fast algorithms in C++ with sub-millisecond execution constraints.',
@@ -1271,8 +1337,16 @@ export function generateInitialDatabase(): DatabaseSchema {
         { skillId: 'sk_dsa', skillName: 'DSA', minLevel: 'Advanced', isRequired: true, weight: 1.8 },
         { skillId: 'sk_sql', skillName: 'SQL', minLevel: 'Intermediate', isRequired: true, weight: 1.0 }
       ],
+      preferredSkills: [
+        { skillId: 'sk_python', skillName: 'Python', minLevel: 'Intermediate', isRequired: false, weight: 1.0 }
+      ],
       location: 'Boston, MA',
+      country: 'United States',
+      region: 'Massachusetts',
+      city: 'Boston',
       workMode: 'On-site',
+      experienceLevel: 'Junior (1-3 yrs)',
+      educationRequirement: 'B.S. / B.Tech / M.S. Computer Science / Math / EE',
       salary: '$130,000 - $165,000 / year',
       employmentType: 'Full-time',
       minCgpa: 8.5,
@@ -1289,7 +1363,10 @@ export function generateInitialDatabase(): DatabaseSchema {
       companyId: 'comp_6',
       companyName: 'NextGen AI',
       title: 'Full Stack AI Engineer',
+      roleId: 'jr-frontend-dev',
+      roleTitle: 'Frontend & Full Stack Developer',
       department: 'Product Engineering',
+      industry: 'Information Technology',
       description: 'Build modern user-facing applications and autonomous agent systems using React, TypeScript, Python, and PyTorch.',
       responsibilities: [
         'Develop responsive React web frontends and Next.js applications.',
@@ -1303,8 +1380,16 @@ export function generateInitialDatabase(): DatabaseSchema {
         { skillId: 'sk_typescript', skillName: 'TypeScript', minLevel: 'Intermediate', isRequired: true, weight: 1.2 },
         { skillId: 'sk_rest_api', skillName: 'REST APIs', minLevel: 'Intermediate', isRequired: true, weight: 1.0 }
       ],
+      preferredSkills: [
+        { skillId: 'sk_git', skillName: 'Git', minLevel: 'Intermediate', isRequired: false, weight: 0.8 }
+      ],
       location: 'Palo Alto, CA (Hybrid)',
+      country: 'United States',
+      region: 'California',
+      city: 'Palo Alto',
       workMode: 'Hybrid',
+      experienceLevel: 'Junior (1-3 yrs)',
+      educationRequirement: 'B.S. / B.Tech Computer Science / IT',
       salary: '$110,000 - $140,000 / year',
       employmentType: 'Full-time',
       minCgpa: 8.0,
@@ -1318,38 +1403,276 @@ export function generateInitialDatabase(): DatabaseSchema {
     }
   ];
 
-  // Add remaining 20 realistic jobs
+  // ----------------------------------------------------
+  // VERIFIED BIHAR REGIONAL EMPLOYER JOBS (PHASE 4)
+  // ----------------------------------------------------
+  const biharJobs: Job[] = [
+    {
+      id: 'job_br_1',
+      companyId: 'comp_1',
+      companyName: 'TechNova Bihar Innovation Center',
+      companyLogo: 'https://images.unsplash.com/photo-1572021335469-31706a17aaef?w=150&auto=format&fit=crop&q=80',
+      title: 'Junior Data Analyst',
+      roleId: 'jr-data-analyst',
+      roleTitle: 'Junior Data Analyst',
+      department: 'Data & Analytics',
+      industry: 'Data & Analytics',
+      description: 'Analyze state logistics, supply chain records, and public sector datasets from our STPI Patna Innovation Lab.',
+      responsibilities: [
+        'Write optimized SQL aggregation queries and data transformations.',
+        'Build structured Excel operational dashboards with advanced lookup formulas.',
+        'Develop Python scripts to automate daily data extraction and data hygiene audits.'
+      ],
+      requirements: [
+        'Strong hands-on mastery of SQL, Excel, and Python.',
+        'Minimum CGPA 7.0 / 10.0.',
+        'Degree in Computer Science, BCA, B.Sc or related fields.'
+      ],
+      requiredSkills: [
+        { skillId: 'sk_sql', skillName: 'SQL', minLevel: 'Intermediate', isRequired: true, weight: 1.5 },
+        { skillId: 'sk_excel', skillName: 'Excel', minLevel: 'Advanced', isRequired: true, weight: 1.3 },
+        { skillId: 'sk_python', skillName: 'Python', minLevel: 'Intermediate', isRequired: true, weight: 1.4 }
+      ],
+      preferredSkills: [
+        { skillId: 'sk_powerbi', skillName: 'Power BI', minLevel: 'Intermediate', isRequired: false, weight: 1.0 },
+        { skillId: 'sk_git', skillName: 'Git', minLevel: 'Beginner', isRequired: false, weight: 0.8 }
+      ],
+      location: 'STPI Patna, Bihar, India',
+      country: 'India',
+      region: 'Bihar',
+      city: 'Patna',
+      workMode: 'Hybrid',
+      experienceLevel: 'Fresher (0-1 yrs)',
+      educationRequirement: 'B.Tech / BCA / B.Sc Computer Science / Math',
+      salary: '₹6,50,000 - ₹9,00,000 / year',
+      employmentType: 'Full-time',
+      minCgpa: 7.0,
+      graduationYear: 2026,
+      degree: 'B.S. / B.Tech / BCA / B.Sc',
+      branch: 'Computer Science / IT / Math',
+      openings: 6,
+      deadline: '2026-11-30',
+      status: 'published',
+      createdAt: '2026-02-18T10:00:00Z'
+    },
+    {
+      id: 'job_br_2',
+      companyId: 'comp_beltron',
+      companyName: 'BELTRON (Bihar State Electronics Dev Corp)',
+      companyLogo: 'https://images.unsplash.com/photo-1516321318423-f06f85e504b3?w=150&auto=format&fit=crop&q=80',
+      title: 'Junior Web Application Engineer',
+      roleId: 'jr-frontend-dev',
+      roleTitle: 'Frontend Developer',
+      department: 'State Digital Infrastructure',
+      industry: 'GovTech & Public Infrastructure',
+      description: 'Engineer responsive web portals, state citizen services, and public mission dashboards connecting 38 Bihar districts.',
+      responsibilities: [
+        'Develop accessible web interfaces with React, JavaScript, and modern CSS.',
+        'Integrate state API gateways with secure authentication endpoints.',
+        'Collaborate with STPI Patna engineers using Git code review pipelines.'
+      ],
+      requirements: ['Solid JavaScript fundamentals, React, and Git', 'Minimum CGPA 6.8'],
+      requiredSkills: [
+        { skillId: 'sk_javascript', skillName: 'JavaScript', minLevel: 'Intermediate', isRequired: true, weight: 1.4 },
+        { skillId: 'sk_react', skillName: 'React', minLevel: 'Intermediate', isRequired: true, weight: 1.4 },
+        { skillId: 'sk_git', skillName: 'Git', minLevel: 'Beginner', isRequired: true, weight: 1.0 }
+      ],
+      preferredSkills: [
+        { skillId: 'sk_sql', skillName: 'SQL', minLevel: 'Beginner', isRequired: false, weight: 0.8 },
+        { skillId: 'sk_typescript', skillName: 'TypeScript', minLevel: 'Beginner', isRequired: false, weight: 0.8 }
+      ],
+      location: 'Vidyut Bhawan, Bailey Road, Patna, Bihar, India',
+      country: 'India',
+      region: 'Bihar',
+      city: 'Patna',
+      workMode: 'On-site',
+      experienceLevel: 'Fresher (0-1 yrs)',
+      educationRequirement: 'B.Tech / B.E. in CSE / IT / MCA',
+      salary: '₹5,80,000 - ₹8,20,000 / year',
+      employmentType: 'Full-time',
+      minCgpa: 6.8,
+      graduationYear: 2026,
+      degree: 'B.Tech / MCA',
+      branch: 'Computer Science / IT',
+      openings: 12,
+      deadline: '2026-11-20',
+      status: 'published',
+      createdAt: '2026-02-19T09:00:00Z'
+    },
+    {
+      id: 'job_br_3',
+      companyId: 'comp_bihar_health',
+      companyName: 'Bihar Digital Health Mission IT Hub',
+      companyLogo: 'https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?w=150&auto=format&fit=crop&q=80',
+      title: 'Python & Health Data Analytics Engineer',
+      roleId: 'jr-data-analyst',
+      roleTitle: 'Data Analyst & BI Specialist',
+      department: 'Health Informatics',
+      industry: 'Healthcare IT',
+      description: 'Build predictive health telemetry, district patient record pipelines, and hospital capacity monitoring models.',
+      responsibilities: [
+        'Process district health surveillance data with Python and Pandas.',
+        'Optimize multi-table SQL queries across state health records.',
+        'Deploy data quality validation scripts.'
+      ],
+      requirements: ['Python, SQL, Pandas data wrangling', 'CGPA >= 7.0'],
+      requiredSkills: [
+        { skillId: 'sk_python', skillName: 'Python', minLevel: 'Intermediate', isRequired: true, weight: 1.5 },
+        { skillId: 'sk_sql', skillName: 'SQL', minLevel: 'Intermediate', isRequired: true, weight: 1.4 },
+        { skillId: 'sk_pandas', skillName: 'Pandas & NumPy', minLevel: 'Intermediate', isRequired: true, weight: 1.2 }
+      ],
+      preferredSkills: [
+        { skillId: 'sk_aiml', skillName: 'AI/ML', minLevel: 'Beginner', isRequired: false, weight: 0.8 },
+        { skillId: 'sk_git', skillName: 'Git', minLevel: 'Intermediate', isRequired: false, weight: 0.8 }
+      ],
+      location: 'Patna, Bihar, India (Hybrid)',
+      country: 'India',
+      region: 'Bihar',
+      city: 'Patna',
+      workMode: 'Hybrid',
+      experienceLevel: 'Junior (1-2 yrs)',
+      educationRequirement: 'B.Tech / B.Sc / MCA in STEM',
+      salary: '₹7,20,000 - ₹10,50,000 / year',
+      employmentType: 'Full-time',
+      minCgpa: 7.0,
+      graduationYear: 2026,
+      degree: 'B.Tech / MCA / B.Sc',
+      branch: 'Computer Science / BioInformatics / Math',
+      openings: 4,
+      deadline: '2026-12-05',
+      status: 'published',
+      createdAt: '2026-02-20T11:00:00Z'
+    },
+    {
+      id: 'job_br_4',
+      companyId: 'comp_muz_agri',
+      companyName: 'Muzaffarpur Smart AgriTech Systems',
+      companyLogo: 'https://images.unsplash.com/photo-1586771107445-d3ca888129ff?w=150&auto=format&fit=crop&q=80',
+      title: 'IoT & Embedded Systems Engineer',
+      roleId: 'jr-backend-eng',
+      roleTitle: 'Software Developer',
+      department: 'Industrial Automation',
+      industry: 'Information Technology',
+      description: 'Develop soil telemetry sensors, weather monitoring microcontrollers, and agro-logistics tracking systems.',
+      responsibilities: [
+        'Program microcontroller firmware in C++ and Python.',
+        'Implement low-power communication protocols with cloud gateways.',
+        'Test field sensor telemetry and solve data structure edge cases.'
+      ],
+      requirements: ['C++, Python, core DSA concepts', 'CGPA >= 6.8'],
+      requiredSkills: [
+        { skillId: 'sk_cpp', skillName: 'C++', minLevel: 'Intermediate', isRequired: true, weight: 1.5 },
+        { skillId: 'sk_python', skillName: 'Python', minLevel: 'Intermediate', isRequired: true, weight: 1.3 },
+        { skillId: 'sk_dsa', skillName: 'DSA', minLevel: 'Beginner', isRequired: true, weight: 1.0 }
+      ],
+      preferredSkills: [
+        { skillId: 'sk_aws', skillName: 'AWS', minLevel: 'Beginner', isRequired: false, weight: 0.8 },
+        { skillId: 'sk_git', skillName: 'Git', minLevel: 'Beginner', isRequired: false, weight: 0.8 }
+      ],
+      location: 'Muzaffarpur Industrial Growth Center, Bihar, India',
+      country: 'India',
+      region: 'Bihar',
+      city: 'Muzaffarpur',
+      workMode: 'On-site',
+      experienceLevel: 'Fresher (0-1 yrs)',
+      educationRequirement: 'B.Tech in CSE / ECE / Instrumentation',
+      salary: '₹5,50,000 - ₹7,80,000 / year',
+      employmentType: 'Full-time',
+      minCgpa: 6.8,
+      graduationYear: 2026,
+      degree: 'B.Tech',
+      branch: 'CSE / ECE',
+      openings: 5,
+      deadline: '2026-11-25',
+      status: 'published',
+      createdAt: '2026-02-21T08:30:00Z'
+    },
+    {
+      id: 'job_br_5',
+      companyId: 'comp_gaya_clean',
+      companyName: 'Gaya Clean Energy & Grid Analytics',
+      companyLogo: 'https://images.unsplash.com/photo-1473341304170-971dccb5ac1e?w=150&auto=format&fit=crop&q=80',
+      title: 'Junior Systems & Telemetry Analyst',
+      roleId: 'jr-data-analyst',
+      roleTitle: 'Junior Data Analyst',
+      department: 'Smart Grid Telemetry',
+      industry: 'Information Technology',
+      description: 'Monitor solar grid output, track inverter performance, and maintain transmission telemetry analytics.',
+      responsibilities: [
+        'Query solar power timeseries metrics using SQL and Python.',
+        'Track equipment maintenance schedules with Git versioned workflows.',
+        'Prepare weekly efficiency reports for state power transmission coordinators.'
+      ],
+      requirements: ['SQL, Python scripting, Git', 'CGPA >= 6.8'],
+      requiredSkills: [
+        { skillId: 'sk_sql', skillName: 'SQL', minLevel: 'Intermediate', isRequired: true, weight: 1.5 },
+        { skillId: 'sk_python', skillName: 'Python', minLevel: 'Beginner', isRequired: true, weight: 1.2 },
+        { skillId: 'sk_git', skillName: 'Git', minLevel: 'Beginner', isRequired: true, weight: 1.0 }
+      ],
+      preferredSkills: [
+        { skillId: 'sk_excel', skillName: 'Excel', minLevel: 'Advanced', isRequired: false, weight: 1.0 }
+      ],
+      location: 'Gaya IT Incubation Center, Bihar, India',
+      country: 'India',
+      region: 'Bihar',
+      city: 'Gaya',
+      workMode: 'On-site',
+      experienceLevel: 'Fresher (0-1 yrs)',
+      educationRequirement: 'B.Tech / BCA / B.Sc in STEM',
+      salary: '₹5,20,000 - ₹7,50,000 / year',
+      employmentType: 'Full-time',
+      minCgpa: 6.8,
+      graduationYear: 2026,
+      degree: 'B.Tech / BCA',
+      branch: 'CSE / EE / IT',
+      openings: 3,
+      deadline: '2026-11-28',
+      status: 'published',
+      createdAt: '2026-02-22T09:15:00Z'
+    }
+  ];
+
+  biharJobs.forEach(bj => jobs.push(bj));
+
+  // Add remaining 20 realistic jobs with geographic and industry data
   const extraJobsData = [
-    ['comp_3', 'DataSphere', 'Junior Big Data Engineer', 'Data Systems', 'Python, SQL, Linux, Git', ['Python', 'SQL', 'Linux CLI', 'Git'], '$88,000 - $110,000 / year', 'Chicago, IL', 'Hybrid', 7.5],
-    ['comp_7', 'CyberShield', 'Associate Security Analyst', 'Cyber Defense', 'Python, Linux CLI, SQL, REST APIs', ['Python', 'Linux CLI', 'SQL', 'REST APIs'], '$90,000 - $115,000 / year', 'Washington, DC', 'On-site', 7.6],
-    ['comp_8', 'PulseHealth', 'HealthTech Software Intern', 'Digital Health', 'Python, React, SQL, Git', ['Python', 'React', 'SQL', 'Git'], '$45 / hour', 'San Diego, CA', 'Hybrid', 7.2],
-    ['comp_9', 'ByteWave', 'Frontend Engineer (React)', 'Mobile & Web', 'React, TypeScript, JavaScript, HTML/CSS', ['React', 'TypeScript', 'JavaScript', 'HTML/CSS'], '$95,000 - $120,000 / year', 'Los Angeles, CA', 'Remote', 7.5],
-    ['comp_10', 'Apex Logistics', 'IoT & Backend Developer', 'Robotics Systems', 'C++, Python, SQL, Git', ['C++', 'Python', 'SQL', 'Git'], '$92,000 - $118,000 / year', 'Atlanta, GA', 'On-site', 7.4],
-    ['comp_1', 'TechNova', 'Cloud Backend Engineer', 'Cloud Platforms', 'Java, SQL, AWS, Docker', ['Java', 'SQL', 'AWS', 'Docker'], '$100,000 - $130,000 / year', 'San Francisco, CA', 'Remote', 7.8],
-    ['comp_2', 'InnoSoft', 'Machine Learning Research Engineer', 'Applied AI', 'Python, PyTorch, Pandas & NumPy, DSA', ['Python', 'PyTorch', 'Pandas & NumPy', 'DSA'], '$115,000 - $145,000 / year', 'New York, NY', 'Hybrid', 8.2],
-    ['comp_3', 'DataSphere', 'Database Administrator Associate', 'Infrastructure', 'PostgreSQL, SQL, Linux CLI, AWS', ['PostgreSQL', 'SQL', 'Linux CLI', 'AWS'], '$85,000 - $105,000 / year', 'Chicago, IL', 'On-site', 7.2],
-    ['comp_4', 'CloudCore', 'Site Reliability Engineer', 'Operations', 'Go, Linux CLI, Kubernetes, Docker', ['Go', 'Linux CLI', 'Kubernetes', 'Docker'], '$105,000 - $135,000 / year', 'Seattle, WA', 'Remote', 7.6],
-    ['comp_5', 'FinEdge', 'Fintech Application Developer', 'Core Banking', 'Java, SQL, REST APIs, Git', ['Java', 'SQL', 'REST APIs', 'Git'], '$98,000 - $125,000 / year', 'Boston, MA', 'Hybrid', 8.0],
-    ['comp_6', 'NextGen AI', 'AI Prompt & Evaluation Engineer', 'Frontier Models', 'Python, Git, Soft Skills, REST APIs', ['Python', 'Git', 'REST APIs', 'Aptitude & Problem Solving'], '$85,000 - $110,000 / year', 'Palo Alto, CA', 'Remote', 7.0],
-    ['comp_7', 'CyberShield', 'Application Security Engineer', 'AppSec', 'Java, Python, Git, Linux CLI', ['Java', 'Python', 'Git', 'Linux CLI'], '$96,000 - $122,000 / year', 'Washington, DC', 'Hybrid', 7.8],
-    ['comp_8', 'PulseHealth', 'Backend API Developer', 'Core Platform', 'Node.js, PostgreSQL, REST APIs, Git', ['Node.js', 'PostgreSQL', 'REST APIs', 'Git'], '$92,000 - $116,000 / year', 'San Diego, CA', 'Remote', 7.4],
-    ['comp_9', 'ByteWave', 'Full Stack Web Developer', 'Web Ecosystem', 'React, Node.js, MongoDB, Git', ['React', 'Node.js', 'MongoDB', 'Git'], '$94,000 - $120,000 / year', 'Los Angeles, CA', 'Hybrid', 7.5],
-    ['comp_10', 'Apex Logistics', 'Embedded Systems Firmware Intern', 'Robotics', 'C, C++, Linux CLI, Git', ['C', 'C++', 'Linux CLI', 'Git'], '$40 / hour', 'Atlanta, GA', 'On-site', 7.0],
-    ['comp_1', 'TechNova', 'QA Automation & Test Engineer', 'Quality Assurance', 'Python, SQL, Git, CI/CD Pipelines', ['Python', 'SQL', 'Git', 'CI/CD Pipelines'], '$86,000 - $108,000 / year', 'San Francisco, CA', 'Hybrid', 7.2],
-    ['comp_2', 'InnoSoft', 'NLP Solutions Engineer', 'Language Technologies', 'Python, AI/ML, REST APIs, SQL', ['Python', 'AI/ML', 'REST APIs', 'SQL'], '$108,000 - $138,000 / year', 'New York, NY', 'Remote', 8.0],
-    ['comp_3', 'DataSphere', 'Business Intelligence Analyst', 'Analytics', 'SQL, Python, Aptitude & Problem Solving', ['SQL', 'Python', 'Aptitude & Problem Solving'], '$82,000 - $104,000 / year', 'Chicago, IL', 'Hybrid', 7.0],
-    ['comp_4', 'CloudCore', 'DevSecOps Engineer', 'Security Ops', 'AWS, Docker, Linux CLI, Python', ['AWS', 'Docker', 'Linux CLI', 'Python'], '$102,000 - $128,000 / year', 'Seattle, WA', 'Remote', 7.8],
-    ['comp_5', 'FinEdge', 'Data Pipeline Developer', 'Market Feeds', 'Python, SQL, Redis, Git', ['Python', 'SQL', 'Redis', 'Git'], '$96,000 - $124,000 / year', 'Boston, MA', 'Hybrid', 7.8]
+    ['comp_3', 'DataSphere', 'Junior Big Data Engineer', 'Data Systems', 'Information Technology', 'United States', 'Illinois', 'Chicago', 'Python, SQL, Linux, Git', ['Python', 'SQL', 'Linux CLI', 'Git'], '$88,000 - $110,000 / year', 'Chicago, IL', 'Hybrid', 7.5, 'jr-data-analyst'],
+    ['comp_7', 'CyberShield', 'Associate Security Analyst', 'Cyber Defense', 'Information Technology', 'United States', 'District of Columbia', 'Washington', 'Python, Linux CLI, SQL, REST APIs', ['Python', 'Linux CLI', 'SQL', 'REST APIs'], '$90,000 - $115,000 / year', 'Washington, DC', 'On-site', 7.6, 'jr-backend-eng'],
+    ['comp_8', 'PulseHealth', 'HealthTech Software Intern', 'Digital Health', 'Healthcare IT', 'United States', 'California', 'San Diego', 'Python, React, SQL, Git', ['Python', 'React', 'SQL', 'Git'], '$45 / hour', 'San Diego, CA', 'Hybrid', 7.2, 'jr-frontend-dev'],
+    ['comp_9', 'ByteWave', 'Frontend Engineer (React)', 'Mobile & Web', 'Information Technology', 'United States', 'California', 'Los Angeles', 'React, TypeScript, JavaScript, HTML/CSS', ['React', 'TypeScript', 'JavaScript', 'HTML/CSS'], '$95,000 - $120,000 / year', 'Los Angeles, CA', 'Remote', 7.5, 'jr-frontend-dev'],
+    ['comp_10', 'Apex Logistics', 'IoT & Backend Developer', 'Robotics Systems', 'Information Technology', 'United States', 'Georgia', 'Atlanta', 'C++, Python, SQL, Git', ['C++', 'Python', 'SQL', 'Git'], '$92,000 - $118,000 / year', 'Atlanta, GA', 'On-site', 7.4, 'jr-backend-eng'],
+    ['comp_1', 'TechNova', 'Cloud Backend Engineer', 'Cloud Platforms', 'Information Technology', 'United States', 'California', 'San Francisco', 'Java, SQL, AWS, Docker', ['Java', 'SQL', 'AWS', 'Docker'], '$100,000 - $130,000 / year', 'San Francisco, CA', 'Remote', 7.8, 'jr-devops-eng'],
+    ['comp_2', 'InnoSoft', 'Machine Learning Research Engineer', 'Applied AI', 'Data & Analytics', 'United States', 'New York', 'New York', 'Python, PyTorch, Pandas & NumPy, DSA', ['Python', 'PyTorch', 'Pandas & NumPy', 'DSA'], '$115,000 - $145,000 / year', 'New York, NY', 'Hybrid', 8.2, 'jr-data-analyst'],
+    ['comp_3', 'DataSphere', 'Database Administrator Associate', 'Infrastructure', 'Information Technology', 'United States', 'Illinois', 'Chicago', 'PostgreSQL, SQL, Linux CLI, AWS', ['PostgreSQL', 'SQL', 'Linux CLI', 'AWS'], '$85,000 - $105,000 / year', 'Chicago, IL', 'On-site', 7.2, 'jr-backend-eng'],
+    ['comp_4', 'CloudCore', 'Site Reliability Engineer', 'Operations', 'Information Technology', 'United States', 'Washington', 'Seattle', 'Go, Linux CLI, Kubernetes, Docker', ['Go', 'Linux CLI', 'Kubernetes', 'Docker'], '$105,000 - $135,000 / year', 'Seattle, WA', 'Remote', 7.6, 'jr-devops-eng'],
+    ['comp_5', 'FinEdge', 'Fintech Application Developer', 'Core Banking', 'FinTech', 'United States', 'Massachusetts', 'Boston', 'Java, SQL, REST APIs, Git', ['Java', 'SQL', 'REST APIs', 'Git'], '$98,000 - $125,000 / year', 'Boston, MA', 'Hybrid', 8.0, 'jr-backend-eng'],
+    ['comp_6', 'NextGen AI', 'AI Prompt & Evaluation Engineer', 'Frontier Models', 'Information Technology', 'United States', 'California', 'Palo Alto', 'Python, Git, Soft Skills, REST APIs', ['Python', 'Git', 'REST APIs', 'Aptitude & Problem Solving'], '$85,000 - $110,000 / year', 'Palo Alto, CA', 'Remote', 7.0, 'jr-data-analyst'],
+    ['comp_7', 'CyberShield', 'Application Security Engineer', 'AppSec', 'Information Technology', 'United States', 'District of Columbia', 'Washington', 'Java, Python, Git, Linux CLI', ['Java', 'Python', 'Git', 'Linux CLI'], '$96,000 - $122,000 / year', 'Washington, DC', 'Hybrid', 7.8, 'jr-backend-eng'],
+    ['comp_8', 'PulseHealth', 'Backend API Developer', 'Core Platform', 'Healthcare IT', 'United States', 'California', 'San Diego', 'Node.js, PostgreSQL, REST APIs, Git', ['Node.js', 'PostgreSQL', 'REST APIs', 'Git'], '$92,000 - $116,000 / year', 'San Diego, CA', 'Remote', 7.4, 'jr-backend-eng'],
+    ['comp_9', 'ByteWave', 'Full Stack Web Developer', 'Web Ecosystem', 'Information Technology', 'United States', 'California', 'Los Angeles', 'React, Node.js, MongoDB, Git', ['React', 'Node.js', 'MongoDB', 'Git'], '$94,000 - $120,000 / year', 'Los Angeles, CA', 'Hybrid', 7.5, 'jr-frontend-dev'],
+    ['comp_10', 'Apex Logistics', 'Embedded Systems Firmware Intern', 'Robotics', 'Information Technology', 'United States', 'Georgia', 'Atlanta', 'C, C++, Linux CLI, Git', ['C', 'C++', 'Linux CLI', 'Git'], '$40 / hour', 'Atlanta, GA', 'On-site', 7.0, 'jr-backend-eng'],
+    ['comp_1', 'TechNova', 'QA Automation & Test Engineer', 'Quality Assurance', 'Information Technology', 'United States', 'California', 'San Francisco', 'Python, SQL, Git, CI/CD Pipelines', ['Python', 'SQL', 'Git', 'CI/CD Pipelines'], '$86,000 - $108,000 / year', 'San Francisco, CA', 'Hybrid', 7.2, 'jr-backend-eng'],
+    ['comp_2', 'InnoSoft', 'NLP Solutions Engineer', 'Language Technologies', 'Data & Analytics', 'United States', 'New York', 'New York', 'Python, AI/ML, REST APIs, SQL', ['Python', 'AI/ML', 'REST APIs', 'SQL'], '$108,000 - $138,000 / year', 'New York, NY', 'Remote', 8.0, 'jr-data-analyst'],
+    ['comp_3', 'DataSphere', 'Business Intelligence Analyst', 'Analytics', 'Data & Analytics', 'United States', 'Illinois', 'Chicago', 'SQL, Python, Aptitude & Problem Solving', ['SQL', 'Python', 'Aptitude & Problem Solving'], '$82,000 - $104,000 / year', 'Chicago, IL', 'Hybrid', 7.0, 'jr-data-analyst'],
+    ['comp_4', 'CloudCore', 'DevSecOps Engineer', 'Security Ops', 'Information Technology', 'United States', 'Washington', 'Seattle', 'AWS, Docker, Linux CLI, Python', ['AWS', 'Docker', 'Linux CLI', 'Python'], '$102,000 - $128,000 / year', 'Seattle, WA', 'Remote', 7.8, 'jr-devops-eng'],
+    ['comp_5', 'FinEdge', 'Data Pipeline Developer', 'Market Feeds', 'FinTech', 'United States', 'Massachusetts', 'Boston', 'Python, SQL, Redis, Git', ['Python', 'SQL', 'Redis', 'Git'], '$96,000 - $124,000 / year', 'Boston, MA', 'Hybrid', 7.8, 'jr-backend-eng'],
+
+    // National Corridor Jobs in India
+    ['comp_4', 'CloudCore India', 'Cloud Infrastructure Engineer', 'Cloud Infrastructure', 'Information Technology', 'India', 'Karnataka', 'Bangalore', 'AWS, Docker, Linux CLI, Python', ['AWS', 'Docker', 'Linux CLI', 'Python'], '₹12,00,000 - ₹18,00,000 / year', 'Whitefield, Bangalore, Karnataka, India', 'Hybrid', 7.5, 'jr-devops-eng'],
+    ['comp_5', 'FinEdge India', 'Core Banking Solutions Engineer', 'Core Banking', 'FinTech', 'India', 'Tamil Nadu', 'Chennai', 'Java, SQL, REST APIs, Git', ['Java', 'SQL', 'REST APIs', 'Git'], '₹11,00,000 - ₹16,50,000 / year', 'OMR Tech Corridor, Chennai, Tamil Nadu, India', 'Hybrid', 7.6, 'jr-backend-eng'],
+    ['comp_9', 'ByteWave India', 'Full Stack React Engineer', 'Product Engineering', 'Information Technology', 'India', 'Maharashtra', 'Pune', 'React, TypeScript, Node.js, SQL', ['React', 'TypeScript', 'Node.js', 'SQL'], '₹10,50,000 - ₹15,00,000 / year', 'Hinjewadi Phase 2, Pune, Maharashtra, India', 'Hybrid', 7.4, 'jr-frontend-dev'],
+    ['comp_3', 'DataSphere India', 'Associate Data Warehouse Engineer', 'Analytics Systems', 'Data & Analytics', 'India', 'Telangana', 'Hyderabad', 'SQL, Python, Pandas & NumPy, AWS', ['SQL', 'Python', 'Pandas & NumPy', 'AWS'], '₹10,00,000 - ₹14,50,000 / year', 'HITEC City, Hyderabad, Telangana, India', 'Hybrid', 7.2, 'jr-data-analyst'],
+    ['comp_2', 'InnoSoft India', 'Machine Learning Engineer', 'Applied AI', 'Information Technology', 'India', 'Haryana', 'Gurgaon', 'Python, AI/ML, PyTorch, SQL', ['Python', 'AI/ML', 'PyTorch', 'SQL'], '₹13,00,000 - ₹19,00,000 / year', 'Cyber City, Gurgaon, Haryana, India', 'Hybrid', 8.0, 'jr-data-analyst']
   ];
 
   extraJobsData.forEach((item, idx) => {
     const jId = `job_${idx + 6}`;
-    const requiredSkills: JobSkillRequirement[] = (item[5] as string[]).map(skillName => {
+    const requiredSkills: JobSkillRequirement[] = (item[9] as string[]).map(skillName => {
       const foundSkill = skills.find(s => s.name === skillName);
       return {
         skillId: foundSkill ? foundSkill.id : `sk_${skillName.toLowerCase()}`,
         skillName,
-        minLevel: ['DSA', 'Python', 'C++', 'Java'].includes(skillName) ? 'Intermediate' : 'Beginner',
+        minLevel: ['DSA', 'Python', 'C++', 'Java', 'SQL', 'React'].includes(skillName) ? 'Intermediate' : 'Beginner',
         isRequired: true,
         weight: 1.2
       };
@@ -1360,20 +1683,31 @@ export function generateInitialDatabase(): DatabaseSchema {
       companyId: item[0] as string,
       companyName: item[1] as string,
       title: item[2] as string,
+      roleId: item[14] as string,
+      roleTitle: item[2] as string,
       department: item[3] as string,
+      industry: item[4] as string,
+      country: item[5] as string,
+      region: item[6] as string,
+      city: item[7] as string,
       description: `Join ${item[1]} to build cutting-edge systems and develop industry-leading solutions in ${item[3]}.`,
       responsibilities: [
         `Deliver high quality code and participate in sprint planning.`,
         `Collaborate with cross-functional engineers and stakeholders.`,
         `Maintain test coverage, documentation, and continuous delivery.`
       ],
-      requirements: [`Strong problem solving and core programming fundamentals`, `Minimum CGPA ${item[9]}`, `Graduation year 2026`],
+      requirements: [`Strong problem solving and core programming fundamentals`, `Minimum CGPA ${item[13]}`, `Graduation year 2026`],
       requiredSkills,
-      location: item[7] as string,
-      workMode: item[8] as any,
-      salary: item[6] as string,
-      employmentType: (item[6] as string).includes('/ hour') ? 'Internship' : 'Full-time',
-      minCgpa: item[9] as number,
+      preferredSkills: [
+        { skillId: 'sk_git', skillName: 'Git', minLevel: 'Beginner', isRequired: false, weight: 0.8 }
+      ],
+      location: item[11] as string,
+      workMode: item[12] as any,
+      salary: item[10] as string,
+      employmentType: (item[10] as string).includes('/ hour') ? 'Internship' : 'Full-time',
+      experienceLevel: (item[10] as string).includes('Intern') ? 'Fresher (0-1 yrs)' : 'Junior (1-3 yrs)',
+      educationRequirement: 'B.Tech / B.E. / B.S. in Computer Science or related',
+      minCgpa: item[13] as number,
       graduationYear: 2026,
       degree: 'B.S. / B.Tech',
       branch: 'Computer Science / IT / Related',

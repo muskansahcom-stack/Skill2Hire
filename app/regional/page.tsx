@@ -23,10 +23,12 @@ import {
   ChevronRight,
   Languages,
   SlidersHorizontal,
-  GraduationCap
+  GraduationCap,
+  BarChart3
 } from 'lucide-react';
 import { useRegion } from '@/context/RegionContext';
 import { REGIONAL_DICTIONARIES } from '@/lib/regionalIntelligence';
+import SkillDemandRadar from '@/components/SkillDemandRadar';
 
 function RegionalIntelligenceContent() {
   const searchParams = useSearchParams();
@@ -45,8 +47,8 @@ function RegionalIntelligenceContent() {
     t
   } = useRegion();
 
-  const [activeTab, setActiveTab] = useState<'districts' | 'migration' | 'schemes' | 'vernacular'>(
-    initialTab === 'migration' || initialTab === 'schemes' || initialTab === 'vernacular'
+  const [activeTab, setActiveTab] = useState<'districts' | 'migration' | 'schemes' | 'vernacular' | 'demand'>(
+    initialTab === 'migration' || initialTab === 'schemes' || initialTab === 'vernacular' || initialTab === 'demand'
       ? initialTab
       : 'districts'
   );
@@ -430,6 +432,21 @@ function RegionalIntelligenceContent() {
           <span>Vernacular Vocabulary</span>
           <span className="px-2 py-0.5 rounded-full bg-purple-100 text-purple-800 text-[10px]">
             Dialect Mode
+          </span>
+        </button>
+
+        <button
+          onClick={() => setActiveTab('demand')}
+          className={`pb-3 px-3 text-xs sm:text-sm font-black flex items-center gap-2 border-b-2 whitespace-nowrap transition-colors ${
+            activeTab === 'demand'
+              ? 'border-primary-600 text-primary-600'
+              : 'border-transparent text-slate-500 hover:text-slate-800'
+          }`}
+        >
+          <BarChart3 className="w-4 h-4" />
+          <span>Employer Skill Demand</span>
+          <span className="px-2 py-0.5 rounded-full bg-indigo-100 text-indigo-800 text-[10px] font-bold">
+            Platform Data
           </span>
         </button>
       </div>
@@ -1043,6 +1060,16 @@ function RegionalIntelligenceContent() {
               </table>
             </div>
           </div>
+        </div>
+      )}
+
+      {/* TAB 5: EMPLOYER SKILL DEMAND ENGINE */}
+      {activeTab === 'demand' && (
+        <div className="space-y-6">
+          <SkillDemandRadar
+            initialRegion={selectedRegion === 'in-bihar' ? 'Bihar' : selectedRegion === 'in-tamilnadu' ? 'Tamil Nadu' : selectedRegion === 'in-karnataka' ? 'Karnataka' : selectedRegion === 'in-maharashtra' ? 'Maharashtra' : selectedRegion === 'in-telangana' ? 'Telangana' : selectedRegion === 'us-ca' ? 'California' : ''}
+            showComparisonSection={true}
+          />
         </div>
       )}
 

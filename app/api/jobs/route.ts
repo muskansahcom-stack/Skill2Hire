@@ -46,13 +46,22 @@ export async function POST(request: Request) {
       companyName,
       companyLogo,
       title,
+      roleId,
+      roleTitle,
       department,
+      industry,
       description,
       responsibilities,
       requirements,
       requiredSkills,
+      preferredSkills,
       location,
+      country,
+      region,
+      city,
       workMode,
+      experienceLevel,
+      educationRequirement,
       salary,
       employmentType,
       minCgpa,
@@ -70,26 +79,58 @@ export async function POST(request: Request) {
     const company = companyId ? db.getCompanyById(companyId) : null;
     const finalCompanyName = companyName || company?.name || 'Partner Recruiter';
 
+    const normalizedRequiredSkills = requiredSkills.map((s: any) => ({
+      skillId: s.skillId || `sk_${(s.skillName || s.name || '').toLowerCase().replace(/[^a-z0-9]+/g, '_')}`,
+      skillName: s.skillName || s.name,
+      minLevel: s.minLevel || s.level || 'Intermediate',
+      isRequired: true,
+      weight: s.weight || 1.2
+    }));
+
+    const normalizedPreferredSkills = Array.isArray(preferredSkills)
+      ? preferredSkills.map((s: any) => {
+          if (typeof s === 'string') {
+            return {
+              skillId: `sk_${s.toLowerCase().replace(/[^a-z0-9]+/g, '_')}`,
+              skillName: s,
+              minLevel: 'Intermediate' as const,
+              isRequired: false,
+              weight: 0.8
+            };
+          }
+          return {
+            skillId: s.skillId || `sk_${(s.skillName || s.name || '').toLowerCase().replace(/[^a-z0-9]+/g, '_')}`,
+            skillName: s.skillName || s.name,
+            minLevel: s.minLevel || s.level || 'Intermediate',
+            isRequired: false,
+            weight: s.weight || 0.8
+          };
+        })
+      : [];
+
     const newJob: Job = {
       id: `job_${Date.now()}_${Math.random().toString(36).substr(2, 5)}`,
       companyId: companyId || 'comp_1',
       companyName: finalCompanyName,
       companyLogo: companyLogo || company?.logo || 'https://images.unsplash.com/photo-1572021335469-31706a17aaef?w=150&auto=format&fit=crop&q=80',
       title,
+      roleId: roleId || undefined,
+      roleTitle: roleTitle || title,
       department: department || 'Engineering',
+      industry: industry || 'Information Technology',
       description: description || 'Exciting engineering role working on scalable systems.',
       responsibilities: Array.isArray(responsibilities) ? responsibilities : (responsibilities ? [responsibilities] : ['Deliver high quality code and participate in sprint planning.']),
       requirements: Array.isArray(requirements) ? requirements : (requirements ? [requirements] : ['Degree in Computer Science or related field.']),
-      requiredSkills: requiredSkills.map((s: any) => ({
-        skillId: s.skillId || `sk_${(s.skillName || s.name || '').toLowerCase()}`,
-        skillName: s.skillName || s.name,
-        minLevel: s.minLevel || s.level || 'Intermediate',
-        isRequired: s.isRequired !== undefined ? s.isRequired : true,
-        weight: s.weight || 1.2
-      })),
-      location: location || 'Bangalore / Remote',
+      requiredSkills: normalizedRequiredSkills,
+      preferredSkills: normalizedPreferredSkills,
+      location: location || (city && region ? `${city}, ${region}` : 'Patna, Bihar, India'),
+      country: country || (location?.includes('India') ? 'India' : 'India'),
+      region: region || (location?.includes('Bihar') ? 'Bihar' : 'Bihar'),
+      city: city || (location?.includes('Patna') ? 'Patna' : 'Patna'),
       workMode: workMode || 'Hybrid',
-      salary: salary || '$90,000 - $120,000 / year',
+      experienceLevel: experienceLevel || 'Fresher (0-1 yrs)',
+      educationRequirement: educationRequirement || degree || 'B.S. / B.Tech',
+      salary: salary || '₹6,00,000 - ₹9,00,000 / year',
       employmentType: employmentType || 'Full-time',
       minCgpa: minCgpa ? Number(minCgpa) : 7.0,
       graduationYear: graduationYear ? Number(graduationYear) : 2026,

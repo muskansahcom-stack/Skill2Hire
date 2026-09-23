@@ -196,14 +196,22 @@ export interface Job {
   companyName: string;
   companyLogo?: string;
   title: string;
+  roleId?: string;
+  roleTitle?: string;
   department: string;
+  industry?: string;
   description: string;
   responsibilities: string[];
   requirements: string[];
   requiredSkills: JobSkillRequirement[];
   preferredSkills?: (string | JobSkillRequirement)[];
   location: string;
+  country?: string;
+  region?: string;
+  city?: string;
   workMode: 'Remote' | 'On-site' | 'Hybrid';
+  experienceLevel?: string;
+  educationRequirement?: string;
   salary: string;
   employmentType: 'Full-time' | 'Internship' | 'Part-time';
   minCgpa: number;
@@ -1265,4 +1273,89 @@ export interface ExplainableSkillGapReport {
   skills: SkillGapItem[];
   priorityActions: SkillGapAction[];
 }
+
+// ----------------------------------------------------
+// GLOBAL EMPLOYER SKILL DEMAND ENGINE (PHASE 4)
+// ----------------------------------------------------
+
+export interface SkillDemandFilter {
+  scope?: 'global' | 'country' | 'region' | 'city';
+  country?: string;
+  region?: string;
+  city?: string;
+  industry?: string;
+  jobRole?: string;
+  employer?: string;
+  skill?: string;
+}
+
+export interface SkillDemandItem {
+  skillId: string;
+  skillName: string;
+  category: string;
+  totalJobCount: number; // Raw count of active published jobs requiring/preferring this skill
+  demandCount?: number; // Friendly alias for totalJobCount
+  requiredCount: number; // Mandatory requirement count
+  preferredCount: number; // Preferred requirement count
+  demandPercent: number; // Percentage of filtered jobs requiring this skill
+  percentage?: number; // Friendly alias for demandPercent
+  proficiencyBreakdown: {
+    Beginner: number;
+    Intermediate: number;
+    Advanced: number;
+    Expert: number;
+  };
+  proficiencyDistribution?: { // Friendly alias for proficiencyBreakdown
+    Beginner: number;
+    Intermediate: number;
+    Advanced: number;
+    Expert: number;
+  };
+  topIndustries: { industry: string; count: number }[];
+  topJobRoles: { roleTitle: string; count: number }[];
+  topEmployers: { companyName: string; count: number }[];
+  topLocations: { country: string; region: string; city: string; count: number }[];
+}
+
+export interface SkillDemandAggregateReport {
+  scope: {
+    country: string;
+    region: string;
+    city: string;
+    industry: string;
+    jobRole: string;
+    employer: string;
+  };
+  scopeLabel?: string;
+  totalJobsInScope: number;
+  totalActiveJobs?: number; // Friendly alias
+  totalEmployersInScope: number;
+  activeEmployersCount?: number; // Friendly alias
+  totalUniqueSkillsDemanded: number;
+  uniqueSkillsTracked?: number; // Friendly alias
+  totalSkillSignals?: number;
+  skills: SkillDemandItem[];
+  topIndustriesInScope: { industry: string; jobCount: number }[];
+  topRolesInScope: { roleTitle: string; jobCount: number }[];
+  topEmployersInScope: { companyName: string; jobCount: number }[];
+  isBiharScope: boolean;
+  dataSourceNotice: {
+    type: 'PLATFORM_DATA';
+    badgeText: string;
+    disclaimer: string;
+    externalVerificationAvailable: boolean;
+  };
+  biharProvenanceNotice?: string;
+  laborMarketDisclaimer?: string;
+}
+
+export interface SkillDemandFilterOptions {
+  countries: string[];
+  regions: { name: string; country: string }[];
+  cities: { name: string; region: string; country: string }[];
+  industries: string[];
+  jobRoles: { id: string; title: string }[];
+  employers: { id: string; name: string }[];
+}
+
 

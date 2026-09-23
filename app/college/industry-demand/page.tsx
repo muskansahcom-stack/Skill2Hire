@@ -10,8 +10,10 @@ import {
   ShieldCheck,
   Building2,
   Briefcase,
-  Layers
+  Layers,
+  GraduationCap
 } from 'lucide-react';
+import SkillDemandRadar from '@/components/SkillDemandRadar';
 
 export default function CollegeIndustryDemandPage() {
   const [demandData, setDemandData] = useState<any[]>([]);
@@ -36,40 +38,53 @@ export default function CollegeIndustryDemandPage() {
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 space-y-8">
         
         {/* Navigation Breadcrumb */}
-        <div>
+        <div className="flex items-center justify-between">
           <Link href="/college/dashboard" className="text-xs font-bold text-slate-500 hover:text-indigo-600">
             ← Back to College Dashboard
           </Link>
+          <div className="flex items-center gap-3">
+            <Link
+              href="/college/curriculum-gap"
+              className="text-xs font-bold text-indigo-600 hover:underline flex items-center gap-1"
+            >
+              <span>Analyze Curriculum Gaps</span>
+              <ArrowRight className="w-3.5 h-3.5" />
+            </Link>
+            <Link
+              href="/regional?tab=demand"
+              className="text-xs font-bold text-emerald-600 hover:underline flex items-center gap-1"
+            >
+              <span>Regional Intelligence →</span>
+            </Link>
+          </div>
         </div>
 
-        {/* Header (Section 16 & 18) */}
-        <div className="bg-white rounded-3xl p-6 sm:p-8 border border-slate-200 shadow-sm space-y-2">
-          <span className="text-xs font-bold uppercase tracking-wider text-indigo-600">Market Telemetry</span>
-          <h1 className="text-2xl sm:text-3xl font-black text-slate-900 tracking-tight">
-            Industry Skill Demand Radar
-          </h1>
-          <p className="text-xs sm:text-sm text-slate-500">
-            Real-time percentage breakdown of technical skills demanded across 25+ verified corporate job postings on Skill2Hire.
-          </p>
-        </div>
+        {/* REUSABLE PHASE 4 SKILL DEMAND RADAR WITH REGIONAL FILTERS & BIHAR PROVENANCE */}
+        <SkillDemandRadar showComparisonSection={true} />
 
         {/* Categories Overview */}
-        <div className="grid grid-cols-2 sm:grid-cols-4 gap-4">
-          {categoryStats.slice(0, 4).map((cat) => (
-            <div key={cat.category} className="bg-white p-5 rounded-2xl border border-slate-200 shadow-sm space-y-1">
-              <span className="text-[10px] font-bold uppercase tracking-wider text-slate-400">{cat.category}</span>
-              <span className="text-2xl font-black text-slate-900 block">{cat.averageDemand}%</span>
-              <span className="text-xs text-indigo-600 font-semibold">{cat.skillCount} Tracked Skills</span>
-            </div>
-          ))}
+        <div className="pt-6 border-t border-slate-200">
+          <div className="mb-4">
+            <h3 className="text-base font-extrabold text-slate-900">High-Level Industry Category Averages</h3>
+            <p className="text-xs text-slate-500">Aggregate penetration across core tech categories</p>
+          </div>
+          <div className="grid grid-cols-2 sm:grid-cols-4 gap-4">
+            {categoryStats.slice(0, 4).map((cat) => (
+              <div key={cat.category} className="bg-white p-5 rounded-2xl border border-slate-200 shadow-sm space-y-1">
+                <span className="text-[10px] font-bold uppercase tracking-wider text-slate-400">{cat.category}</span>
+                <span className="text-2xl font-black text-slate-900 block">{cat.averageDemand}%</span>
+                <span className="text-xs text-indigo-600 font-semibold">{cat.skillCount} Tracked Skills</span>
+              </div>
+            ))}
+          </div>
         </div>
 
-        {/* Full Skills Demand Breakdown (Section 16 & 18) */}
+        {/* Historical YoY Growth Breakdown */}
         <div className="bg-white rounded-3xl p-6 sm:p-8 border border-slate-200 shadow-sm space-y-6">
           <div className="flex items-center justify-between">
             <h2 className="text-base font-bold text-slate-900 flex items-center gap-2">
               <TrendingUp className="w-5 h-5 text-indigo-600" />
-              <span>Current Industry Demand Index</span>
+              <span>YoY Market Velocity Index</span>
             </h2>
             <Link href="/college/curriculum-gap" className="text-xs font-bold text-indigo-600 hover:underline">
               Analyze College Gaps →

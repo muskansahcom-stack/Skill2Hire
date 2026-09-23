@@ -1,4 +1,5 @@
 import { db } from './db';
+import { calculateSkillDemand } from './skillDemandEngine';
 import {
   SkillLevel,
   SkillDemandLevel,
@@ -117,36 +118,26 @@ export function extractSkillsFromJobDescription(text: string): {
  */
 export function calculateIndustrySkillDemand() {
   const jobs = db.getJobs().filter(j => j.status === 'published');
-  const allSkills = db.getSkills();
-  const totalJobs = Math.max(1, jobs.length);
+  const report = calculateSkillDemand(jobs);
 
-  const skillCounts: Record<string, number> = {};
-
-  jobs.forEach(job => {
-    job.requiredSkills.forEach(req => {
-      skillCounts[req.skillName] = (skillCounts[req.skillName] || 0) + 1;
-    });
-  });
-
-  return allSkills.map(skill => {
-    const count = skillCounts[skill.name] || 0;
-    const percent = Math.min(100, Math.round((count / totalJobs) * 100));
-    
+  return report.skills.map(skill => {
     let demandLevel: SkillDemandLevel = 'Low';
-    if (percent >= 70) demandLevel = 'Very High';
-    else if (percent >= 45) demandLevel = 'High';
-    else if (percent >= 25) demandLevel = 'Medium';
+    if (skill.demandPercent >= 70) demandLevel = 'Very High';
+    else if (skill.demandPercent >= 45) demandLevel = 'High';
+    else if (skill.demandPercent >= 25) demandLevel = 'Medium';
+
+    const growthRate = Math.round(5 + (skill.requiredCount * 2));
 
     return {
-      skillName: skill.name,
+      skillName: skill.skillName,
       category: skill.category,
-      demandPercent: percent,
+      demandPercent: skill.demandPercent,
       demandLevel,
-      jobPostingsCount: count,
-      growthRate: Math.round(5 + Math.random() * 15),
-      industry: 'Software & Technology'
+      jobPostingsCount: skill.totalJobCount,
+      growthRate,
+      industry: skill.topIndustries[0]?.industry || 'Software & Technology'
     };
-  }).sort((a, b) => b.demandPercent - a.demandPercent);
+  });
 }
 
 /**
