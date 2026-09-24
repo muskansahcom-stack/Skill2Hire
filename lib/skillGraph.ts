@@ -18,8 +18,8 @@ import {
 /**
  * Normalizes skill string tokens for resilient name/ID matching
  */
-export function normalizeSkillToken(nameOrId: string): string {
-  if (!nameOrId) return '';
+export function normalizeSkillToken(nameOrId: string | any): string {
+  if (!nameOrId || typeof nameOrId !== 'string') return '';
   return nameOrId
     .toLowerCase()
     .replace(/^sk_/, '')

@@ -458,56 +458,12 @@ export default function TopHeader({
                   </div>
                   {selectedRegion === 'in-maharashtra' && <Check className="w-3.5 h-3.5 text-rose-600 shrink-0" />}
                 </button>
-
-                <button
-                  onClick={() => { setRegion('kr-seoul'); setIsRegionOpen(false); }}
-                  className={`w-full flex items-center justify-between p-2 rounded-xl text-left text-xs transition-colors ${
-                    selectedRegion === 'kr-seoul'
-                      ? 'bg-blue-50 text-blue-950 font-extrabold border border-blue-200'
-                      : 'hover:bg-slate-50 text-slate-700'
-                  }`}
-                >
-                  <div className="flex items-center gap-2">
-                    <span className="text-base">🇰🇷</span>
-                    <div>
-                      <div className="font-bold flex items-center gap-1.5">
-                        <span>South Korea: Seoul Capital</span>
-                        <span className="text-[9px] px-1 rounded bg-blue-100 text-blue-800 font-bold">한국어</span>
-                        <span className="text-[9px] px-1 rounded bg-slate-100 text-slate-600 font-medium">DEMO</span>
-                      </div>
-                      <div className="text-[10px] text-slate-400">Pangyo Techno Valley • AI & Robotics</div>
-                    </div>
-                  </div>
-                  {selectedRegion === 'kr-seoul' && <Check className="w-3.5 h-3.5 text-blue-600 shrink-0" />}
-                </button>
-
-                <button
-                  onClick={() => { setRegion('cn-guangdong'); setIsRegionOpen(false); }}
-                  className={`w-full flex items-center justify-between p-2 rounded-xl text-left text-xs transition-colors ${
-                    selectedRegion === 'cn-guangdong'
-                      ? 'bg-red-50 text-red-950 font-extrabold border border-red-200'
-                      : 'hover:bg-slate-50 text-slate-700'
-                  }`}
-                >
-                  <div className="flex items-center gap-2">
-                    <span className="text-base">🇨🇳</span>
-                    <div>
-                      <div className="font-bold flex items-center gap-1.5">
-                        <span>China: Greater Bay Area</span>
-                        <span className="text-[9px] px-1 rounded bg-red-100 text-red-800 font-bold">中文</span>
-                        <span className="text-[9px] px-1 rounded bg-slate-100 text-slate-600 font-medium">DEMO</span>
-                      </div>
-                      <div className="text-[10px] text-slate-400">Shenzhen Nanshan • Hardware Silicon Valley</div>
-                    </div>
-                  </div>
-                  {selectedRegion === 'cn-guangdong' && <Check className="w-3.5 h-3.5 text-red-600 shrink-0" />}
-                </button>
               </div>
 
               {/* 3. GLOBAL ARCHITECTURE & ROADMAP */}
               <div className="space-y-1 pt-1 border-t border-slate-100">
                 <span className="text-[10px] font-black uppercase tracking-wider text-slate-400 px-2 block">
-                  Global Architecture & Roadmap
+                  National & Global Architecture
                 </span>
 
                 <button
@@ -522,7 +478,7 @@ export default function TopHeader({
                     <span className="text-base">🌐</span>
                     <div>
                       <div className="font-bold">Global View (All Ecosystems)</div>
-                      <div className="text-[10px] text-slate-400">Decoupled multi-country architecture</div>
+                      <div className="text-[10px] text-slate-400">Decoupled multi-regional architecture</div>
                     </div>
                   </div>
                   {selectedRegion === 'global' && <Check className="w-3.5 h-3.5 text-blue-600 shrink-0" />}
@@ -548,44 +504,21 @@ export default function TopHeader({
                   </div>
                   {selectedRegion === 'in-karnataka' && <Check className="w-3.5 h-3.5 text-primary-600 shrink-0" />}
                 </button>
-
-                <button
-                  onClick={() => { setRegion('us-ca'); setIsRegionOpen(false); }}
-                  className={`w-full flex items-center justify-between p-2 rounded-xl text-left text-xs transition-colors ${
-                    selectedRegion === 'us-ca'
-                      ? 'bg-slate-100 text-slate-900 font-extrabold'
-                      : 'hover:bg-slate-50 text-slate-700'
-                  }`}
-                >
-                  <div className="flex items-center gap-2">
-                    <span className="text-base">🇺🇸</span>
-                    <div>
-                      <div className="font-bold flex items-center gap-1.5">
-                        <span>USA: California</span>
-                        <span className="text-[9px] px-1 rounded bg-slate-200 text-slate-700 font-bold">PLANNED</span>
-                      </div>
-                      <div className="text-[10px] text-slate-400">Silicon Valley & Bay Area</div>
-                    </div>
-                  </div>
-                  {selectedRegion === 'us-ca' && <Check className="w-3.5 h-3.5 text-primary-600 shrink-0" />}
-                </button>
               </div>
 
-              {/* 8-Language Switcher */}
+              {/* Vernacular Language Switcher */}
               <div className="pt-2 border-t border-slate-100">
                 <span className="text-[10px] font-bold uppercase tracking-wider text-slate-400 px-2 block mb-1">
-                  Language & Vernacular Dialect
+                  Vernacular Language & Dialect
                 </span>
-                <div className="grid grid-cols-4 gap-1 px-1">
+                <div className="grid grid-cols-3 gap-1 px-1">
                   {([
                     { code: 'en', label: 'English' },
                     { code: 'hi', label: 'हिन्दी' },
+                    { code: 'bho', label: 'भोजपुरी' },
                     { code: 'ta', label: 'தமிழ்' },
                     { code: 'te', label: 'తెలుగు' },
                     { code: 'mr', label: 'मराठी' },
-                    { code: 'ko', label: '한국어' },
-                    { code: 'zh', label: '中文' },
-                    { code: 'bho', label: 'भोजपुरी' },
                   ] as const).map((l) => (
                     <button
                       key={l.code}

@@ -114,40 +114,6 @@ export const REGIONAL_DICTIONARIES: Record<string, Record<string, string>> = {
     applyNow: 'अर्ज करा',
     explorePathways: 'करिअर मार्ग शोधा',
     verifiedCenters: 'प्रमाणित प्रशिक्षण केंद्रे'
-  },
-  ko: {
-    platformTitle: 'Skill2Hire 글로벌 스킬 인텔리전스',
-    regionalPortal: '지역 스킬 인텔리전스 포털 (Regional Intelligence)',
-    districtIntelligence: '지역/지구별 스킬 수요 및 공급 분석',
-    employerDemand: '지역 기업 인재 수요 (Local Employer Demand)',
-    trainingEcosystem: '직업 훈련 및 교육 생태계 (Training Ecosystem)',
-    migrationPathways: '취업 및 글로벌 진출 커리어 패스 (Career Corridors)',
-    publicSchemes: '정부 지원 혁신 인재 육성 프로그램 (K-Startup, TIPS)',
-    skills: '핵심 역량',
-    vacancies: '채용 공고',
-    trainingCapacity: '연간 교육 정원',
-    placementRate: '취업률 (Placement Rate)',
-    readinessScore: '취업 준비도 점수',
-    applyNow: '지원하기',
-    explorePathways: '커리어 패스 탐색',
-    verifiedCenters: '공식 인증 교육 기관'
-  },
-  zh: {
-    platformTitle: 'Skill2Hire 全球技能就业智能平台',
-    regionalPortal: '区域技能智能分析门户 (Regional Intelligence)',
-    districtIntelligence: '地区技能需求与人才供给画像',
-    employerDemand: '本地企业人才需求 (Local Employer Demand)',
-    trainingEcosystem: '职业培训与产教融合生态 (Training Ecosystem)',
-    migrationPathways: '跨区域就业与人才流动走廊 (Career Corridors)',
-    publicSchemes: '政府人才扶持与创新创业计划 (大湾区青年基金等)',
-    skills: '专业技能',
-    vacancies: '开放职位',
-    trainingCapacity: '年度培训规模',
-    placementRate: '就业率 (Placement Rate)',
-    readinessScore: '岗位就绪度评分',
-    applyNow: '立即申请',
-    explorePathways: '探索职业晋升路径',
-    verifiedCenters: '官方认证培训中心'
   }
 };
 

@@ -4,7 +4,7 @@ import React, { createContext, useContext, useState, useEffect } from 'react';
 import { Country, Region, RegionalProfile } from '@/lib/types';
 import { REGIONAL_DICTIONARIES } from '@/lib/regionalIntelligence';
 
-export type SupportedLanguage = 'en' | 'hi' | 'bho' | 'ta' | 'te' | 'mr' | 'ko' | 'zh';
+export type SupportedLanguage = 'en' | 'hi' | 'bho' | 'ta' | 'te' | 'mr';
 
 interface RegionContextType {
   selectedRegion: string; // 'global' | 'in-bihar' | 'in-tamilnadu' | 'in-telangana' | 'in-maharashtra' | 'kr-seoul' | etc.
@@ -39,7 +39,7 @@ export function RegionProvider({ children }: { children: React.ReactNode }) {
       
       if (savedRegion) setSelectedRegionState(savedRegion);
       if (savedDistrict !== null) setSelectedDistrict(savedDistrict);
-      if (savedLang && ['en', 'hi', 'bho', 'ta', 'te', 'mr', 'ko', 'zh'].includes(savedLang)) {
+      if (savedLang && ['en', 'hi', 'bho', 'ta', 'te', 'mr'].includes(savedLang)) {
         setSelectedLanguageState(savedLang);
       }
     }
@@ -84,12 +84,6 @@ export function RegionProvider({ children }: { children: React.ReactNode }) {
     } else if (regionId === 'in-maharashtra') {
       setSelectedDistrict('in-mh-pune');
       setLanguage('mr');
-    } else if (regionId === 'kr-seoul') {
-      setSelectedDistrict('kr-seoul-pangyo');
-      setLanguage('ko');
-    } else if (regionId === 'cn-guangdong') {
-      setSelectedDistrict('cn-gd-shenzhen');
-      setLanguage('zh');
     } else if (regionId === 'in-karnataka') {
       setSelectedDistrict('in-ka-bengaluru');
     } else {

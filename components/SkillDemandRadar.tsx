@@ -115,7 +115,7 @@ export default function SkillDemandRadar({
         const [biharRes, tnRes, usRes] = await Promise.all([
           fetch('/api/demand?region=Bihar'),
           fetch('/api/demand?region=Tamil Nadu'),
-          fetch('/api/demand?country=United States')
+          fetch('/api/demand?region=Karnataka')
         ]);
         const [biharData, tnData, usData] = await Promise.all([
           biharRes.json(),
@@ -242,14 +242,20 @@ export default function SkillDemandRadar({
             🇮🇳 Tamil Nadu
           </button>
           <button
-            onClick={() => handleSelectScopePreset('us')}
+            onClick={() => {
+              setCountry('India');
+              setRegion('Karnataka');
+              setCity('');
+              setRole('');
+              setSearchSkill('');
+            }}
             className={`px-3 py-1.5 rounded-lg text-xs font-bold transition-all ${
-              country === 'United States'
+              region === 'Karnataka'
                 ? 'bg-purple-600 text-white shadow-sm'
                 : 'bg-slate-100 text-slate-700 hover:bg-slate-200'
             }`}
           >
-            🇺🇸 United States
+            🇮🇳 Karnataka (Bengaluru)
           </button>
         </div>
       </div>
@@ -613,7 +619,7 @@ export default function SkillDemandRadar({
                 </span>
               </div>
               <h3 className="text-lg font-black text-slate-900 tracking-tight mt-1">
-                Comparative Regional Skill Demand: Bihar vs. Tamil Nadu vs. United States
+                Comparative Regional Skill Demand: Bihar vs. Tamil Nadu vs. Karnataka
               </h3>
               <p className="text-xs text-slate-500 mt-0.5">
                 Exact comparison computed from verified platform jobs across distinct industrial corridors.
@@ -690,19 +696,25 @@ export default function SkillDemandRadar({
               </div>
             </div>
 
-            {/* United States Column */}
+            {/* Karnataka Column */}
             <div className="bg-purple-50/50 rounded-2xl p-5 border border-purple-200/80 space-y-4">
               <div className="flex items-center justify-between">
                 <div>
                   <h4 className="font-black text-purple-950 text-sm flex items-center gap-1.5">
-                    <span>🇺🇸 United States</span>
+                    <span>🇮🇳 Karnataka</span>
                   </h4>
                   <span className="text-[11px] text-purple-800 font-semibold">
                     {comparisonReports.us?.totalActiveJobs || 0} Platform Jobs
                   </span>
                 </div>
                 <button
-                  onClick={() => handleSelectScopePreset('us')}
+                  onClick={() => {
+                    setCountry('India');
+                    setRegion('Karnataka');
+                    setCity('');
+                    setRole('');
+                    setSearchSkill('');
+                  }}
                   className="text-[11px] font-bold text-purple-700 hover:underline"
                 >
                   View Scope →

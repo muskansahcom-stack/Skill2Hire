@@ -147,7 +147,7 @@ function RegionalIntelligenceContent() {
                 </span>
               ) : profile?.deploymentStatus === 'EXPANSION_DEMO' ? (
                 <span className="px-3 py-1 rounded-full bg-indigo-500/20 text-indigo-300 text-xs font-black uppercase tracking-wider border border-indigo-500/30 flex items-center gap-1.5">
-                  <span>{profile?.countryId === 'kr' ? '🇰🇷' : profile?.countryId === 'cn' ? '🇨🇳' : '🇮🇳'}</span>
+                  <span>🇮🇳</span>
                   <span>Expansion Region • Demo Data ({profile?.regionName})</span>
                 </span>
               ) : (
@@ -166,12 +166,10 @@ function RegionalIntelligenceContent() {
               {([
                 { code: 'en', label: 'English' },
                 { code: 'hi', label: 'हिन्दी' },
+                { code: 'bho', label: 'भोजपुरी' },
                 { code: 'ta', label: 'தமிழ்' },
                 { code: 'te', label: 'తెలుగు' },
                 { code: 'mr', label: 'मराठी' },
-                { code: 'ko', label: '한국어' },
-                { code: 'zh', label: '中文' },
-                { code: 'bho', label: 'भोजपुरी' },
               ] as const).map((l) => (
                 <button
                   key={l.code}
@@ -257,30 +255,6 @@ function RegionalIntelligenceContent() {
             </button>
 
             <button
-              onClick={() => setRegion('kr-seoul')}
-              className={`px-3 py-1.5 rounded-xl text-xs font-extrabold flex items-center gap-1.5 transition-all ${
-                selectedRegion === 'kr-seoul'
-                  ? 'bg-blue-600 text-white shadow-lg'
-                  : 'bg-slate-800/80 text-slate-300 hover:bg-slate-700'
-              }`}
-            >
-              <span>🇰🇷</span>
-              <span>South Korea (Demo Hub)</span>
-            </button>
-
-            <button
-              onClick={() => setRegion('cn-guangdong')}
-              className={`px-3 py-1.5 rounded-xl text-xs font-extrabold flex items-center gap-1.5 transition-all ${
-                selectedRegion === 'cn-guangdong'
-                  ? 'bg-red-600 text-white shadow-lg'
-                  : 'bg-slate-800/80 text-slate-300 hover:bg-slate-700'
-              }`}
-            >
-              <span>🇨🇳</span>
-              <span>China (Demo Hub)</span>
-            </button>
-
-            <button
               onClick={() => setRegion('in-karnataka')}
               className={`px-3 py-1.5 rounded-xl text-xs font-extrabold flex items-center gap-1.5 transition-all ${
                 selectedRegion === 'in-karnataka'
@@ -289,19 +263,7 @@ function RegionalIntelligenceContent() {
               }`}
             >
               <span>🇮🇳</span>
-              <span>Karnataka (Planned)</span>
-            </button>
-
-            <button
-              onClick={() => setRegion('us-ca')}
-              className={`px-3 py-1.5 rounded-xl text-xs font-extrabold flex items-center gap-1.5 transition-all ${
-                selectedRegion === 'us-ca'
-                  ? 'bg-primary-500 text-white shadow-lg'
-                  : 'bg-slate-800/80 text-slate-300 hover:bg-slate-700'
-              }`}
-            >
-              <span>🇺🇸</span>
-              <span>USA California (Planned)</span>
+              <span>Karnataka (Bengaluru Hub)</span>
             </button>
 
             <button
@@ -1018,13 +980,11 @@ function RegionalIntelligenceContent() {
                 <thead>
                   <tr className="border-b border-slate-200 text-slate-400 font-black uppercase tracking-wider">
                     <th className="py-2.5 px-3 min-w-[140px]">English</th>
+                    <th className="py-2.5 px-3 min-w-[150px]">हिन्दी (Hindi)</th>
+                    <th className="py-2.5 px-3 min-w-[140px]">भोजपुरी (Bhojpuri)</th>
                     <th className="py-2.5 px-3 min-w-[150px]">தமிழ் (Tamil)</th>
                     <th className="py-2.5 px-3 min-w-[150px]">తెలుగు (Telugu)</th>
                     <th className="py-2.5 px-3 min-w-[150px]">मराठी (Marathi)</th>
-                    <th className="py-2.5 px-3 min-w-[150px]">한국어 (Korean)</th>
-                    <th className="py-2.5 px-3 min-w-[150px]">中文 (Chinese)</th>
-                    <th className="py-2.5 px-3 min-w-[150px]">हिन्दी (Hindi)</th>
-                    <th className="py-2.5 px-3 min-w-[140px]">भोजपुरी</th>
                   </tr>
                 </thead>
                 <tbody className="divide-y divide-slate-100">
@@ -1032,6 +992,12 @@ function RegionalIntelligenceContent() {
                     <tr key={key} className="hover:bg-slate-50/80 transition-colors">
                       <td className="py-2.5 px-3 font-bold text-slate-900">
                         {REGIONAL_DICTIONARIES.en[key]}
+                      </td>
+                      <td className="py-2.5 px-3 text-slate-800 font-bold">
+                        {REGIONAL_DICTIONARIES.hi?.[key] || '—'}
+                      </td>
+                      <td className="py-2.5 px-3 text-purple-700 font-bold">
+                        {REGIONAL_DICTIONARIES.bho?.[key] || '—'}
                       </td>
                       <td className="py-2.5 px-3 text-indigo-700 font-bold">
                         {REGIONAL_DICTIONARIES.ta?.[key] || '—'}
@@ -1041,18 +1007,6 @@ function RegionalIntelligenceContent() {
                       </td>
                       <td className="py-2.5 px-3 text-rose-700 font-bold">
                         {REGIONAL_DICTIONARIES.mr?.[key] || '—'}
-                      </td>
-                      <td className="py-2.5 px-3 text-blue-700 font-bold">
-                        {REGIONAL_DICTIONARIES.ko?.[key] || '—'}
-                      </td>
-                      <td className="py-2.5 px-3 text-red-700 font-bold">
-                        {REGIONAL_DICTIONARIES.zh?.[key] || '—'}
-                      </td>
-                      <td className="py-2.5 px-3 text-slate-700 font-medium">
-                        {REGIONAL_DICTIONARIES.hi?.[key] || '—'}
-                      </td>
-                      <td className="py-2.5 px-3 text-purple-700 font-medium">
-                        {REGIONAL_DICTIONARIES.bho?.[key] || '—'}
                       </td>
                     </tr>
                   ))}

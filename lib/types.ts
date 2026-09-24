@@ -619,6 +619,111 @@ export interface WhyNotEligibleDiagnostic {
   projectedScoreAfterActions: number; // e.g. 92%
 }
 
+// ==========================================
+// PHASE 5: EMPLOYMENT READINESS ENGINE TYPES
+// ==========================================
+
+export type ReadinessDimensionKey =
+  | 'skillCoverage'
+  | 'assessmentResults'
+  | 'practicalEvidence'
+  | 'projects'
+  | 'resume'
+  | 'interviewPrep'
+  | 'relevantExperience';
+
+export interface ReadinessDimensionScore {
+  name: string;
+  key: ReadinessDimensionKey;
+  score: number; // 0 - 100 percentage
+  weight: number; // e.g. 0.25
+  pointsEarned: number; // score * weight
+  maxPoints: number; // 100 * weight
+  status: 'OPTIMAL' | 'ADEQUATE' | 'NEEDS_WORK' | 'CRITICAL';
+  details: string;
+  formulaDescription: string;
+}
+
+export type ReadinessChecklistStatus = 'VERIFIED_MATCH' | 'PARTIAL_MATCH' | 'NOT_ASSESSED' | 'MISSING' | 'PREPARED';
+
+export interface ReadinessChecklistItem {
+  name: string;
+  category: 'SKILL' | 'PROJECT' | 'INTERVIEW' | 'EXPERIENCE' | 'RESUME';
+  symbol: '✓' | '⚠' | '✕';
+  statusText: string;
+  badgeVariant: 'success' | 'warning' | 'danger';
+  detail: string;
+  actionUrl?: string;
+  actionLabel?: string;
+}
+
+export interface PersonalizedPriorityItem {
+  priority: 1 | 2 | 3;
+  title: string;
+  targetCategory: 'Courses' | 'Projects' | 'Assessments' | 'Interview Coach' | 'Resume Builder';
+  rationale: string;
+  currentStatus: string;
+  targetMilestone: string;
+  estimatedReadinessUplift: number;
+  actionUrl: string;
+  actionLabel: string;
+  iconName: 'book' | 'laptop' | 'award' | 'mic' | 'file-text';
+}
+
+export interface EmploymentReadinessReport {
+  studentId: string;
+  studentName: string;
+  targetType: 'role' | 'career' | 'job';
+  targetId: string;
+  targetTitle: string;
+  targetIndustry?: string;
+  targetCompany?: string;
+
+  // Non-arbitrary readiness score (0 - 100)
+  overallReadinessScore: number;
+  readinessLabel: 'Ready to Apply ✓' | 'Almost Ready (Close 1-2 Gaps)' | 'Preparation Required';
+  readinessExplanation: string;
+
+  // 7 Dimensions with transparent math
+  dimensions: {
+    skillCoverage: ReadinessDimensionScore;
+    assessmentResults: ReadinessDimensionScore;
+    practicalEvidence: ReadinessDimensionScore;
+    projects: ReadinessDimensionScore;
+    resume: ReadinessDimensionScore;
+    interviewPrep: ReadinessDimensionScore;
+    relevantExperience: ReadinessDimensionScore;
+  };
+
+  // Clean checklist in the exact format shown in prompt:
+  // SQL: ✓ Intermediate
+  // Python: ⚠ Beginner
+  // Power BI: ✕ Not assessed
+  // Project: ⚠ Missing
+  // Interview: ✓ Prepared
+  checklist: ReadinessChecklistItem[];
+
+  // 4 Categorized diagnostic buckets
+  currentStrengths: { title: string; evidence: string; impact: string }[];
+  skillGaps: { skill: string; requiredLevel: string; currentLevel: string; gap: string; action: string }[];
+  missingEvidence: { item: string; reason: string; recommendedAction: string; actionUrl: string }[];
+  recommendedActions: { title: string; category: string; description: string; actionUrl: string; actionText: string }[];
+
+  // 3-Priority Personalized Plan
+  personalizedPlan: [PersonalizedPriorityItem, PersonalizedPriorityItem, PersonalizedPriorityItem];
+
+  // Quick Action Tool Links
+  toolLinks: {
+    courses: { url: string; count: number; title: string };
+    projects: { url: string; count: number; title: string };
+    assessments: { url: string; count: number; title: string };
+    interviewCoach: { url: string; title: string };
+    resumeBuilder: { url: string; title: string };
+  };
+
+  calculatedAt: string;
+}
+
 export interface CodingProblem {
   id: string;
   title: string;

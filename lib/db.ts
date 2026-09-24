@@ -1305,6 +1305,7 @@ export const db = {
   },
 
   // PROJECTS
+  getProjects: () => getDb().projects,
   getProjectsByStudentId: (studentId: string) => {
     return getDb().projects.filter(p => p.studentId === studentId);
   },
@@ -2167,6 +2168,18 @@ export const db = {
       profile = profiles.find(p => p.regionId === 'in-bihar') || profiles[0];
     }
     return calculateMigrationPathway(sourceDistrictId, destinationCity, targetRole, profile, candidateSkills);
+  },
+
+  // ----------------------------------------------------
+  // EMPLOYMENT READINESS ENGINE (PHASE 5)
+  // ----------------------------------------------------
+  getEmploymentReadiness: (
+    studentId: string,
+    targetType: 'role' | 'career' | 'job' = 'role',
+    targetId: string = 'jr-data-analyst'
+  ) => {
+    const { calculateEmploymentReadiness } = require('./employmentReadinessEngine');
+    return calculateEmploymentReadiness(studentId, targetType, targetId, getDb());
   }
 };
 

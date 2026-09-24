@@ -4374,6 +4374,15 @@
       "level": "Intermediate"
     },
     {
+      "id": "ss_1b",
+      "studentId": "std_1",
+      "skillId": "sk_powerbi",
+      "skillName": "Power BI",
+      "category": "Data Analytics",
+      "status": "Self-Declared",
+      "level": "Intermediate"
+    },
+    {
       "id": "ss_6",
       "studentId": "std_2",
       "skillId": "sk_python",
@@ -9252,6 +9261,7 @@
         "sk_python"
       ],
       "preferred_skills": [
+        "sk_powerbi",
         "sk_pandas",
         "sk_aptitude",
         "sk_aiml"
@@ -9268,6 +9278,12 @@
           "skillName": "Python",
           "minLevel": "Intermediate",
           "isRequired": true
+        },
+        {
+          "skillId": "sk_powerbi",
+          "skillName": "Power BI",
+          "minLevel": "Intermediate",
+          "isRequired": false
         },
         {
           "skillId": "sk_pandas",
