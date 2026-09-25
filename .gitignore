@@ -2,6 +2,9 @@ node_modules/
 .next/
 .env
 .env.local
+.env.*.local
+.env.production
+.env.development
 .DS_Store
 *.tsbuildinfo
 *.log

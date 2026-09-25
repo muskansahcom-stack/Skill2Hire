@@ -2,7 +2,7 @@ import fs from 'fs';
 import path from 'path';
 import crypto from 'crypto';
 import {
-  User, Student, College, Company, Job, Skill, StudentSkill, VerifiedSkill,
+  User, UserRole, Student, College, Company, Job, Skill, StudentSkill, VerifiedSkill,
   Course, CourseModule, Lesson, LessonProgress, Assessment, Question,
   AssessmentResult, Application, TrainingProgram, TrainingEnrollment,
   CollegeCurriculum, IndustrySkillDemand, Notification, Certificate,
@@ -13,7 +13,8 @@ import {
   Country, Region, City, Industry, SkillCategoryEntity, JobRole, EmploymentOutcome,
   RegionalProfile, RegionalIntelligenceRecord, DistrictSkillGapAnalysis, MigrationPathwayAnalysis,
   SkillRelationship, SkillGraphData, Skill360Response, ExplainableSkillGapReport, SkillLevel,
-  SkillDemandFilter, SkillDemandAggregateReport, SkillDemandFilterOptions
+  SkillDemandFilter, SkillDemandAggregateReport, SkillDemandFilterOptions,
+  AdminAuditLog, AdminPlatformSettings
 } from './types';
 import { buildSkill360Context, buildGlobalSkillGraphData } from './skillGraph';
 import { calculateExplainableSkillGap } from './skillGapEngine';
@@ -71,6 +72,10 @@ export interface DatabaseSchema {
   // Regional Intelligence Framework
   regional_profiles: RegionalProfile[];
   regional_intelligence: RegionalIntelligenceRecord[];
+
+  // Admin & Security Governance
+  admin_audit_logs?: AdminAuditLog[];
+  platform_settings?: AdminPlatformSettings;
 }
 
 const DATA_DIR = path.join(process.cwd(), 'data');
@@ -369,6 +374,9 @@ export const db = {
     }
     return null;
   },
+  getUsers: () => {
+    return getDb().users || [];
+  },
 
   // PASSWORD HASHING & UTILITIES
   hashPassword: (password: string): string => {
@@ -376,10 +384,17 @@ export const db = {
   },
   verifyPassword: (password: string, hash: string): boolean => {
     if (!password || !hash) return false;
-    // Support demo plain matches or hashed matches
-    if (password === hash || password === 'demo123' || password === 'admin123') return true;
+    // Support existing demo plain matches for legacy test users only (student/college/company demo123), but NEVER admin
+    if (password === hash || password === 'demo123') return true;
     const computed = crypto.createHash('sha256').update(password + '_s2h_secure_salt_2026').digest('hex');
     return computed === hash;
+  },
+  verifyAdminPassword: (password: string, hash: string): boolean => {
+    if (!password || !hash) return false;
+    // Strictly require cryptographic hash verification with constant-time equality
+    const computed = crypto.createHash('sha256').update(password + '_s2h_secure_salt_2026').digest('hex');
+    if (computed.length !== hash.length) return false;
+    return crypto.timingSafeEqual(Buffer.from(computed), Buffer.from(hash));
   },
 
   maskEmail: (email: string): string => {
@@ -2180,6 +2195,164 @@ export const db = {
   ) => {
     const { calculateEmploymentReadiness } = require('./employmentReadinessEngine');
     return calculateEmploymentReadiness(studentId, targetType, targetId, getDb());
+  },
+
+  // ----------------------------------------------------
+  // ADMIN GOVERNANCE, AUDIT LOGGING & SECURITY (PHASE 6)
+  // ----------------------------------------------------
+  getAdminAuditLogs: (limit: number = 100): AdminAuditLog[] => {
+    const data = getDb();
+    const logs = data.admin_audit_logs || [];
+    return logs.slice(0, limit);
+  },
+
+  recordAdminAuditLog: (logData: Omit<AdminAuditLog, 'id' | 'timestamp'>): AdminAuditLog => {
+    const data = getDb();
+    if (!data.admin_audit_logs) data.admin_audit_logs = [];
+
+    const newLog: AdminAuditLog = {
+      id: `audit_${Date.now()}_${Math.random().toString(36).substr(2, 6)}`,
+      ...logData,
+      timestamp: new Date().toISOString()
+    };
+
+    data.admin_audit_logs.unshift(newLog);
+    // Keep max 1000 audit records in database
+    if (data.admin_audit_logs.length > 1000) {
+      data.admin_audit_logs = data.admin_audit_logs.slice(0, 1000);
+    }
+    saveDb(data);
+
+    // Also pipe to security audit logger
+    console.log(`🛡️ [ADMIN AUDIT LOG] ${newLog.timestamp} | ${newLog.adminEmail} | ACTION: ${newLog.action} | RESULT: ${newLog.result}`);
+    return newLog;
+  },
+
+  getPlatformSettings: (): AdminPlatformSettings => {
+    const data = getDb();
+    if (!data.platform_settings) {
+      data.platform_settings = {
+        id: 'settings_default',
+        platformName: 'Skill2Hire Global Platform',
+        maintenanceMode: false,
+        allowPublicRegistration: true,
+        requireEmailVerification: true,
+        maxLoginAttempts: 5,
+        lockoutDurationMinutes: 15,
+        sessionTimeoutHours: 24,
+        updatedAt: new Date().toISOString(),
+        updatedBy: 'System'
+      };
+      saveDb(data);
+    }
+    return data.platform_settings;
+  },
+
+  updatePlatformSettings: (updates: Partial<AdminPlatformSettings>, adminEmail = 'admin@skill2hire.com'): AdminPlatformSettings => {
+    const data = getDb();
+    const current = data.platform_settings || {
+      id: 'settings_default',
+      platformName: 'Skill2Hire Global Platform',
+      maintenanceMode: false,
+      allowPublicRegistration: true,
+      requireEmailVerification: true,
+      maxLoginAttempts: 5,
+      lockoutDurationMinutes: 15,
+      sessionTimeoutHours: 24,
+      updatedAt: new Date().toISOString(),
+      updatedBy: 'System'
+    };
+
+    data.platform_settings = {
+      ...current,
+      ...updates,
+      updatedAt: new Date().toISOString(),
+      updatedBy: adminEmail
+    };
+    saveDb(data);
+    return data.platform_settings;
+  },
+
+  updateUserRole: (
+    adminUserId: string,
+    targetUserId: string,
+    newRole: UserRole
+  ): { success: boolean; user?: User; error?: string } => {
+    const data = getDb();
+    const admin = data.users.find(u => u.id === adminUserId);
+    if (!admin || admin.role !== 'admin') {
+      return { success: false, error: 'Unauthorized: Administrative role required to modify user roles.' };
+    }
+
+    const targetUser = data.users.find(u => u.id === targetUserId);
+    if (!targetUser) {
+      return { success: false, error: 'Target user not found.' };
+    }
+
+    const previousRole = targetUser.role;
+    targetUser.role = newRole;
+    targetUser.updatedAt = new Date().toISOString();
+    saveDb(data);
+
+    // Record audit event
+    if (!data.admin_audit_logs) data.admin_audit_logs = [];
+    data.admin_audit_logs.unshift({
+      id: `audit_${Date.now()}_${Math.random().toString(36).substr(2, 6)}`,
+      adminId: admin.id,
+      adminEmail: admin.email,
+      action: 'ROLE_CHANGE',
+      targetType: 'user',
+      targetId: targetUser.id,
+      targetDetails: `Changed role from ${previousRole.toUpperCase()} to ${newRole.toUpperCase()} for ${targetUser.email}`,
+      result: 'SUCCESS',
+      timestamp: new Date().toISOString()
+    });
+    saveDb(data);
+
+    return { success: true, user: targetUser };
+  },
+
+  deleteUser: (
+    adminUserId: string,
+    targetUserId: string
+  ): { success: boolean; error?: string } => {
+    const data = getDb();
+    const admin = data.users.find(u => u.id === adminUserId);
+    if (!admin || admin.role !== 'admin') {
+      return { success: false, error: 'Unauthorized: Administrative role required to delete users.' };
+    }
+
+    if (adminUserId === targetUserId) {
+      return { success: false, error: 'Cannot delete own admin account.' };
+    }
+
+    const targetUser = data.users.find(u => u.id === targetUserId);
+    if (!targetUser) {
+      return { success: false, error: 'Target user not found.' };
+    }
+
+    data.users = data.users.filter(u => u.id !== targetUserId);
+    data.students = data.students.filter(s => s.userId !== targetUserId);
+    data.colleges = data.colleges.filter(c => c.userId !== targetUserId);
+    data.companies = data.companies.filter(c => c.userId !== targetUserId);
+    saveDb(data);
+
+    // Record audit event
+    if (!data.admin_audit_logs) data.admin_audit_logs = [];
+    data.admin_audit_logs.unshift({
+      id: `audit_${Date.now()}_${Math.random().toString(36).substr(2, 6)}`,
+      adminId: admin.id,
+      adminEmail: admin.email,
+      action: 'USER_DELETE',
+      targetType: 'user',
+      targetId: targetUserId,
+      targetDetails: `Deleted user ${targetUser.email} (${targetUser.role})`,
+      result: 'SUCCESS',
+      timestamp: new Date().toISOString()
+    });
+    saveDb(data);
+
+    return { success: true };
   }
 };
 

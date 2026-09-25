@@ -123,11 +123,12 @@ export function getAuthenticatedSession(request: Request | NextRequest): AuthSes
   if (authHeader.startsWith('Bearer ')) {
     const bearerToken = authHeader.substring(7).trim();
     
-    // Support demo session tokens
+    // Support demo session tokens (ONLY for non-admin student/college/company demo accounts)
     if (bearerToken.startsWith('demo_token_') || bearerToken.startsWith('auth_token_')) {
       const userId = bearerToken.replace('demo_token_', '').replace('auth_token_', '');
       const user = db.findUserById(userId);
-      if (user) {
+      // STRICT SECURITY: Never allow demo tokens to grant admin privileges
+      if (user && user.role !== 'admin') {
         let student = user.role === 'student' ? db.getStudentByUserId(user.id) : null;
         let college = user.role === 'college' ? db.getCollegeByUserId(user.id) : null;
         let company = user.role === 'company' ? db.getCompanyByUserId(user.id) : null;
@@ -150,11 +151,12 @@ export function getAuthenticatedSession(request: Request | NextRequest): AuthSes
     if (verified) return verified;
   }
 
-  // 3. Fallback header for demo fast simulation / tests (x-user-id)
+  // 3. Fallback header for demo fast simulation / tests (x-user-id) - NEVER for Admin!
   const simulatedUserId = request.headers.get('x-user-id');
   if (simulatedUserId) {
     const user = db.findUserById(simulatedUserId);
-    if (user) {
+    // STRICT SECURITY: Simulated header cannot grant admin role
+    if (user && user.role !== 'admin') {
       let student = user.role === 'student' ? db.getStudentByUserId(user.id) : null;
       let college = user.role === 'college' ? db.getCollegeByUserId(user.id) : null;
       let company = user.role === 'company' ? db.getCompanyByUserId(user.id) : null;
@@ -174,6 +176,77 @@ export function getAuthenticatedSession(request: Request | NextRequest): AuthSes
   }
 
   return null;
+}
+
+export interface RequireAdminResult {
+  authorized: boolean;
+  session?: AuthSession;
+  adminUser?: User;
+  errorResponse?: NextResponse;
+}
+
+/**
+ * Server-Side Admin Authorization Guard
+ * Validates cryptographic session token, queries the database source of truth,
+ * and confirms the caller is an active ADMIN user.
+ */
+export function requireAdmin(request: Request | NextRequest): RequireAdminResult {
+  const session = getAuthenticatedSession(request);
+
+  if (!session) {
+    logSecurityEvent('UNAUTHENTICATED_ADMIN_ACCESS_ATTEMPT', {
+      url: request.url,
+      method: request.method
+    });
+    return {
+      authorized: false,
+      errorResponse: NextResponse.json(
+        { error: 'Admin authentication required. Please login with your administrator credentials.', code: 'UNAUTHENTICATED' },
+        { status: 401 }
+      )
+    };
+  }
+
+  // Verify against database source of truth (never trust client claims alone)
+  const user = db.findUserById(session.userId);
+  if (!user || user.role !== 'admin') {
+    logSecurityEvent('UNAUTHORIZED_ADMIN_API_ACCESS', {
+      userId: session.userId,
+      userRole: session.role,
+      dbRole: user?.role,
+      url: request.url,
+      method: request.method
+    });
+
+    // Record persistent audit log of unauthorized attempt
+    try {
+      db.recordAdminAuditLog({
+        adminId: session.userId,
+        adminEmail: session.email || 'unknown',
+        action: 'UNAUTHORIZED_ACCESS_ATTEMPT',
+        targetType: 'security',
+        targetId: session.userId,
+        targetDetails: `Non-admin user (${session.role}) attempted to access administrative endpoint ${new URL(request.url).pathname}`,
+        result: 'BLOCKED'
+      });
+    } catch (e) {
+      // Ignore logging failure during edge/mock
+    }
+
+    return {
+      authorized: false,
+      errorResponse: NextResponse.json(
+        { error: 'Access denied. Administrator privileges required.', code: 'FORBIDDEN' },
+        { status: 403 }
+      )
+    };
+  }
+
+  return {
+    authorized: true,
+    session,
+    adminUser: user
+  };
 }
 
 /**

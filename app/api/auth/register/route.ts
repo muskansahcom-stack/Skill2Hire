@@ -11,18 +11,28 @@ export async function POST(request: Request) {
       return NextResponse.json({ error: 'Role and verified Email are required.' }, { status: 400 });
     }
 
+    const cleanEmail = email.trim().toLowerCase();
+
+    // STRICT SECURITY: Public registration of ADMIN accounts is strictly forbidden
+    if (role.toLowerCase() === 'admin') {
+      logSecurityEvent('UNAUTHORIZED_ADMIN_REGISTRATION_ATTEMPT', { email: cleanEmail });
+      return NextResponse.json(
+        { error: 'Forbidden: Administrator accounts cannot be created via public registration. Admin access must be provisioned by the system owner.', code: 'FORBIDDEN_ADMIN_SIGNUP' },
+        { status: 403 }
+      );
+    }
+
     if (!isGoogleAuth && (!password || password.length < 6)) {
       return NextResponse.json({ error: 'Password must be at least 6 characters.' }, { status: 400 });
     }
 
     // Check duplicate account
-    const existing = db.findUserByEmail(email.trim().toLowerCase());
+    const existing = db.findUserByEmail(cleanEmail);
     if (existing && existing.email_verified && existing.verification_status === 'VERIFIED') {
       return NextResponse.json({ error: 'An account with this email is already registered. Please login.' }, { status: 409 });
     }
 
     let result: any;
-    const cleanEmail = email.trim().toLowerCase();
     const cleanPhone = phone?.trim() || '+91 98765 00000';
     const pwd = password || 'google_oauth_verified';
 

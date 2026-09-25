@@ -154,11 +154,12 @@
       "id": "u_admin",
       "email": "admin@skill2hire.com",
       "phone": "+91 98765 43213",
-      "passwordHash": "admin123",
+      "passwordHash": "2b47a15fdc5b12e6296341f0cf8ee0bae5031bd6640c560fa4d32f1351211fde",
       "role": "admin",
       "name": "Skill2Hire SuperAdmin",
       "avatar": "https://images.unsplash.com/photo-1535713875002-d1d0cf377fde?w=150&auto=format&fit=crop&q=80",
-      "createdAt": "2025-01-01T00:00:00Z"
+      "createdAt": "2025-01-01T00:00:00Z",
+      "updatedAt": "2026-09-25T15:44:51.662Z"
     },
     {
       "id": "u_std_1787949070722",
@@ -255,6 +256,54 @@
       "avatar": "https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=150&auto=format&fit=crop&q=80",
       "createdAt": "2026-09-06T08:17:50.696Z",
       "updatedAt": "2026-09-06T08:17:50.696Z"
+    },
+    {
+      "id": "u_std_1790351126129",
+      "firebaseUid": "fb_uid_r1foc3r2m_1790351126129",
+      "email": "student_1790351126129@test.com",
+      "phone": "+91 98765 00000",
+      "passwordHash": "f9bb74f1ea016b14a118ce6debaa83115e2ccb691064b43f982ea716910829ff",
+      "role": "student",
+      "name": "Test Student",
+      "email_verified": false,
+      "phone_verified": true,
+      "account_status": "ACTIVE",
+      "verification_status": "VERIFIED",
+      "avatar": "https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=150&auto=format&fit=crop&q=80",
+      "createdAt": "2026-09-25T15:45:26.129Z",
+      "updatedAt": "2026-09-25T15:45:26.129Z"
+    },
+    {
+      "id": "u_std_1790351207261",
+      "firebaseUid": "fb_uid_zyb435lgy_1790351207261",
+      "email": "student_1790351207261@test.com",
+      "phone": "+91 98765 00000",
+      "passwordHash": "f9bb74f1ea016b14a118ce6debaa83115e2ccb691064b43f982ea716910829ff",
+      "role": "student",
+      "name": "Test Student",
+      "email_verified": false,
+      "phone_verified": true,
+      "account_status": "ACTIVE",
+      "verification_status": "VERIFIED",
+      "avatar": "https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=150&auto=format&fit=crop&q=80",
+      "createdAt": "2026-09-25T15:46:47.261Z",
+      "updatedAt": "2026-09-25T15:46:47.261Z"
+    },
+    {
+      "id": "u_std_1790351271884",
+      "firebaseUid": "fb_uid_yxbasp6ve_1790351271884",
+      "email": "student_1790351271884@test.com",
+      "phone": "+91 98765 00000",
+      "passwordHash": "f9bb74f1ea016b14a118ce6debaa83115e2ccb691064b43f982ea716910829ff",
+      "role": "student",
+      "name": "Test Student",
+      "email_verified": false,
+      "phone_verified": true,
+      "account_status": "ACTIVE",
+      "verification_status": "VERIFIED",
+      "avatar": "https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=150&auto=format&fit=crop&q=80",
+      "createdAt": "2026-09-25T15:47:51.884Z",
+      "updatedAt": "2026-09-25T15:47:51.884Z"
     }
   ],
   "students": [
@@ -704,6 +753,54 @@
       "placementStatus": "In Training",
       "careerGoal": "Full Stack Software Engineer",
       "resumeUrl": "https://storage.skill2hire.com/resumes/alex_resume.pdf"
+    },
+    {
+      "id": "std_1790351126129",
+      "userId": "u_std_1790351126129",
+      "fullName": "Test Student",
+      "email": "student_1790351126129@test.com",
+      "phone": "+91 98765 00000",
+      "collegeId": "col_1",
+      "collegeName": "Apex University of Engineering",
+      "degree": "Bachelor of Science (B.S.)",
+      "department": "Computer Science & Engineering",
+      "graduationYear": 2026,
+      "cgpa": 8.5,
+      "location": "San Francisco, CA",
+      "placementReadiness": 65,
+      "placementStatus": "In Training"
+    },
+    {
+      "id": "std_1790351207261",
+      "userId": "u_std_1790351207261",
+      "fullName": "Test Student",
+      "email": "student_1790351207261@test.com",
+      "phone": "+91 98765 00000",
+      "collegeId": "col_1",
+      "collegeName": "Apex University of Engineering",
+      "degree": "Bachelor of Science (B.S.)",
+      "department": "Computer Science & Engineering",
+      "graduationYear": 2026,
+      "cgpa": 8.5,
+      "location": "San Francisco, CA",
+      "placementReadiness": 65,
+      "placementStatus": "In Training"
+    },
+    {
+      "id": "std_1790351271884",
+      "userId": "u_std_1790351271884",
+      "fullName": "Test Student",
+      "email": "student_1790351271884@test.com",
+      "phone": "+91 98765 00000",
+      "collegeId": "col_1",
+      "collegeName": "Apex University of Engineering",
+      "degree": "Bachelor of Science (B.S.)",
+      "department": "Computer Science & Engineering",
+      "graduationYear": 2026,
+      "cgpa": 8.5,
+      "location": "San Francisco, CA",
+      "placementReadiness": 65,
+      "placementStatus": "In Training"
     }
   ],
   "colleges": [
@@ -6804,6 +6901,19 @@
   ],
   "coding_attempts": [
     {
+      "id": "catt_1790282433344",
+      "studentId": "std_1",
+      "problemId": "code_1",
+      "problemTitle": "Two Sum Problem",
+      "topic": "Arrays",
+      "language": "python",
+      "code": "def twoSum(nums: list[int], target: int) -> list[int]:\n    # Write your solution here\n    seen = {}\n    for i, num in enumerate(nums):\n        complement = target - num\n        if complement in seen:\n            return [seen[complement], i]\n        seen[num] = i\n    return []",
+      "status": "Solved ✓",
+      "accuracy": 100,
+      "executionTimeMs": 23,
+      "submittedAt": "2026-09-24T20:40:33.344Z"
+    },
+    {
       "id": "catt_1787975121850",
       "studentId": "std_1",
       "problemId": "code_1",
@@ -11502,6 +11612,360 @@
       "targetSkillId": "sk_system_design",
       "relationshipType": "PREREQUISITE_FOR",
       "description": "Algorithmic efficiency knowledge informs distributed architecture scalability."
+    }
+  ],
+  "adminAuditLogs": [
+    {
+      "id": "log_cli_1790351091663",
+      "timestamp": "2026-09-25T15:44:51.663Z",
+      "action": "ADMIN_PROVISIONED_VIA_CLI",
+      "adminEmail": "admin@skill2hire.com",
+      "ipAddress": "127.0.0.1 (CLI)",
+      "details": {
+        "source": "CLI_SCRIPT",
+        "email": "admin@skill2hire.com"
+      }
+    }
+  ],
+  "admin_audit_logs": [
+    {
+      "id": "audit_1790351271910_tkhhha",
+      "adminId": "unknown",
+      "adminEmail": "admin_target@skill2hire.com",
+      "action": "ADMIN_LOGIN_FAILED",
+      "targetType": "security",
+      "targetDetails": "Failed login attempt for admin_target@skill2hire.com (Attempts: 5/5)",
+      "result": "FAILURE",
+      "timestamp": "2026-09-25T15:47:51.910Z"
+    },
+    {
+      "id": "audit_1790351271909_9zk1yb",
+      "adminId": "unknown",
+      "adminEmail": "admin_target@skill2hire.com",
+      "action": "ADMIN_LOGIN_FAILED",
+      "targetType": "security",
+      "targetDetails": "Failed login attempt for admin_target@skill2hire.com (Attempts: 4/5)",
+      "result": "FAILURE",
+      "timestamp": "2026-09-25T15:47:51.909Z"
+    },
+    {
+      "id": "audit_1790351271907_mtmm8v",
+      "adminId": "unknown",
+      "adminEmail": "admin_target@skill2hire.com",
+      "action": "ADMIN_LOGIN_FAILED",
+      "targetType": "security",
+      "targetDetails": "Failed login attempt for admin_target@skill2hire.com (Attempts: 3/5)",
+      "result": "FAILURE",
+      "timestamp": "2026-09-25T15:47:51.907Z"
+    },
+    {
+      "id": "audit_1790351271904_8nq9un",
+      "adminId": "unknown",
+      "adminEmail": "admin_target@skill2hire.com",
+      "action": "ADMIN_LOGIN_FAILED",
+      "targetType": "security",
+      "targetDetails": "Failed login attempt for admin_target@skill2hire.com (Attempts: 2/5)",
+      "result": "FAILURE",
+      "timestamp": "2026-09-25T15:47:51.904Z"
+    },
+    {
+      "id": "audit_1790351271902_ufumh8",
+      "adminId": "unknown",
+      "adminEmail": "admin_target@skill2hire.com",
+      "action": "ADMIN_LOGIN_FAILED",
+      "targetType": "security",
+      "targetDetails": "Failed login attempt for admin_target@skill2hire.com (Attempts: 1/5)",
+      "result": "FAILURE",
+      "timestamp": "2026-09-25T15:47:51.902Z"
+    },
+    {
+      "id": "audit_1790351271900_jbwsxp",
+      "adminId": "u_admin",
+      "adminEmail": "admin@skill2hire.com",
+      "action": "ADMIN_LOGOUT",
+      "targetType": "security",
+      "targetDetails": "Admin admin@skill2hire.com logged out and session was invalidated",
+      "result": "SUCCESS",
+      "timestamp": "2026-09-25T15:47:51.900Z"
+    },
+    {
+      "id": "audit_1790351271898_ixa5tz",
+      "adminId": "u_std_1790351271884",
+      "adminEmail": "alex.rivera@student.skill2hire.com",
+      "action": "UNAUTHORIZED_ACCESS_ATTEMPT",
+      "targetType": "security",
+      "targetId": "u_std_1790351271884",
+      "targetDetails": "Non-admin user (student) attempted to access administrative endpoint /api/users/change-role",
+      "result": "BLOCKED",
+      "timestamp": "2026-09-25T15:47:51.898Z"
+    },
+    {
+      "id": "audit_1790351271894_j3fdgk",
+      "adminId": "u_admin",
+      "adminEmail": "admin@skill2hire.com",
+      "action": "ADMIN_LOGIN",
+      "targetType": "security",
+      "targetDetails": "Admin admin@skill2hire.com authenticated successfully",
+      "result": "SUCCESS",
+      "timestamp": "2026-09-25T15:47:51.894Z"
+    },
+    {
+      "id": "audit_1790351271892_32zrxz",
+      "adminId": "u_admin",
+      "adminEmail": "admin@skill2hire.com",
+      "action": "ADMIN_LOGIN_FAILED",
+      "targetType": "security",
+      "targetDetails": "Invalid password attempt for admin admin@skill2hire.com (Attempts: 1/5)",
+      "result": "FAILURE",
+      "timestamp": "2026-09-25T15:47:51.892Z"
+    },
+    {
+      "id": "audit_1790351271890_9sb9ay",
+      "adminId": "u_std_1790351271884",
+      "adminEmail": "alex.rivera@student.skill2hire.com",
+      "action": "UNAUTHORIZED_ACCESS_ATTEMPT",
+      "targetType": "security",
+      "targetId": "u_std_1790351271884",
+      "targetDetails": "Non-admin user (student) attempted to access administrative endpoint /api/admin/stats",
+      "result": "BLOCKED",
+      "timestamp": "2026-09-25T15:47:51.890Z"
+    },
+    {
+      "id": "audit_1790351271888_pe6q9j",
+      "adminId": "u_std_1790351271884",
+      "adminEmail": "alex.rivera@student.skill2hire.com",
+      "action": "UNAUTHORIZED_ACCESS_ATTEMPT",
+      "targetType": "security",
+      "targetId": "u_std_1790351271884",
+      "targetDetails": "Non-admin user (student) attempted to access administrative endpoint /api/admin/users",
+      "result": "BLOCKED",
+      "timestamp": "2026-09-25T15:47:51.888Z"
+    },
+    {
+      "id": "audit_1790351207287_udw675",
+      "adminId": "unknown",
+      "adminEmail": "admin_target@skill2hire.com",
+      "action": "ADMIN_LOGIN_FAILED",
+      "targetType": "security",
+      "targetDetails": "Failed login attempt for admin_target@skill2hire.com (Attempts: 5/5)",
+      "result": "FAILURE",
+      "timestamp": "2026-09-25T15:46:47.287Z"
+    },
+    {
+      "id": "audit_1790351207286_0owchc",
+      "adminId": "unknown",
+      "adminEmail": "admin_target@skill2hire.com",
+      "action": "ADMIN_LOGIN_FAILED",
+      "targetType": "security",
+      "targetDetails": "Failed login attempt for admin_target@skill2hire.com (Attempts: 4/5)",
+      "result": "FAILURE",
+      "timestamp": "2026-09-25T15:46:47.286Z"
+    },
+    {
+      "id": "audit_1790351207283_239wi0",
+      "adminId": "unknown",
+      "adminEmail": "admin_target@skill2hire.com",
+      "action": "ADMIN_LOGIN_FAILED",
+      "targetType": "security",
+      "targetDetails": "Failed login attempt for admin_target@skill2hire.com (Attempts: 3/5)",
+      "result": "FAILURE",
+      "timestamp": "2026-09-25T15:46:47.283Z"
+    },
+    {
+      "id": "audit_1790351207281_q12n4q",
+      "adminId": "unknown",
+      "adminEmail": "admin_target@skill2hire.com",
+      "action": "ADMIN_LOGIN_FAILED",
+      "targetType": "security",
+      "targetDetails": "Failed login attempt for admin_target@skill2hire.com (Attempts: 2/5)",
+      "result": "FAILURE",
+      "timestamp": "2026-09-25T15:46:47.281Z"
+    },
+    {
+      "id": "audit_1790351207279_0aliiy",
+      "adminId": "unknown",
+      "adminEmail": "admin_target@skill2hire.com",
+      "action": "ADMIN_LOGIN_FAILED",
+      "targetType": "security",
+      "targetDetails": "Failed login attempt for admin_target@skill2hire.com (Attempts: 1/5)",
+      "result": "FAILURE",
+      "timestamp": "2026-09-25T15:46:47.279Z"
+    },
+    {
+      "id": "audit_1790351207277_ce9zkt",
+      "adminId": "u_admin",
+      "adminEmail": "admin@skill2hire.com",
+      "action": "ADMIN_LOGOUT",
+      "targetType": "security",
+      "targetDetails": "Admin admin@skill2hire.com logged out and session was invalidated",
+      "result": "SUCCESS",
+      "timestamp": "2026-09-25T15:46:47.277Z"
+    },
+    {
+      "id": "audit_1790351207274_5odpgb",
+      "adminId": "u_std_1790351207261",
+      "adminEmail": "alex.rivera@student.skill2hire.com",
+      "action": "UNAUTHORIZED_ACCESS_ATTEMPT",
+      "targetType": "security",
+      "targetId": "u_std_1790351207261",
+      "targetDetails": "Non-admin user (student) attempted to access administrative endpoint /api/users/change-role",
+      "result": "BLOCKED",
+      "timestamp": "2026-09-25T15:46:47.274Z"
+    },
+    {
+      "id": "audit_1790351207270_1mo9tq",
+      "adminId": "u_admin",
+      "adminEmail": "admin@skill2hire.com",
+      "action": "ADMIN_LOGIN",
+      "targetType": "security",
+      "targetDetails": "Admin admin@skill2hire.com authenticated successfully",
+      "result": "SUCCESS",
+      "timestamp": "2026-09-25T15:46:47.270Z"
+    },
+    {
+      "id": "audit_1790351207268_eoi57a",
+      "adminId": "u_admin",
+      "adminEmail": "admin@skill2hire.com",
+      "action": "ADMIN_LOGIN_FAILED",
+      "targetType": "security",
+      "targetDetails": "Invalid password attempt for admin admin@skill2hire.com (Attempts: 1/5)",
+      "result": "FAILURE",
+      "timestamp": "2026-09-25T15:46:47.268Z"
+    },
+    {
+      "id": "audit_1790351207266_oq3157",
+      "adminId": "u_std_1790351207261",
+      "adminEmail": "alex.rivera@student.skill2hire.com",
+      "action": "UNAUTHORIZED_ACCESS_ATTEMPT",
+      "targetType": "security",
+      "targetId": "u_std_1790351207261",
+      "targetDetails": "Non-admin user (student) attempted to access administrative endpoint /api/admin/stats",
+      "result": "BLOCKED",
+      "timestamp": "2026-09-25T15:46:47.266Z"
+    },
+    {
+      "id": "audit_1790351207264_5wb0v7",
+      "adminId": "u_std_1790351207261",
+      "adminEmail": "alex.rivera@student.skill2hire.com",
+      "action": "UNAUTHORIZED_ACCESS_ATTEMPT",
+      "targetType": "security",
+      "targetId": "u_std_1790351207261",
+      "targetDetails": "Non-admin user (student) attempted to access administrative endpoint /api/admin/users",
+      "result": "BLOCKED",
+      "timestamp": "2026-09-25T15:46:47.264Z"
+    },
+    {
+      "id": "audit_1790351126157_joofpz",
+      "adminId": "unknown",
+      "adminEmail": "admin_target@skill2hire.com",
+      "action": "ADMIN_LOGIN_FAILED",
+      "targetType": "security",
+      "targetDetails": "Failed login attempt for admin_target@skill2hire.com (Attempts: 5/5)",
+      "result": "FAILURE",
+      "timestamp": "2026-09-25T15:45:26.157Z"
+    },
+    {
+      "id": "audit_1790351126156_tc1mdh",
+      "adminId": "unknown",
+      "adminEmail": "admin_target@skill2hire.com",
+      "action": "ADMIN_LOGIN_FAILED",
+      "targetType": "security",
+      "targetDetails": "Failed login attempt for admin_target@skill2hire.com (Attempts: 4/5)",
+      "result": "FAILURE",
+      "timestamp": "2026-09-25T15:45:26.156Z"
+    },
+    {
+      "id": "audit_1790351126153_dt15o4",
+      "adminId": "unknown",
+      "adminEmail": "admin_target@skill2hire.com",
+      "action": "ADMIN_LOGIN_FAILED",
+      "targetType": "security",
+      "targetDetails": "Failed login attempt for admin_target@skill2hire.com (Attempts: 3/5)",
+      "result": "FAILURE",
+      "timestamp": "2026-09-25T15:45:26.153Z"
+    },
+    {
+      "id": "audit_1790351126151_xno11z",
+      "adminId": "unknown",
+      "adminEmail": "admin_target@skill2hire.com",
+      "action": "ADMIN_LOGIN_FAILED",
+      "targetType": "security",
+      "targetDetails": "Failed login attempt for admin_target@skill2hire.com (Attempts: 2/5)",
+      "result": "FAILURE",
+      "timestamp": "2026-09-25T15:45:26.151Z"
+    },
+    {
+      "id": "audit_1790351126149_pcgwqq",
+      "adminId": "unknown",
+      "adminEmail": "admin_target@skill2hire.com",
+      "action": "ADMIN_LOGIN_FAILED",
+      "targetType": "security",
+      "targetDetails": "Failed login attempt for admin_target@skill2hire.com (Attempts: 1/5)",
+      "result": "FAILURE",
+      "timestamp": "2026-09-25T15:45:26.149Z"
+    },
+    {
+      "id": "audit_1790351126147_4v5loy",
+      "adminId": "u_admin",
+      "adminEmail": "admin@skill2hire.com",
+      "action": "ADMIN_LOGOUT",
+      "targetType": "security",
+      "targetDetails": "Admin admin@skill2hire.com logged out and session was invalidated",
+      "result": "SUCCESS",
+      "timestamp": "2026-09-25T15:45:26.147Z"
+    },
+    {
+      "id": "audit_1790351126145_5z3y15",
+      "adminId": "u_std_1790351126129",
+      "adminEmail": "alex.rivera@student.skill2hire.com",
+      "action": "UNAUTHORIZED_ACCESS_ATTEMPT",
+      "targetType": "security",
+      "targetId": "u_std_1790351126129",
+      "targetDetails": "Non-admin user (student) attempted to access administrative endpoint /api/users/change-role",
+      "result": "BLOCKED",
+      "timestamp": "2026-09-25T15:45:26.145Z"
+    },
+    {
+      "id": "audit_1790351126139_814f7e",
+      "adminId": "u_admin",
+      "adminEmail": "admin@skill2hire.com",
+      "action": "ADMIN_LOGIN",
+      "targetType": "security",
+      "targetDetails": "Admin admin@skill2hire.com authenticated successfully",
+      "result": "SUCCESS",
+      "timestamp": "2026-09-25T15:45:26.139Z"
+    },
+    {
+      "id": "audit_1790351126137_201nks",
+      "adminId": "u_admin",
+      "adminEmail": "admin@skill2hire.com",
+      "action": "ADMIN_LOGIN_FAILED",
+      "targetType": "security",
+      "targetDetails": "Invalid password attempt for admin admin@skill2hire.com (Attempts: 1/5)",
+      "result": "FAILURE",
+      "timestamp": "2026-09-25T15:45:26.137Z"
+    },
+    {
+      "id": "audit_1790351126135_rvan1u",
+      "adminId": "u_std_1790351126129",
+      "adminEmail": "alex.rivera@student.skill2hire.com",
+      "action": "UNAUTHORIZED_ACCESS_ATTEMPT",
+      "targetType": "security",
+      "targetId": "u_std_1790351126129",
+      "targetDetails": "Non-admin user (student) attempted to access administrative endpoint /api/admin/stats",
+      "result": "BLOCKED",
+      "timestamp": "2026-09-25T15:45:26.135Z"
+    },
+    {
+      "id": "audit_1790351126133_27dd0r",
+      "adminId": "u_std_1790351126129",
+      "adminEmail": "alex.rivera@student.skill2hire.com",
+      "action": "UNAUTHORIZED_ACCESS_ATTEMPT",
+      "targetType": "security",
+      "targetId": "u_std_1790351126129",
+      "targetDetails": "Non-admin user (student) attempted to access administrative endpoint /api/admin/users",
+      "result": "BLOCKED",
+      "timestamp": "2026-09-25T15:45:26.133Z"
     }
   ]
 }

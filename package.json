@@ -7,7 +7,9 @@
     "build": "next build",
     "start": "next start",
     "lint": "next lint",
-    "seed": "node scripts/seed.mjs"
+    "seed": "node scripts/seed.mjs",
+    "create-admin": "tsx scripts/create-admin.ts",
+    "test:security": "tsx scripts/test-admin-security.ts"
   },
   "dependencies": {
     "@prisma/client": "^5.18.0",

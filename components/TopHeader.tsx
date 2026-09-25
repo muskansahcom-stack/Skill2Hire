@@ -630,7 +630,7 @@ export default function TopHeader({
                       if (p.role === 'student') router.push('/student/dashboard');
                       else if (p.role === 'college') router.push('/college/dashboard');
                       else if (p.role === 'company') router.push('/recruiter/dashboard');
-                      else router.push('/admin/dashboard');
+                      else router.push('/student/dashboard');
                     }}
                     className={`w-full flex items-center gap-2.5 p-2 rounded-2xl text-left text-xs transition-colors ${
                       currentRole === p.role ? 'bg-primary-50 text-primary-900 font-extrabold' : 'hover:bg-slate-50 text-slate-700'

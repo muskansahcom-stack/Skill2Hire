@@ -53,17 +53,6 @@ export const DEMO_PERSONAS = [
     badge: 'Recruiter Hub',
     avatar: 'https://images.unsplash.com/photo-1572021335469-31706a17aaef?w=150&auto=format&fit=crop&q=80',
     description: 'Post jobs, search verified talent, audit academic transcripts, and hire candidates.'
-  },
-  {
-    role: 'admin' as UserRole,
-    userId: 'u_admin',
-    name: 'Platform Admin',
-    label: 'SuperAdmin',
-    email: 'admin@skill2hire.com',
-    phone: '+91 98765 43213',
-    badge: 'System Admin',
-    avatar: 'https://images.unsplash.com/photo-1535713875002-d1d0cf377fde?w=150&auto=format&fit=crop&q=80',
-    description: 'Global ecosystem analytics, moderation, transcript audits, and demand management.'
   }
 ];
 
@@ -77,7 +66,24 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
     const savedUserId = typeof window !== 'undefined' ? localStorage.getItem('s2h_user_id') : null;
     const savedRole = typeof window !== 'undefined' ? (localStorage.getItem('s2h_role') as UserRole) : null;
     
-    if (savedUserId) {
+    if (savedRole === 'admin') {
+      fetch('/api/admin/auth/me')
+        .then(res => res.json())
+        .then(data => {
+          if (data.success && data.user) {
+            setUser(data.user);
+            setProfile(null);
+          } else {
+            if (typeof window !== 'undefined') {
+              localStorage.removeItem('s2h_user_id');
+              localStorage.removeItem('s2h_role');
+            }
+            setUser(null);
+          }
+        })
+        .catch(e => console.error('Admin session load error', e))
+        .finally(() => setIsLoading(false));
+    } else if (savedUserId) {
       // Fetch the actual authenticated user account from backend
       fetch('/api/auth/login', {
         method: 'POST',
@@ -99,6 +105,10 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
   }, []);
 
   const switchPersona = async (role: UserRole, userId?: string) => {
+    if (role === 'admin') {
+      console.warn('Switching to admin persona via client switch is strictly forbidden.');
+      return false;
+    }
     setIsLoading(true);
     try {
       const targetId = userId || DEMO_PERSONAS.find(p => p.role === role)?.userId || 'u_student_1';
@@ -232,7 +242,11 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
 
   const logout = async () => {
     try {
-      await fetch('/api/auth/logout', { method: 'POST' });
+      if (user?.role === 'admin') {
+        await fetch('/api/admin/auth/logout', { method: 'POST' });
+      } else {
+        await fetch('/api/auth/logout', { method: 'POST' });
+      }
       if (typeof window !== 'undefined') {
         localStorage.removeItem('s2h_user_id');
         localStorage.removeItem('s2h_role');

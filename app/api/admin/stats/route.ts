@@ -1,8 +1,14 @@
 import { NextResponse } from 'next/server';
 import { db } from '@/lib/db';
 import { calculateIndustrySkillDemand } from '@/lib/ai';
+import { requireAdmin } from '@/lib/authMiddleware';
 
-export async function GET() {
+export async function GET(request: Request) {
+  const adminCheck = requireAdmin(request);
+  if (!adminCheck.authorized) {
+    return adminCheck.errorResponse!;
+  }
+
   try {
     const students = db.getStudents();
     const colleges = db.getColleges();

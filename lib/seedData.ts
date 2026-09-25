@@ -31,7 +31,7 @@ export function generateInitialDatabase(): DatabaseSchema {
     { id: 'u_comp_5', email: 'jobs@finedge.com', phone: '+91 98765 43235', passwordHash: 'demo123', role: 'company', name: 'FinEdge Capital', avatar: 'https://images.unsplash.com/photo-1554224155-8d04cb21cd6c?w=150&auto=format&fit=crop&q=80', createdAt: '2025-10-14T10:00:00Z' },
     
     // Admin
-    { id: 'u_admin', email: 'admin@skill2hire.com', phone: '+91 98765 43213', passwordHash: 'admin123', role: 'admin', name: 'Skill2Hire SuperAdmin', avatar: 'https://images.unsplash.com/photo-1535713875002-d1d0cf377fde?w=150&auto=format&fit=crop&q=80', createdAt: '2025-01-01T00:00:00Z' }
+    { id: 'u_admin', email: 'admin@skill2hire.com', phone: '+91 98765 43213', passwordHash: 'b19b5d4cd462d2dc0bb89ce5ff0e6ca96a32fdf97c30f5e97de7f0e611bba16a', role: 'admin', name: 'Skill2Hire SuperAdmin', avatar: 'https://images.unsplash.com/photo-1535713875002-d1d0cf377fde?w=150&auto=format&fit=crop&q=80', createdAt: '2025-01-01T00:00:00Z' }
   ];
 
   const colleges: College[] = [

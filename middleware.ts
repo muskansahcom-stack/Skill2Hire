@@ -37,6 +37,11 @@ function parseEdgeSession(token: string): { role: string; expiresAt: number } | 
 export function middleware(request: NextRequest) {
   const { pathname } = request.nextUrl;
 
+  // Allow admin login page without interception
+  if (pathname === '/admin/login' || pathname.startsWith('/admin/login/')) {
+    return NextResponse.next();
+  }
+
   // Match protected page routes
   const matchedRoute = PROTECTED_ROUTES.find(r => pathname.startsWith(r.prefix));
   if (!matchedRoute) {
@@ -50,19 +55,35 @@ export function middleware(request: NextRequest) {
 
   // If unauthenticated or no session token
   if (!token) {
-    const loginUrl = new URL('/login', request.url);
+    const targetLogin = pathname.startsWith('/admin') ? '/admin/login' : '/login';
+    const loginUrl = new URL(targetLogin, request.url);
     loginUrl.searchParams.set('redirect', pathname);
     return NextResponse.redirect(loginUrl);
   }
 
   const session = parseEdgeSession(token);
   if (!session) {
-    const loginUrl = new URL('/login', request.url);
+    const targetLogin = pathname.startsWith('/admin') ? '/admin/login' : '/login';
+    const loginUrl = new URL(targetLogin, request.url);
     loginUrl.searchParams.set('redirect', pathname);
     return NextResponse.redirect(loginUrl);
   }
 
-  // Role verification guard: redirect cross-role access to user's authorized home dashboard
+  // Strict Admin Isolation: Only 'admin' role can access any /admin routes
+  if (pathname.startsWith('/admin')) {
+    if (session.role !== 'admin') {
+      let redirectDashboard = '/student/dashboard';
+      if (session.role === 'college') redirectDashboard = '/college/dashboard';
+      else if (session.role === 'company') redirectDashboard = '/recruiter/dashboard';
+
+      const safeRedirect = new URL(redirectDashboard, request.url);
+      safeRedirect.searchParams.set('denied', 'true');
+      return NextResponse.redirect(safeRedirect);
+    }
+    return NextResponse.next();
+  }
+
+  // General Role verification guard for student/college/company routes
   if (session.role !== matchedRoute.allowedRole && session.role !== 'admin') {
     let redirectDashboard = '/student/dashboard';
     if (session.role === 'college') redirectDashboard = '/college/dashboard';

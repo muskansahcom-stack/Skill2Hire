@@ -20,6 +20,33 @@ export interface User {
   updatedAt?: string;
 }
 
+export interface AdminAuditLog {
+  id: string;
+  adminId: string;
+  adminEmail: string;
+  action: string; // e.g. 'ADMIN_LOGIN', 'ADMIN_LOGIN_FAILED', 'ROLE_CHANGE', 'USER_DELETE', 'SETTINGS_UPDATE'
+  targetType?: 'user' | 'job' | 'course' | 'platform_settings' | 'security';
+  targetId?: string;
+  targetDetails?: string;
+  result: 'SUCCESS' | 'FAILURE' | 'BLOCKED';
+  ipAddress?: string;
+  userAgent?: string;
+  timestamp: string;
+}
+
+export interface AdminPlatformSettings {
+  id: string;
+  platformName: string;
+  maintenanceMode: boolean;
+  allowPublicRegistration: boolean;
+  requireEmailVerification: boolean;
+  maxLoginAttempts: number;
+  lockoutDurationMinutes: number;
+  sessionTimeoutHours: number;
+  updatedAt: string;
+  updatedBy: string;
+}
+
 export interface OtpRecord {
   id: string;
   identifier: string; // email or phone

@@ -51,9 +51,17 @@ export async function POST(request: Request) {
       logSecurityEvent('GOOGLE_LOGIN_SUCCESS', { userId: user.id, role: user.role });
     }
 
-    // 2. 1-Click Fast Switch for Demo / Admin
+    // 2. 1-Click Fast Switch for Demo (STRICT SECURITY: Never allow switching to ADMIN)
     else if (userId) {
-      user = db.findUserById(userId);
+      const candidateUser = db.findUserById(userId);
+      if (candidateUser && candidateUser.role === 'admin') {
+        logSecurityEvent('BLOCKED_ADMIN_FAST_SWITCH_ATTEMPT', { userId });
+        return NextResponse.json(
+          { error: 'Forbidden: Administrator accounts cannot be accessed via quick switcher. Please use the secure /admin/login portal.', code: 'FORBIDDEN_ADMIN_FAST_SWITCH' },
+          { status: 403 }
+        );
+      }
+      user = candidateUser;
     }
 
     // 3. Email / Phone / Password / OTP Login
@@ -70,22 +78,30 @@ export async function POST(request: Request) {
         return NextResponse.json({ error: 'No account found matching this email or phone number' }, { status: 401 });
       }
 
-      // Verify OTP or Password
-      if (otp) {
-        try {
-          db.verifyOtp(searchKey, otp.trim(), 'login');
-        } catch (otpErr: any) {
-          logSecurityEvent('LOGIN_OTP_FAILED', { identifier: searchKey, error: otpErr.message });
-          return NextResponse.json({ error: otpErr.message || 'Invalid or expired OTP code.' }, { status: 401 });
-        }
-      } else if (password) {
-        const isPasswordValid = db.verifyPassword(password, user.passwordHash);
-        if (!isPasswordValid) {
-          logSecurityEvent('LOGIN_PASSWORD_FAILED', { userId: user.id });
-          return NextResponse.json({ error: 'Invalid password. Please try again.' }, { status: 401 });
+      // STRICT ADMIN SECURITY: Admin accounts cannot be accessed via public login; must use dedicated /admin/login portal
+      if (user.role === 'admin') {
+        logSecurityEvent('BLOCKED_PUBLIC_LOGIN_FOR_ADMIN', { userId: user.id });
+        return NextResponse.json({
+          error: 'Administrator accounts must authenticate via the dedicated /admin/login portal.',
+          code: 'ADMIN_PORTAL_REQUIRED'
+        }, { status: 403 });
+      }
+        // Normal user verification (OTP or Password)
+        if (otp) {
+          try {
+            db.verifyOtp(searchKey, otp.trim(), 'login');
+          } catch (otpErr: any) {
+            logSecurityEvent('LOGIN_OTP_FAILED', { identifier: searchKey, error: otpErr.message });
+            return NextResponse.json({ error: otpErr.message || 'Invalid or expired OTP code.' }, { status: 401 });
+          }
+        } else if (password) {
+          const isPasswordValid = db.verifyPassword(password, user.passwordHash);
+          if (!isPasswordValid) {
+            logSecurityEvent('LOGIN_PASSWORD_FAILED', { userId: user.id });
+            return NextResponse.json({ error: 'Invalid password. Please try again.' }, { status: 401 });
+          }
         }
       }
-    }
 
     if (!user) {
       return NextResponse.json({ error: 'Authentication failed.' }, { status: 401 });
