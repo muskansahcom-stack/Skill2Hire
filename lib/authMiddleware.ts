@@ -10,6 +10,7 @@ export interface AuthSession {
   userId: string;
   email: string;
   role: UserRole;
+  isOwner?: boolean;
   verified: boolean;
   studentId?: string;
   collegeId?: string;
@@ -127,8 +128,8 @@ export function getAuthenticatedSession(request: Request | NextRequest): AuthSes
     if (bearerToken.startsWith('demo_token_') || bearerToken.startsWith('auth_token_')) {
       const userId = bearerToken.replace('demo_token_', '').replace('auth_token_', '');
       const user = db.findUserById(userId);
-      // STRICT SECURITY: Never allow demo tokens to grant admin privileges
-      if (user && user.role !== 'admin') {
+      // STRICT SECURITY: Never allow demo tokens to grant admin or owner_admin privileges
+      if (user && user.role !== 'admin' && user.role !== 'owner_admin' && !user.isOwner) {
         let student = user.role === 'student' ? db.getStudentByUserId(user.id) : null;
         let college = user.role === 'college' ? db.getCollegeByUserId(user.id) : null;
         let company = user.role === 'company' ? db.getCompanyByUserId(user.id) : null;
@@ -151,12 +152,12 @@ export function getAuthenticatedSession(request: Request | NextRequest): AuthSes
     if (verified) return verified;
   }
 
-  // 3. Fallback header for demo fast simulation / tests (x-user-id) - NEVER for Admin!
+  // 3. Fallback header for demo fast simulation / tests (x-user-id) - NEVER for Admin or Owner!
   const simulatedUserId = request.headers.get('x-user-id');
   if (simulatedUserId) {
     const user = db.findUserById(simulatedUserId);
-    // STRICT SECURITY: Simulated header cannot grant admin role
-    if (user && user.role !== 'admin') {
+    // STRICT SECURITY: Simulated header cannot grant admin or owner_admin role
+    if (user && user.role !== 'admin' && user.role !== 'owner_admin' && !user.isOwner) {
       let student = user.role === 'student' ? db.getStudentByUserId(user.id) : null;
       let college = user.role === 'college' ? db.getCollegeByUserId(user.id) : null;
       let company = user.role === 'company' ? db.getCompanyByUserId(user.id) : null;
@@ -185,10 +186,81 @@ export interface RequireAdminResult {
   errorResponse?: NextResponse;
 }
 
+export function isOwnerAdmin(userOrSession: { role?: UserRole; isOwner?: boolean } | null | undefined): boolean {
+  if (!userOrSession) return false;
+  return userOrSession.role === 'owner_admin' || userOrSession.isOwner === true || userOrSession.role === 'admin';
+}
+
+export interface RequireOwnerAdminResult {
+  authorized: boolean;
+  session?: AuthSession;
+  ownerUser?: User;
+  errorResponse?: NextResponse;
+}
+
+/**
+ * Server-Side OWNER_ADMIN Authorization Guard
+ * Validates that the caller is the platform owner with full administrative authority.
+ */
+export function requireOwnerAdmin(request: Request | NextRequest): RequireOwnerAdminResult {
+  const session = getAuthenticatedSession(request);
+
+  if (!session) {
+    logSecurityEvent('UNAUTHENTICATED_OWNER_ACCESS_ATTEMPT', {
+      url: request.url,
+      method: request.method
+    });
+    return {
+      authorized: false,
+      errorResponse: NextResponse.json(
+        { error: 'Authentication required. Please login with your administrator credentials.', code: 'UNAUTHENTICATED' },
+        { status: 401 }
+      )
+    };
+  }
+
+  const user = db.findUserById(session.userId);
+  if (!user || (!isOwnerAdmin(user) && !isOwnerAdmin(session))) {
+    logSecurityEvent('UNAUTHORIZED_OWNER_API_ACCESS', {
+      userId: session.userId,
+      userRole: session.role,
+      dbRole: user?.role,
+      url: request.url,
+      method: request.method
+    });
+
+    try {
+      db.recordAdminAuditLog({
+        adminId: session.userId,
+        adminEmail: session.email || 'unknown',
+        action: 'UNAUTHORIZED_OWNER_ACCESS_ATTEMPT',
+        targetType: 'security',
+        targetId: session.userId,
+        targetDetails: `Non-owner user (${session.role}) attempted to access OWNER_ADMIN endpoint ${new URL(request.url).pathname}`,
+        result: 'BLOCKED'
+      });
+    } catch (e) {}
+
+    return {
+      authorized: false,
+      errorResponse: NextResponse.json(
+        { error: 'Access denied. OWNER_ADMIN privileges required.', code: 'FORBIDDEN_OWNER_REQUIRED' },
+        { status: 403 }
+      )
+    };
+  }
+
+  return {
+    authorized: true,
+    session,
+    ownerUser: user
+  };
+}
+
 /**
  * Server-Side Admin Authorization Guard
  * Validates cryptographic session token, queries the database source of truth,
- * and confirms the caller is an active ADMIN user.
+ * and confirms the caller is an active ADMIN or OWNER_ADMIN user.
  */
 export function requireAdmin(request: Request | NextRequest): RequireAdminResult {
   const session = getAuthenticatedSession(request);
@@ -209,7 +281,7 @@ export function requireAdmin(request: Request | NextRequest): RequireAdminResult
 
   // Verify against database source of truth (never trust client claims alone)
   const user = db.findUserById(session.userId);
-  if (!user || user.role !== 'admin') {
+  if (!user || (!isOwnerAdmin(user) && !isOwnerAdmin(session))) {
     logSecurityEvent('UNAUTHORIZED_ADMIN_API_ACCESS', {
       userId: session.userId,
       userRole: session.role,
@@ -273,7 +345,7 @@ export function authorizeRole(session: AuthSession | null, allowedRoles: UserRol
     };
   }
 
-  if (!allowedRoles.includes(session.role) && session.role !== 'admin') {
+  if (!allowedRoles.includes(session.role) && !isOwnerAdmin(session)) {
     // Log unauthorized attempt
     logSecurityEvent('UNAUTHORIZED_ROLE_ACCESS', {
       userId: session.userId,
@@ -308,8 +380,8 @@ export function authorizeOwnership(
     };
   }
 
-  // Admin bypass
-  if (session.role === 'admin') return { authorized: true };
+  // Admin & Owner bypass
+  if (isOwnerAdmin(session)) return { authorized: true };
 
   let isOwner = false;
 

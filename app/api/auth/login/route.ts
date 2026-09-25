@@ -51,13 +51,13 @@ export async function POST(request: Request) {
       logSecurityEvent('GOOGLE_LOGIN_SUCCESS', { userId: user.id, role: user.role });
     }
 
-    // 2. 1-Click Fast Switch for Demo (STRICT SECURITY: Never allow switching to ADMIN)
+    // 2. 1-Click Fast Switch for Demo (STRICT SECURITY: Never allow switching to ADMIN / OWNER_ADMIN)
     else if (userId) {
       const candidateUser = db.findUserById(userId);
-      if (candidateUser && candidateUser.role === 'admin') {
+      if (candidateUser && (candidateUser.role === 'admin' || candidateUser.role === 'owner_admin' || candidateUser.isOwner)) {
         logSecurityEvent('BLOCKED_ADMIN_FAST_SWITCH_ATTEMPT', { userId });
         return NextResponse.json(
-          { error: 'Forbidden: Administrator accounts cannot be accessed via quick switcher. Please use the secure /admin/login portal.', code: 'FORBIDDEN_ADMIN_FAST_SWITCH' },
+          { error: 'Forbidden: Administrator and OWNER_ADMIN accounts cannot be accessed via quick switcher. Please use the secure /admin/login portal.', code: 'FORBIDDEN_ADMIN_FAST_SWITCH' },
           { status: 403 }
         );
       }
@@ -78,11 +78,11 @@ export async function POST(request: Request) {
         return NextResponse.json({ error: 'No account found matching this email or phone number' }, { status: 401 });
       }
 
-      // STRICT ADMIN SECURITY: Admin accounts cannot be accessed via public login; must use dedicated /admin/login portal
-      if (user.role === 'admin') {
+      // STRICT ADMIN SECURITY: Admin & Owner accounts cannot be accessed via public login; must use dedicated /admin/login portal
+      if (user.role === 'admin' || user.role === 'owner_admin' || user.isOwner) {
         logSecurityEvent('BLOCKED_PUBLIC_LOGIN_FOR_ADMIN', { userId: user.id });
         return NextResponse.json({
-          error: 'Administrator accounts must authenticate via the dedicated /admin/login portal.',
+          error: 'Administrator and OWNER_ADMIN accounts must authenticate via the dedicated /admin/login portal.',
           code: 'ADMIN_PORTAL_REQUIRED'
         }, { status: 403 });
       }

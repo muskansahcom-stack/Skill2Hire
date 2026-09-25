@@ -13,11 +13,11 @@ export async function POST(request: Request) {
 
     const cleanEmail = email.trim().toLowerCase();
 
-    // STRICT SECURITY: Public registration of ADMIN accounts is strictly forbidden
-    if (role.toLowerCase() === 'admin') {
-      logSecurityEvent('UNAUTHORIZED_ADMIN_REGISTRATION_ATTEMPT', { email: cleanEmail });
+    // STRICT SECURITY: Public registration of ADMIN and OWNER_ADMIN accounts is strictly forbidden
+    if (role.toLowerCase() === 'admin' || role.toLowerCase() === 'owner_admin') {
+      logSecurityEvent('UNAUTHORIZED_ADMIN_REGISTRATION_ATTEMPT', { email: cleanEmail, role });
       return NextResponse.json(
-        { error: 'Forbidden: Administrator accounts cannot be created via public registration. Admin access must be provisioned by the system owner.', code: 'FORBIDDEN_ADMIN_SIGNUP' },
+        { error: 'Forbidden: Administrator and OWNER_ADMIN accounts cannot be created via public registration. Admin access must be provisioned by the system owner.', code: 'FORBIDDEN_ADMIN_SIGNUP' },
         { status: 403 }
       );
     }

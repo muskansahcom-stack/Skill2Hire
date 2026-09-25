@@ -1,4 +1,4 @@
-export type UserRole = 'student' | 'college' | 'company' | 'admin';
+export type UserRole = 'student' | 'college' | 'company' | 'admin' | 'owner_admin';
 
 export type AccountStatus = 'ACTIVE' | 'PENDING_VERIFICATION' | 'SUSPENDED';
 export type VerificationStatus = 'PENDING' | 'VERIFIED' | 'REJECTED';
@@ -10,6 +10,7 @@ export interface User {
   phone?: string;
   passwordHash: string;
   role: UserRole;
+  isOwner?: boolean;
   name: string;
   avatar?: string;
   email_verified?: boolean;

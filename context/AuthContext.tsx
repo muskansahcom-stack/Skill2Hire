@@ -66,7 +66,7 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
     const savedUserId = typeof window !== 'undefined' ? localStorage.getItem('s2h_user_id') : null;
     const savedRole = typeof window !== 'undefined' ? (localStorage.getItem('s2h_role') as UserRole) : null;
     
-    if (savedRole === 'admin') {
+    if (savedRole === 'admin' || savedRole === 'owner_admin') {
       fetch('/api/admin/auth/me')
         .then(res => res.json())
         .then(data => {
@@ -105,8 +105,8 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
   }, []);
 
   const switchPersona = async (role: UserRole, userId?: string) => {
-    if (role === 'admin') {
-      console.warn('Switching to admin persona via client switch is strictly forbidden.');
+    if (role === 'admin' || role === 'owner_admin') {
+      console.warn('Switching to admin/owner persona via client switch is strictly forbidden.');
       return false;
     }
     setIsLoading(true);
@@ -242,7 +242,7 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
 
   const logout = async () => {
     try {
-      if (user?.role === 'admin') {
+      if (user?.role === 'admin' || user?.role === 'owner_admin' || user?.isOwner) {
         await fetch('/api/admin/auth/logout', { method: 'POST' });
       } else {
         await fetch('/api/auth/logout', { method: 'POST' });

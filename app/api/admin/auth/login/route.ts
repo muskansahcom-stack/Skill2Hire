@@ -1,6 +1,6 @@
 import { NextResponse } from 'next/server';
 import { db } from '@/lib/db';
-import { signSessionToken, logSecurityEvent } from '@/lib/authMiddleware';
+import { signSessionToken, logSecurityEvent, isOwnerAdmin } from '@/lib/authMiddleware';
 
 // In-memory rate limiting & brute-force protection
 interface RateLimitRecord {
@@ -54,8 +54,8 @@ export async function POST(request: Request) {
     // 2. Query user from database
     const user = db.findUserByEmail(cleanEmail);
 
-    // 3. Verify user exists and has ADMIN role
-    if (!user || user.role !== 'admin') {
+    // 3. Verify user exists and has ADMIN or OWNER_ADMIN role
+    if (!user || !isOwnerAdmin(user)) {
       // Record failed attempt
       const attempts = (rateLimit?.attempts || 0) + 1;
       const lockedUntil = attempts >= MAX_ATTEMPTS ? now + LOCKOUT_DURATION_MS : 0;
@@ -107,7 +107,8 @@ export async function POST(request: Request) {
     const sessionToken = signSessionToken({
       userId: user.id,
       email: user.email,
-      role: 'admin',
+      role: user.role,
+      isOwner: user.isOwner || user.role === 'owner_admin',
       verified: true
     }, 86400);
 

@@ -18,6 +18,14 @@ export async function POST(request: Request) {
       return NextResponse.json({ error: 'Passwords do not match.' }, { status: 400 });
     }
 
+    const user = db.findUserByEmailOrPhone(identifier.trim());
+    if (user && (user.role === 'admin' || user.role === 'owner_admin' || user.isOwner)) {
+      return NextResponse.json(
+        { error: 'Forbidden: Administrative credentials cannot be reset via public OTP. Please use secure CLI provisioning.', code: 'FORBIDDEN_ADMIN_RESET' },
+        { status: 403 }
+      );
+    }
+
     // Verify OTP first
     db.verifyOtp(identifier, code, 'forgot_password');
 

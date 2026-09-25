@@ -92,24 +92,26 @@ async function main() {
 
   if (existingUser) {
     console.log(`ℹ️  Found existing account for: ${cleanEmail}`);
-    existingUser.role = 'admin';
+    existingUser.role = 'owner_admin';
+    existingUser.isOwner = true;
     existingUser.passwordHash = passwordHash;
     existingUser.updatedAt = new Date().toISOString();
-    console.log(`✅ Role confirmed as ADMIN and password hash updated.`);
+    console.log(`✅ Role confirmed as OWNER_ADMIN and password hash updated.`);
   } else {
     const newAdmin = {
       id: `u_admin_${Date.now()}`,
-      name: 'System Administrator',
+      name: 'Platform Owner (Administrator)',
       email: cleanEmail,
       phone: '+91 98765 00000',
-      role: 'admin',
+      role: 'owner_admin',
+      isOwner: true,
       passwordHash: passwordHash,
       email_verified: true,
       createdAt: new Date().toISOString(),
       updatedAt: new Date().toISOString()
     };
     db.users.push(newAdmin);
-    console.log(`✅ Created new dedicated ADMIN user: ${cleanEmail} (ID: ${newAdmin.id})`);
+    console.log(`✅ Created new dedicated OWNER_ADMIN user: ${cleanEmail} (ID: ${newAdmin.id})`);
   }
 
   // Record audit log

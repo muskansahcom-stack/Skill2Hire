@@ -1,6 +1,6 @@
 import { NextResponse } from 'next/server';
 import { db } from '@/lib/db';
-import { requireAdmin } from '@/lib/authMiddleware';
+import { requireAdmin, requireOwnerAdmin } from '@/lib/authMiddleware';
 
 export async function GET(request: Request) {
   const adminCheck = requireAdmin(request);
@@ -20,7 +20,7 @@ export async function GET(request: Request) {
 }
 
 export async function PUT(request: Request) {
-  const adminCheck = requireAdmin(request);
+  const adminCheck = requireOwnerAdmin(request);
   if (!adminCheck.authorized) {
     return adminCheck.errorResponse!;
   }

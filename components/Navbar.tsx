@@ -89,6 +89,13 @@ export default function Navbar() {
       { href: '/college/industry-demand', label: 'Demand Radar', icon: Compass },
       { href: '/jobs', label: 'Jobs', icon: Briefcase },
       { href: '/courses', label: 'Courses', icon: GraduationCap }
+    ],
+    owner_admin: [
+      { href: '/admin/dashboard', label: 'Overview', icon: Layers },
+      { href: '/college/skill-heatmap', label: 'Global Heatmap', icon: Flame },
+      { href: '/college/industry-demand', label: 'Demand Radar', icon: Compass },
+      { href: '/jobs', label: 'Jobs', icon: Briefcase },
+      { href: '/courses', label: 'Courses', icon: GraduationCap }
     ]
   };
 

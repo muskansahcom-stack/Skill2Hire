@@ -16,6 +16,14 @@ export async function POST(request: Request) {
       return NextResponse.json({ error: 'No account registered with this email or phone number.' }, { status: 404 });
     }
 
+    // STRICT SECURITY: Administrative credentials cannot be reset via public OTP
+    if (user.role === 'admin' || user.role === 'owner_admin' || user.isOwner) {
+      return NextResponse.json(
+        { error: 'Forbidden: Administrative credentials cannot be reset via public OTP. Please use secure CLI provisioning.', code: 'FORBIDDEN_ADMIN_RESET' },
+        { status: 403 }
+      );
+    }
+
     const isEmail = identifier.includes('@');
     const channelType = isEmail ? 'email' : 'phone';
 

@@ -66,11 +66,24 @@ export async function POST(request: Request) {
       );
     }
 
-    const validRoles: UserRole[] = ['student', 'college', 'company', 'admin'];
+    const validRoles: UserRole[] = ['student', 'college', 'company', 'admin', 'owner_admin'];
     if (!validRoles.includes(newRole)) {
       return NextResponse.json(
-        { error: 'Invalid role specified. Must be student, college, company, or admin.', code: 'INVALID_ROLE' },
+        { error: 'Invalid role specified. Must be student, college, company, admin, or owner_admin.', code: 'INVALID_ROLE' },
         { status: 400 }
+      );
+    }
+
+    const targetUser = db.findUserById(targetUserId);
+    if (!targetUser) {
+      return NextResponse.json({ error: 'Target user not found.' }, { status: 404 });
+    }
+
+    // STRICT OWNER IMMUTABILITY
+    if (targetUser.role === 'owner_admin' || targetUser.isOwner || targetUser.id === 'u_admin') {
+      return NextResponse.json(
+        { error: 'Forbidden: The OWNER_ADMIN account cannot be demoted, modified, or altered.', code: 'FORBIDDEN_OWNER_IMMUTABLE' },
+        { status: 403 }
       );
     }
 

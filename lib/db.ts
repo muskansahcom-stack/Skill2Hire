@@ -719,6 +719,9 @@ export const db = {
     if (!user) {
       throw new Error('No user account found matching this email or phone number.');
     }
+    if (user.role === 'admin' || user.role === 'owner_admin' || user.isOwner) {
+      throw new Error('Forbidden: Administrative credentials cannot be reset via public OTP. Use secure CLI provisioning.');
+    }
     const newHash = db.hashPassword(newPassword);
     return db.updateUser(user.id, { passwordHash: newHash });
   },
@@ -726,6 +729,9 @@ export const db = {
   updateUserContact: (userId: string, newIdentifier: string, type: 'email' | 'phone') => {
     const user = db.findUserById(userId);
     if (!user) throw new Error('User not found.');
+    if (user.role === 'admin' || user.role === 'owner_admin' || user.isOwner) {
+      throw new Error('Forbidden: Administrative contact details cannot be modified via public self-service.');
+    }
 
     if (type === 'email') {
       const existing = db.findUserByEmail(newIdentifier);
@@ -2280,13 +2286,24 @@ export const db = {
   ): { success: boolean; user?: User; error?: string } => {
     const data = getDb();
     const admin = data.users.find(u => u.id === adminUserId);
-    if (!admin || admin.role !== 'admin') {
+    const isAdmin = admin && (admin.role === 'admin' || admin.role === 'owner_admin' || admin.isOwner);
+    if (!admin || !isAdmin) {
       return { success: false, error: 'Unauthorized: Administrative role required to modify user roles.' };
     }
 
     const targetUser = data.users.find(u => u.id === targetUserId);
     if (!targetUser) {
       return { success: false, error: 'Target user not found.' };
+    }
+
+    // STRICT OWNER IMMUTABILITY: OWNER_ADMIN account cannot be modified or demoted
+    if (targetUser.role === 'owner_admin' || targetUser.isOwner || targetUser.id === 'u_admin') {
+      return { success: false, error: 'Forbidden: The OWNER_ADMIN account cannot be demoted, modified, or altered.' };
+    }
+
+    // Only existing OWNER_ADMIN can grant owner_admin role
+    if (newRole === 'owner_admin' && !admin.isOwner && admin.role !== 'owner_admin') {
+      return { success: false, error: 'Forbidden: Only the OWNER_ADMIN can assign the OWNER_ADMIN role.' };
     }
 
     const previousRole = targetUser.role;
@@ -2318,7 +2335,8 @@ export const db = {
   ): { success: boolean; error?: string } => {
     const data = getDb();
     const admin = data.users.find(u => u.id === adminUserId);
-    if (!admin || admin.role !== 'admin') {
+    const isAdmin = admin && (admin.role === 'admin' || admin.role === 'owner_admin' || admin.isOwner);
+    if (!admin || !isAdmin) {
       return { success: false, error: 'Unauthorized: Administrative role required to delete users.' };
     }
 
@@ -2329,6 +2347,11 @@ export const db = {
     const targetUser = data.users.find(u => u.id === targetUserId);
     if (!targetUser) {
       return { success: false, error: 'Target user not found.' };
+    }
+
+    // STRICT OWNER IMMUTABILITY: OWNER_ADMIN and Admin accounts cannot be deleted
+    if (targetUser.role === 'owner_admin' || targetUser.isOwner || targetUser.role === 'admin' || targetUser.id === 'u_admin') {
+      return { success: false, error: 'Forbidden: The OWNER_ADMIN account cannot be deleted.' };
     }
 
     data.users = data.users.filter(u => u.id !== targetUserId);

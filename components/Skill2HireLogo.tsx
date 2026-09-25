@@ -93,6 +93,10 @@ export default function Skill2HireLogo({
     admin: {
       label: '⚙️ SuperAdmin',
       classes: 'bg-amber-50 text-amber-800 border-amber-200'
+    },
+    owner_admin: {
+      label: '👑 Platform Owner',
+      classes: 'bg-rose-50 text-rose-800 border-rose-200'
     }
   };
 

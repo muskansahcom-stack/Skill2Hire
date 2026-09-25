@@ -52,7 +52,7 @@ export default function AdminDashboard() {
   // Authenticate user & load initial data
   useEffect(() => {
     if (!authLoading) {
-      if (!user || user.role !== 'admin') {
+      if (!user || (user.role !== 'admin' && user.role !== 'owner_admin' && !user.isOwner)) {
         router.push('/admin/login');
         return;
       }
@@ -401,17 +401,22 @@ export default function AdminDashboard() {
                 </thead>
                 <tbody className="divide-y divide-slate-800/60">
                   {usersList.map((u) => {
-                    const isAdmin = u.role === 'admin';
+                    const isOwner = u.role === 'owner_admin' || u.isOwner;
+                    const isAdmin = u.role === 'admin' || isOwner;
                     return (
                       <tr key={u.id} className="hover:bg-slate-800/40 transition-colors">
                         <td className="py-3.5 px-4 font-semibold text-white">
                           <div className="flex items-center gap-2">
                             <span>{u.name}</span>
-                            {isAdmin && (
+                            {isOwner ? (
+                              <span className="px-2 py-0.5 rounded-full text-[9px] bg-gradient-to-r from-rose-500/30 to-amber-500/30 text-rose-300 border border-rose-500/50 font-mono font-bold">
+                                OWNER_ADMIN
+                              </span>
+                            ) : isAdmin ? (
                               <span className="px-1.5 py-0.5 rounded text-[9px] bg-rose-500/20 text-rose-300 border border-rose-500/40 font-mono">
                                 ROOT
                               </span>
-                            )}
+                            ) : null}
                           </div>
                         </td>
                         <td className="py-3.5 px-4 text-slate-300 font-mono">
@@ -420,7 +425,9 @@ export default function AdminDashboard() {
                         <td className="py-3.5 px-4">
                           <span
                             className={`inline-block px-2.5 py-1 rounded-full text-[10px] font-bold uppercase ${
-                              u.role === 'admin'
+                              isOwner
+                                ? 'bg-rose-500/20 text-rose-300 border border-rose-500/40 shadow-sm shadow-rose-900/40'
+                                : u.role === 'admin'
                                 ? 'bg-rose-500/20 text-rose-300 border border-rose-500/40'
                                 : u.role === 'student'
                                 ? 'bg-blue-500/20 text-blue-300 border border-blue-500/30'
@@ -429,7 +436,7 @@ export default function AdminDashboard() {
                                 : 'bg-amber-500/20 text-amber-300 border border-amber-500/30'
                             }`}
                           >
-                            {u.role}
+                            {isOwner ? 'OWNER_ADMIN' : u.role}
                           </span>
                         </td>
                         <td className="py-3.5 px-4 text-slate-400">
@@ -437,7 +444,7 @@ export default function AdminDashboard() {
                         </td>
                         <td className="py-3.5 px-4 text-right">
                           {isAdmin ? (
-                            <span className="text-[10px] text-slate-500 font-mono">Protected</span>
+                            <span className="text-[10px] text-slate-500 font-mono">Protected (Immutable)</span>
                           ) : (
                             <div className="inline-flex items-center gap-2">
                               <select
